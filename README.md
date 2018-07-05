@@ -126,7 +126,7 @@ console.log(linkedList.toArray());
 // ['n1', 'n2', 'n3', 'n4']
 ```
 
-**.length()** 
+**.count()** 
 
 returns nodes' count in the list.
 ```javascript
@@ -139,7 +139,7 @@ removes all nodes from the list.
 ```javascript
 linkedList.clear();
 console.log(linkedList.head()); // null
-console.log(linkedList.length()); // 0
+console.log(linkedList.count()); // 0
 ```
 
 ## Build
