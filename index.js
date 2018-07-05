@@ -43,7 +43,7 @@ const node = (val, nex) => {
 
 const linkedList = () => {
   let headNode = null;
-  let count = 0;
+  let nodesCount = 0;
 
   /**
    * @returns {object} - node
@@ -53,7 +53,7 @@ const linkedList = () => {
   /**
    * @returns {number}
    */
-  const length = () => count;
+  const count = () => nodesCount;
 
   /**
    * @param {string|number} value
@@ -79,7 +79,7 @@ const linkedList = () => {
     } else {
       headNode = node(value, headNode);
     }
-    count += 1;
+    nodesCount += 1;
   };
 
   /**
@@ -95,7 +95,7 @@ const linkedList = () => {
       }
       current.setNext(node(value));
     }
-    count += 1;
+    nodesCount += 1;
   };
 
   /**
@@ -109,7 +109,7 @@ const linkedList = () => {
     while (current !== null) {
       if (current.getValue() === value) {
         current.setNext(node(newValue, current.getNext()));
-        count += 1;
+        nodesCount += 1;
         break;
       } else {
         current = current.getNext();
@@ -136,7 +136,7 @@ const linkedList = () => {
           addFirst(newValue);
         } else {
           prev.setNext(node(newValue, current));
-          count += 1;
+          nodesCount += 1;
         }
         break;
       } else {
@@ -159,7 +159,7 @@ const linkedList = () => {
       } else {
         headNode = headNode.getNext();
       }
-      count -= 1;
+      nodesCount -= 1;
     }
   };
 
@@ -177,7 +177,7 @@ const linkedList = () => {
       removeFirst();
     } else {
       prev.setNext(null);
-      count -= 1;
+      nodesCount -= 1;
     }
   };
 
@@ -194,7 +194,7 @@ const linkedList = () => {
           removeFirst();
         } else {
           prev.setNext(current.getNext());
-          count -= 1;
+          nodesCount -= 1;
         }
         break;
       } else {
@@ -230,14 +230,14 @@ const linkedList = () => {
    */
   const clear = () => {
     headNode = null;
-    count = 0;
+    nodesCount = 0;
   };
 
   // linkedList API
   return {
     node,
     head,
-    length,
+    count,
     find,
     addFirst,
     addLast,

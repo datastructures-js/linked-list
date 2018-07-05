@@ -40,9 +40,9 @@ describe('linkedList tests', () => {
         .and.to.have.property('message', 'node n123 not found'));
   });
 
-  describe('.length()', () =>
-    it('should get the length of the list', () => {
-      expect(ll.length()).to.equal(8);
+  describe('.count()', () =>
+    it('should get the count of nodes in the list', () => {
+      expect(ll.count()).to.equal(8);
     }));
 
   describe('.head()', () =>
@@ -93,27 +93,27 @@ describe('linkedList tests', () => {
   describe('.removeFirst()', () =>
     it('should remove the first node', () => {
       ll.removeFirst();
-      expect(ll.length()).to.equal(7);
+      expect(ll.count()).to.equal(7);
       expect(ll.head().getValue()).to.equal('test 2');
     }));
 
   describe('.removeLast()', () =>
     it('should remove the last node', () => {
       ll.removeLast();
-      expect(ll.length()).to.equal(6);
+      expect(ll.count()).to.equal(6);
       expect(ll.find('test 4')).to.equal(null);
     }));
 
   describe('.remove(value)', () =>
     it('should remove a node', () => {
       ll.remove('test 5');
-      expect(ll.length()).to.equal(5);
+      expect(ll.count()).to.equal(5);
       expect(ll.find('test 5')).to.equal(null);
     }));
 
   describe('.clear()', () =>
     it('should clear the linked list', () => {
       ll.clear();
-      expect(ll.length()).to.equal(0);
+      expect(ll.count()).to.equal(0);
     }));
 });
