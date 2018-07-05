@@ -16,13 +16,14 @@ const linkedList = linkedListFn();
 
 <img width="429" alt="ll" src="https://user-images.githubusercontent.com/6517308/35762715-5d00c9bc-0861-11e8-88f7-6e503a1fa3af.png">
 
-**.node(value)** 
+**.node(value)**
+
 creates a linked list node with a given value. The node object exposes the following functions:
 
-* .setNext(node) sets the next linkedListNode object.
-* .getNext() gets the next linkedListNode object.
-* .setValue(value) sets the value of the node.
-* .getValue() gets the value of the node
+* **.setNext(node)** sets the next linkedListNode object.
+* **.getNext()** gets the next linkedListNode object.
+* **.setValue(value)** sets the value of the node.
+* **.getValue() gets** the value of the node
 
 ```javascript
 const n = linkedList.node('new_node');
