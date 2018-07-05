@@ -4,7 +4,9 @@
 [![npm](https://img.shields.io/npm/v/@datastructures-js/linked-list.svg)](https://www.npmjs.com/package/@datastructures-js/linked-list)
 [![npm](https://img.shields.io/npm/dm/@datastructures-js/linked-list.svg)](https://www.npmjs.com/packages/@datastructures-js/linked-list) [![npm](https://img.shields.io/badge/node-%3E=%206.0-blue.svg)](https://www.npmjs.com/package/@datastructures-js/linked-list)
 
-elements data type: number, string, boolean, null, undefined.
+node's data type: **number**, **string**, **boolean**, **null**, **undefined**.
+
+<img width="429" alt="ll" src="https://user-images.githubusercontent.com/6517308/35762715-5d00c9bc-0861-11e8-88f7-6e503a1fa3af.png">
 
 ## Usage
 ```js
@@ -14,15 +16,14 @@ const linkedList = linkedListFn();
 
 ## API
 
-<img width="429" alt="ll" src="https://user-images.githubusercontent.com/6517308/35762715-5d00c9bc-0861-11e8-88f7-6e503a1fa3af.png">
+**.node(value)**
 
-**.node(value)** 
 creates a linked list node with a given value. The node object exposes the following functions:
 
-* .setNext(node) sets the next linkedListNode object.
-* .getNext() gets the next linkedListNode object.
-* .setValue(value) sets the value of the node.
-* .getValue() gets the value of the node
+* **.setNext(node)** sets the next linkedListNode object.
+* **.getNext()** gets the next linkedListNode object.
+* **.setValue(value)** sets the value of the node.
+* **.getValue() gets** the value of the node
 
 ```javascript
 const n = linkedList.node('new_node');
