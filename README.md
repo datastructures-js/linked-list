@@ -16,36 +16,49 @@ const linkedList = linkedListFn();
 
 <img width="429" alt="ll" src="https://user-images.githubusercontent.com/6517308/35762715-5d00c9bc-0861-11e8-88f7-6e503a1fa3af.png">
 
+**.node(value)** 
+creates a linked list node with a given value. The node object exposes the following functions:
+
+* .setNext(node) sets the next linkedListNode object.
+* .getNext() gets the next linkedListNode object.
+* .setValue(value) sets the value of the node.
+* .getValue() gets the value of the node
+
+```javascript
+const n = linkedList.node('new_node');
+console.log(n.getValue()); // new_node
+```
+
 **.addFirst(value)** 
 
-add a node with the specified value to the beginning of the list.
+adds a node of the given value at the beginning of the list.
 ```javascript
 linkedList.addFirst('n1');
 ```
 
 **.addLast(value)** 
 
-add a node with the specified value to the end of the list.
+adds a node of the given value at the end of the list.
 ```javascript
 linkedList.addLast('n4');
 ```
 
 **.addAfter(value, newValue)** 
 
-add a node with newValue after an existing value's node, throws exception if value doesnt exist.
+adds a node with a given value after an existing value's node.
 ```javascript
 try {
-    linkedList.addAfter('n1', 'n2');
-    linkedList.addAfter('n33', 'n3');
+  linkedList.addAfter('n1', 'n2');
+  linkedList.addAfter('n33', 'n3');
 }
 catch (e) {
-    console.log(e.message); // node n33 not found
+  console.log(e.message); // node n33 not found
 }
 ```
 
 **.addBefore(value, newValue)** 
 
-add a node with newValue before an existing value's node, throws exception if value doesnt exist.
+adds a node with a given value before an existing value's node.
 ```javascript
 try {
   linkedList.addBefore('n4', 'n3');
@@ -57,10 +70,8 @@ catch (e) {
 ```
 
 **.find(value)** 
+finds a node by its value and returns a linked list node object.
 
-returns a linkedListNode object that contains two functions:
-* .getNext() returns the next linkedListNode object.
-* .getValue() returns the node value.
 ```javascript
 let n3 = linkedList.find('n3');
 console.log(n3.getValue()); // n3
@@ -79,7 +90,7 @@ console.log(head.getValue()); // n1
 
 traverse the linked list and calls cb for each node
 ```javascript
-linkedList.traverse((value) => { console.log(value); });
+linkedList.traverse((n) => { console.log(n.getValue()); });
 // n1
 // n2   
 // n3
@@ -88,7 +99,7 @@ linkedList.traverse((value) => { console.log(value); });
 
 **.remove(value)** 
 
-remove the value's node from the list or throw an exception if value not found.
+remove the value's node - if exists - from the list.
 ```javascript
 linkedList.remove('n3');
 ```
@@ -107,19 +118,28 @@ removes the last node in the list.
 linkedList.removeLast(); // n4 removed
 ```
 
+**.toArray()** 
+
+converts the linkedList to an array
+```javascript
+console.log(linkedList.toArray());
+// ['n1', 'n2', 'n3', 'n4']
+```
+
 **.length()** 
 
-returns the number of nodes in the list.
+returns nodes' count in the list.
 ```javascript
 console.log(linkedList.count()); // 1
 ```
 
 **.clear()** 
 
-removes all the nodes from the list.
+removes all nodes from the list.
 ```javascript
 linkedList.clear();
-console.log(linkedList.length()); // 0  
+console.log(linkedList.head()); // null
+console.log(linkedList.length()); // 0
 ```
 
 ## Build
