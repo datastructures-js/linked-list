@@ -74,7 +74,7 @@ catch (e) {
 finds a node by its value and returns a linked list node object.
 
 ```javascript
-let n3 = linkedList.find('n3');
+const n3 = linkedList.find('n3');
 console.log(n3.getValue()); // n3
 console.log(n3.getNext().getValue()); // n4
 ```
@@ -83,7 +83,7 @@ console.log(n3.getNext().getValue()); // n4
 
 returns the first linkedListNode object in the list.
 ```javascript
-let head = linkedList.head();
+const head = linkedList.head();
 console.log(head.getValue()); // n1
 ```
 

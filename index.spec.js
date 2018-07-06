@@ -41,16 +41,15 @@ describe('linkedList tests', () => {
   });
 
   describe('.count()', () =>
-    it('should get the count of nodes in the list', () => {
-      expect(ll.count()).to.equal(8);
-    }));
+    it('should get the count of nodes in the list', () =>
+      expect(ll.count()).to.equal(8)));
 
   describe('.head()', () =>
     it('should get the head node', () =>
       expect(ll.head().getValue()).to.equal('test 8')));
 
   describe('.toArray()', () =>
-    it('should convert the linkedList to array in same order', () => {
+    it('should convert the linkedList to array in same order', () =>
       expect(ll.toArray()).to.deep.equal([
         'test 8',
         'test 2',
@@ -60,8 +59,7 @@ describe('linkedList tests', () => {
         'test 3',
         'test 6',
         'test 4'
-      ]);
-    }));
+      ])));
 
   describe('.traverse(cb)', () =>
     it('should traverse the linked list', () => {
