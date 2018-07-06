@@ -16,16 +16,16 @@ const node = (val, nex) => {
   };
 
   /**
+   * @return {string|number}
+   */
+  const getValue = () => value;
+
+  /**
    * @param {object} - node
    */
   const setNext = (n) => {
     next = n;
   };
-
-  /**
-   * @return {string|number}
-   */
-  const getValue = () => value;
 
   /**
    * @return {object} - node
