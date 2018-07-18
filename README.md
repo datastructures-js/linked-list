@@ -1,12 +1,12 @@
 # @datastrucures-js/linked-list
 
-[![build:?](https://travis-ci.org/eyas-ranjous/datatructures-js/linked-list.svg?branch=master)](https://travis-ci.org/eyas-ranjous/datatructures-js/linked-list) 
+[![build:?](https://travis-ci.org/datastructures-js/linked-list.svg?branch=master)](https://travis-ci.org/datastructures-js/linked-list) 
 [![npm](https://img.shields.io/npm/v/@datastructures-js/linked-list.svg)](https://www.npmjs.com/package/@datastructures-js/linked-list)
 [![npm](https://img.shields.io/npm/dm/@datastructures-js/linked-list.svg)](https://www.npmjs.com/packages/@datastructures-js/linked-list) [![npm](https://img.shields.io/badge/node-%3E=%206.0-blue.svg)](https://www.npmjs.com/package/@datastructures-js/linked-list)
 
 node's data type: **number**, **string**, **boolean**, **null**, **undefined**.
 
-<img width="429" alt="ll" src="https://user-images.githubusercontent.com/6517308/35762715-5d00c9bc-0861-11e8-88f7-6e503a1fa3af.png">
+<img width="429" alt="Linked List" src="https://user-images.githubusercontent.com/6517308/35762715-5d00c9bc-0861-11e8-88f7-6e503a1fa3af.png">
 
 ## Usage
 ```js
