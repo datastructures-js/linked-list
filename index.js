@@ -4,6 +4,10 @@
  * @license MIT
  */
 
+/**
+ * Linked List Node
+ * @function
+ */
 const node = (val, nex) => {
   let value = val;
   let next = nex;
@@ -41,6 +45,10 @@ const node = (val, nex) => {
   };
 };
 
+/**
+ * Linked List
+ * @function
+ */
 const linkedList = () => {
   let headNode = null;
   let nodesCount = 0;
