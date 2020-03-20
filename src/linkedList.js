@@ -20,7 +20,6 @@ class LinkedList {
    * adds a node at the beginning of the linked list
    *
    * @param {object} value
-   *
    * @returns {boolean}
    */
   insertFirst(value) {
@@ -36,7 +35,6 @@ class LinkedList {
    *
    * @param {object} value
    * @param {LinkedListNode} node
-   *
    * @returns {boolean}
    */
   insertLast(value, node = this.headNode) {
@@ -66,7 +64,6 @@ class LinkedList {
    *
    * @param {object} value
    * @param {number} position
-   *
    * @returns {boolean}
    */
   insertAt(value, position = 0) {
@@ -137,7 +134,6 @@ class LinkedList {
    * removes all nodes based on a callback
    *
    * @param {number} position
-   *
    * @returns {number} count of removed nodes
    */
   removeEach(cb) {
@@ -171,7 +167,6 @@ class LinkedList {
    * removes a node in a specific position
    *
    * @param {number} position
-   *
    * @returns {boolean}
    */
   removeAt(position) {
