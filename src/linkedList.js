@@ -234,7 +234,6 @@ class LinkedList {
    * filters the linked list based on a callback
    *
    * @param {function} cb
-   *
    * @returns {LinkedList}
    */
   filter(cb) {
