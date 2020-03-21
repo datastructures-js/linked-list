@@ -105,9 +105,9 @@ describe('linkedList tests', () => {
 
   describe('.removeAt(position)', () => {
     it('remove a node', () => {
-      expect(linkedList.removeAt(2)).to.equal(true); // remove 5
+      expect(linkedList.removeAt(1)).to.equal(true); // remove 5
       expect(linkedList.count()).to.equal(2);
-      expect(linkedList.find((n) => n.getValue() === 3)).to.equal(null);
+      expect(linkedList.find((n) => n.getValue() === 5)).to.equal(null);
     });
 
     it('does nothing if position is not valid', () => {
