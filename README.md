@@ -127,6 +127,35 @@ last2.doublyLinkedList.insertLast(4); // last2.getValue() = 4
 ### .insertAt(value, position)
 inserts a node at specific position of the list. First (head) node is at position 0.
 
+<table>
+ <tr>
+  <th>runtime</th>
+  <th>params</th>
+  <th>return</th>
+ </tr>
+ <tr>
+  <td>
+    in LinkedList: O(n)
+    <br/><br />
+    in DoublyLinkedList: O(n)
+  </td>
+  <td>
+   value: {object}
+  </td>
+  <td>
+    in LinkedList: {LinkedListNode}
+    <br/><br/>
+    in DoublyLinkedList: {DoublyLinkedListNode}
+  </td>
+ </tr>
+</table>
+
+```js
+const node1 = linkedList.insertAt(5, 2); // node1.getValue() = 5
+
+const node2 = doublyLinkedList.insertAt(5, 2); // node2.getValue() = 5
+```
+
 ### .removeFirst()
 removes the first (head) node of the list.
 
