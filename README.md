@@ -4,144 +4,104 @@
 [![npm](https://img.shields.io/npm/v/@datastructures-js/linked-list.svg)](https://www.npmjs.com/package/@datastructures-js/linked-list)
 [![npm](https://img.shields.io/npm/dm/@datastructures-js/linked-list.svg)](https://www.npmjs.com/package/@datastructures-js/linked-list) [![npm](https://img.shields.io/badge/node-%3E=%206.0-blue.svg)](https://www.npmjs.com/package/@datastructures-js/linked-list)
 
-node's data type: **number**, **string**, **boolean**, **null**, **undefined**.
+a javascript implementation for LinkedList & DoublyLinkedList.
 
 <img width="429" alt="Linked List" src="https://user-images.githubusercontent.com/6517308/35762715-5d00c9bc-0861-11e8-88f7-6e503a1fa3af.png">
 
-## Usage
-```js
-const linkedListFn = require('@datastructures-js/linked-list');
-const linkedList = linkedListFn();
+<img width="552" alt="dll" src="https://user-images.githubusercontent.com/6517308/35762752-19b17df4-0862-11e8-8ce3-f940d83dde51.png">
+
+# Table of Contents
+* [Install](#install)
+* [API](#api)
+  * [require](#require)
+  * [import](#import)
+  * [Creating a List](#create-a-list)
+  * [.insertFirst(value)](#insertfirstvalue)
+  * [.insertLast(value)](#insertlastvalue)
+  * [.insertAt(value, position)](#insertatvalue-position)
+  * [.removeFirst()](#removefirst)
+  * [.removeLast()](#removelast)
+  * [.removeAt(position)](#removeatposition)
+  * [.removeEach(cb)](#removeeachcb)
+  * [.forEach(cb)](#foreachcb)
+  * [.find(cb)](#findcb)
+  * [.filter(cb)](#filtercb)
+  * [.toArray()](#toarray)
+  * [.head()](#head)
+  * [.count()](#count)
+  * [.clear()](#count)
+  * Only in the DoublyLinkedList
+    * [.forEachReverse(cb)](#foreachreverse)
+    * [.tail()](#tail)
+ * [Build](#build)
+ * [License](#license)
+
+## install
+```sh
+npm install --save @datastructures-js/linked-list
 ```
 
 ## API
 
-**.node(value)**
-
-creates a linked list node with a given value. The node object exposes the following functions:
-
-* **.setNext(node)** sets the next linkedListNode object.
-* **.getNext()** gets the next linkedListNode object.
-* **.setValue(value)** sets the value of the node.
-* **.getValue() gets** the value of the node
-
-```javascript
-const n = linkedList.node('new_node');
-console.log(n.getValue()); // new_node
+### require
+```js
+const { LinkedList, DoublyLinkedList } = require('@datastructures-js/linked-list');
 ```
 
-**.addFirst(value)** 
-
-adds a node of the given value at the beginning of the list.
-```javascript
-linkedList.addFirst('n1');
+### import
+```js
+import { LinkedList, DoublyLinkedList } from '@datastructures-js/linked-list';
 ```
 
-**.addLast(value)** 
+### .insertFirst(value)
+inserts a node at the beginning of the list
 
-adds a node of the given value at the end of the list.
-```javascript
-linkedList.addLast('n4');
-```
+### .insertLast(value)
+inserts a node at the end of the list
 
-**.addAfter(value, newValue)** 
+### .insertAt(value, position)
+inserts a node at specific position of the list. First (head) node is at position 0.
 
-adds a node with a given value after an existing value's node.
-```javascript
-try {
-  linkedList.addAfter('n1', 'n2');
-  linkedList.addAfter('n33', 'n3');
-}
-catch (e) {
-  console.log(e.message); // node n33 not found
-}
-```
+### .removeFirst()
+removes the first (head) node of the list.
 
-**.addBefore(value, newValue)** 
+### .removeLast()
+removes the last node from the list.
 
-adds a node with a given value before an existing value's node.
-```javascript
-try {
-  linkedList.addBefore('n4', 'n3');
-  linkedList.addBefore('n33', 'n3');
-}
-catch (e) {
-  console.log(e.message); // node n33 not found
-}
-```
+### .removeAt(position)
+removes a node at a specific position. First (head) node is at position 0.
 
-**.find(value)** 
-finds a node by its value and returns a linked list node object.
+### .removeEach(cb)
+Loop on the linked list from beginning to end, removes the nodes that returns true from the callback.
 
-```javascript
-const n3 = linkedList.find('n3');
-console.log(n3.getValue()); // n3
-console.log(n3.getNext().getValue()); // n4
-```
+### .forEach(cb)
+Loop on the linked list from beginning to end, and pass each node to the callback.
 
-**.head()** 
+### .find(cb)
+returns the first node that returns true from the callback.
 
-returns the first linkedListNode object in the list.
-```javascript
-const head = linkedList.head();
-console.log(head.getValue()); // n1
-```
+### .filter(cb)
+returns a filtered linked list of all the nodes that returns true from the callback.
 
-**.traverse(cb)** 
+### .toArray()
+converts the linked list into an array.
 
-traverse the linked list and calls cb for each node
-```javascript
-linkedList.traverse((n) => { console.log(n.getValue()); });
-// n1
-// n2   
-// n3
-// n4
-```
+### .head()
+returns the head node in the linked list.
 
-**.remove(value)** 
+### .count()
+returns the number of nodes in the linked list.
 
-remove the value's node - if exists - from the list.
-```javascript
-linkedList.remove('n3');
-```
+### .clear()
+remove all nodes in the linked list.
 
-**.removeFirst()** 
+### Only in the DoublyLinkedList
 
-removes the first node in the list.
-```javascript
-linkedList.removeFirst(); // n1 removed
-```
+#### .tail()
+returns the tail node in the doubly linked list
 
-**.removeLast()** 
-
-removes the last node in the list.
-```javascript
-linkedList.removeLast(); // n4 removed
-```
-
-**.toArray()** 
-
-converts the linkedList to an array
-```javascript
-console.log(linkedList.toArray());
-// ['n1', 'n2', 'n3', 'n4']
-```
-
-**.count()** 
-
-returns nodes' count in the list.
-```javascript
-console.log(linkedList.count()); // 1
-```
-
-**.clear()** 
-
-removes all nodes from the list.
-```javascript
-linkedList.clear();
-console.log(linkedList.head()); // null
-console.log(linkedList.count()); // 0
-```
+#### .forEachRevers(cb)
+Loop on the doubly linked list from end to beginning, and pass each node to the callback.
 
 ## Build
 ```
