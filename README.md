@@ -53,11 +53,76 @@ const { LinkedList, DoublyLinkedList } = require('@datastructures-js/linked-list
 import { LinkedList, DoublyLinkedList } from '@datastructures-js/linked-list';
 ```
 
+### create a list
+```js
+const linkedList = new LinkedList();
+
+const doublyLinkedList = new DoublyLinkedList();
+```
+
 ### .insertFirst(value)
-inserts a node at the beginning of the list
+inserts a node at the beginning of the list. Returns the inserted node (the head).
+
+<table>
+ <tr>
+  <th>runtime</th>
+  <th>params</th>
+  <th>return</th>
+ </tr>
+ <tr>
+  <td>O(1)</td>
+  <td>
+   value: {object}
+  </td>
+  <td>
+    in LinkedList: {LinkedListNode}
+    <br/><br/>
+    in DoublyLinkedList: {DoublyLinkedListNode}
+  </td>
+ </tr>
+</table>
+
+```js
+let head1 = linkedList.insertFirst(1); // head1.getValue() = 1
+head1 = linkedList.insertFirst(2); // head1.getValue() = 2
+
+let head2 = doublyLinkedList.insertFirst(1); // head2.getValue() = 1
+head2.doublyLinkedList.insertFirst(2); // head2.getValue() = 2
+```
 
 ### .insertLast(value)
-inserts a node at the end of the list
+inserts a node at the end of the list.
+
+<table>
+ <tr>
+  <th>runtime</th>
+  <th>params</th>
+  <th>return</th>
+ </tr>
+ <tr>
+  <td>
+    in LinkedList: O(n)
+    <br/><br />
+    in DoublyLinkedList: O(1)
+  </td>
+  <td>
+   value: {object}
+  </td>
+  <td>
+    in LinkedList: {LinkedListNode}
+    <br/><br/>
+    in DoublyLinkedList: {DoublyLinkedListNode}
+  </td>
+ </tr>
+</table>
+
+```js
+let last1 = linkedList.insertLast(3); // last1.getValue() = 3
+last1 = linkedList.insertLast(4); // last1.getValue() = 4
+
+let last2 = doublyLinkedList.insertLast(3); // last2.getValue() = 3
+last2.doublyLinkedList.insertLast(4); // last2.getValue() = 4
+```
 
 ### .insertAt(value, position)
 inserts a node at specific position of the list. First (head) node is at position 0.
