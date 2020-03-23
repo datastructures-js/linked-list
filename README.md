@@ -20,7 +20,7 @@ a javascript implementation for LinkedList & DoublyLinkedList.
   * [.insertLast(value)](#insertlastvalue)
   * [.insertAt(value, position)](#insertatvalue-position)
   * [.forEach(cb)](#foreachcb)
-  * [.forEachReverse(cb)](#foreachreverse)
+  * [.forEachReverse(cb)](#foreachreversecb)
   * [.find(cb)](#findcb)
   * [.filter(cb)](#filtercb)
   * [.toArray()](#toarray)
@@ -84,9 +84,11 @@ inserts a node at the beginning of the list. Returns the inserted node (the head
 ```js
 let head1 = linkedList.insertFirst(1); // head1.getValue() = 1
 head1 = linkedList.insertFirst(2); // head1.getValue() = 2
+console.log(head1.getNext().getValue()); // 1
 
 let head2 = doublyLinkedList.insertFirst(1); // head2.getValue() = 1
-head2.doublyLinkedList.insertFirst(2); // head2.getValue() = 2
+head2 = doublyLinkedList.insertFirst(2); // head2.getValue() = 2
+console.log(head2.getNext().getValue()); // 1
 ```
 
 ### .insertLast(value)
@@ -108,7 +110,7 @@ inserts a node at the end of the list.
    value: {object}
   </td>
   <td>
-    in LinkedList: {LinkedListNode}
+    in LinkedList: {LinkedListNde}
     <br/><br/>
     in DoublyLinkedList: {DoublyLinkedListNode}
   </td>
@@ -118,11 +120,13 @@ inserts a node at the end of the list.
 ```js
 let last1 = linkedList.insertLast(3); // last1.getValue() = 3
 last1 = linkedList.insertLast(4); // last1.getValue() = 4
+console.log(last1.getNext()); // null
 
 let last2 = doublyLinkedList.insertLast(3); // last2.getValue() = 3
-last2.doublyLinkedList.insertLast(4); // last2.getValue() = 4
+last2 = doublyLinkedList.insertLast(4); // last2.getValue() = 4
+console.log(last1.getPrev().getValue()); // 3
 ```
-
+o
 ### .insertAt(value, position)
 inserts a node at specific position of the list. First (head) node is at position 0.
 
@@ -323,8 +327,50 @@ console.log(doublyLinkedList.toArray()); // [2, 1, 5, 3, 4]
 ### .head()
 returns the head node in the linked list.
 
-#### .tail()
-returns the tail node in the doubly linked list
+<table>
+ <tr>
+  <th>runtime</th>
+  <th>return</th>
+ </tr>
+ <tr>
+  <td>
+    O(1)
+  </td>
+  <td>
+    in LinkedList: {LinkedListNode}
+    <br/><br/>
+    in DoublyLinkedList: {DoublyLinkedListNode}
+  </td>
+ </tr>
+</table>
+
+```js
+console.log(linkedList.head().getValue()); // 2
+
+console.log(doublyLinkedList.head().getValue()); // 2
+```
+
+### .tail()
+Only in DoublyLinkedList. returns the tail node in the doubly linked list
+
+<table>
+ <tr>
+  <th>runtime</th>
+  <th>return</th>
+ </tr>
+ <tr>
+  <td>
+    O(1)
+  </td>
+  <td>
+    {DoublyLinkedListNode}
+  </td>
+ </tr>
+</table>
+
+```js
+console.log(doublyLinkedList.tail().getValue()); // 2
+```
 
 ### .count()
 returns the number of nodes in the linked list.
