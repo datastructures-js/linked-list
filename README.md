@@ -31,7 +31,7 @@ a javascript implementation for LinkedList & DoublyLinkedList.
   * [.removeLast()](#removelast)
   * [.removeAt(position)](#removeatposition)
   * [.removeEach(cb)](#removeeachcb)
-  * [.clear()](#count)
+  * [.clear()](#clear)
  * [Build](#build)
  * [License](#license)
 
@@ -52,7 +52,7 @@ const { LinkedList, DoublyLinkedList } = require('@datastructures-js/linked-list
 import { LinkedList, DoublyLinkedList } from '@datastructures-js/linked-list';
 ```
 
-### create a list
+### Create a list
 ```js
 const linkedList = new LinkedList();
 
@@ -60,7 +60,7 @@ const doublyLinkedList = new DoublyLinkedList();
 ```
 
 ### .insertFirst(value)
-inserts a node at the beginning of the list. Returns the inserted node (the head).
+inserts a node at the beginning of the list.
 
 <table>
  <tr>
@@ -120,13 +120,15 @@ inserts a node at the end of the list.
 ```js
 let last1 = linkedList.insertLast(3); // last1.getValue() = 3
 last1 = linkedList.insertLast(4); // last1.getValue() = 4
+console.log(last1.getValue()); // 4
 console.log(last1.getNext()); // null
 
 let last2 = doublyLinkedList.insertLast(3); // last2.getValue() = 3
 last2 = doublyLinkedList.insertLast(4); // last2.getValue() = 4
-console.log(last1.getPrev().getValue()); // 3
+console.log(last2.getValue()); // 4
+console.log(last2.getPrev().getValue()); // 3
 ```
-o
+
 ### .insertAt(value, position)
 inserts a node at specific position of the list. First (head) node is at position 0.
 
@@ -253,9 +255,14 @@ returns the first node that returns true from the callback.
 </table>
 
 ```js
-const node1 = linkedList.find((node) => node.getValue() === 5); // node.getValue() = 5
+const node1 = linkedList.find((node) => node.getValue() === 5);
+console.log(node1.getValue()); // 5
+console.log(node1.getNext().getValue()); // 3
 
-const node2 = doublyLinkedList.find((node) => node.getValue() === 5); // node.getValue() = 5
+const node2 = doublyLinkedList.find((node) => node.getValue() === 5);
+console.log(node2.getValue()); // 5
+console.log(node2.getNext().getValue()); // 3
+console.log(node2.getPrev().getValue()); // 1
 ```
 
 ### .filter(cb)
@@ -291,7 +298,7 @@ filterLinkedList.forEach((node) => console.log(node.getValue()));
 4
 */
 
-const filteredDoublyLinkedList = doublyLinkedList.find((node) => node.getValue() > 2);
+const filteredDoublyLinkedList = doublyLinkedList.filter((node) => node.getValue() > 2);
 filteredDoublyLinkedList.forEach((node) => console.log(node.getValue()));
 /*
 5
@@ -369,7 +376,7 @@ Only in DoublyLinkedList. returns the tail node in the doubly linked list
 </table>
 
 ```js
-console.log(doublyLinkedList.tail().getValue()); // 2
+console.log(doublyLinkedList.tail().getValue()); // 4
 ```
 
 ### .count()
@@ -492,10 +499,10 @@ Loop on the linked list from beginning to end, removes the nodes that returns tr
 
 ```js
 linkedList.removeEach((node) => node.getValue() > 1); // 1
-console.log(linkedList.toArray()); // []
+console.log(linkedList.toArray()); // [1]
 
 doublyLinkedList.removeEach((node) => node.getValue() > 1); // 1
-console.log(doublyLinkedList.toArray()); // []
+console.log(doublyLinkedList.toArray()); // [1]
 ```
 
 ### .clear()
@@ -514,6 +521,13 @@ remove all nodes in the linked list.
 
 ```js
 linkedList.clear();
+console.log(linkedList.count()); // 0
+console.log(linkedList.head()); // null
+
+doublyLinkedList.clear();
+console.log(linkedList.count()); // 0
+console.log(doublyLinkedList.head()); // null
+console.log(doublyLinkedList.tail()); // null
 ```
 
 ## Build
