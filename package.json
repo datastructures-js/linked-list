@@ -1,7 +1,7 @@
 {
   "name": "@datastructures-js/linked-list",
   "version": "2.0.0",
-  "description": "linked list implementation in javascript",
+  "description": "a javascript implementation of LinkedList & DoublyLinkedList",
   "main": "index.js",
   "scripts": {
     "test": "grunt test"
@@ -13,7 +13,10 @@
   "keywords": [
     "linked list",
     "linked list es6",
-    "linked list js"
+    "linked list js",
+    "doubly linked list",
+    "doubly linked list es6",
+    "doubly linked list js"
   ],
   "author": "Eyas Ranjous <eyas.ranjous@gmail.com>",
   "license": "MIT",

@@ -4,7 +4,7 @@
 [![npm](https://img.shields.io/npm/v/@datastructures-js/linked-list.svg)](https://www.npmjs.com/package/@datastructures-js/linked-list)
 [![npm](https://img.shields.io/npm/dm/@datastructures-js/linked-list.svg)](https://www.npmjs.com/package/@datastructures-js/linked-list) [![npm](https://img.shields.io/badge/node-%3E=%206.0-blue.svg)](https://www.npmjs.com/package/@datastructures-js/linked-list)
 
-a javascript implementation for LinkedList & DoublyLinkedList.
+a javascript implementation of LinkedList & DoublyLinkedList.
 
 <img width="429" alt="Linked List" src="https://user-images.githubusercontent.com/6517308/35762715-5d00c9bc-0861-11e8-88f7-6e503a1fa3af.png">
 
@@ -82,13 +82,13 @@ inserts a node at the beginning of the list.
 </table>
 
 ```js
-let head1 = linkedList.insertFirst(1); // head1.getValue() = 1
-head1 = linkedList.insertFirst(2); // head1.getValue() = 2
-console.log(head1.getNext().getValue()); // 1
+linkedList.insertFirst(1);
+const head1 = linkedList.insertFirst(2);
+console.log(head1.getValue()); // 2
 
-let head2 = doublyLinkedList.insertFirst(1); // head2.getValue() = 1
-head2 = doublyLinkedList.insertFirst(2); // head2.getValue() = 2
-console.log(head2.getNext().getValue()); // 1
+doublyLinkedList.insertFirst(1);
+const head2 = doublyLinkedList.insertFirst(2);
+console.log(head2.getValue()); // 2
 ```
 
 ### .insertLast(value)
@@ -118,13 +118,13 @@ inserts a node at the end of the list.
 </table>
 
 ```js
-let last1 = linkedList.insertLast(3); // last1.getValue() = 3
-last1 = linkedList.insertLast(4); // last1.getValue() = 4
+linkedList.insertLast(3);
+const last1 = linkedList.insertLast(4);
 console.log(last1.getValue()); // 4
 console.log(last1.getNext()); // null
 
-let last2 = doublyLinkedList.insertLast(3); // last2.getValue() = 3
-last2 = doublyLinkedList.insertLast(4); // last2.getValue() = 4
+doublyLinkedList.insertLast(3);
+const last2 = doublyLinkedList.insertLast(4);
 console.log(last2.getValue()); // 4
 console.log(last2.getPrev().getValue()); // 3
 ```
