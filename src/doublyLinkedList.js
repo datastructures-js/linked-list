@@ -8,7 +8,6 @@ const DoublyLinkedListNode = require('./doublyLinkedListNode');
 
 /**
  * @class DoublyLinkedList
- * @extends LinkedList
  */
 class DoublyLinkedList {
   constructor() {
