@@ -375,6 +375,27 @@ console.log(doublyLinkedList.tail().getValue()); // 2
 ### .count()
 returns the number of nodes in the linked list.
 
+<table>
+ <tr>
+  <th>runtime</th>
+  <th>return</th>
+ </tr>
+ <tr>
+  <td>
+    O(1)
+  </td>
+  <td>
+    {number}
+  </td>
+ </tr>
+</table>
+
+```js
+console.log(linkedList.count()); // 5
+
+console.log(doublyLinkedList.count()); // 5
+```
+
 ### .removeFirst()
 removes the first (head) node of the list.
 
@@ -471,10 +492,29 @@ Loop on the linked list from beginning to end, removes the nodes that returns tr
 
 ```js
 linkedList.removeEach((node) => node.getValue() > 1); // 1
+console.log(linkedList.toArray()); // []
+
+doublyLinkedList.removeEach((node) => node.getValue() > 1); // 1
+console.log(doublyLinkedList.toArray()); // []
 ```
 
 ### .clear()
 remove all nodes in the linked list.
+
+<table>
+ <tr>
+  <th>runtime</th>
+ </tr>
+ <tr>
+  <td>
+    O(1)
+  </td>
+ </tr>
+</table>
+
+```js
+linkedList.clear();
+```
 
 ## Build
 ```
