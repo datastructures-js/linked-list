@@ -19,20 +19,19 @@ a javascript implementation for LinkedList & DoublyLinkedList.
   * [.insertFirst(value)](#insertfirstvalue)
   * [.insertLast(value)](#insertlastvalue)
   * [.insertAt(value, position)](#insertatvalue-position)
-  * [.removeFirst()](#removefirst)
-  * [.removeLast()](#removelast)
-  * [.removeAt(position)](#removeatposition)
-  * [.removeEach(cb)](#removeeachcb)
   * [.forEach(cb)](#foreachcb)
+  * [.forEachReverse(cb)](#foreachreverse)
   * [.find(cb)](#findcb)
   * [.filter(cb)](#filtercb)
   * [.toArray()](#toarray)
   * [.head()](#head)
+  * [.tail()](#tail)
   * [.count()](#count)
+  * [.removeFirst()](#removefirst)
+  * [.removeLast()](#removelast)
+  * [.removeAt(position)](#removeatposition)
+  * [.removeEach(cb)](#removeeachcb)
   * [.clear()](#count)
-  * Only in the DoublyLinkedList
-    * [.forEachReverse(cb)](#foreachreverse)
-    * [.tail()](#tail)
  * [Build](#build)
  * [License](#license)
 
@@ -141,6 +140,8 @@ inserts a node at specific position of the list. First (head) node is at positio
   </td>
   <td>
    value: {object}
+   <br /><br />
+   position: {number}
   </td>
   <td>
     in LinkedList: {LinkedListNode}
@@ -156,46 +157,278 @@ const node1 = linkedList.insertAt(5, 2); // node1.getValue() = 5
 const node2 = doublyLinkedList.insertAt(5, 2); // node2.getValue() = 5
 ```
 
-### .removeFirst()
-removes the first (head) node of the list.
-
-### .removeLast()
-removes the last node from the list.
-
-### .removeAt(position)
-removes a node at a specific position. First (head) node is at position 0.
-
-### .removeEach(cb)
-Loop on the linked list from beginning to end, removes the nodes that returns true from the callback.
-
 ### .forEach(cb)
 Loop on the linked list from beginning to end, and pass each node to the callback.
+
+<table>
+ <tr>
+  <th>runtime</th>
+  <th>params</th>
+ </tr>
+ <tr>
+  <td>
+    O(n)
+  </td>
+  <td>
+   cb: {function(node)}
+  </td>
+ </tr>
+</table>
+
+```js
+linkedList.forEach((node) => console.log(node.getValue()));
+/*
+2
+1
+5
+3
+4
+*/
+
+doublyLinkedList.forEach((node) => console.log(node.getValue()));
+/*
+2
+1
+5
+3
+4
+*/
+```
+
+### .forEachReverse(cb)
+Only in DoublyLinkedList. Loop on the doubly linked list from end to beginning, and pass each node to the callback.
+
+<table>
+ <tr>
+  <th>runtime</th>
+  <th>params</th>
+ </tr>
+ <tr>
+  <td>
+    O(n)
+  </td>
+  <td>
+   cb: {function(node)}
+  </td>
+ </tr>
+</table>
+
+```js
+doublyLinkedList.forEachReverse((node) => console.log(node.getValue()));
+/*
+4
+3
+5
+1
+2
+*/
+```
 
 ### .find(cb)
 returns the first node that returns true from the callback.
 
+<table>
+ <tr>
+  <th>runtime</th>
+  <th>params</th>
+  <th>return</th>
+ </tr>
+ <tr>
+  <td>
+    O(n)
+  </td>
+  <td>
+   cb: {function(node)}
+  </td>
+  <td>
+    in LinkedList: {LinkedListNode}
+    <br/><br/>
+    in DoublyLinkedList: {DoublyLinkedListNode}
+  </td>
+ </tr>
+</table>
+
+```js
+const node1 = linkedList.find((node) => node.getValue() === 5); // node.getValue() = 5
+
+const node2 = doublyLinkedList.find((node) => node.getValue() === 5); // node.getValue() = 5
+```
+
 ### .filter(cb)
 returns a filtered linked list of all the nodes that returns true from the callback.
+
+<table>
+ <tr>
+  <th>runtime</th>
+  <th>params</th>
+  <th>return</th>
+ </tr>
+ <tr>
+  <td>
+    O(n)
+  </td>
+  <td>
+   cb: {function(node)}
+  </td>
+  <td>
+    in LinkedList: {LinkedList}
+    <br/><br/>
+    in DoublyLinkedList: {DoublyLinkedList}
+  </td>
+ </tr>
+</table>
+
+```js
+const filterLinkedList = linkedList.filter((node) => node.getValue() > 2);
+filterLinkedList.forEach((node) => console.log(node.getValue()));
+/*
+5
+3
+4
+*/
+
+const filteredDoublyLinkedList = doublyLinkedList.find((node) => node.getValue() > 2);
+filteredDoublyLinkedList.forEach((node) => console.log(node.getValue()));
+/*
+5
+3
+4
+*/
+```
 
 ### .toArray()
 converts the linked list into an array.
 
+<table>
+ <tr>
+  <th>runtime</th>
+  <th>return</th>
+ </tr>
+ <tr>
+  <td>
+    O(n)
+  </td>
+  <td>
+    {array}
+  </td>
+ </tr>
+</table>
+
+```js
+console.log(linkedList.toArray()); // [2, 1, 5, 3, 4]
+
+console.log(doublyLinkedList.toArray()); // [2, 1, 5, 3, 4]
+```
+
 ### .head()
 returns the head node in the linked list.
-
-### .count()
-returns the number of nodes in the linked list.
-
-### .clear()
-remove all nodes in the linked list.
-
-### Only in the DoublyLinkedList
 
 #### .tail()
 returns the tail node in the doubly linked list
 
-#### .forEachRevers(cb)
-Loop on the doubly linked list from end to beginning, and pass each node to the callback.
+### .count()
+returns the number of nodes in the linked list.
+
+### .removeFirst()
+removes the first (head) node of the list.
+
+<table>
+ <tr>
+  <th>runtime</th>
+  <th>return</th>
+ </tr>
+ <tr>
+  <td>O(1)</td>
+  <td>{boolean}</td>
+ </tr>
+</table>
+
+```js
+linkedList.removeFirst(); // true
+
+doublyLinkedList.removeFirst(); // true
+```
+
+### .removeLast()
+removes the last node from the list.
+
+<table>
+ <tr>
+  <th>runtime</th>
+  <th>return</th>
+ </tr>
+ <tr>
+  <td>
+    in LinkedList: O(n)
+    <br/><br />
+    in DoublyLinkedList: O(1)
+  </td>
+  <td>{boolean}</td>
+ </tr>
+</table>
+
+```js
+linkedList.removeLast(); // true
+
+doublyLinkedList.removeLast(); // true
+```
+
+### .removeAt(position)
+removes a node at a specific position. First (head) node is at position 0.
+
+<table>
+ <tr>
+  <th>runtime</th>
+  <th>params</th>
+  <th>return</th>
+ </tr>
+ <tr>
+  <td>
+    O(n)
+  </td>
+  <td>
+   position: {number}
+  </td>
+  <td>
+    {boolean}
+  </td>
+ </tr>
+</table>
+
+```js
+linkedList.removeAt(1); // true
+
+doublyLinkedList.removeAt(1); // true
+```
+
+### .removeEach(cb)
+Loop on the linked list from beginning to end, removes the nodes that returns true from the callback.
+
+<table>
+ <tr>
+  <th>runtime</th>
+  <th>params</th>
+  <th>return</th>
+ </tr>
+ <tr>
+  <td>
+    O(n)
+  </td>
+  <td>
+   cb: {function(node)}
+  </td>
+  <td>
+    {number} number of removed nodes
+  </td>
+ </tr>
+</table>
+
+```js
+linkedList.removeEach((node) => node.getValue() > 1); // 1
+```
+
+### .clear()
+remove all nodes in the linked list.
 
 ## Build
 ```
