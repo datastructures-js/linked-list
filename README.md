@@ -89,12 +89,12 @@ inserts a node at the beginning of the list.
  <tr>
   <td>LinkedList</td>
   <td><a href="#linkedlistnode">LinkedListNode</a></td>
+  <td rowspan="2">the inserted node</td>
  </tr>
  <tr>
   <td>DoublyLinkedList</td>
   <td><a href="#doublylinkedlistnode">DoublyLinkedListNode</a></td>
  </tr>
- <tr><td rowspan="2">the inserted node</td></tr>
 </table>
 
 <table>
