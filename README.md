@@ -561,19 +561,46 @@ console.log(doublyLinkedList.tail()); // null
 
 ### LinkedListNode
 
+#### .getValue()
+returns the node's value.
+
 <table>
-  <tr><th><b>method</b></th><th><b>return</b></th></tr>
-  <tr><td>.getValue()</td><td>object</td></tr>
-  <tr><td>.getNext()</td><td>LinkedListNode</td></tr>
+ <tr><th>return</th></tr>
+ <tr><td>object</td></tr>
+</table>
+
+#### .getNext()
+returns the next connected node.
+
+<table>
+ <tr><th>return</th></tr>
+ <tr><td>LinkedListNode</td></tr>
 </table>
 
 ### DoublyLinkedListNode
 
+#### .getValue()
+returns the node's value.
+
 <table>
-  <tr><th><b>method</b></th><th><b>return</b></th></tr>
-  <tr><td>.getValue()</td><td>object</td></tr>
-  <tr><td>.getPrev()</td><td>DoublyLinkedListNode</td></tr>
-  <tr><td>.getNext()</td><td>DoublyLinkedListNode</td></tr>
+ <tr><th>return</th></tr>
+ <tr><td>object</td></tr>
+</table>
+
+#### .getPrev()
+returns the previous connected node.
+
+<table>
+ <tr><th>return</th></tr>
+ <tr><td>DoublyLinkedListNode</td></tr>
+</table>
+
+#### .getNext()
+returns the next connected node.
+
+<table>
+ <tr><th>return</th></tr>
+ <tr><td>DoublyLinkedListNode</td></tr>
 </table>
 
 ## Build
