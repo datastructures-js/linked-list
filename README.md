@@ -502,7 +502,7 @@ removes a node at a specific position. First (head) node is at position 0.
 
 <table>
  <tr><th>runtime</th></tr>
- <tr><td>O(1)</td></tr>
+ <tr><td>O(n)</td></tr>
 </table>
 
 #### Example
