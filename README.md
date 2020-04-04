@@ -142,27 +142,52 @@ console.log(head2.getValue()); // 2
 inserts a node at the end of the list.
 
 <table>
+  <tr><th align="center" colspan="2">params</th></tr>
+ <tr><td><b>name</b></td><td><b>type</b></td></tr>
+  <tr><td>value</td><td>object</td></tr>
+</table>
+
+<table>
  <tr>
-  <th>runtime</th>
-  <th>params</th>
-  <th>return</th>
+    <tr><th align="center" colspan="3">return</th></tr>
  </tr>
  <tr>
+  <td>LinkedList</td>
+  <td>LinkedListNode</td>
   <td>
-    in LinkedList: O(n)
-    <br/><br />
-    in DoublyLinkedList: O(1)
+    <table>
+      <tr><th><b>method</b></th><th><b>return</b></th></tr>
+      <tr><td>.getValue()</td><td>object</td></tr>
+      <tr><td>.getNext()</td><td>LinkedListNode</td></tr>
+    </table>
   </td>
+ </tr>
+ <tr>
+  <td>DoublyLinkedList</td>
+  <td>DoublyLinkedListNode</td>
   <td>
-   value: {object}
-  </td>
-  <td>
-    in LinkedList: {LinkedListNde}
-    <br/><br/>
-    in DoublyLinkedList: {DoublyLinkedListNode}
+    <table>
+      <tr><th><b>method</b></th><th><b>return</b></th></tr>
+      <tr><td>.getValue()</td><td>object</td></tr>
+      <tr><td>.getPrev()</td><td>DoublyLinkedListNode</td></tr>
+      <tr><td>.getNext()</td><td>DoublyLinkedListNode</td></tr>
+    </table>
   </td>
  </tr>
 </table>
+
+<table>
+ <tr>
+  <tr><th align="center" colspan="2">runtime</th></tr>
+ </tr>
+ <tr>
+  <td>LinkedList</td><td>O(n)</td>
+ </tr>
+ <tr>
+  <td>DoublyLinkedList</td><td>O(1)</td>
+ </tr>
+</table>
+
 
 ```js
 linkedList.insertLast(3);
