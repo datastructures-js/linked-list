@@ -94,10 +94,19 @@ inserts a node at the beginning of the list.
     <tr><th align="center" colspan="2">return</th></tr>
  </tr>
  <tr>
-  <td>LinkedList</td><td>LinkedListNode</td>
+  <td>LinkedList</td>
+  <td>LinkedListNode</td>
+  <td>
+    <table>
+      <tr><th><b>method</b></th><th><b>return</b></th></tr>
+      <tr><td>getValue()</td><td>object</td></tr>
+      <tr><td>getNext()</td><td>LinkedListNode</td></tr>
+    </table>
+  </td>
  </tr>
  <tr>
-  <td>DoublyLinkedList</td><td>DoublyLinkedListNode</td>
+  <td>DoublyLinkedList</td>
+  <td>DoublyLinkedListNode</td>
  </tr>
 </table>
 
