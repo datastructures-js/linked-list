@@ -50,6 +50,8 @@ a javascript implementation of LinkedList & DoublyLinkedList.
   * [.removeAt(position)](#removeatposition)
   * [.removeEach(cb)](#removeeachcb)
   * [.clear()](#clear)
+  * [LinkedListNode](#linkedlistnode)
+  * [DoublyLinkedListNode](#doublylinkedlistnode)
  * [Build](#build)
  * [License](#license)
 
@@ -95,26 +97,11 @@ inserts a node at the beginning of the list.
  </tr>
  <tr>
   <td>LinkedList</td>
-  <td>LinkedListNode</td>
-  <td>
-    <table>
-      <tr><th><b>method</b></th><th><b>return</b></th></tr>
-      <tr><td>.getValue()</td><td>object</td></tr>
-      <tr><td>.getNext()</td><td>LinkedListNode</td></tr>
-    </table>
-  </td>
+  <td><a href="#linkedlistnode">LinkedListNode</a></td>
  </tr>
  <tr>
   <td>DoublyLinkedList</td>
-  <td>DoublyLinkedListNode</td>
-  <td>
-    <table>
-      <tr><th><b>method</b></th><th><b>return</b></th></tr>
-      <tr><td>.getValue()</td><td>object</td></tr>
-      <tr><td>.getPrev()</td><td>DoublyLinkedListNode</td></tr>
-      <tr><td>.getNext()</td><td>DoublyLinkedListNode</td></tr>
-    </table>
-  </td>
+  <td><a href="#doublylinkedlistnode">DoublyLinkedListNode</a></td>
  </tr>
 </table>
 
@@ -153,26 +140,11 @@ inserts a node at the end of the list.
  </tr>
  <tr>
   <td>LinkedList</td>
-  <td>LinkedListNode</td>
-  <td>
-    <table>
-      <tr><th><b>method</b></th><th><b>return</b></th></tr>
-      <tr><td>.getValue()</td><td>object</td></tr>
-      <tr><td>.getNext()</td><td>LinkedListNode</td></tr>
-    </table>
-  </td>
+  <td><a href="#linkedlistnode">LinkedListNode</a></td>
  </tr>
  <tr>
   <td>DoublyLinkedList</td>
-  <td>DoublyLinkedListNode</td>
-  <td>
-    <table>
-      <tr><th><b>method</b></th><th><b>return</b></th></tr>
-      <tr><td>.getValue()</td><td>object</td></tr>
-      <tr><td>.getPrev()</td><td>DoublyLinkedListNode</td></tr>
-      <tr><td>.getNext()</td><td>DoublyLinkedListNode</td></tr>
-    </table>
-  </td>
+  <td><a href="#doublylinkedlistnode">DoublyLinkedListNode</a></td>
  </tr>
 </table>
 
@@ -601,6 +573,23 @@ console.log(linkedList.count()); // 0
 console.log(doublyLinkedList.head()); // null
 console.log(doublyLinkedList.tail()); // null
 ```
+
+### LinkedListNode
+
+<table>
+  <tr><th><b>method</b></th><th><b>return</b></th></tr>
+  <tr><td>.getValue()</td><td>object</td></tr>
+  <tr><td>.getNext()</td><td>LinkedListNode</td></tr>
+</table>
+
+### DoublyLinkedListNode
+
+<table>
+  <tr><th><b>method</b></th><th><b>return</b></th></tr>
+  <tr><td>.getValue()</td><td>object</td></tr>
+  <tr><td>.getPrev()</td><td>DoublyLinkedListNode</td></tr>
+  <tr><td>.getNext()</td><td>DoublyLinkedListNode</td></tr>
+</table>
 
 ## Build
 ```
