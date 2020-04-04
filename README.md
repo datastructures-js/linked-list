@@ -79,32 +79,40 @@ const doublyLinkedList = new DoublyLinkedList();
 inserts a node at the beginning of the list.
 
 <table>
-  <tr><th align="center" colspan="2">params</th></tr>
- <tr><td><b>name</b></td><td><b>type</b></td></tr>
-  <tr><td>value</td><td>object</td></tr>
-</table>
-
-<table>
- <tr>
-    <tr><th align="center" colspan="3">return</th></tr>
- </tr>
- <tr>
-  <td>LinkedList</td>
-  <td><a href="#linkedlistnode">LinkedListNode</a></td>
- </tr>
- <tr>
-  <td>DoublyLinkedList</td>
-  <td><a href="#doublylinkedlistnode">DoublyLinkedListNode</a></td>
- </tr>
-</table>
-
-<table>
- <tr>
-  <th>runtime</th>
- </tr>
- <tr>
-  <td>O(1)</td>
- </tr>
+<tr>
+  <td>
+    <table>
+      <tr><th align="center" colspan="2">params</th></tr>
+     <tr><td><b>name</b></td><td><b>type</b></td></tr>
+      <tr><td>value</td><td>object</td></tr>
+    </table>
+  </td>
+  <td>
+    <table>
+     <tr>
+        <tr><th align="center" colspan="3">return</th></tr>
+     </tr>
+     <tr>
+      <td>LinkedList</td>
+      <td><a href="#linkedlistnode">LinkedListNode</a></td>
+     </tr>
+     <tr>
+      <td>DoublyLinkedList</td>
+      <td><a href="#doublylinkedlistnode">DoublyLinkedListNode</a></td>
+     </tr>
+    </table>
+  </td>
+  <td>
+    <table>
+     <tr>
+      <th>runtime</th>
+     </tr>
+     <tr>
+      <td>O(1)</td>
+     </tr>
+    </table>
+  </td>
+</tr>
 </table>
 
 #### Example
