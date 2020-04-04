@@ -85,7 +85,7 @@ inserts a node at the beginning of the list.
 </table>
 
 <table>
- <tr><th align="center" colspan="2">return</th></tr>
+ <tr><th align="center" colspan="2">return</th><th>decsription</th></tr>
  <tr>
   <td>LinkedList</td>
   <td><a href="#linkedlistnode">LinkedListNode</a></td>
@@ -94,6 +94,7 @@ inserts a node at the beginning of the list.
   <td>DoublyLinkedList</td>
   <td><a href="#doublylinkedlistnode">DoublyLinkedListNode</a></td>
  </tr>
+ <tr><td rowspan="2">the inserted node</td></tr>
 </table>
 
 <table>
