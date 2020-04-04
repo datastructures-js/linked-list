@@ -35,6 +35,7 @@ a javascript implementation of LinkedList & DoublyLinkedList.
   * [.find(cb)](#findcb)
   * [.filter(cb)](#filtercb)
   * [.toArray()](#toarray)
+  * [.isEmpty()](#isempty)
   * [.head()](#head)
   * [.tail()](#tail)
   * [.count()](#count)
