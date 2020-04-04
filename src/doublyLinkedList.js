@@ -11,76 +11,72 @@ const DoublyLinkedListNode = require('./doublyLinkedListNode');
  */
 class DoublyLinkedList {
   constructor() {
-    this.headNode = null;
-    this.tailNode = null;
-    this.nodesCount = 0;
+    this._head = null;
+    this._tail = null;
+    this._count = 0;
   }
 
   /**
    * @public
    * adds a node at the beginning of the linked list
-   *
    * @param {object} value
-   * @returns {boolean}
+   * @returns {DoublyLinkedListNode}
    */
   insertFirst(value) {
     const newNode = new DoublyLinkedListNode(value);
-    if (this.headNode === null) {
-      this.headNode = newNode;
-      this.tailNode = newNode;
+    if (this.isEmpty()) {
+      this._head = newNode;
+      this._tail = newNode;
     } else {
-      this.headNode.setPrev(newNode);
-      newNode.setNext(this.headNode);
-      this.headNode = newNode;
+      this._head.setPrev(newNode);
+      newNode.setNext(this._head);
+      this._head = newNode;
     }
-    this.nodesCount += 1;
-    return this.headNode;
+    this._count += 1;
+    return this._head;
   }
 
   /**
    * @public
    * adds a node at the end of the linked list
-   *
    * @param {object} value
-   * @returns {boolean}
+   * @returns {DoublyLinkedListNode}
    */
   insertLast(value) {
     const newNode = new DoublyLinkedListNode(value);
-
-    if (this.headNode === null) {
-      this.headNode = newNode;
-      this.tailNode = newNode;
+    if (this.isEmpty()) {
+      this._head = newNode;
+      this._tail = newNode;
     } else {
-      newNode.setPrev(this.tailNode);
-      this.tailNode.setNext(newNode);
-      this.tailNode = newNode;
+      newNode.setPrev(this._tail);
+      this._tail.setNext(newNode);
+      this._tail = newNode;
     }
-    this.nodesCount += 1;
-    return this.tailNode;
+    this._count += 1;
+    return this._tail;
   }
 
   /**
    * @public
    * adds a node at a specific position
-   *
    * @param {object} value
    * @param {number} position
-   * @returns {boolean}
+   * @returns {DoublyLinkedListNode}
    */
   insertAt(value, position = 0) {
     if (Number.isNaN(+position)
-      || position < 0 || position > this.nodesCount) return null;
+      || position < 0 || position > this._count) return null;
 
     if (position === 0) {
       return this.insertFirst(value);
     }
 
-    if (position === this.nodesCount) {
+    if (position === this._count) {
       return this.insertLast(value);
     }
 
     let counter = 1;
-    let prev = this.headNode;
+    let prev = this._head;
     while (counter < position) {
       counter += 1;
       prev = prev.getNext();
@@ -91,69 +87,66 @@ class DoublyLinkedList {
     newNode.setPrev(prev);
     newNode.getNext().setPrev(newNode);
     newNode.getPrev().setNext(newNode);
-    this.nodesCount += 1;
+    this._count += 1;
     return newNode;
   }
 
   /**
    * @public
    * removes the head node
-   *
    * @returns {boolean}
    */
   removeFirst() {
-    if (this.headNode === null) return false;
+    if (this._head === null) return false;
 
-    this.headNode = this.headNode.getNext();
-    this.headNode.setPrev(null);
-    this.nodesCount -= 1;
+    this._head = this._head.getNext();
+    this._head.setPrev(null);
+    this._count -= 1;
     return true;
   }
 
   /**
    * @public
    * removes last node in the linked list
-   *
    * @returns {boolean}
    */
   removeLast() {
-    if (this.headNode === null) return false;
+    if (this._head === null) return false;
 
-    if (this.headNode.getNext() === null) {
-      this.headNode = null;
-      this.tailNode = null;
-      this.nodesCount -= 1;
+    if (this._head.getNext() === null) {
+      this._head = null;
+      this._tail = null;
+      this._count -= 1;
       return true;
     }
 
-    this.tailNode = this.tailNode.getPrev();
-    this.tailNode.setNext(null);
-    this.nodesCount -= 1;
+    this._tail = this._tail.getPrev();
+    this._tail.setNext(null);
+    this._count -= 1;
     return true;
   }
 
   /**
    * @public
    * removes a node in a specific position
-   *
    * @param {number} position
    * @returns {boolean}
    */
   removeAt(position) {
     if (Number.isNaN(+position)
       || position < 0
-      || position >= this.nodesCount) return false;
+      || position >= this._count) return false;
 
     if (position === 0) {
       return this.removeFirst();
     }
 
-    if (position === this.nodesCount - 1) {
+    if (position === this._count - 1) {
       return this.removeLast();
     }
 
     let counter = 1;
-    let prev = this.headNode;
+    let prev = this._head;
     while (counter < position) {
       counter += 1;
       prev = prev.getNext();
@@ -161,16 +154,16 @@ class DoublyLinkedList {
 
     prev.setNext(prev.getNext().getNext());
     prev.getNext().setPrev(prev);
-    this.nodesCount -= 1;
+    this._count -= 1;
     return true;
   }
 
   /**
    * @public
    * removes all nodes based on a callback
-   *
-   * @param {number} position
+   * @param {function} cb
    * @returns {number} count of removed nodes
+   * @throws {Error} if cb is not a function
    */
   removeEach(cb) {
     if (typeof cb !== 'function') {
@@ -179,7 +172,7 @@ class DoublyLinkedList {
 
     let removed = 0;
     let prev = null;
-    let node = this.headNode;
+    let node = this._head;
 
     while (node !== null) {
       if (cb(node)) {
@@ -192,7 +185,7 @@ class DoublyLinkedList {
           if (prev.getNext() !== null) {
             prev.getNext().setPrev(prev);
           }
-          this.nodesCount -= 1;
+          this._count -= 1;
         }
         removed += 1;
       }
@@ -206,65 +199,66 @@ class DoublyLinkedList {
   /**
    * @public
    * traverse the list from beginning to end
-   *
    * @param {function} cb
+   * @param {DoublyLinkedListNode} current
    */
-  forEach(cb, node = this.headNode) {
+  forEach(cb, current = this._head) {
     if (typeof cb !== 'function') {
       throw new Error('.forEach(cb) expects a callback');
     }
 
-    if (node === null) return;
+    if (current === null) return;
 
-    cb(node);
-    this.forEach(cb, node.getNext());
+    cb(current);
+    this.forEach(cb, current.getNext());
   }
 
   /**
    * @public
    * traverse the list from end to beginning
-   *
    * @param {function} cb
+   * @param {DoublyLinkedListNode} current
    */
-  forEachReverse(cb, node = this.tailNode) {
+  forEachReverse(cb, current = this._tail) {
     if (typeof cb !== 'function') {
       throw new Error('.forEachReverse(cb) expects a callback');
     }
 
-    if (node === null) return;
+    if (current === null) return;
 
-    cb(node);
-    this.forEachReverse(cb, node.getPrev());
+    cb(current);
+    this.forEachReverse(cb, current.getPrev());
   }
 
   /**
    * @public
    * finds a node in the linked list using on a callback
-   *
    * @param {function} cb
+   * @param {DoublyLinkedListNode} current
    * @returns {DoublyLinkedListNode}
+   * @throws {Error} if cb is not a function
    */
-  find(cb, node = this.headNode) {
+  find(cb, current = this._head) {
     if (typeof cb !== 'function') {
       throw new Error('.find(cb) expects a callback');
     }
 
     // did not find the node
-    if (node === null) return null;
+    if (current === null) return null;
 
     // found the node
-    if (cb(node)) return node;
+    if (cb(current)) return current;
 
     // haven't found the node, check next
-    return this.find(cb, node.getNext());
+    return this.find(cb, current.getNext());
   }
 
   /**
    * @public
    * filters the linked list based on a callback
-   *
    * @param {function} cb
    * @returns {LinkedList}
+   * @throws {Error} if cb is not a function
    */
   filter(cb) {
     if (typeof cb !== 'function') {
@@ -286,7 +280,7 @@ class DoublyLinkedList {
    * @returns {DoublyLinkedListNode}
    */
   head() {
-    return this.headNode;
+    return this._head;
   }
 
   /**
@@ -294,7 +288,7 @@ class DoublyLinkedList {
    * @returns {DoublyLinkedListNode}
    */
   tail() {
-    return this.tailNode;
+    return this._tail;
   }
 
   /**
@@ -302,7 +296,7 @@ class DoublyLinkedList {
    * @returns {number}
    */
   count() {
-    return this.nodesCount;
+    return this._count;
   }
 
   /**
@@ -317,12 +311,20 @@ class DoublyLinkedList {
 
   /**
    * @public
+   * @returns {boolean}
+   */
+  isEmpty() {
+    return this._head === null;
+  }
+
+  /**
+   * @public
    * clears the linked list
    */
   clear() {
-    this.headNode = null;
-    this.tailNode = null;
-    this.nodesCount = 0;
+    this._head = null;
+    this._tail = null;
+    this._count = 0;
   }
 }
 
