@@ -1,6 +1,6 @@
 /**
- * datastructures-js/linked-list
- * @copyright 2018 Eyas Ranjous <eyas.ranjous@gmail.com>
+ * @datastructures-js/linked-list
+ * @copyright 2020 Eyas Ranjous <eyas.ranjous@gmail.com>
  * @license MIT
  */
 
@@ -9,40 +9,45 @@
  */
 class LinkedListNode {
   /**
+   * @constructor
    * @param {object} value
    * @param {LinkedListNode} next
    */
   constructor(value, next) {
-    this.value = value;
-    this.next = next || null;
+    this._value = value;
+    this._next = next || null;
   }
 
   /**
+   * @public
    * @param {object} value
    */
   setValue(value) {
-    this.value = value;
+    this._value = value;
   }
 
   /**
+   * @public
    * @returns {object}
    */
   getValue() {
-    return this.value;
+    return this._value;
   }
 
   /**
+   * @public
    * @param {LinkedListNode}
    */
   setNext(next) {
-    this.next = next || null;
+    this._next = next || null;
   }
 
   /**
+   * @public
    * @returns {LinkedListNode}
    */
   getNext() {
-    return this.next;
+    return this._next;
   }
 }
 
