@@ -99,14 +99,22 @@ inserts a node at the beginning of the list.
   <td>
     <table>
       <tr><th><b>method</b></th><th><b>return</b></th></tr>
-      <tr><td>getValue()</td><td>object</td></tr>
-      <tr><td>getNext()</td><td>LinkedListNode</td></tr>
+      <tr><td>.getValue()</td><td>object</td></tr>
+      <tr><td>.getNext()</td><td>LinkedListNode</td></tr>
     </table>
   </td>
  </tr>
  <tr>
   <td>DoublyLinkedList</td>
   <td>DoublyLinkedListNode</td>
+  <td>
+    <table>
+      <tr><th><b>method</b></th><th><b>return</b></th></tr>
+      <tr><td>.getValue()</td><td>object</td></tr>
+      <tr><td>.getPrev()</td><td>DoublyLinkedListNode</td></tr>
+      <tr><td>.getNext()</td><td>DoublyLinkedListNode</td></tr>
+    </table>
+  </td>
  </tr>
 </table>
 
