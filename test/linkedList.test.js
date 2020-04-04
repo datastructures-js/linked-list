@@ -35,6 +35,12 @@ describe('linkedList tests', () => {
     });
   });
 
+  describe('.isEmpty()', () => {
+    it('checks if the list is empty', () => {
+      expect(linkedList.isEmpty()).to.equal(false);
+    });
+  });
+
   describe('.head()', () => {
     it('get the head node', () => {
       expect(linkedList.head().getValue()).to.equal(2);
@@ -134,6 +140,7 @@ describe('linkedList tests', () => {
     it('clear the linked list', () => {
       linkedList.clear();
       expect(linkedList.count()).to.equal(0);
+      expect(linkedList.isEmpty()).to.equal(true);
     });
   });
 });
