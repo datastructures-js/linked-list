@@ -40,6 +40,12 @@ describe('doublyLinkedList tests', () => {
     });
   });
 
+  describe('.isEmpty()', () => {
+    it('checks if the list is empty', () => {
+      expect(doublyLinkedList.isEmpty()).to.equal(false);
+    });
+  });
+
   describe('.head()', () => {
     it('get the head node', () => {
       expect(doublyLinkedList.head().getValue()).to.equal(2);
@@ -161,6 +167,7 @@ describe('doublyLinkedList tests', () => {
     it('clear the linked list', () => {
       doublyLinkedList.clear();
       expect(doublyLinkedList.count()).to.equal(0);
+      expect(doublyLinkedList.isEmpty()).to.equal(true);
     });
   });
 });
