@@ -127,10 +127,11 @@ inserts a node at the end of the list.
 </table>
 
 <table>
- <tr><th align="center" colspan="2">return</th></tr>
+ <tr><th align="center" colspan="2">return</th><th>decsription</th></tr>
  <tr>
   <td>LinkedList</td>
   <td><a href="#linkedlistnode">LinkedListNode</a></td>
+  <td rowspan="2">the inserted node</td>
  </tr>
  <tr>
   <td>DoublyLinkedList</td>
@@ -173,10 +174,11 @@ inserts a node at specific position of the list. First (head) node is at positio
 </table>
 
 <table>
- <tr><th align="center" colspan="2">return</th></tr>
+ <tr><th align="center" colspan="2">return</th><th>description</th></tr>
  <tr>
   <td>LinkedList</td>
   <td><a href="#linkedlistnode">LinkedListNode</a></td>
+  <td rowspan="2">the inserted node</td>
  </tr>
  <tr>
   <td>DoublyLinkedList</td>
@@ -261,7 +263,7 @@ doublyLinkedList.forEachReverse((node) => console.log(node.getValue()));
 ```
 
 ### .find(cb)
-returns the first node that returns true from the callback.
+returns the first node that returns true from the callback or null if nothing found.
 
 <table>
   <tr><th align="center" colspan="2">params</th></tr>
@@ -270,10 +272,11 @@ returns the first node that returns true from the callback.
 </table>
 
 <table>
- <tr><th align="center" colspan="2">return</th></tr>
+ <tr><th align="center" colspan="2">return</th><th>description</th></tr>
  <tr>
   <td>LinkedList</td>
   <td><a href="#linkedlistnode">LinkedListNode</a></td>
+  <td rowspan="2">the first found node</td>
  </tr>
  <tr>
   <td>DoublyLinkedList</td>
@@ -300,7 +303,7 @@ console.log(node2.getPrev().getValue()); // 1
 ```
 
 ### .filter(cb)
-returns a filtered linked list of all the nodes that returns true from the callback.
+returns a filtered list of all the nodes that returns true from the callback.
 
 <table>
  <tr><th align="center" colspan="2">params</th></tr>
@@ -440,8 +443,8 @@ console.log(doublyLinkedList.count()); // 5
 removes the first (head) node of the list.
 
 <table>
- <tr><th>return</th></tr>
- <tr><td>boolean</td></tr>
+ <tr><th>return</th><th>description</th></tr>
+ <tr><td>boolean</td><td>true if a node has been removed</td></tr>
 </table>
 
 <table>
@@ -461,8 +464,8 @@ doublyLinkedList.removeFirst(); // true
 removes the last node from the list.
 
 <table>
- <tr><th>return</th></tr>
- <tr><td>boolean</td></tr>
+ <tr><th>return</th><th>description</th></tr>
+ <tr><td>boolean</td><td>true if a node has been removed</td></tr>
 </table>
 
 <table>
@@ -493,8 +496,8 @@ removes a node at a specific position. First (head) node is at position 0.
 </table>
 
 <table>
- <tr><th>return</th></tr>
- <tr><td>boolean</td></tr>
+ <tr><th>return</th><th>description</th></tr>
+ <tr><td>boolean</td><td>true if a node has been removed</td></tr>
 </table>
 
 <table>
