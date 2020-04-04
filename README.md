@@ -78,7 +78,7 @@ const doublyLinkedList = new DoublyLinkedList();
 ### .insertFirst(value)
 inserts a node at the beginning of the list.
 
-<table cellspacing="10" cellpadding="10">
+<table cellspacing="20" cellpadding="20">
 <tr>
   <td>
     <table>
