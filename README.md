@@ -111,7 +111,7 @@ inserts a node at the beginning of the list.
     <table>
       <tr><th><b>method</b></th><th><b>return</b></th></tr>
       <tr><td>.getValue()</td><td>object</td></tr>
-      <tr><td>.getPrev()</td><td>null</td></tr>
+      <tr><td>.getPrev()</td><td>DoublyLinkedListNode</td></tr>
       <tr><td>.getNext()</td><td>DoublyLinkedListNode</td></tr>
     </table>
   </td>
