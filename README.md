@@ -369,6 +369,26 @@ console.log(linkedList.toArray()); // [2, 1, 5, 3, 4]
 console.log(doublyLinkedList.toArray()); // [2, 1, 5, 3, 4]
 ```
 
+### .isEmpty()
+checks if the linked list is empty.
+
+<table>
+ <tr><th>return</th></tr>
+ <tr><td>boolean</td></tr>
+</table>
+
+<table>
+ <tr><th>runtime</th></tr>
+ <tr><td>O(1)</td></tr>
+</table>
+
+#### Example
+```js
+console.log(linkedList.isEmpty()); // false
+
+console.log(doublyLinkedList.isEmpty()); // false
+```
+
 ### .head()
 returns the head node in the linked list.
 
