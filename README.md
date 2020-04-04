@@ -570,7 +570,7 @@ returns the node's value.
 </table>
 
 #### .getNext()
-returns the next connected node.
+returns the next connected node or null if it's the last node.
 
 <table>
  <tr><th>return</th></tr>
@@ -588,7 +588,7 @@ returns the node's value.
 </table>
 
 #### .getPrev()
-returns the previous connected node.
+returns the previous connected node or null if it's the first node.
 
 <table>
  <tr><th>return</th></tr>
@@ -596,7 +596,7 @@ returns the previous connected node.
 </table>
 
 #### .getNext()
-returns the next connected node.
+returns the next connected node or null if it's the last node.
 
 <table>
  <tr><th>return</th></tr>
