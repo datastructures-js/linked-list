@@ -91,7 +91,7 @@ inserts a node at the beginning of the list.
 
 <table>
  <tr>
-    <tr><th align="center" colspan="2">return</th></tr>
+    <tr><th align="center" colspan="3">return</th></tr>
  </tr>
  <tr>
   <td>LinkedList</td>
