@@ -6,16 +6,34 @@
 
 a javascript implementation of LinkedList & DoublyLinkedList.
 
+<table>
+<tr>
+<td align="center"><b>Linked List</b></td>
+</tr>
+<tr>
+<td>
 <img width="429" alt="Linked List" src="https://user-images.githubusercontent.com/6517308/35762715-5d00c9bc-0861-11e8-88f7-6e503a1fa3af.png">
+</td>
+</tr>
+</table>
 
-<img width="552" alt="dll" src="https://user-images.githubusercontent.com/6517308/35762752-19b17df4-0862-11e8-8ce3-f940d83dde51.png">
+<table>
+<tr>
+<td align="center"><b>Doubly Linked List</b></td>
+</tr>
+<tr>
+<td>
+<img width="552" alt="Doubly Linked List" src="https://user-images.githubusercontent.com/6517308/35762752-19b17df4-0862-11e8-8ce3-f940d83dde51.png">
+</td>
+</tr>
+</table>
 
 # Table of Contents
 * [Install](#install)
 * [API](#api)
   * [require](#require)
   * [import](#import)
-  * [Creating a List](#create-a-list)
+  * [Construction](#construction)
   * [.insertFirst(value)](#insertfirstvalue)
   * [.insertLast(value)](#insertlastvalue)
   * [.insertAt(value, position)](#insertatvalue-position)
@@ -52,7 +70,10 @@ const { LinkedList, DoublyLinkedList } = require('@datastructures-js/linked-list
 import { LinkedList, DoublyLinkedList } from '@datastructures-js/linked-list';
 ```
 
-### Create a list
+### Construction
+
+#### Example
+
 ```js
 const linkedList = new LinkedList();
 
@@ -63,24 +84,33 @@ const doublyLinkedList = new DoublyLinkedList();
 inserts a node at the beginning of the list.
 
 <table>
+  <tr><th align="center" colspan="2">params</th></tr>
+ <tr><td><b>name</b></td><td><b>type</b></td></tr>
+  <tr><td>value</td><td>object</td></tr>
+</table>
+
+<table>
  <tr>
-  <th>runtime</th>
-  <th>params</th>
-  <th>return</th>
+    <tr><th align="center" colspan="2">return</th></tr>
  </tr>
  <tr>
-  <td>O(1)</td>
-  <td>
-   value: {object}
-  </td>
-  <td>
-    in LinkedList: {LinkedListNode}
-    <br/><br/>
-    in DoublyLinkedList: {DoublyLinkedListNode}
-  </td>
+  <td>LinkedList</td>LinkedListNode</td>
+ </tr>
+ <tr>
+  <td>DoublyLinkedList</td><td>DoublyLinkedListNode</td>
  </tr>
 </table>
 
+<table>
+ <tr>
+  <th>runtime</th>
+ </tr>
+ <tr>
+  <td>O(1)</td>
+ </tr>
+</table>
+
+#### Example
 ```js
 linkedList.insertFirst(1);
 const head1 = linkedList.insertFirst(2);
