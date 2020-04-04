@@ -80,14 +80,12 @@ inserts a node at the beginning of the list.
 
 <table>
   <tr><th align="center" colspan="2">params</th></tr>
- <tr><td><b>name</b></td><td><b>type</b></td></tr>
+  <tr><td><b>name</b></td><td><b>type</b></td></tr>
   <tr><td>value</td><td>object</td></tr>
 </table>
 
 <table>
- <tr>
-    <tr><th align="center" colspan="3">return</th></tr>
- </tr>
+ <tr><th align="center" colspan="2">return</th></tr>
  <tr>
   <td>LinkedList</td>
   <td><a href="#linkedlistnode">LinkedListNode</a></td>
@@ -122,15 +120,13 @@ console.log(head2.getValue()); // 2
 inserts a node at the end of the list.
 
 <table>
-  <tr><th align="center" colspan="2">params</th></tr>
+ <tr><th align="center" colspan="2">params</th></tr>
  <tr><td><b>name</b></td><td><b>type</b></td></tr>
-  <tr><td>value</td><td>object</td></tr>
+ <tr><td>value</td><td>object</td></tr>
 </table>
 
 <table>
- <tr>
-    <tr><th align="center" colspan="3">return</th></tr>
- </tr>
+ <tr><th align="center" colspan="2">return</th></tr>
  <tr>
   <td>LinkedList</td>
   <td><a href="#linkedlistnode">LinkedListNode</a></td>
@@ -142,9 +138,7 @@ inserts a node at the end of the list.
 </table>
 
 <table>
- <tr>
-  <tr><th align="center" colspan="2">runtime</th></tr>
- </tr>
+ <tr><th align="center" colspan="2">runtime</th></tr>
  <tr>
   <td>LinkedList</td><td>O(n)</td>
  </tr>
@@ -153,6 +147,7 @@ inserts a node at the end of the list.
  </tr>
 </table>
 
+#### Example
 
 ```js
 linkedList.insertLast(3);
@@ -170,29 +165,30 @@ console.log(last2.getPrev().getValue()); // 3
 inserts a node at specific position of the list. First (head) node is at position 0.
 
 <table>
+  <tr><th align="center" colspan="2">params</th></tr>
+ <tr><td><b>name</b></td><td><b>type</b></td></tr>
+  <tr><td>value</td><td>object</td></tr>
+  <tr><td>position</td><td>number</td></tr>
+</table>
+
+<table>
+ <tr><th align="center" colspan="2">return</th></tr>
  <tr>
-  <th>runtime</th>
-  <th>params</th>
-  <th>return</th>
+  <td>LinkedList</td>
+  <td><a href="#linkedlistnode">LinkedListNode</a></td>
  </tr>
  <tr>
-  <td>
-    in LinkedList: O(n)
-    <br/><br />
-    in DoublyLinkedList: O(n)
-  </td>
-  <td>
-   value: {object}
-   <br /><br />
-   position: {number}
-  </td>
-  <td>
-    in LinkedList: {LinkedListNode}
-    <br/><br/>
-    in DoublyLinkedList: {DoublyLinkedListNode}
-  </td>
+  <td>DoublyLinkedList</td>
+  <td><a href="#doublylinkedlistnode">DoublyLinkedListNode</a></td>
  </tr>
 </table>
+
+<table>
+ <tr><th>runtime</th></tr>
+ <tr><td>O(n)</td></tr>
+</table>
+
+#### Example
 
 ```js
 const node1 = linkedList.insertAt(5, 2); // node1.getValue() = 5
@@ -204,19 +200,17 @@ const node2 = doublyLinkedList.insertAt(5, 2); // node2.getValue() = 5
 Loop on the linked list from beginning to end, and pass each node to the callback.
 
 <table>
- <tr>
-  <th>runtime</th>
-  <th>params</th>
- </tr>
- <tr>
-  <td>
-    O(n)
-  </td>
-  <td>
-   cb: {function(node)}
-  </td>
- </tr>
+ <tr><th align="center" colspan="2">params</th></tr>
+ <tr><td><b>name</b></td><td><b>type</b></td></tr>
+  <tr><td>cb</td><td>function</td></tr>
 </table>
+
+<table>
+ <tr><th>runtime</th></tr>
+ <tr><td>O(n)</td></tr>
+</table>
+
+#### Example
 
 ```js
 linkedList.forEach((node) => console.log(node.getValue()));
@@ -242,19 +236,17 @@ doublyLinkedList.forEach((node) => console.log(node.getValue()));
 Only in DoublyLinkedList. Loop on the doubly linked list from end to beginning, and pass each node to the callback.
 
 <table>
- <tr>
-  <th>runtime</th>
-  <th>params</th>
- </tr>
- <tr>
-  <td>
-    O(n)
-  </td>
-  <td>
-   cb: {function(node)}
-  </td>
- </tr>
+ <tr><th align="center" colspan="2">params</th></tr>
+ <tr><td><b>name</b></td><td><b>type</b></td></tr>
+ <tr><td>cb</td><td>function</td></tr>
 </table>
+
+<table>
+ <tr><th>runtime</th></tr>
+ <tr><td>O(n)</td></tr>
+</table>
+
+#### Example
 
 ```js
 doublyLinkedList.forEachReverse((node) => console.log(node.getValue()));
@@ -271,25 +263,29 @@ doublyLinkedList.forEachReverse((node) => console.log(node.getValue()));
 returns the first node that returns true from the callback.
 
 <table>
+  <tr><th align="center" colspan="2">params</th></tr>
+ <tr><td><b>name</b></td><td><b>type</b></td></tr>
+  <tr><td>cb</td><td>function</td></tr>
+</table>
+
+<table>
+ <tr><th align="center" colspan="2">return</th></tr>
  <tr>
-  <th>runtime</th>
-  <th>params</th>
-  <th>return</th>
+  <td>LinkedList</td>
+  <td><a href="#linkedlistnode">LinkedListNode</a></td>
  </tr>
  <tr>
-  <td>
-    O(n)
-  </td>
-  <td>
-   cb: {function(node)}
-  </td>
-  <td>
-    in LinkedList: {LinkedListNode}
-    <br/><br/>
-    in DoublyLinkedList: {DoublyLinkedListNode}
-  </td>
+  <td>DoublyLinkedList</td>
+  <td><a href="#doublylinkedlistnode">DoublyLinkedListNode</a></td>
  </tr>
 </table>
+
+<table>
+ <tr><th>runtime</th></tr>
+ <tr><td>O(n)</td></tr>
+</table>
+
+#### Example
 
 ```js
 const node1 = linkedList.find((node) => node.getValue() === 5);
@@ -306,25 +302,29 @@ console.log(node2.getPrev().getValue()); // 1
 returns a filtered linked list of all the nodes that returns true from the callback.
 
 <table>
+ <tr><th align="center" colspan="2">params</th></tr>
+ <tr><td><b>name</b></td><td><b>type</b></td></tr>
+ <tr><td>cb</td><td>function</td></tr>
+</table>
+
+<table>
+ <tr><th align="center" colspan="2">return</th></tr>
  <tr>
-  <th>runtime</th>
-  <th>params</th>
-  <th>return</th>
+  <td>LinkedList</td>
+  <td><a href="#linkedlistnode">LinkedListNode</a></td>
  </tr>
  <tr>
-  <td>
-    O(n)
-  </td>
-  <td>
-   cb: {function(node)}
-  </td>
-  <td>
-    in LinkedList: {LinkedList}
-    <br/><br/>
-    in DoublyLinkedList: {DoublyLinkedList}
-  </td>
+  <td>DoublyLinkedList</td>
+  <td><a href="#doublylinkedlistnode">DoublyLinkedListNode</a></td>
  </tr>
 </table>
+
+<table>
+ <tr><th>runtime</th></tr>
+ <tr><td>O(n)</td></tr>
+</table>
+
+#### Example
 
 ```js
 const filterLinkedList = linkedList.filter((node) => node.getValue() > 2);
@@ -348,19 +348,16 @@ filteredDoublyLinkedList.forEach((node) => console.log(node.getValue()));
 converts the linked list into an array.
 
 <table>
- <tr>
-  <th>runtime</th>
-  <th>return</th>
- </tr>
- <tr>
-  <td>
-    O(n)
-  </td>
-  <td>
-    {array}
-  </td>
- </tr>
+ <tr><th>return</th></tr>
+ <tr><td>array</td></tr>
 </table>
+
+<table>
+ <tr><th>runtime</th></tr>
+ <tr><td>O(n)</td></tr>
+</table>
+
+#### Example
 
 ```js
 console.log(linkedList.toArray()); // [2, 1, 5, 3, 4]
@@ -372,21 +369,23 @@ console.log(doublyLinkedList.toArray()); // [2, 1, 5, 3, 4]
 returns the head node in the linked list.
 
 <table>
+ <tr><th align="center" colspan="2">return</th></tr>
  <tr>
-  <th>runtime</th>
-  <th>return</th>
+  <td>LinkedList</td>
+  <td><a href="#linkedlistnode">LinkedListNode</a></td>
  </tr>
  <tr>
-  <td>
-    O(1)
-  </td>
-  <td>
-    in LinkedList: {LinkedListNode}
-    <br/><br/>
-    in DoublyLinkedList: {DoublyLinkedListNode}
-  </td>
+  <td>DoublyLinkedList</td>
+  <td><a href="#doublylinkedlistnode">DoublyLinkedListNode</a></td>
  </tr>
 </table>
+
+<table>
+ <tr><th>runtime</th></tr>
+ <tr><td>O(1)</td></tr>
+</table>
+
+#### Example
 
 ```js
 console.log(linkedList.head().getValue()); // 2
@@ -395,22 +394,21 @@ console.log(doublyLinkedList.head().getValue()); // 2
 ```
 
 ### .tail()
-Only in DoublyLinkedList. returns the tail node in the doubly linked list
+returns the tail node of the doubly linked list.
 
 <table>
+ <tr><th>return</th></tr>
  <tr>
-  <th>runtime</th>
-  <th>return</th>
- </tr>
- <tr>
-  <td>
-    O(1)
-  </td>
-  <td>
-    {DoublyLinkedListNode}
-  </td>
+  <td><a href="#doublylinkedlistnode">DoublyLinkedListNode</a></td>
  </tr>
 </table>
+
+<table>
+ <tr><th>runtime</th></tr>
+ <tr><td>O(1)</td></tr>
+</table>
+
+#### Example
 
 ```js
 console.log(doublyLinkedList.tail().getValue()); // 4
@@ -420,19 +418,16 @@ console.log(doublyLinkedList.tail().getValue()); // 4
 returns the number of nodes in the linked list.
 
 <table>
- <tr>
-  <th>runtime</th>
-  <th>return</th>
- </tr>
- <tr>
-  <td>
-    O(1)
-  </td>
-  <td>
-    {number}
-  </td>
- </tr>
+ <tr><th>return</th></tr>
+ <tr><td>number</td></tr>
 </table>
+
+<table>
+ <tr><th>runtime</th></tr>
+ <tr><td>O(1)</td></tr>
+</table>
+
+#### Example
 
 ```js
 console.log(linkedList.count()); // 5
