@@ -94,7 +94,7 @@ inserts a node at the beginning of the list.
     <tr><th align="center" colspan="2">return</th></tr>
  </tr>
  <tr>
-  <td>LinkedList</td>LinkedListNode</td>
+  <td>LinkedList</td><td>LinkedListNode</td>
  </tr>
  <tr>
   <td>DoublyLinkedList</td><td>DoublyLinkedListNode</td>
