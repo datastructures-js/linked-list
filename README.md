@@ -439,15 +439,16 @@ console.log(doublyLinkedList.count()); // 5
 removes the first (head) node of the list.
 
 <table>
- <tr>
-  <th>runtime</th>
-  <th>return</th>
- </tr>
- <tr>
-  <td>O(1)</td>
-  <td>{boolean}</td>
- </tr>
+ <tr><th>return</th></tr>
+ <tr><td>boolean</td></tr>
 </table>
+
+<table>
+ <tr><th>runtime</th></tr>
+ <tr><td>O(1)</td></tr>
+</table>
+
+#### Example
 
 ```js
 linkedList.removeFirst(); // true
@@ -459,19 +460,21 @@ doublyLinkedList.removeFirst(); // true
 removes the last node from the list.
 
 <table>
+ <tr><th>return</th></tr>
+ <tr><td>boolean</td></tr>
+</table>
+
+<table>
+ <tr><th align="center" colspan="2">runtime</th></tr>
  <tr>
-  <th>runtime</th>
-  <th>return</th>
+  <td>LinkedList</td><td>O(n)</td>
  </tr>
  <tr>
-  <td>
-    in LinkedList: O(n)
-    <br/><br />
-    in DoublyLinkedList: O(1)
-  </td>
-  <td>{boolean}</td>
+  <td>DoublyLinkedList</td><td>O(1)</td>
  </tr>
 </table>
+
+#### Example
 
 ```js
 linkedList.removeLast(); // true
@@ -483,23 +486,22 @@ doublyLinkedList.removeLast(); // true
 removes a node at a specific position. First (head) node is at position 0.
 
 <table>
- <tr>
-  <th>runtime</th>
-  <th>params</th>
-  <th>return</th>
- </tr>
- <tr>
-  <td>
-    O(n)
-  </td>
-  <td>
-   position: {number}
-  </td>
-  <td>
-    {boolean}
-  </td>
- </tr>
+  <tr><th align="center" colspan="2">params</th></tr>
+  <tr><td><b>name</b></td><td><b>type</b></td></tr>
+  <tr><td>position</td><td>number</td></tr>
 </table>
+
+<table>
+ <tr><th>return</th></tr>
+ <tr><td>boolean</td></tr>
+</table>
+
+<table>
+ <tr><th>runtime</th></tr>
+ <tr><td>O(1)</td></tr>
+</table>
+
+#### Example
 
 ```js
 linkedList.removeAt(1); // true
@@ -511,23 +513,22 @@ doublyLinkedList.removeAt(1); // true
 Loop on the linked list from beginning to end, removes the nodes that returns true from the callback.
 
 <table>
- <tr>
-  <th>runtime</th>
-  <th>params</th>
-  <th>return</th>
- </tr>
- <tr>
-  <td>
-    O(n)
-  </td>
-  <td>
-   cb: {function(node)}
-  </td>
-  <td>
-    {number} number of removed nodes
-  </td>
- </tr>
+  <tr><th align="center" colspan="2">params</th></tr>
+  <tr><td><b>name</b></td><td><b>type</b></td></tr>
+  <tr><td>cb</td><td>function</td></tr>
 </table>
+
+<table>
+ <tr><th>return</th><th>description</th></tr>
+ <tr><td>number</td><td>number of removed nodes</td></tr>
+</table>
+
+<table>
+ <tr><th>runtime</th></tr>
+ <tr><td>O(n)</td></tr>
+</table>
+
+#### Example
 
 ```js
 linkedList.removeEach((node) => node.getValue() > 1); // 1
@@ -541,15 +542,11 @@ console.log(doublyLinkedList.toArray()); // [1]
 remove all nodes in the linked list.
 
 <table>
- <tr>
-  <th>runtime</th>
- </tr>
- <tr>
-  <td>
-    O(1)
-  </td>
- </tr>
+ <tr><th>runtime</th></tr>
+ <tr><td>O(1)</td></tr>
 </table>
+
+#### Example
 
 ```js
 linkedList.clear();
