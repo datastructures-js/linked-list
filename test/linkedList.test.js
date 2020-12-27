@@ -19,13 +19,17 @@ describe('linkedList tests', () => {
     });
   });
 
-  describe('.insertAt(value, position)', () => {
+  describe('.insertAt(position, value)', () => {
     it('add a node at a specific position', () => {
-      expect(linkedList.insertAt(5, 2)).to.be.instanceof(LinkedListNode);
+      expect(linkedList.insertAt(2, 5)).to.be.instanceof(LinkedListNode);
     });
 
-    it('does not add a node when position is not a valid number', () => {
-      expect(linkedList.insertAt(5, -1)).to.equal(null);
+    it('throws an error position is not a valid number', () => {
+      expect(() => linkedList.insertAt(-1, 5)).to.throws(Error)
+        .and.to.have.property(
+          'message',
+          '.insertAt expects a position num <= linked list size'
+        );
     });
   });
 

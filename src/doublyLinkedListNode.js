@@ -5,19 +5,19 @@
  */
 
 /**
- * @class DoublyLinkedListNode
+ * @class
  */
 class DoublyLinkedListNode {
   /**
-   * @constructor
-   * @param {object} value
-   * @param {DoublyLinkedListNode} prev
-   * @param {DoublyLinkedListNode} next
+   * Creates a doubly linked list node.
+   * @param {any} value
+   * @param {DoublyLinkedListNode} [prev]
+   * @param {DoublyLinkedListNode} [next]
    */
   constructor(value, prev, next) {
     this._value = value;
-    this._prev = prev || null;
-    this._next = next || null;
+    this.setPrev(prev);
+    this.setNext(next);
   }
 
   /**
@@ -26,6 +26,7 @@ class DoublyLinkedListNode {
    */
   setValue(value) {
     this._value = value;
+    return this;
   }
 
   /**
@@ -38,10 +39,11 @@ class DoublyLinkedListNode {
 
   /**
    * @public
-   * @param {DoublyLinkedListNode}
+   * @param {DoublyLinkedListNode} [next]
    */
   setNext(next) {
-    this._next = next || null;
+    this._next = (next instanceof DoublyLinkedListNode) ? next : null;
+    return this;
   }
 
   /**
@@ -54,10 +56,11 @@ class DoublyLinkedListNode {
 
   /**
    * @public
-   * @param {DoublyLinkedListNode} prev
+   * @param {DoublyLinkedListNode} [prev]
    */
   setPrev(prev) {
-    this._prev = prev || null;
+    this._prev = (prev instanceof DoublyLinkedListNode) ? prev : null;
+    return this;
   }
 
   /**

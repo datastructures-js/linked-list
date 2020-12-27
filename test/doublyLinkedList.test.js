@@ -1,5 +1,4 @@
 const { expect } = require('chai');
-const DoublyLinkedListNode = require('../src/doublyLinkedListNode');
 const DoublyLinkedList = require('../src/doublyLinkedList');
 
 describe('doublyLinkedList tests', () => {
@@ -8,29 +7,33 @@ describe('doublyLinkedList tests', () => {
   describe('.insertFirst(value)', () => {
     it('add a node at the beginning of the list', () => {
       expect(doublyLinkedList.insertFirst(1))
-        .to.be.instanceof(DoublyLinkedListNode);
+        .to.be.instanceof(DoublyLinkedList);
       expect(doublyLinkedList.insertFirst(2))
-        .to.be.instanceof(DoublyLinkedListNode);
+        .to.be.instanceof(DoublyLinkedList);
     });
   });
 
   describe('.insertLast(value)', () => {
     it('add a node to the end of the list', () => {
       expect(doublyLinkedList.insertLast(3))
-        .to.be.instanceof(DoublyLinkedListNode);
+        .to.be.instanceof(DoublyLinkedList);
       expect(doublyLinkedList.insertLast(4))
-        .to.be.instanceof(DoublyLinkedListNode);
+        .to.be.instanceof(DoublyLinkedList);
     });
   });
 
-  describe('.insertAt(value, position)', () => {
+  describe('.insertAt(position, value)', () => {
     it('add a node at a specific position', () => {
-      expect(doublyLinkedList.insertAt(5, 2))
-        .to.be.instanceof(DoublyLinkedListNode);
+      expect(doublyLinkedList.insertAt(2, 5))
+        .to.be.instanceof(DoublyLinkedList);
     });
 
-    it('does not add a node when position is not a valid number', () => {
-      expect(doublyLinkedList.insertAt(5, -1)).to.equal(null);
+    it('throws error position is not a valid number', () => {
+      expect(() => doublyLinkedList.insertAt(-1, 5)).to.throws(Error)
+        .and.to.have.property(
+          'message',
+          '.insertAt expects a position num <= linked list size'
+        );
     });
   });
 

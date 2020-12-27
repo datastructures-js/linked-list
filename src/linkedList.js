@@ -1,24 +1,26 @@
 /**
- * datastructures-js/linked-list
- * @copyright 2020 Eyas Ranjous <eyas.ranjous@gmail.com>
  * @license MIT
+ * @copyright 2020 Eyas Ranjous <eyas.ranjous@gmail.com>
  */
 
 const LinkedListNode = require('./linkedListNode');
 
-/**
- * @class LinkedList
+/*
+ * @class
  */
 class LinkedList {
+  /**
+   * Creates a linked list.
+   */
   constructor() {
     this._head = null;
     this._count = 0;
   }
 
   /**
+   * Adds a node at the beginning of the linked list.
    * @public
-   * adds a node at the beginning of the linked list
-   * @param {object} value
+   * @param {any} value
    * @returns {boolean}
    */
   insertFirst(value) {
@@ -28,10 +30,10 @@ class LinkedList {
   }
 
   /**
+   * Adds a node at the end of the linked list.
    * @public
-   * adds a node at the end of the linked list
-   * @param {object} value
-   * @param {LinkedListNode} current - the starting node
+   * @param {any} value
+   * @param {LinkedListNode} [current] - the starting node
    * @returns {boolean}
    */
   insertLast(value, current = this._head) {
@@ -51,15 +53,19 @@ class LinkedList {
   }
 
   /**
+   * Adds a node at a specific position.
    * @public
-   * adds a node at a specific position
-   * @param {object} value
    * @param {number} position
+   * @param {any} value
    * @returns {boolean}
    */
-  insertAt(value, position = 0) {
-    if (Number.isNaN(+position)
-      || position < 0 || position > this._count) return null;
+  insertAt(position, value) {
+    if (
+      Number.isNaN(+position)
+      || position < 0 || position > this._count
+    ) {
+      throw new Error('.insertAt expects a position num <= linked list size');
+    }
 
     // head node is at position 0
     if (position === 0) {
@@ -80,8 +86,8 @@ class LinkedList {
   }
 
   /**
+   * Removes the head node.
    * @public
-   * removes the head node
    * @returns {boolean}
    */
   removeFirst() {
@@ -93,10 +99,10 @@ class LinkedList {
   }
 
   /**
+   * Removes last node in the linked list.
    * @public
-   * removes last node in the linked list
-   * @param {LinkedListNode} prev - default is null
-   * @param {LinkedListNode} current - default is head
+   * @param {LinkedListNode} [prev] - previous node
+   * @param {LinkedListNode} [current] - current node
    * @returns {boolean}
    */
   removeLast(prev = null, current = this._head) {
@@ -119,11 +125,10 @@ class LinkedList {
   }
 
   /**
+   * Removes all nodes based on a callback condition.
    * @public
-   * removes all nodes based on a callback condition
-   * @param {function} cb
+   * @param {function} cb - callback should return true for removed nodes.
    * @returns {number} count of removed nodes
-   * @throws {Error} if cb is not a function
    */
   removeEach(cb) {
     if (typeof cb !== 'function') {
@@ -152,15 +157,19 @@ class LinkedList {
   }
 
   /**
+   * Removes a node at a specific position.
    * @public
-   * removes a node in a specific position
    * @param {number} position
    * @returns {boolean}
    */
   removeAt(position) {
-    if (Number.isNaN(+position)
+    if (
+      Number.isNaN(+position)
       || position < 0
-      || position >= this._count) return false;
+      || position >= this._count
+    ) {
+      return false;
+    }
 
     if (position === 0) {
       return this.removeFirst();
@@ -179,29 +188,27 @@ class LinkedList {
   }
 
   /**
+   * Traverses the linked list from beginning to end.
    * @public
-   * traverse the linkedlist from beginning to end
    * @param {function} cb
-   * @param {LinkedListNode} current
-   * @throws {Error} if cb is not a function
+   * @param {LinkedListNode} [current] - starting node
    */
-  forEach(cb, current = this._head) {
+  forEach(cb, current = this._head, position = 0) {
     if (typeof cb !== 'function') {
       throw new Error('.forEach(cb) expects a callback');
     }
 
     if (current === null) return;
 
-    cb(current);
-    this.forEach(cb, current.getNext());
+    cb(current, position);
+    this.forEach(cb, current.getNext(), position + 1);
   }
 
   /**
+   * Finds one node in the linked list based on a callback condition.
    * @public
-   * finds a node in the linked list based on a callback condition
-   * @param {function} cb
+   * @param {function} cb - callback should return true for searched node.
    * @returns {LinkedListNode} current
-   * @throws {Error} if cb is not a function
    */
   find(cb, current = this._head) {
     if (typeof cb !== 'function') {
@@ -219,9 +226,9 @@ class LinkedList {
   }
 
   /**
+   * Filters the linked list based on a callback condition.
    * @public
-   * filters the linked list based on a callback condition
-   * @param {function} cb
+   * @param {function} cb - callback should return true for required nodes.
    * @returns {LinkedList}
    * @throws {Error} if cb is not a function
    */
@@ -241,6 +248,7 @@ class LinkedList {
   }
 
   /**
+   * Returns the head node.
    * @public
    * @returns {LinkedListNode}
    */
@@ -249,6 +257,7 @@ class LinkedList {
   }
 
   /**
+   * Returns the nodes count in the linked list.
    * @public
    * @returns {number}
    */
@@ -257,6 +266,7 @@ class LinkedList {
   }
 
   /**
+   * Converts the linked list into an array.
    * @public
    * @returns {array}
    */
@@ -267,6 +277,7 @@ class LinkedList {
   }
 
   /**
+   * Checks if the linked list is empty.
    * @public
    * @returns {boolean}
    */
@@ -275,8 +286,8 @@ class LinkedList {
   }
 
   /**
+   * Clears the linked list
    * @public
-   * clears the linked list
    */
   clear() {
     this._head = null;
