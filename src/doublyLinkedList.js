@@ -22,7 +22,7 @@ class DoublyLinkedList {
    * Adds a node at the beginning of the linked list.
    * @public
    * @param {any} value
-   * @returns {DoublyLinkedListNode} - this
+   * @returns {DoublyLinkedList} - reference to this
    */
   insertFirst(value) {
     const newNode = new DoublyLinkedListNode(value);
@@ -44,7 +44,7 @@ class DoublyLinkedList {
    * Adds a node at the end of the linked list.
    * @public
    * @param {any} value
-   * @returns {DoublyLinkedListNode} - this
+   * @returns {DoublyLinkedList} - reference to this
    */
   insertLast(value) {
     const newNode = new DoublyLinkedListNode(value);
@@ -65,7 +65,7 @@ class DoublyLinkedList {
    * @public
    * @param {number} position
    * @param {any} value
-   * @returns {DoublyLinkedListNode} - this
+   * @returns {DoublyLinkedList} - reference to this
    */
   insertAt(position, value) {
     if (
@@ -212,57 +212,66 @@ class DoublyLinkedList {
    * Traverses the list from beginning to end.
    * @public
    * @param {function} cb
-   * @param {DoublyLinkedListNode} [current]
    */
-  forEach(cb, current = this._head) {
+  forEach(cb) {
     if (typeof cb !== 'function') {
       throw new Error('.forEach(cb) expects a callback');
     }
 
-    if (current === null) return;
+    const forEachRecursive = (current, position = 0) => {
+      if (current === null) return;
 
-    cb(current);
-    this.forEach(cb, current.getNext());
+      cb(current, position);
+      forEachRecursive(current.getNext(), position + 1);
+    };
+
+    forEachRecursive(this._head);
   }
 
   /**
+   * Traverses the list backward from end to beginning
    * @public
-   * traverse the list from end to beginning
    * @param {function} cb
-   * @param {DoublyLinkedListNode} current
    */
-  forEachReverse(cb, current = this._tail) {
+  forEachReverse(cb) {
     if (typeof cb !== 'function') {
       throw new Error('.forEachReverse(cb) expects a callback');
     }
 
-    if (current === null) return;
+    const forEachReverseRecursive = (current, position = this._count - 1) => {
+      if (current === null) return;
 
-    cb(current);
-    this.forEachReverse(cb, current.getPrev());
+      cb(current, position);
+      forEachReverseRecursive(current.getPrev(), position - 1);
+    };
+
+    forEachReverseRecursive(this._tail);
   }
 
   /**
    * @public
    * finds a node in the linked list using on a callback
    * @param {function} cb
-   * @param {DoublyLinkedListNode} current
    * @returns {DoublyLinkedListNode}
    * @throws {Error} if cb is not a function
    */
-  find(cb, current = this._head) {
+  find(cb) {
     if (typeof cb !== 'function') {
       throw new Error('.find(cb) expects a callback');
     }
 
-    // did not find the node
-    if (current === null) return null;
+    const findRecursive = (current) => {
+      // did not find the node
+      if (current === null) return null;
 
-    // found the node
-    if (cb(current)) return current;
+      // found the node
+      if (cb(current)) return current;
 
-    // haven't found the node, check next
-    return this.find(cb, current.getNext());
+      // haven't found the node yet, check next
+      return findRecursive(current.getNext());
+    };
+
+    return findRecursive(this._head);
   }
 
   /**

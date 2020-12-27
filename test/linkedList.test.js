@@ -53,9 +53,14 @@ describe('linkedList tests', () => {
 
   describe('.forEach(cb)', () => {
     it('traverse the linked list', () => {
+      const positions = [];
       const values = [];
-      linkedList.forEach((node) => values.push(node.getValue()));
+      linkedList.forEach((node, position) => {
+        values.push(node.getValue());
+        positions.push(position);
+      });
       expect(values).to.deep.equal([2, 1, 5, 3, 4]);
+      expect(positions).to.deep.equal([0, 1, 2, 3, 4]);
     });
 
     it('throws an error if cb is not a function', () => {

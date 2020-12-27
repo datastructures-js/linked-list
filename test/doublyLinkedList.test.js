@@ -64,8 +64,13 @@ describe('doublyLinkedList tests', () => {
   describe('.forEach(cb)', () => {
     it('traverse the linked list', () => {
       const values = [];
-      doublyLinkedList.forEach((node) => values.push(node.getValue()));
+      const positions = [];
+      doublyLinkedList.forEach((node, position) => {
+        values.push(node.getValue());
+        positions.push(position);
+      });
       expect(values).to.deep.equal([2, 1, 5, 3, 4]);
+      expect(positions).to.deep.equal([0, 1, 2, 3, 4]);
     });
 
     it('throws an error if cb is not a function', () => {
@@ -77,8 +82,13 @@ describe('doublyLinkedList tests', () => {
   describe('.forEachReverse(cb)', () => {
     it('traverse the linked list', () => {
       const values = [];
-      doublyLinkedList.forEachReverse((node) => values.push(node.getValue()));
+      const positions = [];
+      doublyLinkedList.forEachReverse((node, position) => {
+        values.push(node.getValue());
+        positions.push(position);
+      });
       expect(values).to.deep.equal([4, 3, 5, 1, 2]);
+      expect(positions).to.deep.equal([4, 3, 2, 1, 0]);
     });
 
     it('throws an error if cb is not a function', () => {

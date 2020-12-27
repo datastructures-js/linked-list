@@ -36,20 +36,24 @@ class LinkedList {
    * @param {LinkedListNode} [current] - the starting node
    * @returns {boolean}
    */
-  insertLast(value, current = this._head) {
+  insertLast(value) {
     if (this.isEmpty()) {
       return this.insertFirst(value);
     }
 
-    // not the last node, move to next
-    if (current.getNext() instanceof LinkedListNode) {
-      return this.insertLast(value, current.getNext());
-    }
+    const insertLastRecursive = (current) => {
+      // not the last node, move to next
+      if (current.getNext() instanceof LinkedListNode) {
+        return insertLastRecursive(current.getNext());
+      }
 
-    // arrived to last node, add new node after
-    current.setNext(new LinkedListNode(value));
-    this._count += 1;
-    return current.getNext();
+      // arrived to last node, add new node
+      current.setNext(new LinkedListNode(value));
+      this._count += 1;
+      return current.getNext();
+    };
+
+    return insertLastRecursive(this._head);
   }
 
   /**
@@ -191,38 +195,44 @@ class LinkedList {
    * Traverses the linked list from beginning to end.
    * @public
    * @param {function} cb
-   * @param {LinkedListNode} [current] - starting node
    */
-  forEach(cb, current = this._head, position = 0) {
+  forEach(cb) {
     if (typeof cb !== 'function') {
       throw new Error('.forEach(cb) expects a callback');
     }
 
-    if (current === null) return;
+    const forEachRecursive = (current, position = 0) => {
+      if (current === null) return;
 
-    cb(current, position);
-    this.forEach(cb, current.getNext(), position + 1);
+      cb(current, position);
+      forEachRecursive(current.getNext(), position + 1);
+    };
+
+    forEachRecursive(this._head);
   }
 
   /**
    * Finds one node in the linked list based on a callback condition.
    * @public
-   * @param {function} cb - callback should return true for searched node.
-   * @returns {LinkedListNode} current
+   * @returns {LinkedListNode}
    */
-  find(cb, current = this._head) {
+  find(cb) {
     if (typeof cb !== 'function') {
       throw new Error('.find(cb) expects a callback');
     }
 
-    // did not find the node
-    if (current === null) return null;
+    const findRecursive = (current) => {
+      // did not find the node
+      if (current === null) return null;
 
-    // found the node
-    if (cb(current)) return current;
+      // found the node
+      if (cb(current)) return current;
 
-    // haven't found the node, check next
-    return this.find(cb, current.getNext());
+      // haven't found the node yet, check next
+      return findRecursive(current.getNext());
+    };
+
+    return findRecursive(this._head);
   }
 
   /**
@@ -230,15 +240,15 @@ class LinkedList {
    * @public
    * @param {function} cb - callback should return true for required nodes.
    * @returns {LinkedList}
-   * @throws {Error} if cb is not a function
    */
   filter(cb) {
     if (typeof cb !== 'function') {
       throw new Error('.filter(cb) expects a callback');
     }
 
-    const result = new LinkedList();
     let last = null;
+    const result = new LinkedList();
+
     this.forEach((node) => {
       if (!cb(node)) return;
       last = result.insertLast(node.getValue(), last);
