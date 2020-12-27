@@ -100,7 +100,6 @@ inserts a node at the beginning of the list.
   </tr>
 </table>
 
-#### Example
 ```js
 linkedList.insertFirst(1);
 const head1 = linkedList.insertFirst(2);
