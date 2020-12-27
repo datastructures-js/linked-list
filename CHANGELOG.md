@@ -10,6 +10,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Changed
 - `.insertAt(position, value)` position now comes first then value.
 - `.insert*` methods now returns a `this` reference so it can be chained.
+- `.forEach(cb)` callback now gets called with node and position (starting from 0);
+- `.forEachReverse(cb)` callback now gets called with node and position (starting from size -1);
 
 ### Fixed
 - jsdoc
