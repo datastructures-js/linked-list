@@ -56,12 +56,22 @@ npm install --save @datastructures-js/linked-list
 
 ## require
 ```js
-const { LinkedList, DoublyLinkedList } = require('@datastructures-js/linked-list');
+const {
+  LinkedListNode,
+  LinkedList,
+  DoublyLinkedListNode,
+  DoublyLinkedList,
+} = require('@datastructures-js/linked-list');
 ```
 
 ## import
 ```js
-import { LinkedList, DoublyLinkedList } from '@datastructures-js/linked-list';
+import {
+  LinkedListNode,
+  LinkedList,
+  DoublyLinkedListNode,
+  DoublyLinkedList
+} from '@datastructures-js/linked-list';
 ```
 
 ## API
@@ -80,7 +90,7 @@ inserts a node at the beginning of the list.
 <table>
   <tr><th align="center" colspan="2">params</th></tr>
   <tr><td><b>name</b></td><td><b>type</b></td></tr>
-  <tr><td>value</td><td>object</td></tr>
+  <tr><td>value</td><td>any</td></tr>
 </table>
 
 <table>
@@ -122,7 +132,7 @@ inserts a node at the end of the list.
 <table>
  <tr><th align="center" colspan="2">params</th></tr>
  <tr><td><b>name</b></td><td><b>type</b></td></tr>
- <tr><td>value</td><td>object</td></tr>
+ <tr><td>value</td><td>any</td></tr>
 </table>
 
 <table>
@@ -162,13 +172,13 @@ console.log(last2.getValue()); // 4
 console.log(last2.getPrev().getValue()); // 3
 ```
 
-### .insertAt(value, position)
+### .insertAt(position, value)
 inserts a node at specific position of the list. First (head) node is at position 0.
 
 <table>
   <tr><th align="center" colspan="2">params</th></tr>
  <tr><td><b>name</b></td><td><b>type</b></td></tr>
-  <tr><td>value</td><td>object</td></tr>
+  <tr><td>value</td><td>any</td></tr>
   <tr><td>position</td><td>number</td></tr>
 </table>
 
@@ -193,9 +203,9 @@ inserts a node at specific position of the list. First (head) node is at positio
 #### Example
 
 ```js
-const node1 = linkedList.insertAt(5, 2); // node1.getValue() = 5
+const node1 = linkedList.insertAt(2, 5).find(5); // node1.getValue() = 5
 
-const node2 = doublyLinkedList.insertAt(5, 2); // node2.getValue() = 5
+const node2 = doublyLinkedList.insertAt(2, 5).find(5); // node2.getValue() = 5
 ```
 
 ### .forEach(cb)
@@ -584,13 +594,32 @@ console.log(doublyLinkedList.tail()); // null
 
 ### LinkedListNode
 
+#### .setValue(value)
+sets the node's value.
+
+<table>
+  <tr><th align="center" colspan="2">params</th></tr>
+  <tr><td><b>name</b></td><td><b>type</b></td></tr>
+  <tr><td>value</td><td>any</td></tr>
+</table>
+
 #### .getValue()
 returns the node's value.
 
 <table>
  <tr><th>return</th></tr>
- <tr><td>object</td></tr>
+ <tr><td>any</td></tr>
 </table>
+
+#### .setNext(next)
+sets the node's next connected node.
+
+<table>
+  <tr><th align="center" colspan="2">params</th></tr>
+  <tr><td><b>name</b></td><td><b>type</b></td></tr>
+  <tr><td>next</td><td>LinkedListNode</td></tr>
+</table>
+
 
 #### .getNext()
 returns the next connected node or null if it's the last node.
@@ -602,12 +631,30 @@ returns the next connected node or null if it's the last node.
 
 ### DoublyLinkedListNode
 
+#### .setValue(value)
+sets the node's value.
+
+<table>
+  <tr><th align="center" colspan="2">params</th></tr>
+  <tr><td><b>name</b></td><td><b>type</b></td></tr>
+  <tr><td>value</td><td>any</td></tr>
+</table>
+
 #### .getValue()
 returns the node's value.
 
 <table>
  <tr><th>return</th></tr>
- <tr><td>object</td></tr>
+ <tr><td>any</td></tr>
+</table>
+
+#### .setPrev(prev)
+sets the node's previous connected node.
+
+<table>
+  <tr><th align="center" colspan="2">params</th></tr>
+  <tr><td><b>name</b></td><td><b>type</b></td></tr>
+  <tr><td>prev</td><td>DoublyLinkedListNode</td></tr>
 </table>
 
 #### .getPrev()
@@ -616,6 +663,15 @@ returns the previous connected node or null if it's the first node.
 <table>
  <tr><th>return</th></tr>
  <tr><td>DoublyLinkedListNode</td></tr>
+</table>
+
+#### .setNext(next)
+sets the node's next connected node.
+
+<table>
+  <tr><th align="center" colspan="2">params</th></tr>
+  <tr><td><b>name</b></td><td><b>type</b></td></tr>
+  <tr><td>next</td><td>DoublyLinkedListNode</td></tr>
 </table>
 
 #### .getNext()
