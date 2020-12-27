@@ -23,9 +23,9 @@ a javascript implementation of LinkedList & DoublyLinkedList.
 
 # Table of Contents
 * [Install](#install)
+* [require](#require)
+* [import](#import)
 * [API](#api)
-  * [require](#require)
-  * [import](#import)
   * [Construction](#construction)
   * [.insertFirst(value)](#insertfirstvalue)
   * [.insertLast(value)](#insertlastvalue)
@@ -46,29 +46,27 @@ a javascript implementation of LinkedList & DoublyLinkedList.
   * [.clear()](#clear)
   * [LinkedListNode](#linkedlistnode)
   * [DoublyLinkedListNode](#doublylinkedlistnode)
- * [Build](#build)
- * [License](#license)
+* [Build](#build)
+* [License](#license)
 
 ## install
 ```sh
 npm install --save @datastructures-js/linked-list
 ```
 
-## API
-
-### require
+## require
 ```js
 const { LinkedList, DoublyLinkedList } = require('@datastructures-js/linked-list');
 ```
 
-### import
+## import
 ```js
 import { LinkedList, DoublyLinkedList } from '@datastructures-js/linked-list';
 ```
 
-### Construction
+## API
 
-#### Example
+### Construction
 
 ```js
 const linkedList = new LinkedList();
