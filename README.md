@@ -546,14 +546,13 @@ doublyLinkedList.removeAt(1); // true
 Loop on the linked list from beginning to end, removes the nodes that returns true from the callback.
 
 <table>
-  <tr><th align="center" colspan="2">params</th></tr>
-  <tr><td><b>name</b></td><td><b>type</b></td></tr>
-  <tr><td>cb</td><td>function</td></tr>
+  <tr><th>params</th></tr>
+  <tr><td>cb: function</td></tr>
 </table>
 
 <table>
- <tr><th>return</th><th>description</th></tr>
- <tr><td>number</td><td>number of removed nodes</td></tr>
+ <tr><th>return</th></tr>
+ <tr><td>number: number of removed nodes</td></tr>
 </table>
 
 <table>
@@ -598,17 +597,16 @@ console.log(doublyLinkedList.tail()); // null
 sets the node's value.
 
 <table>
-  <tr><th align="center" colspan="2">params</th></tr>
-  <tr><td><b>name</b></td><td><b>type</b></td></tr>
-  <tr><td>value</td><td>any</td></tr>
+  <tr><th>params</th></tr>
+  <tr><td>value: any</td></tr>
 </table>
 
 #### .getValue()
 returns the node's value.
 
 <table>
- <tr><th>return</th></tr>
- <tr><td>any</td></tr>
+  <tr><th>return</th></tr>
+  <tr><td>any</td></tr>
 </table>
 
 #### .setNext(next)
@@ -616,8 +614,7 @@ sets the node's next connected node.
 
 <table>
   <tr><th align="center" colspan="2">params</th></tr>
-  <tr><td><b>name</b></td><td><b>type</b></td></tr>
-  <tr><td>next</td><td>LinkedListNode</td></tr>
+  <tr><td>next: LinkedListNode</td></tr>
 </table>
 
 
@@ -635,51 +632,48 @@ returns the next connected node or null if it's the last node.
 sets the node's value.
 
 <table>
-  <tr><th align="center" colspan="2">params</th></tr>
-  <tr><td><b>name</b></td><td><b>type</b></td></tr>
-  <tr><td>value</td><td>any</td></tr>
+  <tr><th>params</th></tr>
+  <tr><td>value: any</td></tr>
 </table>
 
 #### .getValue()
 returns the node's value.
 
 <table>
- <tr><th>return</th></tr>
- <tr><td>any</td></tr>
+  <tr><th>return</th></tr>
+  <tr><td>any</td></tr>
 </table>
 
 #### .setPrev(prev)
 sets the node's previous connected node.
 
 <table>
-  <tr><th align="center" colspan="2">params</th></tr>
-  <tr><td><b>name</b></td><td><b>type</b></td></tr>
-  <tr><td>prev</td><td>DoublyLinkedListNode</td></tr>
+  <tr><th>params</th></tr>
+  <tr><td>prev: DoublyLinkedListNode</td></tr>
 </table>
 
 #### .getPrev()
 returns the previous connected node or null if it's the first node.
 
 <table>
- <tr><th>return</th></tr>
- <tr><td>DoublyLinkedListNode</td></tr>
+  <tr><th>return</th></tr>
+  <tr><td>DoublyLinkedListNode</td></tr>
 </table>
 
 #### .setNext(next)
 sets the node's next connected node.
 
 <table>
-  <tr><th align="center" colspan="2">params</th></tr>
-  <tr><td><b>name</b></td><td><b>type</b></td></tr>
-  <tr><td>next</td><td>DoublyLinkedListNode</td></tr>
+  <tr><th>params</th></tr>
+  <tr><td>next: DoublyLinkedListNode</td></tr>
 </table>
 
 #### .getNext()
 returns the next connected node or null if it's the last node.
 
 <table>
- <tr><th>return</th></tr>
- <tr><td>DoublyLinkedListNode</td></tr>
+  <tr><th>return</th></tr>
+  <tr><td>DoublyLinkedListNode</td></tr>
 </table>
 
 ## Build
