@@ -6,6 +6,15 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [3.0.0] - 2020-12-27
+### Changed
+- `.insertAt(position, value)` position now comes first then value.
+- `.insert*` methods now returns a `this` reference so it can be chained.
+
+### Fixed
+- jsdoc
+- readme
+
 ## [2.0.3] - 2020-04-04
 ### Added
 `.isEmpty()` method for LinkedList & DoublyLinkedList.
