@@ -215,22 +215,22 @@ Loop on the linked list from beginning to end, and pass each node to the callbac
 #### Example
 
 ```js
-linkedList.forEach((node) => console.log(node.getValue()));
+linkedList.forEach((node, position) => console.log(node.getValue(), position));
 /*
-2
-1
-5
-3
-4
+2 0
+1 1
+5 2
+3 3
+4 4
 */
 
-doublyLinkedList.forEach((node) => console.log(node.getValue()));
+doublyLinkedList.forEach((node, position) => console.log(node.getValue(), position));
 /*
-2
-1
-5
-3
-4
+2 0
+1 1
+5 2
+3 3
+4 4
 */
 ```
 
@@ -251,13 +251,13 @@ Only in DoublyLinkedList. Loop on the doubly linked list from end to beginning, 
 #### Example
 
 ```js
-doublyLinkedList.forEachReverse((node) => console.log(node.getValue()));
+doublyLinkedList.forEachReverse((node, position) => console.log(node.getValue(), position));
 /*
-4
-3
-5
-1
-2
+4 4
+3 3
+5 2
+1 1
+2 0
 */
 ```
 
