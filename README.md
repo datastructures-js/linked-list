@@ -88,31 +88,8 @@ const doublyLinkedList = new DoublyLinkedList();
 inserts a node at the beginning of the list.
 
 <table>
-  <tr><th align="center" colspan="2">params</th></tr>
-  <tr><td><b>name</b></td><td><b>type</b></td></tr>
-  <tr><td>value</td><td>any</td></tr>
-</table>
-
-<table>
- <tr><th align="center" colspan="2">return</th><th>decsription</th></tr>
- <tr>
-  <td>LinkedList</td>
-  <td><a href="#linkedlistnode">LinkedListNode</a></td>
-  <td rowspan="2">the inserted node</td>
- </tr>
- <tr>
-  <td>DoublyLinkedList</td>
-  <td><a href="#doublylinkedlistnode">DoublyLinkedListNode</a></td>
- </tr>
-</table>
-
-<table>
- <tr>
-  <th>runtime</th>
- </tr>
- <tr>
-  <td>O(1)</td>
- </tr>
+  <tr><th>params</th><th>returns</th><th>runtime</th></tr>
+  <tr><td>value: any</td><td>LinkedList | DoublyLinkedList</td><td>O(1)</td></tr>
 </table>
 
 #### Example
