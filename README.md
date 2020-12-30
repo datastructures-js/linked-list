@@ -464,7 +464,7 @@ removes the last node in the list.
     <td align="center">
       boolean
     </td>
-    <td align="center">
+    <td>
       LinkedList: O(n)
       <br />
       DoublyLinkedList: O(1)
