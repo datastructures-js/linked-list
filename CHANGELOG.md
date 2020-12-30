@@ -6,7 +6,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
-## [3.0.0] - 2020-12-27
+## [3.0.0] - 2020-12-30
 ### Changed
 - `.insertAt(position, value)` position now comes first then value.
 - `.insert*` methods now returns a `this` reference so it can be chained.
