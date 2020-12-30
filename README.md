@@ -114,35 +114,21 @@ console.log(head2.getValue()); // 2
 inserts a node at the end of the list.
 
 <table>
- <tr><th align="center" colspan="2">params</th></tr>
- <tr><td><b>name</b></td><td><b>type</b></td></tr>
- <tr><td>value</td><td>any</td></tr>
+  <tr>
+    <th align="center">params</th>
+    <th align="center">returns</th>
+    <th align="center">runtime</th>
+  </tr>
+  <tr>
+    <td align="center">value: any</td>
+    <td align="center">LinkedList | DoublyLinkedList</td>
+    <td align="center">
+      LinkedList: O(n)
+      <br />
+      DoublyLinkedList: O(1)
+    </td>
+  </tr>
 </table>
-
-<table>
- <tr><th align="center" colspan="2">return</th><th>decsription</th></tr>
- <tr>
-  <td>LinkedList</td>
-  <td><a href="#linkedlistnode">LinkedListNode</a></td>
-  <td rowspan="2">the inserted node</td>
- </tr>
- <tr>
-  <td>DoublyLinkedList</td>
-  <td><a href="#doublylinkedlistnode">DoublyLinkedListNode</a></td>
- </tr>
-</table>
-
-<table>
- <tr><th align="center" colspan="2">runtime</th></tr>
- <tr>
-  <td>LinkedList</td><td>O(n)</td>
- </tr>
- <tr>
-  <td>DoublyLinkedList</td><td>O(1)</td>
- </tr>
-</table>
-
-#### Example
 
 ```js
 linkedList.insertLast(3);
@@ -160,31 +146,23 @@ console.log(last2.getPrev().getValue()); // 3
 inserts a node at specific position of the list. First (head) node is at position 0.
 
 <table>
-  <tr><th align="center" colspan="2">params</th></tr>
- <tr><td><b>name</b></td><td><b>type</b></td></tr>
-  <tr><td>value</td><td>any</td></tr>
-  <tr><td>position</td><td>number</td></tr>
+  <tr>
+    <th align="center">params</th>
+    <th align="center">returns</th>
+    <th align="center">runtime</th>
+  </tr>
+  <tr>
+    <td align="center">
+      position: number
+      <br />
+      value: any
+    </td>
+    <td align="center">LinkedList | DoublyLinkedList</td>
+    <td align="center">
+      O(n)
+    </td>
+  </tr>
 </table>
-
-<table>
- <tr><th align="center" colspan="2">return</th><th>description</th></tr>
- <tr>
-  <td>LinkedList</td>
-  <td><a href="#linkedlistnode">LinkedListNode</a></td>
-  <td rowspan="2">the inserted node</td>
- </tr>
- <tr>
-  <td>DoublyLinkedList</td>
-  <td><a href="#doublylinkedlistnode">DoublyLinkedListNode</a></td>
- </tr>
-</table>
-
-<table>
- <tr><th>runtime</th></tr>
- <tr><td>O(n)</td></tr>
-</table>
-
-#### Example
 
 ```js
 const node1 = linkedList.insertAt(2, 5).find(5); // node1.getValue() = 5
@@ -196,17 +174,21 @@ const node2 = doublyLinkedList.insertAt(2, 5).find(5); // node2.getValue() = 5
 Loop on the linked list from beginning to end, and pass each node to the callback.
 
 <table>
- <tr><th align="center" colspan="2">params</th></tr>
- <tr><td><b>name</b></td><td><b>type</b></td></tr>
-  <tr><td>cb</td><td>function</td></tr>
+  <tr>
+    <th align="center">params</th>
+    <th align="center">returns</th>
+    <th align="center">runtime</th>
+  </tr>
+  <tr>
+    <td align="center">
+      cb: function
+    </td>
+    <td align="center">-</td>
+    <td align="center">
+      O(n)
+    </td>
+  </tr>
 </table>
-
-<table>
- <tr><th>runtime</th></tr>
- <tr><td>O(n)</td></tr>
-</table>
-
-#### Example
 
 ```js
 linkedList.forEach((node, position) => console.log(node.getValue(), position));
