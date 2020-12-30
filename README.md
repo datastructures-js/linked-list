@@ -537,7 +537,7 @@ console.log(doublyLinkedList.toArray()); // [1]
 ```
 
 ### .clear()
-remove all nodes in the linked list.
+clears the linked list.
 
 <table>
   <tr>
