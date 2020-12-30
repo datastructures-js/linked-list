@@ -1,5 +1,4 @@
 const { expect } = require('chai');
-const LinkedListNode = require('../src/linkedListNode');
 const LinkedList = require('../src/linkedList');
 
 describe('linkedList tests', () => {
@@ -7,21 +6,21 @@ describe('linkedList tests', () => {
 
   describe('.insertFirst(value)', () => {
     it('insert a node at the beginning', () => {
-      expect(linkedList.insertFirst(1)).to.be.instanceof(LinkedListNode);
-      expect(linkedList.insertFirst(2)).to.be.instanceof(LinkedListNode);
+      expect(linkedList.insertFirst(1)).to.be.instanceof(LinkedList);
+      expect(linkedList.insertFirst(2)).to.be.instanceof(LinkedList);
     });
   });
 
   describe('.insertLast(value)', () => {
     it('insert a node to the end ', () => {
-      expect(linkedList.insertLast(3)).to.be.instanceof(LinkedListNode);
-      expect(linkedList.insertLast(4)).to.be.instanceof(LinkedListNode);
+      expect(linkedList.insertLast(3)).to.be.instanceof(LinkedList);
+      expect(linkedList.insertLast(4)).to.be.instanceof(LinkedList);
     });
   });
 
   describe('.insertAt(position, value)', () => {
     it('add a node at a specific position', () => {
-      expect(linkedList.insertAt(2, 5)).to.be.instanceof(LinkedListNode);
+      expect(linkedList.insertAt(2, 5)).to.be.instanceof(LinkedList);
     });
 
     it('throws an error position is not a valid number', () => {

@@ -26,7 +26,7 @@ class LinkedList {
   insertFirst(value) {
     this._head = new LinkedListNode(value, this._head);
     this._count += 1;
-    return this._head;
+    return this;
   }
 
   /**
@@ -50,7 +50,7 @@ class LinkedList {
       // arrived to last node, add new node
       current.setNext(new LinkedListNode(value));
       this._count += 1;
-      return current.getNext();
+      return this;
     };
 
     return insertLastRecursive(this._head);
@@ -86,7 +86,7 @@ class LinkedList {
     // add it at a position after the head, between prev & prev.getNext()
     prev.setNext(new LinkedListNode(value, prev.getNext()));
     this._count += 1;
-    return prev.getNext();
+    return this;
   }
 
   /**
