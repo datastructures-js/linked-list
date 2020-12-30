@@ -287,8 +287,8 @@ class DoublyLinkedList {
 
     const result = new DoublyLinkedList();
     let last = null;
-    this.forEach((node) => {
-      if (!cb(node)) return;
+    this.forEach((node, position) => {
+      if (!cb(node, position)) return;
       last = result.insertLast(node.getValue(), last);
     });
 
