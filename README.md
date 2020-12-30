@@ -520,7 +520,7 @@ Loop on the linked list from beginning to end, removes the nodes that returns tr
       cb: function
     </td>
     <td align="center">
-      number (number of removed nodes)
+      number <i>(number of removed nodes)</i>
     </td>
     <td align="center">
       O(n)
