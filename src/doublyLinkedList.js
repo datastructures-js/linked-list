@@ -183,11 +183,12 @@ class DoublyLinkedList {
     }
 
     let removed = 0;
+    let position = 0;
     let prev = null;
     let node = this._head;
 
     while (node !== null) {
-      if (cb(node)) {
+      if (cb(node, position)) {
         if (prev === null) {
           this.removeFirst();
         } else if (prev.getNext() === null) {
@@ -201,6 +202,7 @@ class DoublyLinkedList {
         }
         removed += 1;
       }
+      position += 1;
       prev = node;
       node = node.getNext();
     }

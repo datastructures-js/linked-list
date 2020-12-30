@@ -140,11 +140,12 @@ class LinkedList {
     }
 
     let removed = 0;
+    let position = 0;
     let prev = null;
     let current = this._head;
 
     while (current instanceof LinkedListNode) {
-      if (cb(current)) {
+      if (cb(current, position)) {
         if (prev === null) {
           this.removeFirst();
         } else {
@@ -153,6 +154,7 @@ class LinkedList {
         }
         removed += 1;
       }
+      position += 1;
       prev = current;
       current = current.getNext();
     }
