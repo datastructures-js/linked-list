@@ -152,7 +152,7 @@ inserts a node at specific position of the list. First (head) node is at positio
     <th align="center">runtime</th>
   </tr>
   <tr>
-    <td align="center">
+    <td>
       position: number
       <br />
       value: any
