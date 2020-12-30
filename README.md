@@ -388,7 +388,7 @@ returns the tail node of the doubly linked list.
   </tr>
   <tr>
     <td align="center">
-      LinkedListNode | DoublyLinkedListNode
+      DoublyLinkedListNode
     </td>
     <td align="center">
       O(1)
