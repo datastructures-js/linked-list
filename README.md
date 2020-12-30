@@ -122,7 +122,7 @@ inserts a node at the end of the list.
   <tr>
     <td align="center">value: any</td>
     <td align="center">LinkedList | DoublyLinkedList</td>
-    <td align="center">
+    <td>
       LinkedList: O(n)
       <br />
       DoublyLinkedList: O(1)
@@ -214,14 +214,20 @@ doublyLinkedList.forEach((node, position) => console.log(node.getValue(), positi
 Only in DoublyLinkedList. Loop on the doubly linked list from end to beginning, and pass each node to the callback.
 
 <table>
- <tr><th align="center" colspan="2">params</th></tr>
- <tr><td><b>name</b></td><td><b>type</b></td></tr>
- <tr><td>cb</td><td>function</td></tr>
-</table>
-
-<table>
- <tr><th>runtime</th></tr>
- <tr><td>O(n)</td></tr>
+  <tr>
+    <th align="center">params</th>
+    <th align="center">returns</th>
+    <th align="center">runtime</th>
+  </tr>
+  <tr>
+    <td align="center">
+      cb: function
+    </td>
+    <td align="center">-</td>
+    <td align="center">
+      O(n)
+    </td>
+  </tr>
 </table>
 
 #### Example
