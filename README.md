@@ -101,13 +101,9 @@ inserts a node at the beginning of the list.
 </table>
 
 ```js
-linkedList.insertFirst(1);
-const head1 = linkedList.insertFirst(2);
-console.log(head1.getValue()); // 2
+console.log(linkedList.insertFirst(2).head().getValue()); // 2
 
-doublyLinkedList.insertFirst(1);
-const head2 = doublyLinkedList.insertFirst(2);
-console.log(head2.getValue()); // 2
+console.log(linkedList.insertFirst(1).head().getValue()); // 1
 ```
 
 ### .insertLast(value)
@@ -132,12 +128,12 @@ inserts a node at the end of the list.
 
 ```js
 linkedList.insertLast(3);
-const last1 = linkedList.insertLast(4);
+const last1 = linkedList.insertLast(4).find(4);
 console.log(last1.getValue()); // 4
 console.log(last1.getNext()); // null
 
 doublyLinkedList.insertLast(3);
-const last2 = doublyLinkedList.insertLast(4);
+const last2 = doublyLinkedList.insertLast(4).find(4);
 console.log(last2.getValue()); // 4
 console.log(last2.getPrev().getValue()); // 3
 ```
@@ -293,7 +289,7 @@ returns a filtered linked list of all the nodes that returns true from the callb
 </table>
 
 ```js
-const filterLinkedList = linkedList.filter((node) => node.getValue() > 2);
+const filterLinkedList = linkedList.filter((node, position) => node.getValue() > 2);
 filterLinkedList.forEach((node) => console.log(node.getValue()));
 /*
 5
@@ -301,7 +297,7 @@ filterLinkedList.forEach((node) => console.log(node.getValue()));
 4
 */
 
-const filteredDoublyLinkedList = doublyLinkedList.filter((node) => node.getValue() > 2);
+const filteredDoublyLinkedList = doublyLinkedList.filter((node, position) => node.getValue() > 2);
 filteredDoublyLinkedList.forEach((node) => console.log(node.getValue()));
 /*
 5
