@@ -525,10 +525,10 @@ Loop on the linked list from beginning to end, removes the nodes that returns tr
 </table>
 
 ```js
-linkedList.removeEach((node) => node.getValue() > 1); // 1
+linkedList.removeEach((node, position) => node.getValue() > 1); // 1
 console.log(linkedList.toArray()); // [1]
 
-doublyLinkedList.removeEach((node) => node.getValue() > 1); // 1
+doublyLinkedList.removeEach((node, position) => node.getValue() > 1); // 1
 console.log(doublyLinkedList.toArray()); // [1]
 ```
 
