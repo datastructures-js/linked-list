@@ -1,5 +1,4 @@
 const { expect } = require('chai');
-const LinkedListNode = require('../src/linkedListNode');
 const LinkedList = require('../src/linkedList');
 
 describe('linkedList tests', () => {
@@ -7,25 +6,29 @@ describe('linkedList tests', () => {
 
   describe('.insertFirst(value)', () => {
     it('insert a node at the beginning', () => {
-      expect(linkedList.insertFirst(1)).to.be.instanceof(LinkedListNode);
-      expect(linkedList.insertFirst(2)).to.be.instanceof(LinkedListNode);
+      expect(linkedList.insertFirst(1)).to.be.instanceof(LinkedList);
+      expect(linkedList.insertFirst(2)).to.be.instanceof(LinkedList);
     });
   });
 
   describe('.insertLast(value)', () => {
     it('insert a node to the end ', () => {
-      expect(linkedList.insertLast(3)).to.be.instanceof(LinkedListNode);
-      expect(linkedList.insertLast(4)).to.be.instanceof(LinkedListNode);
+      expect(linkedList.insertLast(3)).to.be.instanceof(LinkedList);
+      expect(linkedList.insertLast(4)).to.be.instanceof(LinkedList);
     });
   });
 
-  describe('.insertAt(value, position)', () => {
+  describe('.insertAt(position, value)', () => {
     it('add a node at a specific position', () => {
-      expect(linkedList.insertAt(5, 2)).to.be.instanceof(LinkedListNode);
+      expect(linkedList.insertAt(2, 5)).to.be.instanceof(LinkedList);
     });
 
-    it('does not add a node when position is not a valid number', () => {
-      expect(linkedList.insertAt(5, -1)).to.equal(null);
+    it('throws an error position is not a valid number', () => {
+      expect(() => linkedList.insertAt(-1, 5)).to.throws(Error)
+        .and.to.have.property(
+          'message',
+          '.insertAt expects a position num <= linked list size'
+        );
     });
   });
 
@@ -49,9 +52,14 @@ describe('linkedList tests', () => {
 
   describe('.forEach(cb)', () => {
     it('traverse the linked list', () => {
+      const positions = [];
       const values = [];
-      linkedList.forEach((node) => values.push(node.getValue()));
+      linkedList.forEach((node, position) => {
+        values.push(node.getValue());
+        positions.push(position);
+      });
       expect(values).to.deep.equal([2, 1, 5, 3, 4]);
+      expect(positions).to.deep.equal([0, 1, 2, 3, 4]);
     });
 
     it('throws an error if cb is not a function', () => {

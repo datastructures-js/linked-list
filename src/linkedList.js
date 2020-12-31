@@ -1,65 +1,75 @@
 /**
- * datastructures-js/linked-list
- * @copyright 2020 Eyas Ranjous <eyas.ranjous@gmail.com>
  * @license MIT
+ * @copyright 2020 Eyas Ranjous <eyas.ranjous@gmail.com>
  */
 
 const LinkedListNode = require('./linkedListNode');
 
-/**
- * @class LinkedList
+/*
+ * @class
  */
 class LinkedList {
+  /**
+   * Creates a linked list.
+   */
   constructor() {
     this._head = null;
     this._count = 0;
   }
 
   /**
+   * Adds a node at the beginning of the linked list.
    * @public
-   * adds a node at the beginning of the linked list
-   * @param {object} value
+   * @param {any} value
    * @returns {boolean}
    */
   insertFirst(value) {
     this._head = new LinkedListNode(value, this._head);
     this._count += 1;
-    return this._head;
+    return this;
   }
 
   /**
+   * Adds a node at the end of the linked list.
    * @public
-   * adds a node at the end of the linked list
-   * @param {object} value
-   * @param {LinkedListNode} current - the starting node
+   * @param {any} value
+   * @param {LinkedListNode} [current] - the starting node
    * @returns {boolean}
    */
-  insertLast(value, current = this._head) {
+  insertLast(value) {
     if (this.isEmpty()) {
       return this.insertFirst(value);
     }
 
-    // not the last node, move to next
-    if (current.getNext() instanceof LinkedListNode) {
-      return this.insertLast(value, current.getNext());
-    }
+    const insertLastRecursive = (current) => {
+      // not the last node, move to next
+      if (current.getNext() instanceof LinkedListNode) {
+        return insertLastRecursive(current.getNext());
+      }
 
-    // arrived to last node, add new node after
-    current.setNext(new LinkedListNode(value));
-    this._count += 1;
-    return current.getNext();
+      // arrived to last node, add new node
+      current.setNext(new LinkedListNode(value));
+      this._count += 1;
+      return this;
+    };
+
+    return insertLastRecursive(this._head);
   }
 
   /**
+   * Adds a node at a specific position.
    * @public
-   * adds a node at a specific position
-   * @param {object} value
    * @param {number} position
+   * @param {any} value
    * @returns {boolean}
    */
-  insertAt(value, position = 0) {
-    if (Number.isNaN(+position)
-      || position < 0 || position > this._count) return null;
+  insertAt(position, value) {
+    if (
+      Number.isNaN(+position)
+      || position < 0 || position > this._count
+    ) {
+      throw new Error('.insertAt expects a position num <= linked list size');
+    }
 
     // head node is at position 0
     if (position === 0) {
@@ -76,12 +86,12 @@ class LinkedList {
     // add it at a position after the head, between prev & prev.getNext()
     prev.setNext(new LinkedListNode(value, prev.getNext()));
     this._count += 1;
-    return prev.getNext();
+    return this;
   }
 
   /**
+   * Removes the head node.
    * @public
-   * removes the head node
    * @returns {boolean}
    */
   removeFirst() {
@@ -93,10 +103,10 @@ class LinkedList {
   }
 
   /**
+   * Removes last node in the linked list.
    * @public
-   * removes last node in the linked list
-   * @param {LinkedListNode} prev - default is null
-   * @param {LinkedListNode} current - default is head
+   * @param {LinkedListNode} [prev] - previous node
+   * @param {LinkedListNode} [current] - current node
    * @returns {boolean}
    */
   removeLast(prev = null, current = this._head) {
@@ -119,11 +129,10 @@ class LinkedList {
   }
 
   /**
+   * Removes all nodes based on a callback condition.
    * @public
-   * removes all nodes based on a callback condition
-   * @param {function} cb
+   * @param {function} cb - callback should return true for removed nodes.
    * @returns {number} count of removed nodes
-   * @throws {Error} if cb is not a function
    */
   removeEach(cb) {
     if (typeof cb !== 'function') {
@@ -131,11 +140,12 @@ class LinkedList {
     }
 
     let removed = 0;
+    let position = 0;
     let prev = null;
     let current = this._head;
 
     while (current instanceof LinkedListNode) {
-      if (cb(current)) {
+      if (cb(current, position)) {
         if (prev === null) {
           this.removeFirst();
         } else {
@@ -144,6 +154,7 @@ class LinkedList {
         }
         removed += 1;
       }
+      position += 1;
       prev = current;
       current = current.getNext();
     }
@@ -152,15 +163,19 @@ class LinkedList {
   }
 
   /**
+   * Removes a node at a specific position.
    * @public
-   * removes a node in a specific position
    * @param {number} position
    * @returns {boolean}
    */
   removeAt(position) {
-    if (Number.isNaN(+position)
+    if (
+      Number.isNaN(+position)
       || position < 0
-      || position >= this._count) return false;
+      || position >= this._count
+    ) {
+      return false;
+    }
 
     if (position === 0) {
       return this.removeFirst();
@@ -179,61 +194,65 @@ class LinkedList {
   }
 
   /**
+   * Traverses the linked list from beginning to end.
    * @public
-   * traverse the linkedlist from beginning to end
    * @param {function} cb
-   * @param {LinkedListNode} current
-   * @throws {Error} if cb is not a function
    */
-  forEach(cb, current = this._head) {
+  forEach(cb) {
     if (typeof cb !== 'function') {
       throw new Error('.forEach(cb) expects a callback');
     }
 
-    if (current === null) return;
+    const forEachRecursive = (current, position = 0) => {
+      if (current === null) return;
 
-    cb(current);
-    this.forEach(cb, current.getNext());
+      cb(current, position);
+      forEachRecursive(current.getNext(), position + 1);
+    };
+
+    forEachRecursive(this._head);
   }
 
   /**
+   * Finds one node in the linked list based on a callback condition.
    * @public
-   * finds a node in the linked list based on a callback condition
-   * @param {function} cb
-   * @returns {LinkedListNode} current
-   * @throws {Error} if cb is not a function
+   * @returns {LinkedListNode}
    */
-  find(cb, current = this._head) {
+  find(cb) {
     if (typeof cb !== 'function') {
       throw new Error('.find(cb) expects a callback');
     }
 
-    // did not find the node
-    if (current === null) return null;
+    const findRecursive = (current) => {
+      // did not find the node
+      if (current === null) return null;
 
-    // found the node
-    if (cb(current)) return current;
+      // found the node
+      if (cb(current)) return current;
 
-    // haven't found the node, check next
-    return this.find(cb, current.getNext());
+      // haven't found the node yet, check next
+      return findRecursive(current.getNext());
+    };
+
+    return findRecursive(this._head);
   }
 
   /**
+   * Filters the linked list based on a callback condition.
    * @public
-   * filters the linked list based on a callback condition
-   * @param {function} cb
+   * @param {function} cb - callback should return true for required nodes.
    * @returns {LinkedList}
-   * @throws {Error} if cb is not a function
    */
   filter(cb) {
     if (typeof cb !== 'function') {
       throw new Error('.filter(cb) expects a callback');
     }
 
-    const result = new LinkedList();
     let last = null;
-    this.forEach((node) => {
-      if (!cb(node)) return;
+    const result = new LinkedList();
+
+    this.forEach((node, position) => {
+      if (!cb(node, position)) return;
       last = result.insertLast(node.getValue(), last);
     });
 
@@ -241,6 +260,7 @@ class LinkedList {
   }
 
   /**
+   * Returns the head node.
    * @public
    * @returns {LinkedListNode}
    */
@@ -249,6 +269,7 @@ class LinkedList {
   }
 
   /**
+   * Returns the nodes count in the linked list.
    * @public
    * @returns {number}
    */
@@ -257,6 +278,7 @@ class LinkedList {
   }
 
   /**
+   * Converts the linked list into an array.
    * @public
    * @returns {array}
    */
@@ -267,6 +289,7 @@ class LinkedList {
   }
 
   /**
+   * Checks if the linked list is empty.
    * @public
    * @returns {boolean}
    */
@@ -275,8 +298,8 @@ class LinkedList {
   }
 
   /**
+   * Clears the linked list
    * @public
-   * clears the linked list
    */
   clear() {
     this._head = null;

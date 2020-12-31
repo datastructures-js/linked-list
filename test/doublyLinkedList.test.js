@@ -1,5 +1,4 @@
 const { expect } = require('chai');
-const DoublyLinkedListNode = require('../src/doublyLinkedListNode');
 const DoublyLinkedList = require('../src/doublyLinkedList');
 
 describe('doublyLinkedList tests', () => {
@@ -8,29 +7,33 @@ describe('doublyLinkedList tests', () => {
   describe('.insertFirst(value)', () => {
     it('add a node at the beginning of the list', () => {
       expect(doublyLinkedList.insertFirst(1))
-        .to.be.instanceof(DoublyLinkedListNode);
+        .to.be.instanceof(DoublyLinkedList);
       expect(doublyLinkedList.insertFirst(2))
-        .to.be.instanceof(DoublyLinkedListNode);
+        .to.be.instanceof(DoublyLinkedList);
     });
   });
 
   describe('.insertLast(value)', () => {
     it('add a node to the end of the list', () => {
       expect(doublyLinkedList.insertLast(3))
-        .to.be.instanceof(DoublyLinkedListNode);
+        .to.be.instanceof(DoublyLinkedList);
       expect(doublyLinkedList.insertLast(4))
-        .to.be.instanceof(DoublyLinkedListNode);
+        .to.be.instanceof(DoublyLinkedList);
     });
   });
 
-  describe('.insertAt(value, position)', () => {
+  describe('.insertAt(position, value)', () => {
     it('add a node at a specific position', () => {
-      expect(doublyLinkedList.insertAt(5, 2))
-        .to.be.instanceof(DoublyLinkedListNode);
+      expect(doublyLinkedList.insertAt(2, 5))
+        .to.be.instanceof(DoublyLinkedList);
     });
 
-    it('does not add a node when position is not a valid number', () => {
-      expect(doublyLinkedList.insertAt(5, -1)).to.equal(null);
+    it('throws error position is not a valid number', () => {
+      expect(() => doublyLinkedList.insertAt(-1, 5)).to.throws(Error)
+        .and.to.have.property(
+          'message',
+          '.insertAt expects a position num <= linked list size'
+        );
     });
   });
 
@@ -61,8 +64,13 @@ describe('doublyLinkedList tests', () => {
   describe('.forEach(cb)', () => {
     it('traverse the linked list', () => {
       const values = [];
-      doublyLinkedList.forEach((node) => values.push(node.getValue()));
+      const positions = [];
+      doublyLinkedList.forEach((node, position) => {
+        values.push(node.getValue());
+        positions.push(position);
+      });
       expect(values).to.deep.equal([2, 1, 5, 3, 4]);
+      expect(positions).to.deep.equal([0, 1, 2, 3, 4]);
     });
 
     it('throws an error if cb is not a function', () => {
@@ -74,8 +82,13 @@ describe('doublyLinkedList tests', () => {
   describe('.forEachReverse(cb)', () => {
     it('traverse the linked list', () => {
       const values = [];
-      doublyLinkedList.forEachReverse((node) => values.push(node.getValue()));
+      const positions = [];
+      doublyLinkedList.forEachReverse((node, position) => {
+        values.push(node.getValue());
+        positions.push(position);
+      });
       expect(values).to.deep.equal([4, 3, 5, 1, 2]);
+      expect(positions).to.deep.equal([4, 3, 2, 1, 0]);
     });
 
     it('throws an error if cb is not a function', () => {

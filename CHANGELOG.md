@@ -6,6 +6,18 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [3.0.0] - 2020-12-30
+### Changed
+- `.insertAt(position, value)` position now comes first then value.
+- `.insert*` methods now returns a `this` reference so it can be chained.
+- `.forEach(cb)` callback now gets called with node and position (starting from 0);
+- `.forEachReverse(cb)` callback now gets called with node and position (starting from size -1);
+- `LinkedListNode` & `DoublyLinkedListNode` classes are now exported in index.
+
+### Fixed
+- jsdoc
+- readme
+
 ## [2.0.3] - 2020-04-04
 ### Added
 `.isEmpty()` method for LinkedList & DoublyLinkedList.
