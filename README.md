@@ -29,7 +29,7 @@ a javascript implementation of LinkedList & DoublyLinkedList.
   * [Construction](#construction)
   * [.insertFirst(value)](#insertfirstvalue)
   * [.insertLast(value)](#insertlastvalue)
-  * [.insertAt(value, position)](#insertatvalue-position)
+  * [.insertAt(position, value)](#insertatposition-value)
   * [.forEach(cb)](#foreachcb)
   * [.forEachReverse(cb)](#foreachreversecb)
   * [.find(cb)](#findcb)
