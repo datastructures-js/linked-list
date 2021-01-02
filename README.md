@@ -559,6 +559,19 @@ console.log(doublyLinkedList.tail()); // null
 
 ### LinkedListNode
 
+#### new LinkedListNode(value, next)
+
+<table>
+  <tr><th>params</th></tr>
+  <tr>
+    <td>
+      value: any
+      <br />
+      next: LinkedListNode
+    </td>
+  </tr>
+</table>
+
 #### .setValue(value)
 sets the node's value.
 
@@ -593,6 +606,21 @@ returns the next connected node or null if it's the last node.
 </table>
 
 ### DoublyLinkedListNode
+
+#### new DoublyLinkedListNode(value, prev, next)
+
+<table>
+  <tr><th>params</th></tr>
+  <tr>
+    <td>
+      value: any
+      <br />
+      next: DoublyLinkedListNode
+      <br />
+      prev: DoublyLinkedListNode
+    </td>
+  </tr>
+</table>
 
 #### .setValue(value)
 sets the node's value.
