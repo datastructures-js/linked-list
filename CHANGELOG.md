@@ -6,6 +6,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [3.0.1] - 2021-01-02
+
+### Fixed
+- readme
+
 ## [3.0.0] - 2020-12-30
 ### Changed
 - `.insertAt(position, value)` position now comes first then value.
