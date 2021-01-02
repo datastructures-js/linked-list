@@ -57,20 +57,28 @@ npm install --save @datastructures-js/linked-list
 ## require
 ```js
 const {
-  LinkedListNode,
   LinkedList,
-  DoublyLinkedListNode,
   DoublyLinkedList,
+} = require('@datastructures-js/linked-list');
+
+// list node classes are also exported
+const {
+  LinkedListNode,
+  DoublyLinkedListNode
 } = require('@datastructures-js/linked-list');
 ```
 
 ## import
 ```js
 import {
-  LinkedListNode,
   LinkedList,
-  DoublyLinkedListNode,
   DoublyLinkedList
+} from '@datastructures-js/linked-list';
+
+// list node classes are also exported
+import {
+  LinkedListNode,
+  DoublyLinkedListNode
 } from '@datastructures-js/linked-list';
 ```
 
@@ -559,6 +567,19 @@ console.log(doublyLinkedList.tail()); // null
 
 ### LinkedListNode
 
+#### new LinkedListNode(value, next)
+
+<table>
+  <tr><th>params</th></tr>
+  <tr>
+    <td>
+      value: any
+      <br />
+      next: LinkedListNode
+    </td>
+  </tr>
+</table>
+
 #### .setValue(value)
 sets the node's value.
 
@@ -593,6 +614,21 @@ returns the next connected node or null if it's the last node.
 </table>
 
 ### DoublyLinkedListNode
+
+#### new DoublyLinkedListNode(value, prev, next)
+
+<table>
+  <tr><th>params</th></tr>
+  <tr>
+    <td>
+      value: any
+      <br />
+      prev: DoublyLinkedListNode
+      <br />
+      next: DoublyLinkedListNode
+    </td>
+  </tr>
+</table>
 
 #### .setValue(value)
 sets the node's value.
