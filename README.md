@@ -615,9 +615,9 @@ returns the next connected node or null if it's the last node.
     <td>
       value: any
       <br />
-      next: DoublyLinkedListNode
-      <br />
       prev: DoublyLinkedListNode
+      <br />
+      next: DoublyLinkedListNode
     </td>
   </tr>
 </table>
