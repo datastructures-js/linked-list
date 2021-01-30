@@ -139,6 +139,13 @@ describe('doublyLinkedList tests', () => {
       expect(doublyLinkedList.count()).to.equal(4);
       expect(doublyLinkedList.head().getValue()).to.equal(1);
     });
+
+    it('remove first node with a single node list', () => {
+      const d = new DoublyLinkedList();
+      d.insertFirst('test');
+      expect(d.removeFirst()).to.equal(true);
+      expect(d.isEmpty()).to.equal(true);
+    });
   });
 
   describe('.removeLast()', () => {

@@ -107,10 +107,15 @@ class DoublyLinkedList {
   removeFirst() {
     if (this._head === null) return false;
 
-    this._head = this._head.getNext();
-    this._head.setPrev(null);
-    this._count -= 1;
+    if (this._head.getNext() === null) {
+      this._head = null;
+      this._tail = null;
+    } else {
+      this._head = this._head.getNext();
+      this._head.setPrev(null);
+    }
 
+    this._count -= 1;
     return true;
   }
 
@@ -125,12 +130,11 @@ class DoublyLinkedList {
     if (this._head.getNext() === null) {
       this._head = null;
       this._tail = null;
-      this._count -= 1;
-      return true;
+    } else {
+      this._tail = this._tail.getPrev();
+      this._tail.setNext(null);
     }
 
-    this._tail = this._tail.getPrev();
-    this._tail.setNext(null);
     this._count -= 1;
     return true;
   }
