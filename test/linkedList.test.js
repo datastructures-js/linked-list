@@ -103,7 +103,8 @@ describe('linkedList tests', () => {
 
   describe('.removeFirst()', () => {
     it('remove the first node', () => {
-      expect(linkedList.removeFirst()).to.equal(true);
+      const removed = linkedList.removeFirst();
+      expect(removed.getValue()).to.equal(2);
       expect(linkedList.count()).to.equal(4);
       expect(linkedList.head().getValue()).to.equal(1);
     });
@@ -111,7 +112,8 @@ describe('linkedList tests', () => {
 
   describe('.removeLast()', () => {
     it('remove the last node', () => {
-      expect(linkedList.removeLast()).to.equal(true);
+      const removed = linkedList.removeLast();
+      expect(removed.getValue()).to.equal(4);
       expect(linkedList.count()).to.equal(3);
       expect(linkedList.find((n) => n.getValue() === 4)).to.equal(null);
     });
@@ -119,21 +121,23 @@ describe('linkedList tests', () => {
 
   describe('.removeAt(position)', () => {
     it('remove a node', () => {
-      expect(linkedList.removeAt(1)).to.equal(true); // remove 5
+      const removed = linkedList.removeAt(1);
+      expect(removed.getValue()).to.equal(5);
       expect(linkedList.count()).to.equal(2);
       expect(linkedList.find((n) => n.getValue() === 5)).to.equal(null);
     });
 
     it('does nothing if position is not valid', () => {
-      expect(linkedList.removeAt('test')).to.equal(false);
-      expect(linkedList.removeAt(-1)).to.equal(false);
-      expect(linkedList.removeAt(2)).to.equal(false);
+      expect(linkedList.removeAt('test')).to.equal(null);
+      expect(linkedList.removeAt(-1)).to.equal(null);
+      expect(linkedList.removeAt(2)).to.equal(null);
     });
   });
 
   describe('.removeEach(cb)', () => {
     it('remove nodes based on a callback', () => {
-      expect(linkedList.removeEach((n) => n.getValue() > 1)).to.equal(1);
+      const removed = linkedList.removeEach((n) => n.getValue() > 1);
+      expect(removed.map((r) => r.getValue())).to.deep.equal([3]);
       expect(linkedList.count()).to.equal(1);
       expect(linkedList.find((n) => n.getValue() === 5)).to.equal(null);
     });

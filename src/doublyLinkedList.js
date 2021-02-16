@@ -102,11 +102,12 @@ class DoublyLinkedList {
   /**
    * Removes the head node.
    * @public
-   * @returns {boolean}
+   * @returns {DoublyLinkedListNode|null}
    */
   removeFirst() {
-    if (this._head === null) return false;
+    if (this._head === null) return null;
 
+    const removed = this._head;
     if (this._head.getNext() === null) {
       this._head = null;
       this._tail = null;
@@ -116,17 +117,18 @@ class DoublyLinkedList {
     }
 
     this._count -= 1;
-    return true;
+    return removed.setNext(null).setPrev(null);
   }
 
   /**
    * Removes the tail node.
    * @public
-   * @returns {boolean}
+   * @returns {DoublyLinkedListNode|null}
    */
   removeLast() {
-    if (this._head === null) return false;
+    if (this._head === null) return null;
 
+    const removed = this._tail;
     if (this._head.getNext() === null) {
       this._head = null;
       this._tail = null;
@@ -136,14 +138,14 @@ class DoublyLinkedList {
     }
 
     this._count -= 1;
-    return true;
+    return removed.setNext(null).setPrev(null);
   }
 
   /**
    * Removes a node in a specific position.
    * @public
    * @param {number} position
-   * @returns {boolean}
+   * @returns {DoublyLinkedListNode|null}
    */
   removeAt(position) {
     if (
@@ -151,7 +153,7 @@ class DoublyLinkedList {
       || position < 0
       || position >= this._count
     ) {
-      return false;
+      return null;
     }
 
     if (position === 0) {
@@ -169,24 +171,26 @@ class DoublyLinkedList {
       prev = prev.getNext();
     }
 
+    const removed = prev.getNext();
     prev.setNext(prev.getNext().getNext());
     prev.getNext().setPrev(prev);
     this._count -= 1;
-    return true;
+
+    return removed.setNext(null).setPrev(null);
   }
 
   /**
    * Removes all nodes based on a callback.
    * @public
    * @param {function} cb
-   * @returns {number} count of removed nodes
+   * @returns {array} count of removed nodes
    */
   removeEach(cb) {
     if (typeof cb !== 'function') {
       throw new Error('.removeEach(cb) expects a callback');
     }
 
-    let removed = 0;
+    const removed = [];
     let position = 0;
     let prev = null;
     let node = this._head;
@@ -194,17 +198,18 @@ class DoublyLinkedList {
     while (node !== null) {
       if (cb(node, position)) {
         if (prev === null) {
-          this.removeFirst();
+          removed.push(this.removeFirst());
         } else if (prev.getNext() === null) {
-          this.removeLast();
+          removed.push(this.removeLast());
         } else {
+          const removedNode = prev.getNext();
           prev.setNext(prev.getNext().getNext());
           if (prev.getNext() !== null) {
             prev.getNext().setPrev(prev);
           }
+          removed.push(removedNode.setNext(null).setPrev(null));
           this._count -= 1;
         }
-        removed += 1;
       }
       position += 1;
       prev = node;
