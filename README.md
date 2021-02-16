@@ -505,9 +505,9 @@ removes and returns the node at a specific position. First (head) node is at pos
 </table>
 
 ```js
-linkedList.removeAt(1); // true
+linkedList.removeAt(1);
 
-doublyLinkedList.removeAt(1); // true
+doublyLinkedList.removeAt(1);
 ```
 
 ### .removeEach(cb)
@@ -533,10 +533,10 @@ Loop on the linked list from beginning to end, removes the nodes that returns a 
 </table>
 
 ```js
-linkedList.removeEach((node, position) => node.getValue() > 1); // 1
+linkedList.removeEach((node, position) => node.getValue() > 1);
 console.log(linkedList.toArray()); // [1]
 
-doublyLinkedList.removeEach((node, position) => node.getValue() > 1); // 1
+doublyLinkedList.removeEach((node, position) => node.getValue() > 1);
 console.log(doublyLinkedList.toArray()); // [1]
 ```
 
