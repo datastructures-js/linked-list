@@ -6,6 +6,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [4.0.0] - 2021-02-16
+
+### Changed
+- `.removeFirst()`, `.removeLast()`, `.removeAt`, `.removeEach` now return the removed nodes.
+
+
 ## [3.0.3] - 2021-01-30
 
 ### Fixed

@@ -135,7 +135,8 @@ describe('doublyLinkedList tests', () => {
 
   describe('.removeFirst()', () => {
     it('remove the first node', () => {
-      expect(doublyLinkedList.removeFirst()).to.equal(true);
+      const removed = doublyLinkedList.removeFirst();
+      expect(removed.getValue()).to.equal(2);
       expect(doublyLinkedList.count()).to.equal(4);
       expect(doublyLinkedList.head().getValue()).to.equal(1);
     });
@@ -143,14 +144,15 @@ describe('doublyLinkedList tests', () => {
     it('remove first node with a single node list', () => {
       const d = new DoublyLinkedList();
       d.insertFirst('test');
-      expect(d.removeFirst()).to.equal(true);
+      expect(d.removeFirst().getValue()).to.equal('test');
       expect(d.isEmpty()).to.equal(true);
     });
   });
 
   describe('.removeLast()', () => {
     it('remove the last node', () => {
-      expect(doublyLinkedList.removeLast()).to.equal(true);
+      const removed = doublyLinkedList.removeLast();
+      expect(removed.getValue()).to.equal(4);
       expect(doublyLinkedList.count()).to.equal(3);
       expect(doublyLinkedList.find((n) => n.getValue() === 4)).to.equal(null);
     });
@@ -158,21 +160,23 @@ describe('doublyLinkedList tests', () => {
 
   describe('.removeAt(position)', () => {
     it('remove a node', () => {
-      expect(doublyLinkedList.removeAt(1)).to.equal(true); // remove 5
+      const removed = doublyLinkedList.removeAt(1);
+      expect(removed.getValue()).to.equal(5);
       expect(doublyLinkedList.count()).to.equal(2);
       expect(doublyLinkedList.find((n) => n.getValue() === 5)).to.equal(null);
     });
 
     it('does nothing if position is not valid', () => {
-      expect(doublyLinkedList.removeAt('test')).to.equal(false);
-      expect(doublyLinkedList.removeAt(-1)).to.equal(false);
-      expect(doublyLinkedList.removeAt(2)).to.equal(false);
+      expect(doublyLinkedList.removeAt('test')).to.equal(null);
+      expect(doublyLinkedList.removeAt(-1)).to.equal(null);
+      expect(doublyLinkedList.removeAt(2)).to.equal(null);
     });
   });
 
   describe('.removeEach(cb)', () => {
     it('remove nodes based on a callback', () => {
-      expect(doublyLinkedList.removeEach((n) => n.getValue() > 1)).to.equal(1);
+      const removed = doublyLinkedList.removeEach((n) => n.getValue() > 1);
+      expect(removed.map((r) => r.getValue())).to.deep.equal([3]);
       expect(doublyLinkedList.count()).to.equal(1);
       expect(doublyLinkedList.find((n) => n.getValue() === 5)).to.equal(null);
     });

@@ -442,7 +442,7 @@ removes the first node in the list.
   </tr>
   <tr>
     <td align="center">
-      boolean
+      LinkedListNode | DoublyLinkedListNode
     </td>
     <td align="center">
       O(1)
@@ -451,13 +451,13 @@ removes the first node in the list.
 </table>
 
 ```js
-linkedList.removeFirst(); // true
+linkedList.removeFirst();
 
-doublyLinkedList.removeFirst(); // true
+doublyLinkedList.removeFirst();
 ```
 
 ### .removeLast()
-removes the last node in the list.
+removes and returns the last node in the list.
 
 <table>
   <tr>
@@ -466,7 +466,7 @@ removes the last node in the list.
   </tr>
   <tr>
     <td align="center">
-      boolean
+      LinkedListNode | DoublyLinkedListNode
     </td>
     <td>
       LinkedList: O(n)
@@ -477,13 +477,13 @@ removes the last node in the list.
 </table>
 
 ```js
-linkedList.removeLast(); // true
+linkedList.removeLast();
 
-doublyLinkedList.removeLast(); // true
+doublyLinkedList.removeLast();
 ```
 
 ### .removeAt(position)
-removes a node at a specific position. First (head) node is at position 0.
+removes and returns the node at a specific position. First (head) node is at position 0.
 
 <table>
   <tr>
@@ -496,7 +496,7 @@ removes a node at a specific position. First (head) node is at position 0.
       position: number
     </td>
     <td align="center">
-      boolean
+      LinkedListNode | DoublyLinkedListNode
     </td>
     <td align="center">
       O(1)
@@ -505,13 +505,13 @@ removes a node at a specific position. First (head) node is at position 0.
 </table>
 
 ```js
-linkedList.removeAt(1); // true
+linkedList.removeAt(1);
 
-doublyLinkedList.removeAt(1); // true
+doublyLinkedList.removeAt(1);
 ```
 
 ### .removeEach(cb)
-Loop on the linked list from beginning to end, removes the nodes that returns true from the callback.
+Loop on the linked list from beginning to end, removes the nodes that returns a list of the removed nodes.
 
 <table>
   <tr>
@@ -524,7 +524,7 @@ Loop on the linked list from beginning to end, removes the nodes that returns tr
       cb: function
     </td>
     <td align="center">
-      number <i>(number of removed nodes)</i>
+      array&lt;LinkedListNode | DoublyLinkedListNode&gt;
     </td>
     <td align="center">
       O(n)
@@ -533,10 +533,10 @@ Loop on the linked list from beginning to end, removes the nodes that returns tr
 </table>
 
 ```js
-linkedList.removeEach((node, position) => node.getValue() > 1); // 1
+linkedList.removeEach((node, position) => node.getValue() > 1);
 console.log(linkedList.toArray()); // [1]
 
-doublyLinkedList.removeEach((node, position) => node.getValue() > 1); // 1
+doublyLinkedList.removeEach((node, position) => node.getValue() > 1);
 console.log(doublyLinkedList.toArray()); // [1]
 ```
 
