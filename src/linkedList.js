@@ -21,20 +21,19 @@ class LinkedList {
    * Adds a node at the beginning of the linked list.
    * @public
    * @param {any} value
-   * @returns {boolean}
+   * @returns {LinkedListNode}
    */
   insertFirst(value) {
     this._head = new LinkedListNode(value, this._head);
     this._count += 1;
-    return this;
+    return this._head;
   }
 
   /**
    * Adds a node at the end of the linked list.
    * @public
    * @param {any} value
-   * @param {LinkedListNode} [current] - the starting node
-   * @returns {boolean}
+   * @returns {LinkedListNode}
    */
   insertLast(value) {
     if (this.isEmpty()) {
@@ -42,13 +41,13 @@ class LinkedList {
     }
 
     let current = this._head;
-    while (current.getNext() instanceof LinkedListNode) {
+    while (current.getNext()) {
       current = current.getNext();
     }
 
-    current.setNext(new LinkedListNode(value));
+    current.setNext(new LinkedListNode(value, null));
     this._count += 1;
-    return this;
+    return current.getNext();
   }
 
   /**
@@ -56,7 +55,7 @@ class LinkedList {
    * @public
    * @param {number} position
    * @param {any} value
-   * @returns {boolean}
+   * @returns {LinkedListNode}
    */
   insertAt(position, value) {
     if (
@@ -81,7 +80,7 @@ class LinkedList {
     // add it at a position after the head, between prev & prev.getNext()
     prev.setNext(new LinkedListNode(value, prev.getNext()));
     this._count += 1;
-    return this;
+    return prev.getNext();
   }
 
   /**
@@ -101,16 +100,16 @@ class LinkedList {
   /**
    * Removes last node in the linked list.
    * @public
-   * @param {LinkedListNode} [prev] - previous node
-   * @param {LinkedListNode} [current] - current node
    * @returns {LinkedListNode|null}
    */
-  removeLast(prev = null, current = this._head) {
+  removeLast() {
     if (this.isEmpty()) return null;
 
-    // not last node, move next
-    if (current.getNext() instanceof LinkedListNode) {
-      return this.removeLast(current, current.getNext());
+    let prev = null;
+    let current = this._head;
+    while (current.getNext() instanceof LinkedListNode) {
+      prev = current;
+      current = current.getNext();
     }
 
     // linked list has 1 node
@@ -118,39 +117,35 @@ class LinkedList {
       return this.removeFirst();
     }
 
-    // arrived to last node, remove it
-    const removed = prev.getNext();
     prev.setNext(null);
     this._count -= 1;
-    return removed.setNext(null);
+    return current;
   }
 
   /**
    * Removes all nodes based on a callback condition.
    * @public
    * @param {function} cb - callback should return true for removed nodes.
-   * @returns {array} removed nodes
+   * @returns {number} number of removed nodes
    */
   removeEach(cb) {
     if (typeof cb !== 'function') {
       throw new Error('.removeEach(cb) expects a callback');
     }
 
-    const removedNodes = [];
+    let removedCount = 0;
     let position = 0;
     let prev = null;
     let current = this._head;
 
     while (current instanceof LinkedListNode) {
       if (cb(current, position)) {
-        let removed;
         if (prev === null) {
-          removedNodes.push(this.removeFirst());
+          this.removeFirst();
         } else {
-          removed = prev.getNext();
           prev.setNext(prev.getNext().getNext());
           this._count -= 1;
-          removedNodes.push(removed.setNext(null));
+          removedCount += 1;
         }
       }
       position += 1;
@@ -158,7 +153,7 @@ class LinkedList {
       current = current.getNext();
     }
 
-    return removedNodes;
+    return removedCount;
   }
 
   /**
@@ -203,38 +198,32 @@ class LinkedList {
       throw new Error('.forEach(cb) expects a callback');
     }
 
-    const forEachRecursive = (current, position = 0) => {
-      if (current === null) return;
-
-      cb(current, position);
-      forEachRecursive(current.getNext(), position + 1);
-    };
-
-    forEachRecursive(this._head);
+    let current = this._head;
+    let position = 0;
+    while (current) {
+      cb(current, position++);
+      current = current.getNext();
+    }
   }
 
   /**
    * Finds one node in the linked list based on a callback condition.
    * @public
-   * @returns {LinkedListNode}
+   * @returns {LinkedListNode|null}
    */
   find(cb) {
     if (typeof cb !== 'function') {
       throw new Error('.find(cb) expects a callback');
     }
 
-    const findRecursive = (current) => {
-      // did not find the node
-      if (current === null) return null;
-
-      // found the node
-      if (cb(current)) return current;
-
-      // haven't found the node yet, check next
-      return findRecursive(current.getNext());
-    };
-
-    return findRecursive(this._head);
+    let current = this._head;
+    while (current) {
+      if (cb(current)) {
+        return current;
+      }
+      current = current.getNext();
+    }
+    return null;
   }
 
   /**
@@ -262,7 +251,7 @@ class LinkedList {
   /**
    * Returns the head node.
    * @public
-   * @returns {LinkedListNode}
+   * @returns {LinkedListNode|null}
    */
   head() {
     return this._head;
