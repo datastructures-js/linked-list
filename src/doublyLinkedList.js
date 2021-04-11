@@ -266,8 +266,8 @@ class DoublyLinkedList {
   }
 
   /**
+   * Finds a node in the linked list using on a callback
    * @public
-   * finds a node in the linked list using on a callback
    * @param {function} cb
    * @returns {DoublyLinkedListNode|null}
    */
