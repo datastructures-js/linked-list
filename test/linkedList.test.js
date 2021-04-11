@@ -1,26 +1,27 @@
 const { expect } = require('chai');
 const LinkedList = require('../src/linkedList');
+const LinkedListNode = require('../src/linkedListNode');
 
 describe('linkedList tests', () => {
   const linkedList = new LinkedList();
 
   describe('.insertFirst(value)', () => {
     it('insert a node at the beginning', () => {
-      expect(linkedList.insertFirst(1)).to.be.instanceof(LinkedList);
-      expect(linkedList.insertFirst(2)).to.be.instanceof(LinkedList);
+      expect(linkedList.insertFirst(1)).to.be.instanceof(LinkedListNode);
+      expect(linkedList.insertFirst(2)).to.be.instanceof(LinkedListNode);
     });
   });
 
   describe('.insertLast(value)', () => {
     it('insert a node to the end ', () => {
-      expect(linkedList.insertLast(3)).to.be.instanceof(LinkedList);
-      expect(linkedList.insertLast(4)).to.be.instanceof(LinkedList);
+      expect(linkedList.insertLast(3)).to.be.instanceof(LinkedListNode);
+      expect(linkedList.insertLast(4)).to.be.instanceof(LinkedListNode);
     });
   });
 
   describe('.insertAt(position, value)', () => {
     it('add a node at a specific position', () => {
-      expect(linkedList.insertAt(2, 5)).to.be.instanceof(LinkedList);
+      expect(linkedList.insertAt(2, 5)).to.be.instanceof(LinkedListNode);
     });
 
     it('throws an error position is not a valid number', () => {
@@ -136,8 +137,7 @@ describe('linkedList tests', () => {
 
   describe('.removeEach(cb)', () => {
     it('remove nodes based on a callback', () => {
-      const removed = linkedList.removeEach((n) => n.getValue() > 1);
-      expect(removed.map((r) => r.getValue())).to.deep.equal([3]);
+      expect(linkedList.removeEach((n) => n.getValue() > 1)).to.equal(1);
       expect(linkedList.count()).to.equal(1);
       expect(linkedList.find((n) => n.getValue() === 5)).to.equal(null);
     });

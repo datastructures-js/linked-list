@@ -9,9 +9,6 @@ const LinkedListNode = require('./linkedListNode');
  * @class
  */
 class LinkedList {
-  /**
-   * Creates a linked list.
-   */
   constructor() {
     this._head = null;
     this._count = 0;
@@ -33,15 +30,20 @@ class LinkedList {
    * Adds a node at the end of the linked list.
    * @public
    * @param {any} value
+   * @param {LinkedListNode} [startingNode]
    * @returns {LinkedListNode}
    */
-  insertLast(value) {
+  insertLast(value, startingNode) {
     if (this.isEmpty()) {
       return this.insertFirst(value);
     }
 
-    let current = this._head;
-    while (current.getNext()) {
+    if (startingNode && !(startingNode instanceof LinkedListNode)) {
+      throw new Error('insertLast expects a LinkedListNode starting node');
+    }
+
+    let current = startingNode || this._head;
+    while (current.hasNext()) {
       current = current.getNext();
     }
 
@@ -70,10 +72,10 @@ class LinkedList {
       return this.insertFirst(value);
     }
 
-    let counter = 1;
+    let currentPosition = 1;
     let prev = this._head;
-    while (counter < position) {
-      counter += 1;
+    while (currentPosition < position) {
+      currentPosition += 1;
       prev = prev.getNext();
     }
 
@@ -100,14 +102,19 @@ class LinkedList {
   /**
    * Removes last node in the linked list.
    * @public
+   * @param {LinkedListNode} [startingNode]
    * @returns {LinkedListNode|null}
    */
-  removeLast() {
+  removeLast(startingNode) {
     if (this.isEmpty()) return null;
 
+    if (startingNode && !(startingNode instanceof LinkedListNode)) {
+      throw new Error('removeLast expects a LinkedListNode starting node');
+    }
+
     let prev = null;
-    let current = this._head;
-    while (current.getNext() instanceof LinkedListNode) {
+    let current = startingNode || this._head;
+    while (current.hasNext()) {
       prev = current;
       current = current.getNext();
     }
@@ -200,8 +207,9 @@ class LinkedList {
 
     let current = this._head;
     let position = 0;
-    while (current) {
-      cb(current, position++);
+    while (current instanceof LinkedListNode) {
+      cb(current, position);
+      position += 1;
       current = current.getNext();
     }
   }
@@ -217,7 +225,7 @@ class LinkedList {
     }
 
     let current = this._head;
-    while (current) {
+    while (current instanceof LinkedListNode) {
       if (cb(current)) {
         return current;
       }
@@ -239,7 +247,6 @@ class LinkedList {
 
     let last = null;
     const result = new LinkedList();
-
     this.forEach((node, position) => {
       if (!cb(node, position)) return;
       last = result.insertLast(node.getValue(), last);

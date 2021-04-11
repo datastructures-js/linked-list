@@ -53,6 +53,14 @@ class LinkedListNode {
   getNext() {
     return this._next;
   }
+
+  /**
+   * @public
+   * @returns {boolean}
+   */
+  hasNext() {
+    return this._next instanceof LinkedListNode;
+  }
 }
 
 module.exports = LinkedListNode;
