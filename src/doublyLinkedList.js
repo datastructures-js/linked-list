@@ -163,17 +163,12 @@ class DoublyLinkedList {
     }
 
     let currentPosition = 1;
-    let prev = this._head;
+    let current = this._head.getNext();
     while (currentPosition < position) {
       currentPosition += 1;
-      prev = prev.getNext();
+      current = current.getNext();
     }
-
-    const removedNode = prev.getNext();
-    prev.setNext(prev.getNext().getNext());
-    prev.getNext().setPrev(prev);
-    this._count -= 1;
-    return removedNode.setNext(null).setPrev(null);
+    return this.remove(current);
   }
 
   /**
@@ -183,8 +178,12 @@ class DoublyLinkedList {
    * @returns {DoublyLinkedListNode}
    */
   remove(node) {
-    if (!(node instanceof DoublyLinkedListNode)) {
+    if (node && !(node instanceof DoublyLinkedListNode)) {
       throw new Error('remove: expects a DoublyLinkedListNode node');
+    }
+
+    if (!node) {
+      return null;
     }
 
     if (!node.hasPrev()) {
