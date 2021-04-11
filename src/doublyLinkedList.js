@@ -22,7 +22,7 @@ class DoublyLinkedList {
    * @returns {DoublyLinkedListNode}
    */
   insertFirst(value) {
-    const newNode = new DoublyLinkedListNode(value).setLinkedList(this);
+    const newNode = new DoublyLinkedListNode(value);
 
     if (this.isEmpty()) {
       this._head = newNode;
@@ -44,7 +44,7 @@ class DoublyLinkedList {
    * @returns {DoublyLinkedListNode}
    */
   insertLast(value) {
-    const newNode = new DoublyLinkedListNode(value).setLinkedList(this);
+    const newNode = new DoublyLinkedListNode(value);
     if (this.isEmpty()) {
       this._head = newNode;
       this._tail = newNode;
@@ -88,7 +88,7 @@ class DoublyLinkedList {
       prev = prev.getNext();
     }
 
-    const newNode = new DoublyLinkedListNode(value).setLinkedList(this);
+    const newNode = new DoublyLinkedListNode(value);
     newNode.setNext(prev.getNext());
     newNode.setPrev(prev);
     newNode.getNext().setPrev(newNode);
@@ -185,10 +185,6 @@ class DoublyLinkedList {
   remove(node) {
     if (!(node instanceof DoublyLinkedListNode)) {
       throw new Error('remove: expects a DoublyLinkedListNode node');
-    }
-
-    if (node.getLinkedList() !== this) {
-      throw new Error('remove: node does not belong to this linked list');
     }
 
     if (!node.hasPrev()) {

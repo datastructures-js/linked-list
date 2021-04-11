@@ -96,24 +96,6 @@ class DoublyLinkedListNode {
   hasPrev() {
     return this._prev instanceof DoublyLinkedListNode;
   }
-
-  /**
-   * @public
-   * @param {DoublyLinkedList} linkedList
-   * @returns {DoublyLinkedListNode}
-   */
-  setLinkedList(linkedList) {
-    this._linkedList = linkedList || null;
-    return this;
-  }
-
-  /**
-   * @public
-   * @returns {DoublyLinkedList}
-   */
-  getLinkedList() {
-    return this._linkedList;
-  }
 }
 
 module.exports = DoublyLinkedListNode;
