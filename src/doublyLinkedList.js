@@ -81,10 +81,10 @@ class DoublyLinkedList {
       return this.insertLast(value);
     }
 
-    let counter = 1;
+    let currentPosition = 1;
     let prev = this._head;
-    while (counter < position) {
-      counter += 1;
+    while (currentPosition < position) {
+      currentPosition += 1;
       prev = prev.getNext();
     }
 
@@ -162,10 +162,10 @@ class DoublyLinkedList {
       return this.removeLast();
     }
 
-    let counter = 1;
+    let currentPosition = 1;
     let prev = this._head;
-    while (counter < position) {
-      counter += 1;
+    while (currentPosition < position) {
+      currentPosition += 1;
       prev = prev.getNext();
     }
 
@@ -215,7 +215,7 @@ class DoublyLinkedList {
     let removedCount = 0;
     let position = 0;
     let current = this._head;
-    while (current !== null) {
+    while (current instanceof DoublyLinkedListNode) {
       if (cb(current, position)) {
         this.remove(current);
         removedCount += 1;
@@ -237,14 +237,13 @@ class DoublyLinkedList {
       throw new Error('.forEach(cb) expects a callback');
     }
 
-    const forEachRecursive = (current, position = 0) => {
-      if (current === null) return;
-
+    let current = this._head;
+    let position = 0;
+    while (current instanceof DoublyLinkedListNode) {
       cb(current, position);
-      forEachRecursive(current.getNext(), position + 1);
-    };
-
-    forEachRecursive(this._head);
+      position += 1;
+      current = current.getNext();
+    }
   }
 
   /**
@@ -257,14 +256,13 @@ class DoublyLinkedList {
       throw new Error('.forEachReverse(cb) expects a callback');
     }
 
-    const forEachReverseRecursive = (current, position = this._count - 1) => {
-      if (current === null) return;
-
+    let current = this._tail;
+    let position = this._count - 1;
+    while (current instanceof DoublyLinkedListNode) {
       cb(current, position);
-      forEachReverseRecursive(current.getPrev(), position - 1);
-    };
-
-    forEachReverseRecursive(this._tail);
+      position -= 1;
+      current = current.getPrev();
+    }
   }
 
   /**
