@@ -178,8 +178,8 @@ finds the first node that returns true from the callback or null if nothing foun
 </table>
 
 ```js
-const node1 = linkedList.find((node, position) => node.getValue() === 5);
-console.log(node1.getValue()); // 5
+const node5 = linkedList.find((node, position) => node.getValue() === 5);
+console.log(node5.getValue()); // 5
 ```
 
 ### .filter(cb)

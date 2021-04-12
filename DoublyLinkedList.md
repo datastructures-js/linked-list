@@ -70,7 +70,7 @@ inserts a node at the beginning of the list.
   </tr>
   <tr>
     <td align="center">value: any</td>
-    <td align="center"><a href="#doublylinkedlist">DoublyLinkedListNode</a></td>
+    <td align="center"><a href="#doublylinkedlistnode">DoublyLinkedListNode</a></td>
     <td align="center">O(1)</td>
   </tr>
 </table>
@@ -92,7 +92,7 @@ inserts a node at the end of the list.
   </tr>
   <tr>
     <td align="center">value: any</td>
-    <td align="center"><a href="#doublylinkedlist">DoublyLinkedListNode</a></td>
+    <td align="center"><a href="#doublylinkedlistnode">DoublyLinkedListNode</a></td>
     <td>O(1)</td>
   </tr>
 </table>
@@ -124,7 +124,7 @@ inserts a node at specific position of the list. First (head) node is at positio
       <br />
       value: any
     </td>
-    <td align="center"><a href="#doublylinkedlist">DoublyLinkedListNode</a></td>
+    <td align="center"><a href="#doublylinkedlistnode">DoublyLinkedListNode</a></td>
     <td align="center">
       O(n)
     </td>
@@ -151,27 +151,19 @@ Traverse the list from beginning to end, and pass each node to the callback.
 </table>
 
 ```js
-linkedList.forEach((node, position) => console.log(node.getValue(), position));
-/*
-2 0
-1 1
-5 2
-3 3
-4 4
-*/
-
 doublyLinkedList.forEach((node, position) => console.log(node.getValue(), position));
 /*
-2 0
-1 1
+1 0
+2 1
 5 2
 3 3
 4 4
+5 5
 */
 ```
 
 ### .forEachReverse(cb)
-Only in DoublyLinkedList. Loop on the doubly linked list from end to beginning, and pass each node to the callback.
+Traverse the list from end to beginning, and pass each node to the callback.
 
 <table>
   <tr>
@@ -179,28 +171,25 @@ Only in DoublyLinkedList. Loop on the doubly linked list from end to beginning, 
     <th align="center">runtime</th>
   </tr>
   <tr>
-    <td align="center">
-      cb: function
-    </td>
-    <td align="center">
-      O(n)
-    </td>
+    <td align="center">cb: function</td>
+    <td align="center">O(n)</td>
   </tr>
 </table>
 
 ```js
 doublyLinkedList.forEachReverse((node, position) => console.log(node.getValue(), position));
 /*
+5 5
 4 4
 3 3
 5 2
-1 1
-2 0
+2 1
+1 0
 */
 ```
 
 ### .find(cb)
-returns the first node that return true from the callback or null if nothing found.
+Finds the first node that returns true from the callback or null if nothing found.
 
 <table>
   <tr>
@@ -213,27 +202,19 @@ returns the first node that return true from the callback or null if nothing fou
       cb: function
     </td>
     <td align="center">
-      LinkedListNode | DoublyLinkedListNode
+      <a href="#doublylinkedlistnode">DoublyLinkedListNode</a>
     </td>
-    <td align="center">
-      O(n)
-    </td>
+    <td align="center">O(n)</td>
   </tr>
 </table>
 
 ```js
-const node1 = linkedList.find((node) => node.getValue() === 5);
-console.log(node1.getValue()); // 5
-console.log(node1.getNext().getValue()); // 3
-
-const node2 = doublyLinkedList.find((node) => node.getValue() === 5);
-console.log(node2.getValue()); // 5
-console.log(node2.getNext().getValue()); // 3
-console.log(node2.getPrev().getValue()); // 1
+const node5 = doublyLinkedList.find((node, position) => node.getValue() === 5);
+console.log(node5.getValue()); // 5
 ```
 
 ### .filter(cb)
-returns a filtered linked list of all the nodes that returns true from the callback.
+returns a filtered doubly linked list of all the nodes that returns true from the callback.
 
 <table>
   <tr>
@@ -246,7 +227,7 @@ returns a filtered linked list of all the nodes that returns true from the callb
       cb: function
     </td>
     <td align="center">
-      LinkedList | DoublyLinkedList
+      <a href="#doublylinkedlist">DoublyLinkedList</a>
     </td>
     <td align="center">
       O(n)
@@ -255,25 +236,18 @@ returns a filtered linked list of all the nodes that returns true from the callb
 </table>
 
 ```js
-const filterLinkedList = linkedList.filter((node, position) => node.getValue() > 2);
-filterLinkedList.forEach((node) => console.log(node.getValue()));
+const filterLinkedList = doublyLinkedList.filter((node, position) => node.getValue() > 2);
+filterLinkedList.forEach((node, position) => console.log(node.getValue(), position));
 /*
-5
-3
-4
-*/
-
-const filteredDoublyLinkedList = doublyLinkedList.filter((node, position) => node.getValue() > 2);
-filteredDoublyLinkedList.forEach((node) => console.log(node.getValue()));
-/*
-5
-3
-4
+5 0
+3 1
+4 2
+5 3
 */
 ```
 
 ### .toArray()
-converts the linked list into an array.
+converts the doubly linked list into an array.
 
 <table>
   <tr>
@@ -291,8 +265,6 @@ converts the linked list into an array.
 </table>
 
 ```js
-console.log(linkedList.toArray()); // [2, 1, 5, 3, 4]
-
 console.log(doublyLinkedList.toArray()); // [2, 1, 5, 3, 4]
 ```
 
@@ -315,8 +287,6 @@ checks if the linked list is empty.
 </table>
 
 ```js
-console.log(linkedList.isEmpty()); // false
-
 console.log(doublyLinkedList.isEmpty()); // false
 ```
 
