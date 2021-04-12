@@ -226,7 +226,7 @@ converts the linked list into an array.
 </table>
 
 ```js
-console.log(linkedList.toArray()); // [ 1, 2, 5, 3, 4, 5 ]
+console.log(linkedList.toArray()); // [1, 2, 5, 3, 4, 5]
 ```
 
 ### .isEmpty()
@@ -302,7 +302,7 @@ const removed = linkedList.removeFirst();
 console.log(removed.getValue()); // 1
 console.log(removed.getNext()); // null
 
-console.log(linkedList.toArray()); // [ 2, 5, 3, 4, 5 ]
+console.log(linkedList.toArray()); // [2, 5, 3, 4, 5]
 ```
 
 ### .removeLast()
@@ -324,7 +324,7 @@ const removed = linkedList.removeLast();
 console.log(removed.getValue()); // 5
 console.log(removed.getNext()); // null
 
-console.log(linkedList.toArray()); // [ 2, 5, 3, 4 ]
+console.log(linkedList.toArray()); // [2, 5, 3, 4]
 ```
 
 ### .removeAt(position)
@@ -348,7 +348,7 @@ const removed = linkedList.removeAt(1);
 console.log(removed.getValue()); // 5
 console.log(removed.getNext()); // null
 
-console.log(linkedList.toArray()); // [ 2, 3, 4 ]
+console.log(linkedList.toArray()); // [2, 3, 4]
 ```
 
 ### .removeEach(cb)
@@ -370,7 +370,7 @@ Loop on the linked list from beginning to end, removes the nodes that returns a 
 ```js
 const removedCount = linkedList.removeEach((node, position) => node.getValue() > 2);
 console.log(removedCount); // 2
-console.log(linkedList.toArray()); // [ 2 ]
+console.log(linkedList.toArray()); // [2]
 ```
 
 ### .clear()
