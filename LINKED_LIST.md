@@ -12,22 +12,18 @@
   * [.insertLast(value[, startingNode])](#insertlastvalue-startingnode)
   * [.insertAt(position, value)](#insertatposition-value)
   * [.forEach(cb)](#foreachcb)
-  * [.forEachReverse(cb)](#foreachreversecb)
   * [.find(cb)](#findcb)
   * [.filter(cb)](#filtercb)
   * [.toArray()](#toarray)
   * [.isEmpty()](#isempty)
   * [.head()](#head)
-  * [.tail()](#tail)
   * [.count()](#count)
   * [.removeFirst()](#removefirst)
   * [.removeLast()](#removelast)
-  * [.remove(node)](#removenode)
   * [.removeAt(position)](#removeatposition)
   * [.removeEach(cb)](#removeeachcb)
   * [.clear()](#clear)
   * [LinkedListNode](#linkedlistnode)
-  * [DoublyLinkedListNode](#doublylinkedlistnode)
 * [Build](#build)
 * [License](#license)
 
@@ -71,19 +67,19 @@ inserts a node at the beginning of the list.
   </tr>
   <tr>
     <td align="center">value: any</td>
-    <td align="center">LinkedListNode | DoublyLinkedListNode</td>
+    <td align="center">LinkedListNode</td>
     <td align="center">O(1)</td>
   </tr>
 </table>
 
 ```js
+console.log(linkedList.insertFirst(3).getValue()); // 3
 console.log(linkedList.insertFirst(2).getValue()); // 2
-
 console.log(linkedList.insertFirst(1).getValue()); // 1
 ```
 
 ### .insertLast(value[, startingNode])
-inserts a node at the end of the list. For the LinkedList, it accepts an optional second param as the starting node to insert a node in O(1) runtime by passing the last inserted node.
+inserts a node at the end of the list. it accepts an optional second param as the starting node which can be used to insert in O(1) runtime by passing in last inserted node.
 
 <table>
   <tr>
@@ -93,29 +89,21 @@ inserts a node at the end of the list. For the LinkedList, it accepts an optiona
   </tr>
   <tr>
     <td align="center">value: any</td>
-    <td align="center">LinkedListNode | DoublyLinkedListNode</td>
+    <td align="center">LinkedListNode</td>
     <td>
-      LinkedList: O(n) | O(1) if last inserted node provided
-      <br />
-      DoublyLinkedList: O(1)
+      O(n) | O(1) if last inserted node provided
     </td>
   </tr>
 </table>
 
 ```js
-linkedList.insertLast(3);
-const last1 = linkedList.insertLast(4);
-console.log(last1.getValue()); // 4
-console.log(last1.getNext()); // null
+const last4 = linkedList.insertLast(4);
+console.log(last4.getValue()); // 4
+console.log(last4.getNext()); // null
 
-const last2 = linkedList.insertLast(5, last1); // O(1)
-console.log(last2.getValue()); // 5
-console.log(last2.getNext()); // null
-
-doublyLinkedList.insertLast(3);
-const last3 = doublyLinkedList.insertLast(4);
-console.log(last3.getValue()); // 4
-console.log(last3.getPrev().getValue()); // 3
+const last5 = linkedList.insertLast(5, last4); // O(1)
+console.log(last5.getValue()); // 5
+console.log(last5.getNext()); // null
 ```
 
 ### .insertAt(position, value)
@@ -133,21 +121,18 @@ inserts a node at specific position of the list. First (head) node is at positio
       <br />
       value: any
     </td>
-    <td align="center">LinkedList | DoublyLinkedList</td>
-    <td align="center">
-      O(n)
-    </td>
+    <td align="center">LinkedListNode</td>
+    <td align="center">O(n)</td>
   </tr>
 </table>
 
 ```js
-const node1 = linkedList.insertAt(2, 5).find(5); // node1.getValue() = 5
-
-const node2 = doublyLinkedList.insertAt(2, 5).find(5); // node2.getValue() = 5
+const node2 = linkedList.insertAt(2, 5);
+console.log(node2.getValue()); // 5
 ```
 
 ### .forEach(cb)
-Loop on the linked list from beginning to end, and pass each node to the callback.
+Traverse the linked list from beginning to end, and pass each node to the callback.
 
 <table>
   <tr>
@@ -173,48 +158,10 @@ linkedList.forEach((node, position) => console.log(node.getValue(), position));
 3 3
 4 4
 */
-
-doublyLinkedList.forEach((node, position) => console.log(node.getValue(), position));
-/*
-2 0
-1 1
-5 2
-3 3
-4 4
-*/
-```
-
-### .forEachReverse(cb)
-Only in DoublyLinkedList. Loop on the doubly linked list from end to beginning, and pass each node to the callback.
-
-<table>
-  <tr>
-    <th align="center">params</th>
-    <th align="center">runtime</th>
-  </tr>
-  <tr>
-    <td align="center">
-      cb: function
-    </td>
-    <td align="center">
-      O(n)
-    </td>
-  </tr>
-</table>
-
-```js
-doublyLinkedList.forEachReverse((node, position) => console.log(node.getValue(), position));
-/*
-4 4
-3 3
-5 2
-1 1
-2 0
-*/
 ```
 
 ### .find(cb)
-returns the first node that return true from the callback or null if nothing found.
+finds the first node that returns true from the callback or null if nothing found.
 
 <table>
   <tr>
@@ -226,24 +173,14 @@ returns the first node that return true from the callback or null if nothing fou
     <td align="center">
       cb: function
     </td>
-    <td align="center">
-      LinkedListNode | DoublyLinkedListNode
-    </td>
-    <td align="center">
-      O(n)
-    </td>
+    <td align="center">LinkedListNode | null</td>
+    <td align="center">O(n)</td>
   </tr>
 </table>
 
 ```js
 const node1 = linkedList.find((node) => node.getValue() === 5);
 console.log(node1.getValue()); // 5
-console.log(node1.getNext().getValue()); // 3
-
-const node2 = doublyLinkedList.find((node) => node.getValue() === 5);
-console.log(node2.getValue()); // 5
-console.log(node2.getNext().getValue()); // 3
-console.log(node2.getPrev().getValue()); // 1
 ```
 
 ### .filter(cb)
@@ -259,26 +196,14 @@ returns a filtered linked list of all the nodes that returns true from the callb
     <td align="center">
       cb: function
     </td>
-    <td align="center">
-      LinkedList | DoublyLinkedList
-    </td>
-    <td align="center">
-      O(n)
-    </td>
+    <td align="center">LinkedList</td>
+    <td align="center">O(n)</td>
   </tr>
 </table>
 
 ```js
 const filterLinkedList = linkedList.filter((node, position) => node.getValue() > 2);
 filterLinkedList.forEach((node) => console.log(node.getValue()));
-/*
-5
-3
-4
-*/
-
-const filteredDoublyLinkedList = doublyLinkedList.filter((node, position) => node.getValue() > 2);
-filteredDoublyLinkedList.forEach((node) => console.log(node.getValue()));
 /*
 5
 3
@@ -295,19 +220,13 @@ converts the linked list into an array.
     <th align="center">runtime</th>
   </tr>
   <tr>
-    <td align="center">
-      array
-    </td>
-    <td align="center">
-      O(n)
-    </td>
+    <td align="center">array</td>
+    <td align="center">O(n)</td>
   </tr>
 </table>
 
 ```js
 console.log(linkedList.toArray()); // [2, 1, 5, 3, 4]
-
-console.log(doublyLinkedList.toArray()); // [2, 1, 5, 3, 4]
 ```
 
 ### .isEmpty()
@@ -319,19 +238,13 @@ checks if the linked list is empty.
     <th align="center">runtime</th>
   </tr>
   <tr>
-    <td align="center">
-      boolean
-    </td>
-    <td align="center">
-      O(1)
-    </td>
+    <td align="center">boolean</td>
+    <td align="center">O(1)</td>
   </tr>
 </table>
 
 ```js
 console.log(linkedList.isEmpty()); // false
-
-console.log(doublyLinkedList.isEmpty()); // false
 ```
 
 ### .head()
@@ -343,41 +256,13 @@ returns the head node in the linked list.
     <th align="center">runtime</th>
   </tr>
   <tr>
-    <td align="center">
-      LinkedListNode | DoublyLinkedListNode
-    </td>
-    <td align="center">
-      O(1)
-    </td>
+    <td align="center">LinkedListNode | null</td>
+    <td align="center">O(1)</td>
   </tr>
 </table>
 
 ```js
 console.log(linkedList.head().getValue()); // 2
-
-console.log(doublyLinkedList.head().getValue()); // 2
-```
-
-### .tail()
-returns the tail node of the doubly linked list.
-
-<table>
-  <tr>
-    <th align="center">return</th>
-    <th align="center">runtime</th>
-  </tr>
-  <tr>
-    <td align="center">
-      DoublyLinkedListNode
-    </td>
-    <td align="center">
-      O(1)
-    </td>
-  </tr>
-</table>
-
-```js
-console.log(doublyLinkedList.tail().getValue()); // 4
 ```
 
 ### .count()
@@ -389,23 +274,17 @@ returns the number of nodes in the linked list.
     <th align="center">runtime</th>
   </tr>
   <tr>
-    <td align="center">
-      number
-    </td>
-    <td align="center">
-      O(1)
-    </td>
+    <td align="center">number</td>
+    <td align="center">O(1)</td>
   </tr>
 </table>
 
 ```js
 console.log(linkedList.count()); // 5
-
-console.log(doublyLinkedList.count()); // 5
 ```
 
 ### .removeFirst()
-removes the first node in the list.
+removes and returns the first node in the list.
 
 <table>
   <tr>
@@ -413,19 +292,13 @@ removes the first node in the list.
     <th align="center">runtime</th>
   </tr>
   <tr>
-    <td align="center">
-      LinkedListNode | DoublyLinkedListNode
-    </td>
-    <td align="center">
-      O(1)
-    </td>
+    <td align="center">LinkedListNode | null</td>
+    <td align="center">O(1)</td>
   </tr>
 </table>
 
 ```js
 linkedList.removeFirst();
-
-doublyLinkedList.removeFirst();
 ```
 
 ### .removeLast()
@@ -437,21 +310,13 @@ removes and returns the last node in the list.
     <th align="center">runtime</th>
   </tr>
   <tr>
-    <td align="center">
-      LinkedListNode | DoublyLinkedListNode
-    </td>
-    <td>
-      LinkedList: O(n)
-      <br />
-      DoublyLinkedList: O(1)
-    </td>
+    <td align="center">LinkedListNode | null</td>
+    <td>O(n)</td>
   </tr>
 </table>
 
 ```js
 linkedList.removeLast();
-
-doublyLinkedList.removeLast();
 ```
 
 ### .removeAt(position)
@@ -464,22 +329,14 @@ removes and returns the node at a specific position. First (head) node is at pos
     <th align="center">runtime</th>
   </tr>
   <tr>
-    <td align="center">
-      position: number
-    </td>
-    <td align="center">
-      LinkedListNode | DoublyLinkedListNode
-    </td>
-    <td align="center">
-      O(1)
-    </td>
+    <td align="center">position: number</td>
+    <td align="center">LinkedListNode | null</td>
+    <td align="center">O(1)</td>
   </tr>
 </table>
 
 ```js
 linkedList.removeAt(1);
-
-doublyLinkedList.removeAt(1);
 ```
 
 ### .removeEach(cb)
@@ -492,24 +349,15 @@ Loop on the linked list from beginning to end, removes the nodes that returns a 
     <th align="center">runtime</th>
   </tr>
   <tr>
-    <td align="center">
-      cb: function
-    </td>
-    <td align="center">
-      array&lt;LinkedListNode | DoublyLinkedListNode&gt;
-    </td>
-    <td align="center">
-      O(n)
-    </td>
+    <td align="center">cb: function</td>
+    <td align="center">number</td>
+    <td align="center">O(n)</td>
   </tr>
 </table>
 
 ```js
-linkedList.removeEach((node, position) => node.getValue() > 1);
-console.log(linkedList.toArray()); // [1]
-
-doublyLinkedList.removeEach((node, position) => node.getValue() > 1);
-console.log(doublyLinkedList.toArray()); // [1]
+const removedCount = linkedList.removeEach((node, position) => node.getValue() > 1);
+console.log(removedCount); // 1
 ```
 
 ### .clear()
@@ -520,9 +368,7 @@ clears the linked list.
     <th align="center">runtime</th>
   </tr>
   <tr>
-    <td align="center">
-      O(1)
-    </td>
+    <td align="center">O(1)</td>
   </tr>
 </table>
 
@@ -530,11 +376,6 @@ clears the linked list.
 linkedList.clear();
 console.log(linkedList.count()); // 0
 console.log(linkedList.head()); // null
-
-doublyLinkedList.clear();
-console.log(linkedList.count()); // 0
-console.log(doublyLinkedList.head()); // null
-console.log(doublyLinkedList.tail()); // null
 ```
 
 ### LinkedListNode
@@ -553,7 +394,6 @@ console.log(doublyLinkedList.tail()); // null
 </table>
 
 #### .setValue(value)
-sets the node's value.
 
 <table>
   <tr><th>params</th></tr>
@@ -561,7 +401,6 @@ sets the node's value.
 </table>
 
 #### .getValue()
-returns the node's value.
 
 <table>
   <tr><th>return</th></tr>
@@ -569,7 +408,6 @@ returns the node's value.
 </table>
 
 #### .setNext(next)
-sets the node's next connected node.
 
 <table>
   <tr><th align="center">params</th></tr>
@@ -578,74 +416,8 @@ sets the node's next connected node.
 
 
 #### .getNext()
-returns the next connected node or null if it's the last node.
 
 <table>
  <tr><th>return</th></tr>
- <tr><td>LinkedListNode</td></tr>
-</table>
-
-### DoublyLinkedListNode
-
-#### new DoublyLinkedListNode(value, prev, next)
-
-<table>
-  <tr><th>params</th></tr>
-  <tr>
-    <td>
-      value: any
-      <br />
-      prev: DoublyLinkedListNode
-      <br />
-      next: DoublyLinkedListNode
-    </td>
-  </tr>
-</table>
-
-#### .setValue(value)
-sets the node's value.
-
-<table>
-  <tr><th>params</th></tr>
-  <tr><td>value: any</td></tr>
-</table>
-
-#### .getValue()
-returns the node's value.
-
-<table>
-  <tr><th>return</th></tr>
-  <tr><td>any</td></tr>
-</table>
-
-#### .setPrev(prev)
-sets the node's previous connected node.
-
-<table>
-  <tr><th>params</th></tr>
-  <tr><td>prev: DoublyLinkedListNode</td></tr>
-</table>
-
-#### .getPrev()
-returns the previous connected node or null if it's the first node.
-
-<table>
-  <tr><th>return</th></tr>
-  <tr><td>DoublyLinkedListNode</td></tr>
-</table>
-
-#### .setNext(next)
-sets the node's next connected node.
-
-<table>
-  <tr><th>params</th></tr>
-  <tr><td>next: DoublyLinkedListNode</td></tr>
-</table>
-
-#### .getNext()
-returns the next connected node or null if it's the last node.
-
-<table>
-  <tr><th>return</th></tr>
-  <tr><td>DoublyLinkedListNode</td></tr>
+ <tr><td>LinkedListNode | null</td></tr>
 </table>
