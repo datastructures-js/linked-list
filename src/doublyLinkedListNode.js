@@ -16,10 +16,8 @@ class DoublyLinkedListNode {
    */
   constructor(value, prev, next) {
     this._value = value;
-    this._list = null;
     this.setPrev(prev);
     this.setNext(next);
-    this._linkedList = null;
   }
 
   /**
