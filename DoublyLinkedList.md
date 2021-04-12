@@ -559,7 +559,7 @@ console.log(doublyLinkedList.tail()); // null
 
 <table>
   <tr><th>return</th></tr>
-  <tr><td><a href="#doublylinkedlistnode">DoublyLinkedListNode</a></td></tr>
+  <tr><td><a href="#doublylinkedlistnode">DoublyLinkedListNode</a> | null</td></tr>
 </table>
 
 #### .hasPrev()
@@ -580,7 +580,7 @@ console.log(doublyLinkedList.tail()); // null
 
 <table>
   <tr><th>return</th></tr>
-  <tr><td><a href="#doublylinkedlistnode">DoublyLinkedListNode</a></td></tr>
+  <tr><td><a href="#doublylinkedlistnode">DoublyLinkedListNode</a> | null</td></tr>
 </table>
 
 #### .hasNext()
