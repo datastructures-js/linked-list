@@ -439,7 +439,7 @@ console.log(doublyLinkedList.toArray()); // [2, 3, 4]
 ```
 
 ### .removeEach(cb)
-Loop on the linked list from beginning to end, removes the nodes that returns a list of the removed nodes.
+removes the nodes that returns a list of the removed nodes.
 
 <table>
   <tr>
