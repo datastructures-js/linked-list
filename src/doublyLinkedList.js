@@ -17,7 +17,7 @@ class DoublyLinkedList {
   }
 
   /**
-   * Adds a node at the beginning of the linked list.
+   * Adds a node at the beginning of the list.
    * @public
    * @param {any} value
    * @returns {DoublyLinkedListNode}
@@ -38,7 +38,7 @@ class DoublyLinkedList {
   }
 
   /**
-   * Adds a node at the end of the linked list.
+   * Adds a node at the end of the list.
    * @public
    * @param {any} value
    * @returns {DoublyLinkedListNode}
@@ -169,7 +169,7 @@ class DoublyLinkedList {
   }
 
   /**
-   * Removes a node from the linked list.
+   * Removes a node from the list by its reference.
    * @public
    * @param {DoublyLinkedListNode} node
    * @returns {DoublyLinkedListNode}
@@ -201,7 +201,7 @@ class DoublyLinkedList {
    * Removes all nodes based on a callback.
    * @public
    * @param {function} cb
-   * @returns {array} count of removed nodes
+   * @returns {number} number of removed nodes
    */
   removeEach(cb) {
     if (typeof cb !== 'function') {
@@ -264,7 +264,7 @@ class DoublyLinkedList {
   }
 
   /**
-   * Finds a node in the linked list using on a callback
+   * Finds a node in the list using a callback
    * @public
    * @param {function} cb
    * @returns {DoublyLinkedListNode|null}
@@ -285,7 +285,7 @@ class DoublyLinkedList {
   }
 
   /**
-   * Filters the linked list based on a callback.
+   * Filters the list based on a callback.
    * @public
    * @param {function} cb
    * @returns {LinkedList}
@@ -304,6 +304,7 @@ class DoublyLinkedList {
   }
 
   /**
+   * Returns the head node.
    * @public
    * @returns {DoublyLinkedListNode}
    */
@@ -312,6 +313,7 @@ class DoublyLinkedList {
   }
 
   /**
+   * Returns the tail node.
    * @public
    * @returns {DoublyLinkedListNode}
    */
@@ -320,6 +322,7 @@ class DoublyLinkedList {
   }
 
   /**
+   * Returns the nodes count in the list.
    * @public
    * @returns {number}
    */
@@ -328,6 +331,7 @@ class DoublyLinkedList {
   }
 
   /**
+   * Converts the doubly linked list into an array.
    * @public
    * @returns {array}
    */
@@ -338,6 +342,7 @@ class DoublyLinkedList {
   }
 
   /**
+   * Checks if the list is empty.
    * @public
    * @returns {boolean}
    */
@@ -346,7 +351,7 @@ class DoublyLinkedList {
   }
 
   /**
-   * Clears the linked list
+   * Clears the list
    * @public
    */
   clear() {

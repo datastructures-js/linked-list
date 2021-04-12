@@ -16,7 +16,7 @@ class LinkedList {
   }
 
   /**
-   * Adds a node at the beginning of the linked list.
+   * Adds a node at the beginning of the list.
    * @public
    * @param {any} value
    * @returns {LinkedListNode}
@@ -28,7 +28,7 @@ class LinkedList {
   }
 
   /**
-   * Adds a node at the end of the linked list.
+   * Adds a node at the end of the list.
    * @public
    * @param {any} value
    * @param {LinkedListNode} [startingNode]
@@ -101,7 +101,7 @@ class LinkedList {
   }
 
   /**
-   * Removes last node in the linked list.
+   * Removes the last node in the list.
    * @public
    * @param {LinkedListNode} [startingNode]
    * @returns {LinkedListNode|null}
@@ -131,9 +131,9 @@ class LinkedList {
   }
 
   /**
-   * Removes all nodes based on a callback condition.
+   * Removes all nodes based on a callback.
    * @public
-   * @param {function} cb - callback should return true for removed nodes.
+   * @param {function} cb
    * @returns {number} number of removed nodes
    */
   removeEach(cb) {
@@ -195,7 +195,7 @@ class LinkedList {
   }
 
   /**
-   * Traverses the linked list from beginning to end.
+   * Traverses the list from beginning to end.
    * @public
    * @param {function} cb
    */
@@ -214,7 +214,7 @@ class LinkedList {
   }
 
   /**
-   * Finds one node in the linked list based on a callback condition.
+   * Finds one node in the list based on a callback.
    * @public
    * @returns {LinkedListNode|null}
    */
@@ -234,7 +234,7 @@ class LinkedList {
   }
 
   /**
-   * Filters the linked list based on a callback condition.
+   * Filters the list based on a callback.
    * @public
    * @param {function} cb - callback should return true for required nodes.
    * @returns {LinkedList}
@@ -263,7 +263,7 @@ class LinkedList {
   }
 
   /**
-   * Returns the nodes count in the linked list.
+   * Returns the nodes count in the list.
    * @public
    * @returns {number}
    */
@@ -283,7 +283,7 @@ class LinkedList {
   }
 
   /**
-   * Checks if the linked list is empty.
+   * Checks if the list is empty.
    * @public
    * @returns {boolean}
    */
@@ -292,7 +292,7 @@ class LinkedList {
   }
 
   /**
-   * Clears the linked list
+   * Clears the list
    * @public
    */
   clear() {
