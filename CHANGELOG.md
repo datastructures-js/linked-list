@@ -14,7 +14,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Changed
 - insert/remove methods now all returns the inserted/removed nodes.
 - `insertLast` in LinkedList now accepts a starting node as a second param, useful to insert a node at the end in O(1) runtime.
-- removeEach now returns the number of removed nodes.
+- `removeEach` now returns the number of removed nodes.
 
 ### Added
 - `remove(node)` to DoublyLinkedList to remove any node in O(1) runtime.
