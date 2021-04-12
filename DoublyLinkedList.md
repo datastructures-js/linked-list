@@ -479,7 +479,7 @@ console.log(doublyLinkedList.toArray()); // [2, 3, 4]
 ```
 
 ### .removeEach(cb)
-removes the nodes that returns a list of the removed nodes.
+removes the nodes that returns true from a callback check and returns the number of removed nodes.
 
 <table>
   <tr>
