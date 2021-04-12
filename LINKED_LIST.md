@@ -24,8 +24,6 @@
   * [.removeEach(cb)](#removeeachcb)
   * [.clear()](#clear)
   * [LinkedListNode](#linkedlistnode)
-* [Build](#build)
-* [License](#license)
 
 ## install
 ```sh
