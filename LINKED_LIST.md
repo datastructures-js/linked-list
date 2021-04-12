@@ -67,7 +67,7 @@ inserts a node at the beginning of the list.
   </tr>
   <tr>
     <td align="center">value: any</td>
-    <td align="center">LinkedListNode</td>
+    <td align="center"><a href="#linkedlistnode">LinkedListNode</a></td>
     <td align="center">O(1)</td>
   </tr>
 </table>
@@ -89,7 +89,7 @@ inserts a node at the end of the list. it accepts an optional second param as th
   </tr>
   <tr>
     <td align="center">value: any</td>
-    <td align="center">LinkedListNode</td>
+    <td align="center"><a href="#linkedlistnode">LinkedListNode</a></td>
     <td>
       O(n) | O(1) if last inserted node provided
     </td>
@@ -121,7 +121,7 @@ inserts a node at specific position of the list. First (head) node is at positio
       <br />
       value: any
     </td>
-    <td align="center">LinkedListNode</td>
+    <td align="center"><a href="#linkedlistnode">LinkedListNode</a></td>
     <td align="center">O(n)</td>
   </tr>
 </table>
@@ -173,7 +173,7 @@ finds the first node that returns true from the callback or null if nothing foun
     <td align="center">
       cb: function
     </td>
-    <td align="center">LinkedListNode | null</td>
+    <td align="center"><a href="#linkedlistnode">LinkedListNode</a> | null</td>
     <td align="center">O(n)</td>
   </tr>
 </table>
@@ -196,7 +196,7 @@ returns a filtered linked list of all the nodes that returns true from the callb
     <td align="center">
       cb: function
     </td>
-    <td align="center">LinkedList</td>
+    <td align="center"><a href="#linkedlistnode">LinkedListNode</a></td>
     <td align="center">O(n)</td>
   </tr>
 </table>
@@ -256,7 +256,7 @@ returns the head node in the linked list.
     <th align="center">runtime</th>
   </tr>
   <tr>
-    <td align="center">LinkedListNode | null</td>
+    <td align="center"><a href="#linkedlistnode">LinkedListNode</a> | null</td>
     <td align="center">O(1)</td>
   </tr>
 </table>
@@ -292,7 +292,7 @@ removes and returns the first node in the list.
     <th align="center">runtime</th>
   </tr>
   <tr>
-    <td align="center">LinkedListNode | null</td>
+    <td align="center"><a href="#linkedlistnode">LinkedListNode</a> | null</td>
     <td align="center">O(1)</td>
   </tr>
 </table>
@@ -330,7 +330,7 @@ removes and returns the node at a specific position. First (head) node is at pos
   </tr>
   <tr>
     <td align="center">position: number</td>
-    <td align="center">LinkedListNode | null</td>
+    <td align="center"><a href="#linkedlistnode">LinkedListNode</a> | null</td>
     <td align="center">O(1)</td>
   </tr>
 </table>
@@ -388,7 +388,7 @@ console.log(linkedList.head()); // null
     <td>
       value: any
       <br />
-      next: LinkedListNode
+      next: <a href="#linkedlistnode">LinkedListNode</a>
     </td>
   </tr>
 </table>
@@ -411,7 +411,7 @@ console.log(linkedList.head()); // null
 
 <table>
   <tr><th align="center">params</th></tr>
-  <tr><td>next: LinkedListNode</td></tr>
+  <tr><td>next: <a href="#linkedlistnode">LinkedListNode</a></td></tr>
 </table>
 
 
@@ -419,5 +419,5 @@ console.log(linkedList.head()); // null
 
 <table>
  <tr><th>return</th></tr>
- <tr><td>LinkedListNode | null</td></tr>
+ <tr><td><a href="#linkedlistnode">LinkedListNode</a> | null</td></tr>
 </table>
