@@ -7,7 +7,7 @@
 * [require](#require)
 * [import](#import)
 * [API](#api)
-  * [Construction](#construction)
+  * [new](#new)
   * [.insertFirst(value)](#insertfirstvalue)
   * [.insertLast(value[, startingNode])](#insertlastvalue-startingnode)
   * [.insertAt(position, value)](#insertatposition-value)
@@ -48,7 +48,7 @@ import {
 
 ## API
 
-### Construction
+### new
 
 ```js
 const linkedList = new LinkedList();
