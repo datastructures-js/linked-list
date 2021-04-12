@@ -130,7 +130,7 @@ console.log(node2.getValue()); // 5
 ```
 
 ### .forEach(cb)
-Traverse the linked list from beginning to end, and pass each node to the callback.
+Traverse the list from beginning to end, and pass each node to the callback.
 
 <table>
   <tr>

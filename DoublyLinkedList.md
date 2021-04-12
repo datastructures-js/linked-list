@@ -7,9 +7,9 @@
 * [require](#require)
 * [import](#import)
 * [API](#api)
-  * [Construction](#construction)
+  * [new](#new)
   * [.insertFirst(value)](#insertfirstvalue)
-  * [.insertLast(value[, startingNode])](#insertlastvalue-startingnode)
+  * [.insertLast(value)](#insertlastvalue)
   * [.insertAt(position, value)](#insertatposition-value)
   * [.forEach(cb)](#foreachcb)
   * [.forEachReverse(cb)](#foreachreversecb)
@@ -26,7 +26,6 @@
   * [.removeAt(position)](#removeatposition)
   * [.removeEach(cb)](#removeeachcb)
   * [.clear()](#clear)
-  * [LinkedListNode](#linkedlistnode)
   * [DoublyLinkedListNode](#doublylinkedlistnode)
 * [Build](#build)
 * [License](#license)
@@ -39,8 +38,6 @@ npm install --save @datastructures-js/linked-list
 ## require
 ```js
 const {
-  LinkedList,
-  LinkedListNode,
   DoublyLinkedList,
   DoublyLinkedListNode,
 } = require('@datastructures-js/linked-list');
@@ -49,8 +46,6 @@ const {
 ## import
 ```js
 import {
-  LinkedList,
-  LinkedListNode,
   DoublyLinkedList,
   DoublyLinkedListNode,
 } from '@datastructures-js/linked-list';
@@ -58,11 +53,9 @@ import {
 
 ## API
 
-### Construction
+### new
 
 ```js
-const linkedList = new LinkedList();
-
 const doublyLinkedList = new DoublyLinkedList();
 ```
 
@@ -77,19 +70,19 @@ inserts a node at the beginning of the list.
   </tr>
   <tr>
     <td align="center">value: any</td>
-    <td align="center">LinkedListNode | DoublyLinkedListNode</td>
+    <td align="center"><a href="#doublylinkedlist">DoublyLinkedListNode</a></td>
     <td align="center">O(1)</td>
   </tr>
 </table>
 
 ```js
-console.log(linkedList.insertFirst(2).getValue()); // 2
-
-console.log(linkedList.insertFirst(1).getValue()); // 1
+console.log(doublyLinkedList.insertFirst(3).getValue()); // 3
+console.log(doublyLinkedList.insertFirst(2).getValue()); // 2
+console.log(doublyLinkedList.insertFirst(1).getValue()); // 1
 ```
 
-### .insertLast(value[, startingNode])
-inserts a node at the end of the list. For the LinkedList, it accepts an optional second param as the starting node to insert a node in O(1) runtime by passing the last inserted node.
+### .insertLast(value)
+inserts a node at the end of the list.
 
 <table>
   <tr>
@@ -99,29 +92,21 @@ inserts a node at the end of the list. For the LinkedList, it accepts an optiona
   </tr>
   <tr>
     <td align="center">value: any</td>
-    <td align="center">LinkedListNode | DoublyLinkedListNode</td>
-    <td>
-      LinkedList: O(n) | O(1) if last inserted node provided
-      <br />
-      DoublyLinkedList: O(1)
-    </td>
+    <td align="center"><a href="#doublylinkedlist">DoublyLinkedListNode</a></td>
+    <td>O(1)</td>
   </tr>
 </table>
 
 ```js
-linkedList.insertLast(3);
-const last1 = linkedList.insertLast(4);
-console.log(last1.getValue()); // 4
-console.log(last1.getNext()); // null
+const last4 = doublyLinkedList.insertLast(4);
+console.log(last4.getValue()); // 4
+console.log(last4.getNext()); // null
+console.log(last4.getPrev().getValue()); // 3
 
-const last2 = linkedList.insertLast(5, last1); // O(1)
-console.log(last2.getValue()); // 5
-console.log(last2.getNext()); // null
-
-doublyLinkedList.insertLast(3);
-const last3 = doublyLinkedList.insertLast(4);
-console.log(last3.getValue()); // 4
-console.log(last3.getPrev().getValue()); // 3
+const last5 = doublyLinkedList.insertLast(5);
+console.log(last5.getValue()); // 5
+console.log(last5.getNext()); // null
+console.log(last5.getPrev().getValue()); // 4
 ```
 
 ### .insertAt(position, value)
@@ -139,7 +124,7 @@ inserts a node at specific position of the list. First (head) node is at positio
       <br />
       value: any
     </td>
-    <td align="center">LinkedList | DoublyLinkedList</td>
+    <td align="center"><a href="#doublylinkedlist">DoublyLinkedListNode</a></td>
     <td align="center">
       O(n)
     </td>
@@ -147,13 +132,12 @@ inserts a node at specific position of the list. First (head) node is at positio
 </table>
 
 ```js
-const node1 = linkedList.insertAt(2, 5).find(5); // node1.getValue() = 5
-
-const node2 = doublyLinkedList.insertAt(2, 5).find(5); // node2.getValue() = 5
+const node2 = doublyLinkedList.insertAt(2, 5);
+console.log(node2.getValue()); // 5
 ```
 
 ### .forEach(cb)
-Loop on the linked list from beginning to end, and pass each node to the callback.
+Traverse the list from beginning to end, and pass each node to the callback.
 
 <table>
   <tr>
@@ -161,12 +145,8 @@ Loop on the linked list from beginning to end, and pass each node to the callbac
     <th align="center">runtime</th>
   </tr>
   <tr>
-    <td align="center">
-      cb: function
-    </td>
-    <td align="center">
-      O(n)
-    </td>
+    <td align="center">cb: function</td>
+    <td align="center">O(n)</td>
   </tr>
 </table>
 
@@ -655,11 +635,3 @@ returns the next connected node or null if it's the last node.
   <tr><th>return</th></tr>
   <tr><td>DoublyLinkedListNode</td></tr>
 </table>
-
-## Build
-```
-grunt build
-```
-
-## License
-The MIT License. Full License is [here](https://github.com/datastructures-js/linked-list/blob/master/LICENSE)
