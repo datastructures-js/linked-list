@@ -1,4 +1,5 @@
 /**
+ * datastructures-js/linked-list
  * @license MIT
  * @copyright 2020 Eyas Ranjous <eyas.ranjous@gmail.com>
  *

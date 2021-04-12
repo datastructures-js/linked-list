@@ -1,4 +1,5 @@
 /**
+ * datastructures-js/linked-list
  * @license MIT
  * @copyright 2020 Eyas Ranjous <eyas.ranjous@gmail.com>
  */
@@ -144,7 +145,6 @@ class LinkedList {
     let position = 0;
     let prev = null;
     let current = this._head;
-
     while (current instanceof LinkedListNode) {
       if (cb(current, position)) {
         if (prev === null) {
@@ -159,7 +159,6 @@ class LinkedList {
       prev = current;
       current = current.getNext();
     }
-
     return removedCount;
   }
 
@@ -188,7 +187,6 @@ class LinkedList {
       counter += 1;
       prev = prev.getNext();
     }
-
     const removed = prev.getNext();
     prev.setNext(prev.getNext().getNext());
     this._count -= 1;
@@ -251,7 +249,6 @@ class LinkedList {
       if (!cb(node, position)) return;
       last = result.insertLast(node.getValue(), last);
     });
-
     return result;
   }
 

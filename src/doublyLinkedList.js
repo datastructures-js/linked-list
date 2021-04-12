@@ -1,4 +1,5 @@
 /**
+ * datastructures-js/linked-list
  * @license MIT
  * @copyright 2020 Eyas Ranjous <eyas.ranjous@gmail.com>
  */
@@ -32,7 +33,6 @@ class DoublyLinkedList {
       newNode.setNext(this._head);
       this._head = newNode;
     }
-
     this._count += 1;
     return newNode;
   }
@@ -53,7 +53,6 @@ class DoublyLinkedList {
       this._tail.setNext(newNode);
       this._tail = newNode;
     }
-
     this._count += 1;
     return newNode;
   }
@@ -93,7 +92,6 @@ class DoublyLinkedList {
     newNode.setPrev(prev);
     newNode.getNext().setPrev(newNode);
     newNode.getPrev().setNext(newNode);
-
     this._count += 1;
     return newNode;
   }
@@ -114,7 +112,6 @@ class DoublyLinkedList {
       this._head = null;
       this._tail = null;
     }
-
     this._count -= 1;
     return removedNode.setNext(null);
   }
@@ -222,7 +219,6 @@ class DoublyLinkedList {
       position += 1;
       current = current.getNext();
     }
-
     return removedCount;
   }
 
@@ -282,7 +278,6 @@ class DoublyLinkedList {
       }
       current = current.getNext();
     }
-
     return null;
   }
 
