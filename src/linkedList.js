@@ -106,15 +106,11 @@ class LinkedList {
    * @param {LinkedListNode} [startingNode]
    * @returns {LinkedListNode|null}
    */
-  removeLast(startingNode) {
+  removeLast() {
     if (this.isEmpty()) return null;
 
-    if (startingNode && !(startingNode instanceof LinkedListNode)) {
-      throw new Error('removeLast expects a LinkedListNode starting node');
-    }
-
     let prev = null;
-    let current = startingNode || this._head;
+    let current = this._head;
     while (current.hasNext()) {
       prev = current;
       current = current.getNext();
