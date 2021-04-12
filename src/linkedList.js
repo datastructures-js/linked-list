@@ -151,12 +151,13 @@ class LinkedList {
           this.removeFirst();
         } else {
           prev.setNext(prev.getNext().getNext());
-          this._count -= 1;
-          removedCount += 1;
         }
+        this._count -= 1;
+        removedCount += 1;
+      } else {
+        prev = current;
       }
       position += 1;
-      prev = current;
       current = current.getNext();
     }
     return removedCount;

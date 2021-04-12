@@ -137,9 +137,10 @@ describe('linkedList tests', () => {
 
   describe('.removeEach(cb)', () => {
     it('remove nodes based on a callback', () => {
-      expect(linkedList.removeEach((n) => n.getValue() > 1)).to.equal(1);
-      expect(linkedList.count()).to.equal(1);
-      expect(linkedList.find((n) => n.getValue() === 5)).to.equal(null);
+      linkedList.insertLast(4);
+      expect(linkedList.removeEach((n) => n.getValue() > 1)).to.equal(2);
+      expect(linkedList.count()).to.deep.equal(1);
+      expect(linkedList.toArray()).to.deep.equal([1]);
     });
 
     it('throws an error if cb is not a function', () => {
