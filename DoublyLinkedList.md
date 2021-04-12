@@ -408,6 +408,36 @@ console.log(removed.getNext()); // null
 console.log(doublyLinkedList.toArray()); // [2, 5, 3, 4]
 ```
 
+### .remove(node)
+Removes a given node from the list. This can be done by remembering the references of the inserted nodes in the application that uses the doubly linked list, then call this function to remove any existing node in O(1) runtime.
+
+<table>
+  <tr>
+    <th align="center">params</th>
+    <th align="center">return</th>
+    <th align="center">runtime</th>
+  </tr>
+  <tr>
+    <td align="center">
+      node: <a href="#doublylinkedlistnode">DoublyLinkedListNode</a>
+    </td>
+    <td align="center">
+      <a href="#doublylinkedlistnode">DoublyLinkedListNode</a> | null
+    </td>
+    <td align="center">
+      O(1)
+    </td>
+  </tr>
+</table>
+
+```js
+const memoizedNode = doublyLinkedList.insertAt(2, 10);
+console.log(doublyLinkedList.toArray()); // [2, 5, 10, 3, 4]
+
+doublyLinkedList.remove(memoizedNode); // O(1)
+console.log(doublyLinkedList.toArray()); // [2, 5, 3, 4]
+```
+
 ### .removeAt(position)
 removes and returns the node at a specific position. First (head) node is at position 0.
 
