@@ -28,7 +28,7 @@ a javascript implementation of LinkedList & DoublyLinkedList.
 * [API](#api)
   * [Construction](#construction)
   * [.insertFirst(value)](#insertfirstvalue)
-  * [.insertLast(value)](#insertlastvalue)
+  * [.insertLast(value[, startingNode])](#insertlastvalue-startingnode)
   * [.insertAt(position, value)](#insertatposition-value)
   * [.forEach(cb)](#foreachcb)
   * [.forEachReverse(cb)](#foreachreversecb)
@@ -58,13 +58,9 @@ npm install --save @datastructures-js/linked-list
 ```js
 const {
   LinkedList,
-  DoublyLinkedList,
-} = require('@datastructures-js/linked-list');
-
-// list node classes are also exported
-const {
   LinkedListNode,
-  DoublyLinkedListNode
+  DoublyLinkedList,
+  DoublyLinkedListNode,
 } = require('@datastructures-js/linked-list');
 ```
 
@@ -72,13 +68,9 @@ const {
 ```js
 import {
   LinkedList,
-  DoublyLinkedList
-} from '@datastructures-js/linked-list';
-
-// list node classes are also exported
-import {
   LinkedListNode,
-  DoublyLinkedListNode
+  DoublyLinkedList,
+  DoublyLinkedListNode,
 } from '@datastructures-js/linked-list';
 ```
 
@@ -103,19 +95,19 @@ inserts a node at the beginning of the list.
   </tr>
   <tr>
     <td align="center">value: any</td>
-    <td align="center">LinkedList | DoublyLinkedList</td>
+    <td align="center">LinkedListNode | DoublyLinkedListNode</td>
     <td align="center">O(1)</td>
   </tr>
 </table>
 
 ```js
-console.log(linkedList.insertFirst(2).head().getValue()); // 2
+console.log(linkedList.insertFirst(2).getValue()); // 2
 
-console.log(linkedList.insertFirst(1).head().getValue()); // 1
+console.log(linkedList.insertFirst(1).getValue()); // 1
 ```
 
-### .insertLast(value)
-inserts a node at the end of the list.
+### .insertLast(value[, startingNode])
+inserts a node at the end of the list. For the LinkedList, it accepts an optional second param as the starting node to insert a node in O(1) runtime by passing the last inserted node.
 
 <table>
   <tr>
@@ -125,9 +117,9 @@ inserts a node at the end of the list.
   </tr>
   <tr>
     <td align="center">value: any</td>
-    <td align="center">LinkedList | DoublyLinkedList</td>
+    <td align="center">LinkedListNode | DoublyLinkedListNode</td>
     <td>
-      LinkedList: O(n)
+      LinkedList: O(n) | O(1) if last inserted node provided
       <br />
       DoublyLinkedList: O(1)
     </td>
@@ -136,14 +128,18 @@ inserts a node at the end of the list.
 
 ```js
 linkedList.insertLast(3);
-const last1 = linkedList.insertLast(4).find(4);
+const last1 = linkedList.insertLast(4);
 console.log(last1.getValue()); // 4
 console.log(last1.getNext()); // null
 
+const last2 = linkedList.insertLast(5, last1); // O(1)
+console.log(last2.getValue()); // 5
+console.log(last2.getNext()); // null
+
 doublyLinkedList.insertLast(3);
-const last2 = doublyLinkedList.insertLast(4).find(4);
-console.log(last2.getValue()); // 4
-console.log(last2.getPrev().getValue()); // 3
+const last3 = doublyLinkedList.insertLast(4);
+console.log(last3.getValue()); // 4
+console.log(last3.getPrev().getValue()); // 3
 ```
 
 ### .insertAt(position, value)
