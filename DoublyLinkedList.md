@@ -556,7 +556,6 @@ console.log(doublyLinkedList.tail()); // null
 </table>
 
 #### .getPrev()
-returns the previous connected node or null if it's the first node.
 
 <table>
   <tr><th>return</th></tr>
@@ -571,7 +570,6 @@ returns the previous connected node or null if it's the first node.
 </table>
 
 #### .setNext(next)
-sets the node's next connected node.
 
 <table>
   <tr><th>params</th></tr>
@@ -579,7 +577,6 @@ sets the node's next connected node.
 </table>
 
 #### .getNext()
-returns the next connected node or null if it's the last node.
 
 <table>
   <tr><th>return</th></tr>
