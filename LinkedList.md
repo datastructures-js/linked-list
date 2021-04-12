@@ -434,3 +434,10 @@ console.log(linkedList.head()); // null
  <tr><th>return</th></tr>
  <tr><td><a href="#linkedlistnode">LinkedListNode</a> | null</td></tr>
 </table>
+
+#### .hasNext()
+
+<table>
+ <tr><th>return</th></tr>
+ <tr><td>boolean</td></tr>
+</table>

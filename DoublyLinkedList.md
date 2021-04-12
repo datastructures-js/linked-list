@@ -533,6 +533,13 @@ returns the previous connected node or null if it's the first node.
   <tr><td><a href="#doublylinkedlistnode">DoublyLinkedListNode</a></td></tr>
 </table>
 
+#### .hasPrev()
+
+<table>
+ <tr><th>return</th></tr>
+ <tr><td>boolean</td></tr>
+</table>
+
 #### .setNext(next)
 sets the node's next connected node.
 
@@ -547,4 +554,11 @@ returns the next connected node or null if it's the last node.
 <table>
   <tr><th>return</th></tr>
   <tr><td><a href="#doublylinkedlistnode">DoublyLinkedListNode</a></td></tr>
+</table>
+
+#### .hasNext()
+
+<table>
+ <tr><th>return</th></tr>
+ <tr><td>boolean</td></tr>
 </table>
