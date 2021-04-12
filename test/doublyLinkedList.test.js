@@ -176,10 +176,11 @@ describe('doublyLinkedList tests', () => {
 
   describe('.removeEach(cb)', () => {
     it('remove nodes based on a callback', () => {
+      doublyLinkedList.insertLast(4);
       const removedCount = doublyLinkedList.removeEach((n) => n.getValue() > 1);
-      expect(removedCount).to.deep.equal(1);
+      expect(removedCount).to.deep.equal(2);
+      expect(doublyLinkedList.toArray()).to.deep.equal([1]);
       expect(doublyLinkedList.count()).to.equal(1);
-      expect(doublyLinkedList.find((n) => n.getValue() === 5)).to.equal(null);
     });
 
     it('throws an error if cb is not a function', () => {

@@ -213,11 +213,14 @@ class DoublyLinkedList {
     let current = this._head;
     while (current instanceof DoublyLinkedListNode) {
       if (cb(current, position)) {
+        const next = current.getNext();
         this.remove(current);
         removedCount += 1;
+        current = next;
+      } else {
+        current = current.getNext();
       }
       position += 1;
-      current = current.getNext();
     }
     return removedCount;
   }
