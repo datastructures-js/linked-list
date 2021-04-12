@@ -6,9 +6,9 @@
 
 a javascript implementation of LinkedList & DoublyLinkedList.
 
-## [LinkedList](#https://github.com/datastructures-js/linked-list/LINKED_LIST.md)
+## [LinkedList](https://github.com/datastructures-js/linked-list/LINKED_LIST.md)
 
-## [DoublyLinkedList](#https://github.com/datastructures-js/linked-list/DOUBLY_LINKED_LIST.md)
+## [DoublyLinkedList](https://github.com/datastructures-js/linked-list/DOUBLY_LINKED_LIST.md)
 
 ## Build
 ```
