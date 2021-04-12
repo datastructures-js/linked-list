@@ -196,7 +196,7 @@ returns a filtered linked list of all the nodes that returns true from the callb
     <td align="center">
       cb: function
     </td>
-    <td align="center"><a href="#linkedlistnode">LinkedListNode</a></td>
+    <td align="center"><a href="#linkedlist">LinkedList</a></td>
     <td align="center">O(n)</td>
   </tr>
 </table>
