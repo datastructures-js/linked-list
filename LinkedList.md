@@ -148,7 +148,9 @@ Traverse the list from beginning to end, and pass each node to the callback.
 </table>
 
 ```js
-linkedList.forEach((node, position) => console.log(node.getValue(), position));
+linkedList.forEach(
+  (node, position) => console.log(node.getValue(), position)
+);
 /*
 1 0
 2 1
@@ -178,7 +180,9 @@ finds the first node that returns true from the callback or null if nothing foun
 </table>
 
 ```js
-const node5 = linkedList.find((node, position) => node.getValue() === 5);
+const node5 = linkedList.find(
+  (node, position) => node.getValue() === 5
+);
 console.log(node5.getValue()); // 5
 ```
 
@@ -201,8 +205,12 @@ returns a filtered linked list of all the nodes that returns true from the callb
 </table>
 
 ```js
-const filterLinkedList = linkedList.filter((node, position) => node.getValue() > 2);
-filterLinkedList.forEach((node, position) => console.log(node.getValue(), position));
+const filterLinkedList = linkedList.filter(
+  (node, position) => node.getValue() > 2
+);
+filterLinkedList.forEach(
+  (node, position) => console.log(node.getValue(), position)
+);
 /*
 5 0
 3 1
@@ -368,7 +376,9 @@ Loop on the linked list from beginning to end, removes the nodes that returns a 
 </table>
 
 ```js
-const removedCount = linkedList.removeEach((node, position) => node.getValue() > 2);
+const removedCount = linkedList.removeEach(
+  (node, position) => node.getValue() > 2
+);
 console.log(removedCount); // 2
 console.log(linkedList.toArray()); // [2]
 ```

@@ -151,7 +151,9 @@ Traverse the list from beginning to end, and pass each node to the callback.
 </table>
 
 ```js
-doublyLinkedList.forEach((node, position) => console.log(node.getValue(), position));
+doublyLinkedList.forEach(
+  (node, position) => console.log(node.getValue(), position)
+);
 /*
 1 0
 2 1
@@ -177,7 +179,9 @@ Traverse the list from end to beginning, and pass each node to the callback.
 </table>
 
 ```js
-doublyLinkedList.forEachReverse((node, position) => console.log(node.getValue(), position));
+doublyLinkedList.forEachReverse(
+  (node, position) => console.log(node.getValue(), position)
+);
 /*
 5 5
 4 4
@@ -209,7 +213,9 @@ Finds the first node that returns true from the callback or null if nothing foun
 </table>
 
 ```js
-const node5 = doublyLinkedList.find((node, position) => node.getValue() === 5);
+const node5 = doublyLinkedList.find(
+  (node, position) => node.getValue() === 5
+);
 console.log(node5.getValue()); // 5
 ```
 
@@ -236,8 +242,12 @@ returns a filtered doubly linked list of all the nodes that returns true from th
 </table>
 
 ```js
-const filterLinkedList = doublyLinkedList.filter((node, position) => node.getValue() > 2);
-filterLinkedList.forEach((node, position) => console.log(node.getValue(), position));
+const filterLinkedList = doublyLinkedList.filter(
+  (node, position) => node.getValue() > 2
+);
+filterLinkedList.forEach(
+  (node, position) => console.log(node.getValue(), position)
+);
 /*
 5 0
 3 1
@@ -491,7 +501,9 @@ removes the nodes that returns a list of the removed nodes.
 </table>
 
 ```js
-const removedCount = doublyLinkedList.removeEach((node, position) => node.getValue() > 2);
+const removedCount = doublyLinkedList.removeEach(
+  (node, position) => node.getValue() > 2
+);
 console.log(removedCount); // 2
 console.log(doublyLinkedList.toArray()); // [2]
 ```
