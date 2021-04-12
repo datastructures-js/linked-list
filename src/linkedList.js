@@ -103,7 +103,6 @@ class LinkedList {
   /**
    * Removes the last node in the list.
    * @public
-   * @param {LinkedListNode} [startingNode]
    * @returns {LinkedListNode|null}
    */
   removeLast() {
