@@ -150,11 +150,12 @@ Traverse the linked list from beginning to end, and pass each node to the callba
 ```js
 linkedList.forEach((node, position) => console.log(node.getValue(), position));
 /*
-2 0
-1 1
+1 0
+2 1
 5 2
 3 3
 4 4
+5 5
 */
 ```
 
@@ -177,7 +178,7 @@ finds the first node that returns true from the callback or null if nothing foun
 </table>
 
 ```js
-const node1 = linkedList.find((node) => node.getValue() === 5);
+const node1 = linkedList.find((node, position) => node.getValue() === 5);
 console.log(node1.getValue()); // 5
 ```
 
@@ -201,11 +202,12 @@ returns a filtered linked list of all the nodes that returns true from the callb
 
 ```js
 const filterLinkedList = linkedList.filter((node, position) => node.getValue() > 2);
-filterLinkedList.forEach((node) => console.log(node.getValue()));
+filterLinkedList.forEach((node, position) => console.log(node.getValue(), position));
 /*
-5
-3
-4
+5 0
+3 1
+4 2
+5 3
 */
 ```
 
@@ -224,7 +226,7 @@ converts the linked list into an array.
 </table>
 
 ```js
-console.log(linkedList.toArray()); // [2, 1, 5, 3, 4]
+console.log(linkedList.toArray()); // [ 1, 2, 5, 3, 4, 5 ]
 ```
 
 ### .isEmpty()
@@ -260,7 +262,7 @@ returns the head node in the linked list.
 </table>
 
 ```js
-console.log(linkedList.head().getValue()); // 2
+console.log(linkedList.head().getValue()); // 1
 ```
 
 ### .count()
@@ -278,7 +280,7 @@ returns the number of nodes in the linked list.
 </table>
 
 ```js
-console.log(linkedList.count()); // 5
+console.log(linkedList.count()); // 6
 ```
 
 ### .removeFirst()
@@ -296,7 +298,11 @@ removes and returns the first node in the list.
 </table>
 
 ```js
-linkedList.removeFirst();
+const removed = linkedList.removeFirst();
+console.log(removed.getValue()); // 1
+console.log(removed.getNext()); // null
+
+console.log(linkedList.toArray()); // [ 2, 5, 3, 4, 5 ]
 ```
 
 ### .removeLast()
@@ -314,7 +320,11 @@ removes and returns the last node in the list.
 </table>
 
 ```js
-linkedList.removeLast();
+const removed = linkedList.removeLast();
+console.log(removed.getValue()); // 5
+console.log(removed.getNext()); // null
+
+console.log(linkedList.toArray()); // [ 2, 5, 3, 4 ]
 ```
 
 ### .removeAt(position)
@@ -334,7 +344,11 @@ removes and returns the node at a specific position. First (head) node is at pos
 </table>
 
 ```js
-linkedList.removeAt(1);
+const removed = linkedList.removeAt(1);
+console.log(removed.getValue()); // 5
+console.log(removed.getNext()); // null
+
+console.log(linkedList.toArray()); // [ 2, 3, 4 ]
 ```
 
 ### .removeEach(cb)
@@ -354,8 +368,9 @@ Loop on the linked list from beginning to end, removes the nodes that returns a 
 </table>
 
 ```js
-const removedCount = linkedList.removeEach((node, position) => node.getValue() > 1);
-console.log(removedCount); // 1
+const removedCount = linkedList.removeEach((node, position) => node.getValue() > 2);
+console.log(removedCount); // 2
+console.log(linkedList.toArray()); // [ 2 ]
 ```
 
 ### .clear()
