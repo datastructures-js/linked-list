@@ -5,6 +5,19 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
+## [5.0.0] - 2021-04-12
+
+### Changed
+- insert/remove methods now all returns the inserted/removed nodes.
+- `insertLast` in LinkedList now accepts a starting node as a second param, useful to insert a node at the end in O(1) runtime.
+
+### Added
+- `remove(node)` to DoublyLinkedList to remove any node in O(1) runtime.
+- `hasNext`/`hasPrev` cleaner checks of connected nodes to Node classes.
+
+### Fixed
+- bug in removeEach method.
+- improved README, splitted LinkedList/DoublyLinkedList readmes.
 
 ## [4.0.0] - 2021-02-16
 

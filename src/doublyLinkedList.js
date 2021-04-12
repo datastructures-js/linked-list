@@ -1,4 +1,5 @@
 /**
+ * datastructures-js/linked-list
  * @license MIT
  * @copyright 2020 Eyas Ranjous <eyas.ranjous@gmail.com>
  */
@@ -9,9 +10,6 @@ const DoublyLinkedListNode = require('./doublyLinkedListNode');
  * @class
  */
 class DoublyLinkedList {
-  /**
-   * Creates a doubly linked list.
-   */
   constructor() {
     this._head = null;
     this._tail = null;
@@ -19,10 +17,10 @@ class DoublyLinkedList {
   }
 
   /**
-   * Adds a node at the beginning of the linked list.
+   * Adds a node at the beginning of the list.
    * @public
    * @param {any} value
-   * @returns {DoublyLinkedList} - reference to this
+   * @returns {DoublyLinkedListNode}
    */
   insertFirst(value) {
     const newNode = new DoublyLinkedListNode(value);
@@ -35,16 +33,15 @@ class DoublyLinkedList {
       newNode.setNext(this._head);
       this._head = newNode;
     }
-
     this._count += 1;
-    return this;
+    return newNode;
   }
 
   /**
-   * Adds a node at the end of the linked list.
+   * Adds a node at the end of the list.
    * @public
    * @param {any} value
-   * @returns {DoublyLinkedList} - reference to this
+   * @returns {DoublyLinkedListNode}
    */
   insertLast(value) {
     const newNode = new DoublyLinkedListNode(value);
@@ -57,7 +54,7 @@ class DoublyLinkedList {
       this._tail = newNode;
     }
     this._count += 1;
-    return this;
+    return newNode;
   }
 
   /**
@@ -65,7 +62,7 @@ class DoublyLinkedList {
    * @public
    * @param {number} position
    * @param {any} value
-   * @returns {DoublyLinkedList} - reference to this
+   * @returns {DoublyLinkedListNode}
    */
   insertAt(position, value) {
     if (
@@ -83,10 +80,10 @@ class DoublyLinkedList {
       return this.insertLast(value);
     }
 
-    let counter = 1;
+    let currentPosition = 1;
     let prev = this._head;
-    while (counter < position) {
-      counter += 1;
+    while (currentPosition < position) {
+      currentPosition += 1;
       prev = prev.getNext();
     }
 
@@ -96,7 +93,7 @@ class DoublyLinkedList {
     newNode.getNext().setPrev(newNode);
     newNode.getPrev().setNext(newNode);
     this._count += 1;
-    return this;
+    return newNode;
   }
 
   /**
@@ -105,19 +102,18 @@ class DoublyLinkedList {
    * @returns {DoublyLinkedListNode|null}
    */
   removeFirst() {
-    if (this._head === null) return null;
+    if (this.isEmpty()) return null;
 
-    const removed = this._head;
-    if (this._head.getNext() === null) {
-      this._head = null;
-      this._tail = null;
-    } else {
+    const removedNode = this._head;
+    if (this._head.hasNext()) {
       this._head = this._head.getNext();
       this._head.setPrev(null);
+    } else {
+      this._head = null;
+      this._tail = null;
     }
-
     this._count -= 1;
-    return removed.setNext(null).setPrev(null);
+    return removedNode.setNext(null);
   }
 
   /**
@@ -126,19 +122,18 @@ class DoublyLinkedList {
    * @returns {DoublyLinkedListNode|null}
    */
   removeLast() {
-    if (this._head === null) return null;
+    if (this.isEmpty()) return null;
 
-    const removed = this._tail;
-    if (this._head.getNext() === null) {
-      this._head = null;
-      this._tail = null;
-    } else {
+    const removedNode = this._tail;
+    if (this._tail.hasPrev()) {
       this._tail = this._tail.getPrev();
       this._tail.setNext(null);
+    } else {
+      this._head = null;
+      this._tail = null;
     }
-
     this._count -= 1;
-    return removed.setNext(null).setPrev(null);
+    return removedNode.setPrev(null);
   }
 
   /**
@@ -164,59 +159,70 @@ class DoublyLinkedList {
       return this.removeLast();
     }
 
-    let counter = 1;
-    let prev = this._head;
-    while (counter < position) {
-      counter += 1;
-      prev = prev.getNext();
+    let currentPosition = 1;
+    let current = this._head.getNext();
+    while (currentPosition < position) {
+      currentPosition += 1;
+      current = current.getNext();
+    }
+    return this.remove(current);
+  }
+
+  /**
+   * Removes a node from the list by its reference.
+   * @public
+   * @param {DoublyLinkedListNode} node
+   * @returns {DoublyLinkedListNode}
+   */
+  remove(node) {
+    if (node && !(node instanceof DoublyLinkedListNode)) {
+      throw new Error('remove: expects a DoublyLinkedListNode node');
     }
 
-    const removed = prev.getNext();
-    prev.setNext(prev.getNext().getNext());
-    prev.getNext().setPrev(prev);
-    this._count -= 1;
+    if (!node) {
+      return null;
+    }
 
-    return removed.setNext(null).setPrev(null);
+    if (!node.hasPrev()) {
+      return this.removeFirst();
+    }
+
+    if (!node.hasNext()) {
+      return this.removeLast();
+    }
+
+    node.getPrev().setNext(node.getNext());
+    node.getNext().setPrev(node.getPrev());
+    this._count -= 1;
+    return node.setPrev(null).setNext(null);
   }
 
   /**
    * Removes all nodes based on a callback.
    * @public
    * @param {function} cb
-   * @returns {array} count of removed nodes
+   * @returns {number} number of removed nodes
    */
   removeEach(cb) {
     if (typeof cb !== 'function') {
       throw new Error('.removeEach(cb) expects a callback');
     }
 
-    const removed = [];
+    let removedCount = 0;
     let position = 0;
-    let prev = null;
-    let node = this._head;
-
-    while (node !== null) {
-      if (cb(node, position)) {
-        if (prev === null) {
-          removed.push(this.removeFirst());
-        } else if (prev.getNext() === null) {
-          removed.push(this.removeLast());
-        } else {
-          const removedNode = prev.getNext();
-          prev.setNext(prev.getNext().getNext());
-          if (prev.getNext() !== null) {
-            prev.getNext().setPrev(prev);
-          }
-          removed.push(removedNode.setNext(null).setPrev(null));
-          this._count -= 1;
-        }
+    let current = this._head;
+    while (current instanceof DoublyLinkedListNode) {
+      if (cb(current, position)) {
+        const next = current.getNext();
+        this.remove(current);
+        removedCount += 1;
+        current = next;
+      } else {
+        current = current.getNext();
       }
       position += 1;
-      prev = node;
-      node = node.getNext();
     }
-
-    return removed;
+    return removedCount;
   }
 
   /**
@@ -229,14 +235,13 @@ class DoublyLinkedList {
       throw new Error('.forEach(cb) expects a callback');
     }
 
-    const forEachRecursive = (current, position = 0) => {
-      if (current === null) return;
-
+    let current = this._head;
+    let position = 0;
+    while (current instanceof DoublyLinkedListNode) {
       cb(current, position);
-      forEachRecursive(current.getNext(), position + 1);
-    };
-
-    forEachRecursive(this._head);
+      position += 1;
+      current = current.getNext();
+    }
   }
 
   /**
@@ -249,44 +254,38 @@ class DoublyLinkedList {
       throw new Error('.forEachReverse(cb) expects a callback');
     }
 
-    const forEachReverseRecursive = (current, position = this._count - 1) => {
-      if (current === null) return;
-
+    let current = this._tail;
+    let position = this._count - 1;
+    while (current instanceof DoublyLinkedListNode) {
       cb(current, position);
-      forEachReverseRecursive(current.getPrev(), position - 1);
-    };
-
-    forEachReverseRecursive(this._tail);
+      position -= 1;
+      current = current.getPrev();
+    }
   }
 
   /**
+   * Finds a node in the list using a callback
    * @public
-   * finds a node in the linked list using on a callback
    * @param {function} cb
-   * @returns {DoublyLinkedListNode}
-   * @throws {Error} if cb is not a function
+   * @returns {DoublyLinkedListNode|null}
    */
   find(cb) {
     if (typeof cb !== 'function') {
       throw new Error('.find(cb) expects a callback');
     }
 
-    const findRecursive = (current) => {
-      // did not find the node
-      if (current === null) return null;
-
-      // found the node
-      if (cb(current)) return current;
-
-      // haven't found the node yet, check next
-      return findRecursive(current.getNext());
-    };
-
-    return findRecursive(this._head);
+    let current = this._head;
+    while (current instanceof DoublyLinkedListNode) {
+      if (cb(current)) {
+        return current;
+      }
+      current = current.getNext();
+    }
+    return null;
   }
 
   /**
-   * Filters the linked list based on a callback.
+   * Filters the list based on a callback.
    * @public
    * @param {function} cb
    * @returns {LinkedList}
@@ -297,16 +296,15 @@ class DoublyLinkedList {
     }
 
     const result = new DoublyLinkedList();
-    let last = null;
     this.forEach((node, position) => {
       if (!cb(node, position)) return;
-      last = result.insertLast(node.getValue(), last);
+      result.insertLast(node.getValue());
     });
-
     return result;
   }
 
   /**
+   * Returns the head node.
    * @public
    * @returns {DoublyLinkedListNode}
    */
@@ -315,6 +313,7 @@ class DoublyLinkedList {
   }
 
   /**
+   * Returns the tail node.
    * @public
    * @returns {DoublyLinkedListNode}
    */
@@ -323,6 +322,7 @@ class DoublyLinkedList {
   }
 
   /**
+   * Returns the nodes count in the list.
    * @public
    * @returns {number}
    */
@@ -331,6 +331,7 @@ class DoublyLinkedList {
   }
 
   /**
+   * Converts the doubly linked list into an array.
    * @public
    * @returns {array}
    */
@@ -341,6 +342,7 @@ class DoublyLinkedList {
   }
 
   /**
+   * Checks if the list is empty.
    * @public
    * @returns {boolean}
    */
@@ -349,7 +351,7 @@ class DoublyLinkedList {
   }
 
   /**
-   * Clears the linked list
+   * Clears the list
    * @public
    */
   clear() {

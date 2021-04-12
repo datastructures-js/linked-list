@@ -1,4 +1,5 @@
 /**
+ * datastructures-js/linked-list
  * @license MIT
  * @copyright 2020 Eyas Ranjous <eyas.ranjous@gmail.com>
  *
@@ -18,7 +19,7 @@ class LinkedListNode {
   /**
    * @public
    * @param {any} value
-   * @returns {LinkedListNode} - this
+   * @returns {LinkedListNode}
    */
   setValue(value) {
     this._value = value;
@@ -35,20 +36,31 @@ class LinkedListNode {
 
   /**
    * @public
-   * @param {LinkedListNode} - [next]
-   * @returns {LinkedListNode} - this
+   * @param {LinkedListNode} [next]
+   * @returns {LinkedListNode}
    */
   setNext(next) {
-    this._next = (next instanceof LinkedListNode) ? next : null;
+    if (next && !(next instanceof LinkedListNode)) {
+      throw new Error('setLeft expects a LinkedListNode or null');
+    }
+    this._next = next || null;
     return this;
   }
 
   /**
    * @public
-   * @returns {LinkedListNode}
+   * @returns {LinkedListNode|null}
    */
   getNext() {
     return this._next;
+  }
+
+  /**
+   * @public
+   * @returns {boolean}
+   */
+  hasNext() {
+    return this._next instanceof LinkedListNode;
   }
 }
 

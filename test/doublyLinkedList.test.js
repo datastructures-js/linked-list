@@ -1,5 +1,6 @@
 const { expect } = require('chai');
 const DoublyLinkedList = require('../src/doublyLinkedList');
+const DoublyLinkedListNode = require('../src/doublyLinkedListNode');
 
 describe('doublyLinkedList tests', () => {
   const doublyLinkedList = new DoublyLinkedList();
@@ -7,25 +8,25 @@ describe('doublyLinkedList tests', () => {
   describe('.insertFirst(value)', () => {
     it('add a node at the beginning of the list', () => {
       expect(doublyLinkedList.insertFirst(1))
-        .to.be.instanceof(DoublyLinkedList);
+        .to.be.instanceof(DoublyLinkedListNode);
       expect(doublyLinkedList.insertFirst(2))
-        .to.be.instanceof(DoublyLinkedList);
+        .to.be.instanceof(DoublyLinkedListNode);
     });
   });
 
   describe('.insertLast(value)', () => {
     it('add a node to the end of the list', () => {
       expect(doublyLinkedList.insertLast(3))
-        .to.be.instanceof(DoublyLinkedList);
+        .to.be.instanceof(DoublyLinkedListNode);
       expect(doublyLinkedList.insertLast(4))
-        .to.be.instanceof(DoublyLinkedList);
+        .to.be.instanceof(DoublyLinkedListNode);
     });
   });
 
   describe('.insertAt(position, value)', () => {
     it('add a node at a specific position', () => {
       expect(doublyLinkedList.insertAt(2, 5))
-        .to.be.instanceof(DoublyLinkedList);
+        .to.be.instanceof(DoublyLinkedListNode);
     });
 
     it('throws error position is not a valid number', () => {
@@ -175,10 +176,11 @@ describe('doublyLinkedList tests', () => {
 
   describe('.removeEach(cb)', () => {
     it('remove nodes based on a callback', () => {
-      const removed = doublyLinkedList.removeEach((n) => n.getValue() > 1);
-      expect(removed.map((r) => r.getValue())).to.deep.equal([3]);
+      doublyLinkedList.insertLast(4);
+      const removedCount = doublyLinkedList.removeEach((n) => n.getValue() > 1);
+      expect(removedCount).to.deep.equal(2);
+      expect(doublyLinkedList.toArray()).to.deep.equal([1]);
       expect(doublyLinkedList.count()).to.equal(1);
-      expect(doublyLinkedList.find((n) => n.getValue() === 5)).to.equal(null);
     });
 
     it('throws an error if cb is not a function', () => {

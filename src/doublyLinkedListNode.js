@@ -1,5 +1,5 @@
 /**
- * @datastructures-js/linked-list
+ * datastructures-js/linked-list
  * @copyright 2020 Eyas Ranjous <eyas.ranjous@gmail.com>
  * @license MIT
  */
@@ -40,9 +40,13 @@ class DoublyLinkedListNode {
   /**
    * @public
    * @param {DoublyLinkedListNode} [next]
+   * @returns {DoublyLinkedList}
    */
   setNext(next) {
-    this._next = (next instanceof DoublyLinkedListNode) ? next : null;
+    if (next && !(next instanceof DoublyLinkedListNode)) {
+      throw new Error('setNext expects a DoublyLinkedListNode or null');
+    }
+    this._next = next || null;
     return this;
   }
 
@@ -56,10 +60,22 @@ class DoublyLinkedListNode {
 
   /**
    * @public
+   * @returns {boolean}
+   */
+  hasNext() {
+    return this._next instanceof DoublyLinkedListNode;
+  }
+
+  /**
+   * @public
    * @param {DoublyLinkedListNode} [prev]
+   * @returns {DoublyLinkedList}
    */
   setPrev(prev) {
-    this._prev = (prev instanceof DoublyLinkedListNode) ? prev : null;
+    if (prev && !(prev instanceof DoublyLinkedListNode)) {
+      throw new Error('setPrev expects a DoublyLinkedListNode or null');
+    }
+    this._prev = prev || null;
     return this;
   }
 
@@ -69,6 +85,14 @@ class DoublyLinkedListNode {
    */
   getPrev() {
     return this._prev;
+  }
+
+  /**
+   * @public
+   * @returns {boolean}
+   */
+  hasPrev() {
+    return this._prev instanceof DoublyLinkedListNode;
   }
 }
 
