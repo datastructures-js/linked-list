@@ -13,7 +13,7 @@ export class DoublyLinkedList<T> {
   forEach(cb: (node: DoublyLinkedListNode<T>, position: number) => void): void;
   forEachReverse(cb: (node: DoublyLinkedListNode<T>, position: number) => void): void;
   find(cb: (node: DoublyLinkedListNode<T>) => boolean): DoublyLinkedListNode<T>;
-  filter(cb: (node: DoublyLinkedListNode<T>, position: number) => boolean): LinkedList<T>;
+  filter(cb: (node: DoublyLinkedListNode<T>, position: number) => boolean): DoublyLinkedList<T>;
   head(): DoublyLinkedListNode<T>;
   head(): DoublyLinkedListNode<T>;
   count(): number;
