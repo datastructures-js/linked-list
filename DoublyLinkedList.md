@@ -179,7 +179,7 @@ Traverse the list from end to beginning, and pass each node to the callback.
     <th align="center">runtime</th>
   </tr>
   <tr>
-    <td align="center">cb: cb: (node: DoublyLinkedListNode&lt;T&gt;, position: number) => void</td>
+    <td align="center">cb: (node: DoublyLinkedListNode&lt;T&gt;, position: number) => void</td>
     <td align="center">O(n)</td>
   </tr>
 </table>
