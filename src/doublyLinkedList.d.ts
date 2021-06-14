@@ -2,7 +2,7 @@ import { DoublyLinkedListNode } from './doublyLinkedListNode';
 
 export class DoublyLinkedList<T> {
   constructor();
-  inserFirst(value: T): DoublyLinkedListNode<T>;
+  insertFirst(value: T): DoublyLinkedListNode<T>;
   insertLast(value: T): DoublyLinkedListNode<T>;
   insertAt(position: number, value: T): DoublyLinkedListNode<T>;
   removeFirst(): DoublyLinkedListNode<T>;

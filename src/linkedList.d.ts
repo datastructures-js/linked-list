@@ -2,7 +2,7 @@ import { LinkedListNode } from './linkedListNode';
 
 export class LinkedList<T> {
   constructor();
-  inserFirst(value: T): LinkedListNode<T>;
+  insertFirst(value: T): LinkedListNode<T>;
   insertLast(value: T): LinkedListNode<T>;
   insertAt(position: number, value: T): LinkedListNode<T>;
   removeFirst(): LinkedListNode<T>;
