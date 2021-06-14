@@ -2,12 +2,12 @@
 
 <img width="552" alt="Doubly Linked List" src="https://user-images.githubusercontent.com/6517308/35762752-19b17df4-0862-11e8-8ce3-f940d83dde51.png">
 
-# Table of Contents
+# Contents
 * [Install](#install)
 * [require](#require)
 * [import](#import)
 * [API](#api)
-  * [new](#new)
+  * [constructor](#constructor)
   * [.insertFirst(value)](#insertfirstvalue)
   * [.insertLast(value)](#insertlastvalue)
   * [.insertAt(position, value)](#insertatposition-value)
@@ -53,10 +53,16 @@ import {
 
 ## API
 
-### new
+### constructor
 
+##### JS
 ```js
 const doublyLinkedList = new DoublyLinkedList();
+```
+
+##### TS
+```js
+const doublyLinkedList = new DoublyLinkedList<number>();
 ```
 
 ### .insertFirst(value)
@@ -69,8 +75,8 @@ inserts a node at the beginning of the list.
     <th align="center">runtime</th>
   </tr>
   <tr>
-    <td align="center">value: any</td>
-    <td align="center"><a href="#doublylinkedlistnode">DoublyLinkedListNode</a></td>
+    <td align="center">value: T</td>
+    <td align="center"><a href="#doublylinkedlistnode">DoublyLinkedListNode&lt;T&gt;</a></td>
     <td align="center">O(1)</td>
   </tr>
 </table>
@@ -91,8 +97,8 @@ inserts a node at the end of the list.
     <th align="center">runtime</th>
   </tr>
   <tr>
-    <td align="center">value: any</td>
-    <td align="center"><a href="#doublylinkedlistnode">DoublyLinkedListNode</a></td>
+    <td align="center">value: T</td>
+    <td align="center"><a href="#doublylinkedlistnode">DoublyLinkedListNode&lt;T&gt;</a></td>
     <td>O(1)</td>
   </tr>
 </table>
@@ -122,9 +128,9 @@ inserts a node at specific position of the list. First (head) node is at positio
     <td>
       position: number
       <br />
-      value: any
+      value: T
     </td>
-    <td align="center"><a href="#doublylinkedlistnode">DoublyLinkedListNode</a></td>
+    <td align="center"><a href="#doublylinkedlistnode">DoublyLinkedListNode&lt;T&gt;</a></td>
     <td align="center">
       O(n)
     </td>
@@ -145,7 +151,7 @@ Traverse the list from beginning to end, and pass each node to the callback.
     <th align="center">runtime</th>
   </tr>
   <tr>
-    <td align="center">cb: function</td>
+    <td align="center">cb: (node: DoublyLinkedListNode&lt;T&gt;, position: number) => void</td>
     <td align="center">O(n)</td>
   </tr>
 </table>
