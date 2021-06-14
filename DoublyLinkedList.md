@@ -76,7 +76,7 @@ inserts a node at the beginning of the list.
   </tr>
   <tr>
     <td align="center">value: T</td>
-    <td align="center"><a href="#doublylinkedlistnode&lt;T&gt;">DoublyLinkedListNode&lt;T&gt;</a></td>
+    <td align="center"><a href="#doublylinkedlistnodet">DoublyLinkedListNode&lt;T&gt;</a></td>
     <td align="center">O(1)</td>
   </tr>
 </table>
@@ -98,7 +98,7 @@ inserts a node at the end of the list.
   </tr>
   <tr>
     <td align="center">value: T</td>
-    <td align="center"><a href="#doublylinkedlistnode&lt;T&gt;">DoublyLinkedListNode&lt;T&gt;</a></td>
+    <td align="center"><a href="#doublylinkedlistnodet">DoublyLinkedListNode&lt;T&gt;</a></td>
     <td>O(1)</td>
   </tr>
 </table>
@@ -130,7 +130,7 @@ inserts a node at specific position of the list. First (head) node is at positio
       <br />
       value: T
     </td>
-    <td align="center"><a href="#doublylinkedlistnode&lt;T&gt;">DoublyLinkedListNode&lt;T&gt;</a></td>
+    <td align="center"><a href="#doublylinkedlistnodet">DoublyLinkedListNode&lt;T&gt;</a></td>
     <td align="center">
       O(n)
     </td>
@@ -212,7 +212,7 @@ Finds the first node that returns true from the callback or null if nothing foun
       cb: (node: DoublyLinkedListNode&lt;T&gt;) => boolean
     </td>
     <td align="center">
-      <a href="#doublylinkedlistnode&lt;T&gt;">DoublyLinkedListNode&lt;T&gt;</a>
+      <a href="#doublylinkedlistnodet">DoublyLinkedListNode&lt;T&gt;</a>
     </td>
     <td align="center">O(n)</td>
   </tr>
@@ -316,7 +316,7 @@ returns the head node in the linked list.
   </tr>
   <tr>
     <td align="center">
-      <a href="#doublylinkedlistnode&lt;T&gt;">DoublyLinkedListNode&lt;T&gt;</a>
+      <a href="#doublylinkedlistnodet">DoublyLinkedListNode&lt;T&gt;</a>
     </td>
     <td align="center">
       O(1)
@@ -338,7 +338,7 @@ returns the tail node of the doubly linked list.
   </tr>
   <tr>
     <td align="center">
-      <a href="#doublylinkedlistnode&lt;T&gt;">DoublyLinkedListNode&lt;T&gt;</a>
+      <a href="#doublylinkedlistnodet">DoublyLinkedListNode&lt;T&gt;</a>
     </td>
     <td align="center">
       O(1)
@@ -382,7 +382,7 @@ removes the first node in the list.
   </tr>
   <tr>
     <td align="center">
-      <a href="#doublylinkedlistnode&lt;T&gt;">DoublyLinkedListNode&lt;T&gt;</a>
+      <a href="#doublylinkedlistnodet">DoublyLinkedListNode&lt;T&gt;</a>
     </td>
     <td align="center">
       O(1)
@@ -408,7 +408,7 @@ removes and returns the last node in the list.
   </tr>
   <tr>
     <td align="center">
-      <a href="#doublylinkedlistnode&lt;T&gt;">DoublyLinkedListNode&lt;T&gt;</a>
+      <a href="#doublylinkedlistnodet">DoublyLinkedListNode&lt;T&gt;</a>
     </td>
     <td>
       O(1)
@@ -435,10 +435,10 @@ Removes a given node from the list. This can be done by remembering the referenc
   </tr>
   <tr>
     <td align="center">
-      node: <a href="#doublylinkedlistnode&lt;T&gt;">DoublyLinkedListNode&lt;T&gt;</a>
+      node: <a href="#doublylinkedlistnodet">DoublyLinkedListNode&lt;T&gt;</a>
     </td>
     <td align="center">
-      <a href="#doublylinkedlistnode&lt;T&gt;">DoublyLinkedListNode&lt;T&gt;</a>
+      <a href="#doublylinkedlistnodet">DoublyLinkedListNode&lt;T&gt;</a>
     </td>
     <td align="center">
       O(1)
@@ -468,7 +468,7 @@ removes and returns the node at a specific position. First (head) node is at pos
       position: number
     </td>
     <td align="center">
-      <a href="#doublylinkedlistnode&lt;T&gt;">DoublyLinkedListNode&lt;T&gt;</a>
+      <a href="#doublylinkedlistnodet">DoublyLinkedListNode&lt;T&gt;</a>
     </td>
     <td align="center">
       O(1)
@@ -545,9 +545,9 @@ console.log(doublyLinkedList.tail()); // null
     <td>
       value: T
       <br />
-      prev: <a href="#doublylinkedlistnode&lt;T&gt;">DoublyLinkedListNode&lt;T&gt;</a>
+      prev: <a href="#doublylinkedlistnodet">DoublyLinkedListNode&lt;T&gt;</a>
       <br />
-      next: <a href="#doublylinkedlistnode&lt;T&gt;">DoublyLinkedListNode&lt;T&gt;</a>
+      next: <a href="#doublylinkedlistnodet">DoublyLinkedListNode&lt;T&gt;</a>
     </td>
   </tr>
 </table>
@@ -570,14 +570,14 @@ console.log(doublyLinkedList.tail()); // null
 
 <table>
   <tr><th>params</th></tr>
-  <tr><td>prev: <a href="#doublylinkedlistnode&lt;T&gt;">DoublyLinkedListNode&lt;T&gt;</a></td></tr>
+  <tr><td>prev: <a href="#doublylinkedlistnodet">DoublyLinkedListNode&lt;T&gt;</a></td></tr>
 </table>
 
 #### .getPrev()
 
 <table>
   <tr><th>return</th></tr>
-  <tr><td><a href="#doublylinkedlistnode&lt;T&gt;">DoublyLinkedListNode&lt;T&gt;</a></td></tr>
+  <tr><td><a href="#doublylinkedlistnodet">DoublyLinkedListNode&lt;T&gt;</a></td></tr>
 </table>
 
 #### .hasPrev()
@@ -591,14 +591,14 @@ console.log(doublyLinkedList.tail()); // null
 
 <table>
   <tr><th>params</th></tr>
-  <tr><td>next: <a href="#doublylinkedlistnode&lt;T&gt;">DoublyLinkedListNode&lt;T&gt;</a></td></tr>
+  <tr><td>next: <a href="#doublylinkedlistnodet">DoublyLinkedListNode&lt;T&gt;</a></td></tr>
 </table>
 
 #### .getNext()
 
 <table>
   <tr><th>return</th></tr>
-  <tr><td><a href="#doublylinkedlistnode&lt;T&gt;">DoublyLinkedListNode&lt;T&gt;</a></td></tr>
+  <tr><td><a href="#doublylinkedlistnodet">DoublyLinkedListNode&lt;T&gt;</a></td></tr>
 </table>
 
 #### .hasNext()
