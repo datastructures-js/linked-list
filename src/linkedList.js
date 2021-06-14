@@ -4,7 +4,7 @@
  * @copyright 2020 Eyas Ranjous <eyas.ranjous@gmail.com>
  */
 
-const LinkedListNode = require('./linkedListNode');
+const { LinkedListNode } = require('./linkedListNode');
 
 /*
  * @class
@@ -89,7 +89,7 @@ class LinkedList {
   /**
    * Removes the head node.
    * @public
-   * @returns {LinkedListNode|null}
+   * @returns {LinkedListNode}
    */
   removeFirst() {
     if (this.isEmpty()) return null;
@@ -103,7 +103,7 @@ class LinkedList {
   /**
    * Removes the last node in the list.
    * @public
-   * @returns {LinkedListNode|null}
+   * @returns {LinkedListNode}
    */
   removeLast() {
     if (this.isEmpty()) return null;
@@ -162,7 +162,7 @@ class LinkedList {
    * Removes a node at a specific position.
    * @public
    * @param {number} position
-   * @returns {LinkedListNode|null}
+   * @returns {LinkedListNode}
    */
   removeAt(position) {
     if (
@@ -211,7 +211,7 @@ class LinkedList {
   /**
    * Finds one node in the list based on a callback.
    * @public
-   * @returns {LinkedListNode|null}
+   * @returns {LinkedListNode}
    */
   find(cb) {
     if (typeof cb !== 'function') {
@@ -251,7 +251,7 @@ class LinkedList {
   /**
    * Returns the head node.
    * @public
-   * @returns {LinkedListNode|null}
+   * @returns {LinkedListNode}
    */
   head() {
     return this._head;
@@ -296,4 +296,4 @@ class LinkedList {
   }
 }
 
-module.exports = LinkedList;
+exports.LinkedList = LinkedList;

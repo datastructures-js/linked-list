@@ -4,7 +4,7 @@
  * @copyright 2020 Eyas Ranjous <eyas.ranjous@gmail.com>
  */
 
-const DoublyLinkedListNode = require('./doublyLinkedListNode');
+const { DoublyLinkedListNode } = require('./doublyLinkedListNode');
 
 /**
  * @class
@@ -99,7 +99,7 @@ class DoublyLinkedList {
   /**
    * Removes the head node.
    * @public
-   * @returns {DoublyLinkedListNode|null}
+   * @returns {DoublyLinkedListNode}
    */
   removeFirst() {
     if (this.isEmpty()) return null;
@@ -119,7 +119,7 @@ class DoublyLinkedList {
   /**
    * Removes the tail node.
    * @public
-   * @returns {DoublyLinkedListNode|null}
+   * @returns {DoublyLinkedListNode}
    */
   removeLast() {
     if (this.isEmpty()) return null;
@@ -140,7 +140,7 @@ class DoublyLinkedList {
    * Removes a node in a specific position.
    * @public
    * @param {number} position
-   * @returns {DoublyLinkedListNode|null}
+   * @returns {DoublyLinkedListNode}
    */
   removeAt(position) {
     if (
@@ -267,7 +267,7 @@ class DoublyLinkedList {
    * Finds a node in the list using a callback
    * @public
    * @param {function} cb
-   * @returns {DoublyLinkedListNode|null}
+   * @returns {DoublyLinkedListNode}
    */
   find(cb) {
     if (typeof cb !== 'function') {
@@ -361,4 +361,4 @@ class DoublyLinkedList {
   }
 }
 
-module.exports = DoublyLinkedList;
+exports.DoublyLinkedList = DoublyLinkedList;

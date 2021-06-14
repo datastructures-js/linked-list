@@ -2,12 +2,12 @@
 
 <img width="552" alt="Doubly Linked List" src="https://user-images.githubusercontent.com/6517308/35762752-19b17df4-0862-11e8-8ce3-f940d83dde51.png">
 
-# Table of Contents
+# Contents
 * [Install](#install)
 * [require](#require)
 * [import](#import)
 * [API](#api)
-  * [new](#new)
+  * [constructor](#constructor)
   * [.insertFirst(value)](#insertfirstvalue)
   * [.insertLast(value)](#insertlastvalue)
   * [.insertAt(position, value)](#insertatposition-value)
@@ -53,10 +53,16 @@ import {
 
 ## API
 
-### new
+### constructor
 
+##### JS
 ```js
 const doublyLinkedList = new DoublyLinkedList();
+```
+
+##### TS
+```js
+const doublyLinkedList = new DoublyLinkedList<number>();
 ```
 
 ### .insertFirst(value)
@@ -69,8 +75,8 @@ inserts a node at the beginning of the list.
     <th align="center">runtime</th>
   </tr>
   <tr>
-    <td align="center">value: any</td>
-    <td align="center"><a href="#doublylinkedlistnode">DoublyLinkedListNode</a></td>
+    <td align="center">value: T</td>
+    <td align="center"><a href="#doublylinkedlistnodet">DoublyLinkedListNode&lt;T&gt;</a></td>
     <td align="center">O(1)</td>
   </tr>
 </table>
@@ -91,8 +97,8 @@ inserts a node at the end of the list.
     <th align="center">runtime</th>
   </tr>
   <tr>
-    <td align="center">value: any</td>
-    <td align="center"><a href="#doublylinkedlistnode">DoublyLinkedListNode</a></td>
+    <td align="center">value: T</td>
+    <td align="center"><a href="#doublylinkedlistnodet">DoublyLinkedListNode&lt;T&gt;</a></td>
     <td>O(1)</td>
   </tr>
 </table>
@@ -122,9 +128,9 @@ inserts a node at specific position of the list. First (head) node is at positio
     <td>
       position: number
       <br />
-      value: any
+      value: T
     </td>
-    <td align="center"><a href="#doublylinkedlistnode">DoublyLinkedListNode</a></td>
+    <td align="center"><a href="#doublylinkedlistnodet">DoublyLinkedListNode&lt;T&gt;</a></td>
     <td align="center">
       O(n)
     </td>
@@ -145,7 +151,7 @@ Traverse the list from beginning to end, and pass each node to the callback.
     <th align="center">runtime</th>
   </tr>
   <tr>
-    <td align="center">cb: function</td>
+    <td align="center">cb: (node: DoublyLinkedListNode&lt;T&gt;, position: number) => void</td>
     <td align="center">O(n)</td>
   </tr>
 </table>
@@ -173,7 +179,7 @@ Traverse the list from end to beginning, and pass each node to the callback.
     <th align="center">runtime</th>
   </tr>
   <tr>
-    <td align="center">cb: function</td>
+    <td align="center">cb: (node: DoublyLinkedListNode&lt;T&gt;, position: number) => void</td>
     <td align="center">O(n)</td>
   </tr>
 </table>
@@ -203,10 +209,10 @@ Finds the first node that returns true from the callback or null if nothing foun
   </tr>
   <tr>
     <td align="center">
-      cb: function
+      cb: (node: DoublyLinkedListNode&lt;T&gt;) => boolean
     </td>
     <td align="center">
-      <a href="#doublylinkedlistnode">DoublyLinkedListNode</a>
+      <a href="#doublylinkedlistnodet">DoublyLinkedListNode&lt;T&gt;</a>
     </td>
     <td align="center">O(n)</td>
   </tr>
@@ -230,10 +236,10 @@ returns a filtered doubly linked list of all the nodes that returns true from th
   </tr>
   <tr>
     <td align="center">
-      cb: function
+      cb: (node: DoublyLinkedListNode&lt;T&gt;, position: number) => boolean
     </td>
     <td align="center">
-      <a href="#doublylinkedlist">DoublyLinkedList</a>
+      <a href="#doublylinkedlist">DoublyLinkedList&lt;T&gt;</a>
     </td>
     <td align="center">
       O(n)
@@ -266,7 +272,7 @@ converts the doubly linked list into an array.
   </tr>
   <tr>
     <td align="center">
-      array
+      T[]
     </td>
     <td align="center">
       O(n)
@@ -310,7 +316,7 @@ returns the head node in the linked list.
   </tr>
   <tr>
     <td align="center">
-      <a href="#doublylinkedlistnode">DoublyLinkedListNode</a>
+      <a href="#doublylinkedlistnodet">DoublyLinkedListNode&lt;T&gt;</a>
     </td>
     <td align="center">
       O(1)
@@ -332,7 +338,7 @@ returns the tail node of the doubly linked list.
   </tr>
   <tr>
     <td align="center">
-      <a href="#doublylinkedlistnode">DoublyLinkedListNode</a>
+      <a href="#doublylinkedlistnodet">DoublyLinkedListNode&lt;T&gt;</a>
     </td>
     <td align="center">
       O(1)
@@ -376,7 +382,7 @@ removes the first node in the list.
   </tr>
   <tr>
     <td align="center">
-      <a href="#doublylinkedlistnode">DoublyLinkedListNode</a> | null
+      <a href="#doublylinkedlistnodet">DoublyLinkedListNode&lt;T&gt;</a>
     </td>
     <td align="center">
       O(1)
@@ -402,7 +408,7 @@ removes and returns the last node in the list.
   </tr>
   <tr>
     <td align="center">
-      <a href="#doublylinkedlistnode">DoublyLinkedListNode</a> | null
+      <a href="#doublylinkedlistnodet">DoublyLinkedListNode&lt;T&gt;</a>
     </td>
     <td>
       O(1)
@@ -429,10 +435,10 @@ Removes a given node from the list. This can be done by remembering the referenc
   </tr>
   <tr>
     <td align="center">
-      node: <a href="#doublylinkedlistnode">DoublyLinkedListNode</a>
+      node: <a href="#doublylinkedlistnodet">DoublyLinkedListNode&lt;T&gt;</a>
     </td>
     <td align="center">
-      <a href="#doublylinkedlistnode">DoublyLinkedListNode</a> | null
+      <a href="#doublylinkedlistnodet">DoublyLinkedListNode&lt;T&gt;</a>
     </td>
     <td align="center">
       O(1)
@@ -462,7 +468,7 @@ removes and returns the node at a specific position. First (head) node is at pos
       position: number
     </td>
     <td align="center">
-      <a href="#doublylinkedlistnode">DoublyLinkedListNode</a> | null
+      <a href="#doublylinkedlistnodet">DoublyLinkedListNode&lt;T&gt;</a>
     </td>
     <td align="center">
       O(1)
@@ -489,7 +495,7 @@ removes the nodes that returns true from a callback check and returns the number
   </tr>
   <tr>
     <td align="center">
-      cb: function
+      cb: (node: DoublyLinkedListNode&lt;T&gt;, position: number)
     </td>
     <td align="center">
       number
@@ -529,19 +535,19 @@ console.log(doublyLinkedList.head()); // null
 console.log(doublyLinkedList.tail()); // null
 ```
 
-### DoublyLinkedListNode
+### DoublyLinkedListNode&lt;T&gt;
 
-#### new DoublyLinkedListNode(value, prev, next)
+#### new DoublyLinkedListNode&lt;T&gt;(value, prev, next)
 
 <table>
   <tr><th>params</th></tr>
   <tr>
     <td>
-      value: any
+      value: T
       <br />
-      prev: <a href="#doublylinkedlistnode">DoublyLinkedListNode</a>
+      prev: <a href="#doublylinkedlistnodet">DoublyLinkedListNode&lt;T&gt;</a>
       <br />
-      next: <a href="#doublylinkedlistnode">DoublyLinkedListNode</a>
+      next: <a href="#doublylinkedlistnodet">DoublyLinkedListNode&lt;T&gt;</a>
     </td>
   </tr>
 </table>
@@ -550,28 +556,28 @@ console.log(doublyLinkedList.tail()); // null
 
 <table>
   <tr><th>params</th></tr>
-  <tr><td>value: any</td></tr>
+  <tr><td>value: T</td></tr>
 </table>
 
 #### .getValue()
 
 <table>
   <tr><th>return</th></tr>
-  <tr><td>any</td></tr>
+  <tr><td>T</td></tr>
 </table>
 
 #### .setPrev(prev)
 
 <table>
   <tr><th>params</th></tr>
-  <tr><td>prev: <a href="#doublylinkedlistnode">DoublyLinkedListNode</a></td></tr>
+  <tr><td>prev: <a href="#doublylinkedlistnodet">DoublyLinkedListNode&lt;T&gt;</a></td></tr>
 </table>
 
 #### .getPrev()
 
 <table>
   <tr><th>return</th></tr>
-  <tr><td><a href="#doublylinkedlistnode">DoublyLinkedListNode</a> | null</td></tr>
+  <tr><td><a href="#doublylinkedlistnodet">DoublyLinkedListNode&lt;T&gt;</a></td></tr>
 </table>
 
 #### .hasPrev()
@@ -585,14 +591,14 @@ console.log(doublyLinkedList.tail()); // null
 
 <table>
   <tr><th>params</th></tr>
-  <tr><td>next: <a href="#doublylinkedlistnode">DoublyLinkedListNode</a></td></tr>
+  <tr><td>next: <a href="#doublylinkedlistnodet">DoublyLinkedListNode&lt;T&gt;</a></td></tr>
 </table>
 
 #### .getNext()
 
 <table>
   <tr><th>return</th></tr>
-  <tr><td><a href="#doublylinkedlistnode">DoublyLinkedListNode</a> | null</td></tr>
+  <tr><td><a href="#doublylinkedlistnodet">DoublyLinkedListNode&lt;T&gt;</a></td></tr>
 </table>
 
 #### .hasNext()

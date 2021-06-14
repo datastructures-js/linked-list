@@ -49,7 +49,7 @@ class LinkedListNode {
 
   /**
    * @public
-   * @returns {LinkedListNode|null}
+   * @returns {LinkedListNode}
    */
   getNext() {
     return this._next;
@@ -64,4 +64,4 @@ class LinkedListNode {
   }
 }
 
-module.exports = LinkedListNode;
+exports.LinkedListNode = LinkedListNode;

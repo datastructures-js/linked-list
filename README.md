@@ -6,13 +6,11 @@
 
 a javascript implementation of LinkedList & DoublyLinkedList.
 
-## [LinkedList](https://github.com/datastructures-js/linked-list/blob/development/LinkedList.md)
+<img src="https://user-images.githubusercontent.com/6517308/121813242-859a9700-cc6b-11eb-99c0-49e5bb63005b.jpg">
 
-<img width="429" alt="Linked List" src="https://user-images.githubusercontent.com/6517308/35762715-5d00c9bc-0861-11e8-88f7-6e503a1fa3af.png">
+### [LinkedList](https://github.com/datastructures-js/linked-list/blob/master/LinkedList.md)
 
-## [DoublyLinkedList](https://github.com/datastructures-js/linked-list/blob/development/DoublyLinkedList.md)
-
-<img width="552" alt="Doubly Linked List" src="https://user-images.githubusercontent.com/6517308/35762752-19b17df4-0862-11e8-8ce3-f940d83dde51.png">
+### [DoublyLinkedList](https://github.com/datastructures-js/linked-list/blob/master/DoublyLinkedList.md)
 
 ## Build
 ```
