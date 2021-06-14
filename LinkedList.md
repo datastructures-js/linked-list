@@ -7,7 +7,7 @@
 * [require](#require)
 * [import](#import)
 * [API](#api)
-  * [new](#new)
+  * [constructor](#constructor)
   * [.insertFirst(value)](#insertfirstvalue)
   * [.insertLast(value[, startingNode])](#insertlastvalue-startingnode)
   * [.insertAt(position, value)](#insertatposition-value)
@@ -48,10 +48,16 @@ import {
 
 ## API
 
-### new
+### constructor
 
+##### JS
 ```js
 const linkedList = new LinkedList();
+```
+
+##### TS
+```js
+const linkedList = new LinkedList<number>();
 ```
 
 ### .insertFirst(value)
@@ -64,8 +70,8 @@ inserts a node at the beginning of the list.
     <th align="center">runtime</th>
   </tr>
   <tr>
-    <td align="center">value: any</td>
-    <td align="center"><a href="#linkedlistnode">LinkedListNode</a></td>
+    <td align="center">value: T</td>
+    <td align="center"><a href="#linkedlistnodet">LinkedListNode&lt;T&gt;</a></td>
     <td align="center">O(1)</td>
   </tr>
 </table>
@@ -86,10 +92,10 @@ inserts a node at the end of the list. it accepts an optional second param as th
     <th align="center">runtime</th>
   </tr>
   <tr>
-    <td align="center">value: any</td>
-    <td align="center"><a href="#linkedlistnode">LinkedListNode</a></td>
+    <td align="center">value: T</td>
+    <td align="center"><a href="#linkedlistnodet">LinkedListNode&lt;T&gt;</a></td>
     <td>
-      O(n) | O(1) if last inserted node provided
+      O(n) | O(1) with last inserted node passed
     </td>
   </tr>
 </table>
@@ -117,9 +123,9 @@ inserts a node at specific position of the list. First (head) node is at positio
     <td>
       position: number
       <br />
-      value: any
+      value: T
     </td>
-    <td align="center"><a href="#linkedlistnode">LinkedListNode</a></td>
+    <td align="center"><a href="#linkedlistnodet">LinkedListNode&lt;T&gt;</a></td>
     <td align="center">O(n)</td>
   </tr>
 </table>
@@ -139,7 +145,7 @@ Traverse the list from beginning to end, and pass each node to the callback.
   </tr>
   <tr>
     <td align="center">
-      cb: function
+      cb: (node: LinkedListNode&lt;T&gt;, position: number) => void
     </td>
     <td align="center">
       O(n)
@@ -172,9 +178,9 @@ finds the first node that returns true from the callback or null if nothing foun
   </tr>
   <tr>
     <td align="center">
-      cb: function
+      cb: (node: LinkedListNode&lt;T&gt;) => boolean
     </td>
-    <td align="center"><a href="#linkedlistnode">LinkedListNode</a> | null</td>
+    <td align="center"><a href="#linkedlistnodet">LinkedListNode&lt;T&gt;</a></td>
     <td align="center">O(n)</td>
   </tr>
 </table>
@@ -197,9 +203,9 @@ returns a filtered linked list of all the nodes that returns true from the callb
   </tr>
   <tr>
     <td align="center">
-      cb: function
+      cb: (node: LinkedListNode&lt;T&gt;, position: number) => boolean
     </td>
-    <td align="center"><a href="#linkedlist">LinkedList</a></td>
+    <td align="center"><a href="#linkedlist">LinkedList&lt;T&gt;</a></td>
     <td align="center">O(n)</td>
   </tr>
 </table>
@@ -228,7 +234,7 @@ converts the linked list into an array.
     <th align="center">runtime</th>
   </tr>
   <tr>
-    <td align="center">array</td>
+    <td align="center">T[]</td>
     <td align="center">O(n)</td>
   </tr>
 </table>
@@ -264,7 +270,7 @@ returns the head node in the linked list.
     <th align="center">runtime</th>
   </tr>
   <tr>
-    <td align="center"><a href="#linkedlistnode">LinkedListNode</a> | null</td>
+    <td align="center"><a href="#linkedlistnodet">LinkedListNode&lt;T&gt;</a></td>
     <td align="center">O(1)</td>
   </tr>
 </table>
@@ -300,7 +306,7 @@ removes and returns the first node in the list.
     <th align="center">runtime</th>
   </tr>
   <tr>
-    <td align="center"><a href="#linkedlistnode">LinkedListNode</a> | null</td>
+    <td align="center"><a href="#linkedlistnodet">LinkedListNode&lt;T&gt;</a></td>
     <td align="center">O(1)</td>
   </tr>
 </table>
@@ -322,7 +328,7 @@ removes and returns the last node in the list.
     <th align="center">runtime</th>
   </tr>
   <tr>
-    <td align="center">LinkedListNode | null</td>
+    <td align="center">LinkedListNode&lt;T&gt;</td>
     <td>O(n)</td>
   </tr>
 </table>
@@ -346,7 +352,7 @@ removes and returns the node at a specific position. First (head) node is at pos
   </tr>
   <tr>
     <td align="center">position: number</td>
-    <td align="center"><a href="#linkedlistnode">LinkedListNode</a> | null</td>
+    <td align="center"><a href="#linkedlistnodet">LinkedListNode&lt;T&gt;</a></td>
     <td align="center">O(1)</td>
   </tr>
 </table>
@@ -369,7 +375,7 @@ removes the nodes that returns true from a callback check and returns the number
     <th align="center">runtime</th>
   </tr>
   <tr>
-    <td align="center">cb: function</td>
+    <td align="center">cb: (node: LinkedListNode&lt;T&gt;, position: number) => boolean</td>
     <td align="center">number</td>
     <td align="center">O(n)</td>
   </tr>
@@ -401,7 +407,7 @@ console.log(linkedList.count()); // 0
 console.log(linkedList.head()); // null
 ```
 
-### LinkedListNode
+### LinkedListNode&lt;T&gt;
 
 #### new LinkedListNode(value, next)
 
@@ -409,9 +415,9 @@ console.log(linkedList.head()); // null
   <tr><th>params</th></tr>
   <tr>
     <td>
-      value: any
+      value: T
       <br />
-      next: <a href="#linkedlistnode">LinkedListNode</a>
+      next: <a href="#linkedlistnodet">LinkedListNode&lt;T&gt;</a>
     </td>
   </tr>
 </table>
@@ -420,21 +426,21 @@ console.log(linkedList.head()); // null
 
 <table>
   <tr><th>params</th></tr>
-  <tr><td>value: any</td></tr>
+  <tr><td>value: T</td></tr>
 </table>
 
 #### .getValue()
 
 <table>
   <tr><th>return</th></tr>
-  <tr><td>any</td></tr>
+  <tr><td>T</td></tr>
 </table>
 
 #### .setNext(next)
 
 <table>
   <tr><th align="center">params</th></tr>
-  <tr><td>next: <a href="#linkedlistnode">LinkedListNode</a></td></tr>
+  <tr><td>next: <a href="#linkedlistnodet">LinkedListNode&lt;T&gt;</a></td></tr>
 </table>
 
 
@@ -442,7 +448,7 @@ console.log(linkedList.head()); // null
 
 <table>
  <tr><th>return</th></tr>
- <tr><td><a href="#linkedlistnode">LinkedListNode</a> | null</td></tr>
+ <tr><td><a href="#linkedlistnodet">LinkedListNode&lt;T&gt;</a></td></tr>
 </table>
 
 #### .hasNext()
