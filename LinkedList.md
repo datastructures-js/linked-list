@@ -409,7 +409,7 @@ console.log(linkedList.head()); // null
 
 ### LinkedListNode&lt;T&gt;
 
-#### new LinkedListNode(value, next)
+#### new LinkedListNode&lt;T&gt;(value, next)
 
 <table>
   <tr><th>params</th></tr>

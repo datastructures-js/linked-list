@@ -537,7 +537,7 @@ console.log(doublyLinkedList.tail()); // null
 
 ### DoublyLinkedListNode&lt;T&gt;
 
-#### new DoublyLinkedListNode(value, prev, next)
+#### new DoublyLinkedListNode&lt;T&gt;(value, prev, next)
 
 <table>
   <tr><th>params</th></tr>
