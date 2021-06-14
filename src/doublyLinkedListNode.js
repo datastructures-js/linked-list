@@ -40,7 +40,7 @@ class DoublyLinkedListNode {
   /**
    * @public
    * @param {DoublyLinkedListNode} [next]
-   * @returns {DoublyLinkedList}
+   * @returns {DoublyLinkedListNode}
    */
   setNext(next) {
     if (next && !(next instanceof DoublyLinkedListNode)) {
@@ -96,4 +96,4 @@ class DoublyLinkedListNode {
   }
 }
 
-module.exports = DoublyLinkedListNode;
+exports.DoublyLinkedListNode = DoublyLinkedListNode;

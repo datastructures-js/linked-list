@@ -1,6 +1,6 @@
 const { expect } = require('chai');
-const DoublyLinkedList = require('../src/doublyLinkedList');
-const DoublyLinkedListNode = require('../src/doublyLinkedListNode');
+const { DoublyLinkedList } = require('../src/doublyLinkedList');
+const { DoublyLinkedListNode } = require('../src/doublyLinkedListNode');
 
 describe('doublyLinkedList tests', () => {
   const doublyLinkedList = new DoublyLinkedList();
