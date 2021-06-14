@@ -15,7 +15,7 @@ export class DoublyLinkedList<T> {
   find(cb: (node: DoublyLinkedListNode<T>) => boolean): DoublyLinkedListNode<T>;
   filter(cb: (node: DoublyLinkedListNode<T>, position: number) => boolean): DoublyLinkedList<T>;
   head(): DoublyLinkedListNode<T>;
-  head(): DoublyLinkedListNode<T>;
+  tail(): DoublyLinkedListNode<T>;
   count(): number;
   toArray(): T[];
   isEmpty(): boolean;
