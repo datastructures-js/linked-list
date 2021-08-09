@@ -269,16 +269,22 @@ class DoublyLinkedList {
    * @param {function} cb
    * @param opts
    * @param {boolean} opts.reverse Traverse the list backwards
+   * @param {DoublyLinkedListNode} opts.startAt Node to start the search from
    * @returns {DoublyLinkedListNode}
    */
   find(cb, opts = {}) {
     const reverse = !!opts.reverse;
+    const startAt = opts.startAt || null;
 
     if (typeof cb !== 'function') {
       throw new Error('.find(cb) expects a callback');
     }
 
-    let current = reverse ? this._tail : this._head;
+    if (startAt && !(startAt instanceof DoublyLinkedListNode)) {
+      throw new Error('opts.startAt expects a DoublyLinkedListNode');
+    }
+
+    let current = startAt || (reverse ? this._tail : this._head);
     while (current instanceof DoublyLinkedListNode) {
       if (cb(current)) {
         return current;

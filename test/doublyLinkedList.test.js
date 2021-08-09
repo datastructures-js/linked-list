@@ -112,12 +112,26 @@ describe('doublyLinkedList tests', () => {
         (node) => node.getValue() === 5,
         { reverse: true }
       );
+      const n4 = doublyLinkedList.find(
+        (node) => node.getValue() === 2,
+        { startAt: doublyLinkedList.head().getNext() }
+      );
       expect(n3.getValue()).to.equal(5);
+      expect(n4).to.equal(null);
     });
 
     it('throws an error if cb is not a function', () => {
       expect(() => doublyLinkedList.find('test')).to.throw(Error)
         .and.to.have.property('message', '.find(cb) expects a callback');
+    });
+
+    it('throws an error if opts.startAt is not a DoublyLinkedListNode', () => {
+      expect(() => doublyLinkedList.find(() => true, { startAt: 'test' }))
+        .to.throw(Error)
+        .and.to.have.property(
+          'message',
+          'opts.startAt expects a DoublyLinkedListNode'
+        );
     });
   });
 

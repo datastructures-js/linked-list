@@ -14,7 +14,7 @@ export class DoublyLinkedList<T> {
   forEachReverse(cb: (node: DoublyLinkedListNode<T>, position: number) => void): void;
   find(
     cb: (node: DoublyLinkedListNode<T>) => boolean,
-    opts?: { reverse?: boolean }
+    opts?: { reverse?: boolean; startAt?: DoublyLinkedListNode<T> }
   ): DoublyLinkedListNode<T>;
   filter(cb: (node: DoublyLinkedListNode<T>, position: number) => boolean): DoublyLinkedList<T>;
   head(): DoublyLinkedListNode<T>;
