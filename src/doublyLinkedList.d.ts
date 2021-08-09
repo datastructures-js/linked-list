@@ -23,4 +23,5 @@ export class DoublyLinkedList<T> {
   toArray(): T[];
   isEmpty(): boolean;
   clear(): void;
+  static from<T>(iterable: Iterable<T>): DoublyLinkedList<T>;
 }

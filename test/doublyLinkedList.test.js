@@ -216,4 +216,37 @@ describe('doublyLinkedList tests', () => {
       expect(doublyLinkedList.isEmpty()).to.equal(true);
     });
   });
+
+  describe('.from', () => {
+    it('accepts an array', () => {
+      const list = DoublyLinkedList.from([1, 2]);
+      expect(list.count()).to.equal(2);
+    });
+
+    it('accepts built-in iterables', () => {
+      const list = DoublyLinkedList.from(new Set([1, 2]));
+      expect(list.count()).to.equal(2);
+    });
+
+    it('accepts a custom iterable', () => {
+      function* Iterable() {
+        let i = 0;
+        while (i < 2) {
+          yield i;
+          i += 1;
+        }
+      }
+
+      const list = DoublyLinkedList.from(Iterable());
+      expect(list.count()).to.equal(2);
+    });
+
+    it('throws an error if it does not receive an Iterable', () => {
+      expect(() => DoublyLinkedList.from(null)).to.throw(Error)
+        .and.to.have.property(
+          'message',
+          '.from(iterable) expects an Array or Iterable'
+        );
+    });
+  });
 });

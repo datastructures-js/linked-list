@@ -369,6 +369,20 @@ class DoublyLinkedList {
     this._tail = null;
     this._count = 0;
   }
+
+  static from(iterable) {
+    if (!iterable || typeof iterable[Symbol.iterator] !== 'function') {
+      throw new Error('.from(iterable) expects an Array or Iterable');
+    }
+
+    const list = new DoublyLinkedList();
+    // eslint-disable-next-line no-restricted-syntax
+    for (const item of iterable) {
+      list.insertLast(item);
+    }
+
+    return list;
+  }
 }
 
 exports.DoublyLinkedList = DoublyLinkedList;
