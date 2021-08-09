@@ -267,19 +267,23 @@ class DoublyLinkedList {
    * Finds a node in the list using a callback
    * @public
    * @param {function} cb
+   * @param opts
+   * @param {boolean} opts.reverse Traverse the list backwards
    * @returns {DoublyLinkedListNode}
    */
-  find(cb) {
+  find(cb, opts = {}) {
+    const reverse = !!opts.reverse;
+
     if (typeof cb !== 'function') {
       throw new Error('.find(cb) expects a callback');
     }
 
-    let current = this._head;
+    let current = reverse ? this._tail : this._head;
     while (current instanceof DoublyLinkedListNode) {
       if (cb(current)) {
         return current;
       }
-      current = current.getNext();
+      current = reverse ? current.getPrev() : current.getNext();
     }
     return null;
   }

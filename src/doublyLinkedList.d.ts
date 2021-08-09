@@ -12,7 +12,10 @@ export class DoublyLinkedList<T> {
   removeEach(cb: (node: DoublyLinkedListNode<T>, position: number) => boolean): number;
   forEach(cb: (node: DoublyLinkedListNode<T>, position: number) => void): void;
   forEachReverse(cb: (node: DoublyLinkedListNode<T>, position: number) => void): void;
-  find(cb: (node: DoublyLinkedListNode<T>) => boolean): DoublyLinkedListNode<T>;
+  find(
+    cb: (node: DoublyLinkedListNode<T>) => boolean,
+    opts?: { reverse?: boolean }
+  ): DoublyLinkedListNode<T>;
   filter(cb: (node: DoublyLinkedListNode<T>, position: number) => boolean): DoublyLinkedList<T>;
   head(): DoublyLinkedListNode<T>;
   tail(): DoublyLinkedListNode<T>;

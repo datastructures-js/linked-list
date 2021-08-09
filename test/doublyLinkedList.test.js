@@ -107,6 +107,12 @@ describe('doublyLinkedList tests', () => {
       const n2 = doublyLinkedList.find((node) => node.getValue() === 7);
       expect(n1.getValue()).to.equal(5);
       expect(n2).to.equal(null);
+
+      const n3 = doublyLinkedList.find(
+        (node) => node.getValue() === 5,
+        { reverse: true }
+      );
+      expect(n3.getValue()).to.equal(5);
     });
 
     it('throws an error if cb is not a function', () => {
