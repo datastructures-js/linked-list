@@ -234,4 +234,11 @@ describe('doublyLinkedList tests', () => {
       expect(doublyLinkedList.isEmpty()).to.equal(true);
     });
   });
+
+  describe('.fromArray(values)', () => {
+    it('create a doubly linked list from an array', () => {
+      expect(DoublyLinkedList.fromArray([1, 2, 3, 4, 5]).toArray())
+        .to.eql([1, 2, 3, 4, 5]);
+    });
+  });
 });

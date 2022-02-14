@@ -390,6 +390,25 @@ class DoublyLinkedList {
     this._tail = null;
     this._count = 0;
   }
+
+  /**
+   * Creates a doubly linked list from an array
+   * @public
+   * @static
+   * @param {array} values
+   * @return {DoublyLinkedList}
+   */
+  static fromArray(values) {
+    if (!Array.isArray(values)) {
+      throw new Error('cannot create DoublyLinkedList from none-array values');
+    }
+
+    const doublyLinkedList = new DoublyLinkedList();
+    values.forEach((value) => {
+      doublyLinkedList.insertLast(value);
+    });
+    return doublyLinkedList;
+  }
 }
 
 exports.DoublyLinkedList = DoublyLinkedList;

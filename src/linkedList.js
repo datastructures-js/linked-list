@@ -300,6 +300,26 @@ class LinkedList {
     this._head = null;
     this._count = 0;
   }
+
+  /**
+   * Creates a linked list from an array
+   * @public
+   * @static
+   * @param {array} values
+   * @return {LinkedList}
+   */
+  static fromArray(values) {
+    if (!Array.isArray(values)) {
+      throw new Error('cannot create LinkedList from none-array values');
+    }
+
+    const linkedList = new LinkedList();
+    let lastInserted = null;
+    values.forEach((value) => {
+      lastInserted = linkedList.insertLast(value, lastInserted);
+    });
+    return linkedList;
+  }
 }
 
 exports.LinkedList = LinkedList;

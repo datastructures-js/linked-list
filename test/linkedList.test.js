@@ -167,4 +167,11 @@ describe('linkedList tests', () => {
       expect(linkedList.isEmpty()).to.equal(true);
     });
   });
+
+  describe('.fromArray(values)', () => {
+    it('create a linked list from an array', () => {
+      expect(LinkedList.fromArray([1, 2, 3, 4, 5]).toArray())
+        .to.eql([1, 2, 3, 4, 5]);
+    });
+  });
 });

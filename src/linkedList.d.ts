@@ -17,4 +17,5 @@ export class LinkedList<T> {
   toArray(): T[];
   isEmpty(): boolean;
   clear(): void;
+  static fromArray<T>(values: T[]): LinkedList<T>;
 }
