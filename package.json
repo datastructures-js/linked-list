@@ -35,8 +35,5 @@
     "grunt-mocha-test": "^0.13.3",
     "istanbul": "^0.4.5",
     "mocha": "^6.2.2"
-  },
-  "dependencies": {
-    "@datastructures-js/binary-search-tree": "^4.1.0"
   }
 }
