@@ -267,6 +267,7 @@ class DoublyLinkedList {
    * Finds a node in the list using a callback
    * @public
    * @param {function} cb
+   * @param {DoublyLinkedListNode} [startingNode]
    * @returns {DoublyLinkedListNode}
    */
   find(cb, startingNode = this._head) {
@@ -292,6 +293,7 @@ class DoublyLinkedList {
    * Finds a node in the list using a callback in reverse order
    * @public
    * @param {function} cb
+   * @param {DoublyLinkedListNode} [startingNode]
    * @returns {DoublyLinkedListNode}
    */
   findReverse(cb, startingNode = this._tail) {
