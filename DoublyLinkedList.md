@@ -27,6 +27,7 @@
   * [.removeAt(position)](#removeatposition)
   * [.removeEach(cb)](#removeeachcb)
   * [.clear()](#clear)
+  * [DoublyLinkedList.fromArray(values)](#doublylinkedlistfromarrayvalues)
   * [DoublyLinkedListNode](#doublylinkedlistnode)
 * [Build](#build)
 * [License](#license)
@@ -565,6 +566,19 @@ doublyLinkedList.clear();
 console.log(linkedList.count()); // 0
 console.log(doublyLinkedList.head()); // null
 console.log(doublyLinkedList.tail()); // null
+```
+
+### DoublyLinkedList.fromArray(values)
+creates a doubly linked list from an array.
+
+##### JS
+```js
+const dll = DoublyLinkedList.fromArray([1, 2, 3, 4, 5]);
+```
+
+##### TS
+```js
+const dll = DoublyLinkedList.fromArray<number>([1, 2, 3, 4, 5]);
 ```
 
 ### DoublyLinkedListNode&lt;T&gt;

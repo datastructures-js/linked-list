@@ -23,6 +23,7 @@
   * [.removeAt(position)](#removeatposition)
   * [.removeEach(cb)](#removeeachcb)
   * [.clear()](#clear)
+  * [LinkedList.fromArray(values)](#linkedlistfromarrayvalues)
   * [LinkedListNode](#linkedlistnode)
 
 ## install
@@ -411,6 +412,19 @@ clears the linked list.
 linkedList.clear();
 console.log(linkedList.count()); // 0
 console.log(linkedList.head()); // null
+```
+
+### LinkedList.fromArray(values)
+creates a linked list from an array.
+
+##### JS
+```js
+const ll = LinkedList.fromArray([1, 2, 3, 4, 5]);
+```
+
+##### TS
+```js
+const ll = LinkedList.fromArray<number>([1, 2, 3, 4, 5]);
 ```
 
 ### LinkedListNode&lt;T&gt;
