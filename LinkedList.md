@@ -83,7 +83,7 @@ console.log(linkedList.insertFirst(1).getValue()); // 1
 ```
 
 ### .insertLast(value[, startingNode])
-inserts a node at the end of the list. it accepts an optional second param as the starting node which can be used to insert in O(1) runtime by passing in last inserted node.
+inserts a node at the end of the list. it accepts an optional second param as the starting node which can be used to insert in O(1) runtime.
 
 <table>
   <tr>
@@ -92,7 +92,11 @@ inserts a node at the end of the list. it accepts an optional second param as th
     <th align="center">runtime</th>
   </tr>
   <tr>
-    <td align="center">value: T</td>
+    <td align="center">
+    value: T
+    <br />
+    startingNode: LinkedListNode&lt;T&gt;
+    </td>
     <td align="center"><a href="#linkedlistnodet">LinkedListNode&lt;T&gt;</a></td>
     <td>
       O(n) | O(1) with last inserted node passed
