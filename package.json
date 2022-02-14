@@ -1,6 +1,6 @@
 {
   "name": "@datastructures-js/linked-list",
-  "version": "5.1.1",
+  "version": "5.2.0",
   "description": "a javascript implementation of LinkedList & DoublyLinkedList",
   "main": "index.js",
   "scripts": {
@@ -35,8 +35,5 @@
     "grunt-mocha-test": "^0.13.3",
     "istanbul": "^0.4.5",
     "mocha": "^6.2.2"
-  },
-  "dependencies": {
-    "@datastructures-js/binary-search-tree": "^4.1.0"
   }
 }

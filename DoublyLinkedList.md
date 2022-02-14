@@ -13,7 +13,8 @@
   * [.insertAt(position, value)](#insertatposition-value)
   * [.forEach(cb)](#foreachcb)
   * [.forEachReverse(cb)](#foreachreversecb)
-  * [.find(cb)](#findcb)
+  * [.find(cb[, startingNode])](#findcb-startingnode)
+  * [.findReverse(cb[, startingNode])](#findreversecb-startingnode)
   * [.filter(cb)](#filtercb)
   * [.toArray()](#toarray)
   * [.isEmpty()](#isempty)
@@ -26,6 +27,7 @@
   * [.removeAt(position)](#removeatposition)
   * [.removeEach(cb)](#removeeachcb)
   * [.clear()](#clear)
+  * [DoublyLinkedList.fromArray(values)](#doublylinkedlistfromarrayvalues)
   * [DoublyLinkedListNode](#doublylinkedlistnode)
 * [Build](#build)
 * [License](#license)
@@ -198,8 +200,8 @@ doublyLinkedList.forEachReverse(
 */
 ```
 
-### .find(cb)
-Finds the first node that returns true from the callback or null if nothing found.
+### .find(cb[, startingNode])
+Finds the first node that returns true from the callback or null if nothing found. It accepts a second param as the starting node to search.
 
 <table>
   <tr>
@@ -208,8 +210,39 @@ Finds the first node that returns true from the callback or null if nothing foun
     <th align="center">runtime</th>
   </tr>
   <tr>
-    <td align="center">
+    <td>
       cb: (node: DoublyLinkedListNode&lt;T&gt;) => boolean
+      <br />
+      <i>startingNode: DoublyLinkedListNode&lt;T&gt;</i>
+    </td>
+    <td align="center">
+      <a href="#doublylinkedlistnodet">DoublyLinkedListNode&lt;T&gt;</a>
+    </td>
+    <td align="center">O(n)</td>
+  </tr>
+</table>
+
+```js
+const node5 = doublyLinkedList.find(
+  (node, position) => node.getValue() === 5
+);
+console.log(node5.getValue()); // 5
+```
+
+### .findReverse(cb[, startingNode])
+Reversevly finds the first node that returns true from the callback or null if nothing found. It accepts a second param as the starting node to search.
+
+<table>
+  <tr>
+    <th align="center">params</th>
+    <th align="center">return</th>
+    <th align="center">runtime</th>
+  </tr>
+  <tr>
+    <td>
+      cb: (node: DoublyLinkedListNode&lt;T&gt;) => boolean
+      <br />
+      <i>startingNode: DoublyLinkedListNode&lt;T&gt;</i>
     </td>
     <td align="center">
       <a href="#doublylinkedlistnodet">DoublyLinkedListNode&lt;T&gt;</a>
@@ -533,6 +566,19 @@ doublyLinkedList.clear();
 console.log(linkedList.count()); // 0
 console.log(doublyLinkedList.head()); // null
 console.log(doublyLinkedList.tail()); // null
+```
+
+### DoublyLinkedList.fromArray(values)
+creates a doubly linked list from an array.
+
+##### JS
+```js
+const dll = DoublyLinkedList.fromArray([1, 2, 3, 4, 5]);
+```
+
+##### TS
+```js
+const dll = DoublyLinkedList.fromArray<number>([1, 2, 3, 4, 5]);
 ```
 
 ### DoublyLinkedListNode&lt;T&gt;

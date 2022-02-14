@@ -12,7 +12,7 @@
   * [.insertLast(value[, startingNode])](#insertlastvalue-startingnode)
   * [.insertAt(position, value)](#insertatposition-value)
   * [.forEach(cb)](#foreachcb)
-  * [.find(cb)](#findcb)
+  * [.find(cb[, startingNode])](#findcb-startingnode)
   * [.filter(cb)](#filtercb)
   * [.toArray()](#toarray)
   * [.isEmpty()](#isempty)
@@ -23,6 +23,7 @@
   * [.removeAt(position)](#removeatposition)
   * [.removeEach(cb)](#removeeachcb)
   * [.clear()](#clear)
+  * [LinkedList.fromArray(values)](#linkedlistfromarrayvalues)
   * [LinkedListNode](#linkedlistnode)
 
 ## install
@@ -83,7 +84,7 @@ console.log(linkedList.insertFirst(1).getValue()); // 1
 ```
 
 ### .insertLast(value[, startingNode])
-inserts a node at the end of the list. it accepts an optional second param as the starting node which can be used to insert in O(1) runtime by passing in last inserted node.
+inserts a node at the end of the list. it accepts an optional second param as the starting node which can be used to insert in O(1) runtime.
 
 <table>
   <tr>
@@ -92,7 +93,11 @@ inserts a node at the end of the list. it accepts an optional second param as th
     <th align="center">runtime</th>
   </tr>
   <tr>
-    <td align="center">value: T</td>
+    <td>
+    value: T
+    <br />
+    <i>startingNode: LinkedListNode&lt;T&gt;</i>
+    </td>
     <td align="center"><a href="#linkedlistnodet">LinkedListNode&lt;T&gt;</a></td>
     <td>
       O(n) | O(1) with last inserted node passed
@@ -167,8 +172,8 @@ linkedList.forEach(
 */
 ```
 
-### .find(cb)
-finds the first node that returns true from the callback or null if nothing found.
+### .find(cb[, startingNode])
+finds the first node that returns true from the callback or null if nothing found. It accepts a second param as the starting node to search.
 
 <table>
   <tr>
@@ -177,8 +182,10 @@ finds the first node that returns true from the callback or null if nothing foun
     <th align="center">runtime</th>
   </tr>
   <tr>
-    <td align="center">
+    <td>
       cb: (node: LinkedListNode&lt;T&gt;) => boolean
+      <br />
+      <i>startingNode: LinkedListNode&lt;T&gt;</i>
     </td>
     <td align="center"><a href="#linkedlistnodet">LinkedListNode&lt;T&gt;</a></td>
     <td align="center">O(n)</td>
@@ -405,6 +412,19 @@ clears the linked list.
 linkedList.clear();
 console.log(linkedList.count()); // 0
 console.log(linkedList.head()); // null
+```
+
+### LinkedList.fromArray(values)
+creates a linked list from an array.
+
+##### JS
+```js
+const ll = LinkedList.fromArray([1, 2, 3, 4, 5]);
+```
+
+##### TS
+```js
+const ll = LinkedList.fromArray<number>([1, 2, 3, 4, 5]);
 ```
 
 ### LinkedListNode&lt;T&gt;

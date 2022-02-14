@@ -113,6 +113,44 @@ describe('doublyLinkedList tests', () => {
       expect(() => doublyLinkedList.find('test')).to.throw(Error)
         .and.to.have.property('message', '.find(cb) expects a callback');
     });
+
+    it('fins a node from a starting node', () => {
+      const n5 = doublyLinkedList.find((node) => node.getValue() === 5);
+      const n4 = doublyLinkedList.find((node) => node.getValue() === 4, n5);
+      expect(n4.getValue()).to.equal(4);
+    });
+
+    it('throws an error if starting node is not valid', () => {
+      expect(() => doublyLinkedList.find(() => null, 'test')).to.throw(Error)
+        .and.to.have.property('message', '.find(cb) expects to start from a DoublyLinkedListNode');
+    });
+  });
+
+  describe('.findReverse(cb)', () => {
+    it('finds the first node that fulfills the callback condition', () => {
+      const n1 = doublyLinkedList.findReverse((node) => node.getValue() === 5);
+      const n2 = doublyLinkedList.findReverse((node) => node.getValue() === 7);
+      expect(n1.getValue()).to.equal(5);
+      expect(n2).to.equal(null);
+    });
+
+    it('throws an error if cb is not a function', () => {
+      expect(() => doublyLinkedList.findReverse('test')).to.throw(Error)
+        .and.to.have.property('message', '.findReverse(cb) expects a callback');
+    });
+
+    it('fins a node from a starting node', () => {
+      const n5 = doublyLinkedList.findReverse((node) => node.getValue() === 5);
+      const n2 = doublyLinkedList.findReverse((node) => node.getValue() === 2, n5);
+      expect(n2.getValue()).to.equal(2);
+    });
+
+    it('throws an error if starting node is not valid', () => {
+      it('throws an error if starting node is not valid', () => {
+        expect(() => doublyLinkedList.findReverse(() => null, 'test')).to.throw(Error)
+          .and.to.have.property('message', '.find(cb) expects to start from a DoublyLinkedListNode');
+      });
+    });
   });
 
   describe('.toArray()', () => {
@@ -194,6 +232,13 @@ describe('doublyLinkedList tests', () => {
       doublyLinkedList.clear();
       expect(doublyLinkedList.count()).to.equal(0);
       expect(doublyLinkedList.isEmpty()).to.equal(true);
+    });
+  });
+
+  describe('.fromArray(values)', () => {
+    it('create a doubly linked list from an array', () => {
+      expect(DoublyLinkedList.fromArray([1, 2, 3, 4, 5]).toArray())
+        .to.eql([1, 2, 3, 4, 5]);
     });
   });
 });

@@ -267,19 +267,50 @@ class DoublyLinkedList {
    * Finds a node in the list using a callback
    * @public
    * @param {function} cb
+   * @param {DoublyLinkedListNode} [startingNode]
    * @returns {DoublyLinkedListNode}
    */
-  find(cb) {
+  find(cb, startingNode = this._head) {
     if (typeof cb !== 'function') {
       throw new Error('.find(cb) expects a callback');
     }
 
-    let current = this._head;
+    if (startingNode && !(startingNode instanceof DoublyLinkedListNode)) {
+      throw new Error('.find(cb) expects to start from a DoublyLinkedListNode');
+    }
+
+    let current = startingNode;
     while (current instanceof DoublyLinkedListNode) {
       if (cb(current)) {
         return current;
       }
       current = current.getNext();
+    }
+    return null;
+  }
+
+  /**
+   * Finds a node in the list using a callback in reverse order
+   * @public
+   * @param {function} cb
+   * @param {DoublyLinkedListNode} [startingNode]
+   * @returns {DoublyLinkedListNode}
+   */
+  findReverse(cb, startingNode = this._tail) {
+    if (typeof cb !== 'function') {
+      throw new Error('.findReverse(cb) expects a callback');
+    }
+
+    if (startingNode && !(startingNode instanceof DoublyLinkedListNode)) {
+      throw new Error('.findReverse(cb) expects to start from a DoublyLinkedListNode');
+    }
+
+    let current = startingNode;
+    while (current instanceof DoublyLinkedListNode) {
+      if (cb(current)) {
+        return current;
+      }
+      current = current.getPrev();
     }
     return null;
   }
@@ -358,6 +389,25 @@ class DoublyLinkedList {
     this._head = null;
     this._tail = null;
     this._count = 0;
+  }
+
+  /**
+   * Creates a doubly linked list from an array
+   * @public
+   * @static
+   * @param {array} values
+   * @return {DoublyLinkedList}
+   */
+  static fromArray(values) {
+    if (!Array.isArray(values)) {
+      throw new Error('cannot create DoublyLinkedList from none-array values');
+    }
+
+    const doublyLinkedList = new DoublyLinkedList();
+    values.forEach((value) => {
+      doublyLinkedList.insertLast(value);
+    });
+    return doublyLinkedList;
   }
 }
 

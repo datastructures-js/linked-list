@@ -12,7 +12,8 @@ export class DoublyLinkedList<T> {
   removeEach(cb: (node: DoublyLinkedListNode<T>, position: number) => boolean): number;
   forEach(cb: (node: DoublyLinkedListNode<T>, position: number) => void): void;
   forEachReverse(cb: (node: DoublyLinkedListNode<T>, position: number) => void): void;
-  find(cb: (node: DoublyLinkedListNode<T>) => boolean): DoublyLinkedListNode<T>;
+  find(cb: (node: DoublyLinkedListNode<T>, startingNode?: DoublyLinkedListNode<T>) => boolean): DoublyLinkedListNode<T>;
+  findReverse(cb: (node: DoublyLinkedListNode<T>, startingNode?: DoublyLinkedListNode<T>) => boolean): DoublyLinkedListNode<T>;
   filter(cb: (node: DoublyLinkedListNode<T>, position: number) => boolean): DoublyLinkedList<T>;
   head(): DoublyLinkedListNode<T>;
   tail(): DoublyLinkedListNode<T>;
@@ -20,4 +21,5 @@ export class DoublyLinkedList<T> {
   toArray(): T[];
   isEmpty(): boolean;
   clear(): void;
+  static fromArray<T>(values: T[]): DoublyLinkedList<T>;
 }

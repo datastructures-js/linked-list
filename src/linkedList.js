@@ -211,14 +211,20 @@ class LinkedList {
   /**
    * Finds one node in the list based on a callback.
    * @public
+   * @param {function} cb
+   * @param {DoublyLinkedListNode} [startingNode]
    * @returns {LinkedListNode}
    */
-  find(cb) {
+  find(cb, startingNode = this._head) {
     if (typeof cb !== 'function') {
       throw new Error('.find(cb) expects a callback');
     }
 
-    let current = this._head;
+    if (startingNode && !(startingNode instanceof LinkedListNode)) {
+      throw new Error('.find(cb) expects to start from a LinkedListNode');
+    }
+
+    let current = startingNode;
     while (current instanceof LinkedListNode) {
       if (cb(current)) {
         return current;
@@ -293,6 +299,26 @@ class LinkedList {
   clear() {
     this._head = null;
     this._count = 0;
+  }
+
+  /**
+   * Creates a linked list from an array
+   * @public
+   * @static
+   * @param {array} values
+   * @return {LinkedList}
+   */
+  static fromArray(values) {
+    if (!Array.isArray(values)) {
+      throw new Error('cannot create LinkedList from none-array values');
+    }
+
+    const linkedList = new LinkedList();
+    let lastInserted = null;
+    values.forEach((value) => {
+      lastInserted = linkedList.insertLast(value, lastInserted);
+    });
+    return linkedList;
   }
 }
 

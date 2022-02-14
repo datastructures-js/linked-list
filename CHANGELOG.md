@@ -5,6 +5,12 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
+## [5.2.0] - 2022-02-14
+### Added
+- `.find` now accepts a second param as the starting node in both types.
+- `.findReverse` added to DoublyLinkedList.
+- `.fromArray` static method added to both types.
+
 ## [5.1.1] - 2021-06-20
 ### Fixed
 - index.d.ts
