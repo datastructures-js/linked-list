@@ -13,7 +13,8 @@
   * [.insertAt(position, value)](#insertatposition-value)
   * [.forEach(cb)](#foreachcb)
   * [.forEachReverse(cb)](#foreachreversecb)
-  * [.find(cb)](#findcb)
+  * [.find(cb[, startingNode])](#findcb-startingnode)
+  * [.findReverse(cb[, startingNode])](#findreversecb-startingnode)
   * [.filter(cb)](#filtercb)
   * [.toArray()](#toarray)
   * [.isEmpty()](#isempty)
@@ -198,7 +199,34 @@ doublyLinkedList.forEachReverse(
 */
 ```
 
-### .find(cb)
+### .find(cb[, startingNode])
+Finds the first node that returns true from the callback or null if nothing found.
+
+<table>
+  <tr>
+    <th align="center">params</th>
+    <th align="center">return</th>
+    <th align="center">runtime</th>
+  </tr>
+  <tr>
+    <td align="center">
+      cb: (node: DoublyLinkedListNode&lt;T&gt;) => boolean
+    </td>
+    <td align="center">
+      <a href="#doublylinkedlistnodet">DoublyLinkedListNode&lt;T&gt;</a>
+    </td>
+    <td align="center">O(n)</td>
+  </tr>
+</table>
+
+```js
+const node5 = doublyLinkedList.find(
+  (node, position) => node.getValue() === 5
+);
+console.log(node5.getValue()); // 5
+```
+
+### .findReverse(cb[, startingNode])
 Finds the first node that returns true from the callback or null if nothing found.
 
 <table>

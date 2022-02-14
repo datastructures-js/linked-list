@@ -12,7 +12,7 @@
   * [.insertLast(value[, startingNode])](#insertlastvalue-startingnode)
   * [.insertAt(position, value)](#insertatposition-value)
   * [.forEach(cb)](#foreachcb)
-  * [.find(cb)](#findcb)
+  * [.find(cb[, startingNode])](#findcb-startingnode)
   * [.filter(cb)](#filtercb)
   * [.toArray()](#toarray)
   * [.isEmpty()](#isempty)
