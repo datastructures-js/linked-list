@@ -181,7 +181,7 @@ finds the first node that returns true from the callback or null if nothing foun
     <th align="center">runtime</th>
   </tr>
   <tr>
-    <td align="center">
+    <td>
       cb: (node: LinkedListNode&lt;T&gt;) => boolean
       <br />
       <i>startingNode: LinkedListNode&lt;T&gt;</i>
