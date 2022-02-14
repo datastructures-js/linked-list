@@ -171,8 +171,8 @@ linkedList.forEach(
 */
 ```
 
-### .find(cb)
-finds the first node that returns true from the callback or null if nothing found.
+### .find(cb[, startingNode])
+finds the first node that returns true from the callback or null if nothing found. It accepts a second param as the starting node to search.
 
 <table>
   <tr>
@@ -183,6 +183,8 @@ finds the first node that returns true from the callback or null if nothing foun
   <tr>
     <td align="center">
       cb: (node: LinkedListNode&lt;T&gt;) => boolean
+      <br />
+      <i>startingNode: LinkedListNode&lt;T&gt;</i>
     </td>
     <td align="center"><a href="#linkedlistnodet">LinkedListNode&lt;T&gt;</a></td>
     <td align="center">O(n)</td>
