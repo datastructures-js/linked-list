@@ -81,6 +81,17 @@ describe('linkedList tests', () => {
       expect(() => linkedList.find('test')).to.throw(Error)
         .and.to.have.property('message', '.find(cb) expects a callback');
     });
+
+    it('fins a node from a starting node', () => {
+      const n5 = linkedList.find((node) => node.getValue() === 5);
+      const n4 = linkedList.find((node) => node.getValue() === 4, n5);
+      expect(n4.getValue()).to.equal(4);
+    });
+
+    it('throws an error if starting node is not valid', () => {
+      expect(() => linkedList.find(() => null, 'test')).to.throw(Error)
+        .and.to.have.property('message', '.find(cb) expects to start from a LinkedListNode');
+    });
   });
 
   describe('.toArray()', () => {
