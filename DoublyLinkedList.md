@@ -200,7 +200,7 @@ doublyLinkedList.forEachReverse(
 ```
 
 ### .find(cb[, startingNode])
-Finds the first node that returns true from the callback or null if nothing found.
+Finds the first node that returns true from the callback or null if nothing found. It accepts a second param as the starting node to search.
 
 <table>
   <tr>
@@ -209,8 +209,10 @@ Finds the first node that returns true from the callback or null if nothing foun
     <th align="center">runtime</th>
   </tr>
   <tr>
-    <td align="center">
+    <td>
       cb: (node: DoublyLinkedListNode&lt;T&gt;) => boolean
+      <br />
+      <i>startingNode: DoublyLinkedListNode&lt;T&gt;</i>
     </td>
     <td align="center">
       <a href="#doublylinkedlistnodet">DoublyLinkedListNode&lt;T&gt;</a>
@@ -227,7 +229,7 @@ console.log(node5.getValue()); // 5
 ```
 
 ### .findReverse(cb[, startingNode])
-Finds the first node that returns true from the callback or null if nothing found.
+Reversevly finds the first node that returns true from the callback or null if nothing found. It accepts a second param as the starting node to search.
 
 <table>
   <tr>
@@ -236,8 +238,10 @@ Finds the first node that returns true from the callback or null if nothing foun
     <th align="center">runtime</th>
   </tr>
   <tr>
-    <td align="center">
+    <td>
       cb: (node: DoublyLinkedListNode&lt;T&gt;) => boolean
+      <br />
+      <i>startingNode: DoublyLinkedListNode&lt;T&gt;</i>
     </td>
     <td align="center">
       <a href="#doublylinkedlistnodet">DoublyLinkedListNode&lt;T&gt;</a>
