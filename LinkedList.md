@@ -92,10 +92,10 @@ inserts a node at the end of the list. it accepts an optional second param as th
     <th align="center">runtime</th>
   </tr>
   <tr>
-    <td align="center">
+    <td>
     value: T
     <br />
-    startingNode: LinkedListNode&lt;T&gt;
+    <i>startingNode: LinkedListNode&lt;T&gt;</i>
     </td>
     <td align="center"><a href="#linkedlistnodet">LinkedListNode&lt;T&gt;</a></td>
     <td>
