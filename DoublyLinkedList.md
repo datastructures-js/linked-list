@@ -571,6 +571,25 @@ console.log(doublyLinkedList.tail()); // null
 ### DoublyLinkedList.fromArray(values)
 creates a doubly linked list from an array.
 
+<table>
+  <tr>
+    <th align="center">params</th>
+    <th align="center">return</th>
+    <th align="center">runtime</th>
+  </tr>
+  <tr>
+    <td align="center">
+      values: T[]
+    </td>
+    <td align="center">
+      DoublyLinkedList&lt;T&gt;
+    </td>
+    <td align="center">
+      O(n)
+    </td>
+  </tr>
+</table>
+
 ##### JS
 ```js
 const dll = DoublyLinkedList.fromArray([1, 2, 3, 4, 5]);

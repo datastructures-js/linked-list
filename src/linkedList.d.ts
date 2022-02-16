@@ -10,7 +10,7 @@ export class LinkedList<T> {
   removeEach(cb: (node: LinkedListNode<T>, position: number) => boolean): number;
   removeAt(position: number): LinkedListNode<T>;
   forEach(cb: (node: LinkedListNode<T>, position: number) => void): void;
-  find(cb: (node: LinkedListNode<T>) => boolean): LinkedListNode<T>;
+  find(cb: (node: LinkedListNode<T>) => boolean, startingNode?: LinkedListNode<T>): LinkedListNode<T>;
   filter(cb: (node: LinkedListNode<T>, position: number) => boolean): LinkedList<T>;
   head(): LinkedListNode<T>;
   count(): number;
