@@ -252,7 +252,7 @@ Reversevly finds the first node that returns true from the callback or null if n
 </table>
 
 ```js
-const node5 = doublyLinkedList.find(
+const node5 = doublyLinkedList.findReverse(
   (node, position) => node.getValue() === 5
 );
 console.log(node5.getValue()); // 5
