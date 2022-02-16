@@ -252,7 +252,7 @@ Reversevly finds the first node that returns true from the callback or null if n
 </table>
 
 ```js
-const node5 = doublyLinkedList.find(
+const node5 = doublyLinkedList.findReverse(
   (node, position) => node.getValue() === 5
 );
 console.log(node5.getValue()); // 5
@@ -570,6 +570,25 @@ console.log(doublyLinkedList.tail()); // null
 
 ### DoublyLinkedList.fromArray(values)
 creates a doubly linked list from an array.
+
+<table>
+  <tr>
+    <th align="center">params</th>
+    <th align="center">return</th>
+    <th align="center">runtime</th>
+  </tr>
+  <tr>
+    <td align="center">
+      values: T[]
+    </td>
+    <td align="center">
+      DoublyLinkedList&lt;T&gt;
+    </td>
+    <td align="center">
+      O(n)
+    </td>
+  </tr>
+</table>
 
 ##### JS
 ```js

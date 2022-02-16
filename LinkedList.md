@@ -417,6 +417,25 @@ console.log(linkedList.head()); // null
 ### LinkedList.fromArray(values)
 creates a linked list from an array.
 
+<table>
+  <tr>
+    <th align="center">params</th>
+    <th align="center">return</th>
+    <th align="center">runtime</th>
+  </tr>
+  <tr>
+    <td align="center">
+      values: T[]
+    </td>
+    <td align="center">
+      LinkedList&lt;T&gt;
+    </td>
+    <td align="center">
+      O(n)
+    </td>
+  </tr>
+</table>
+
 ##### JS
 ```js
 const ll = LinkedList.fromArray([1, 2, 3, 4, 5]);
