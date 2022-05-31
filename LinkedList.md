@@ -1,7 +1,5 @@
 # LinkedList
 
-<img width="429" alt="Linked List" src="https://user-images.githubusercontent.com/6517308/35762715-5d00c9bc-0861-11e8-88f7-6e503a1fa3af.png">
-
 # Table of Contents
 * [Install](#install)
 * [require](#require)

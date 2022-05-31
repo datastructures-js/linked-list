@@ -1,7 +1,5 @@
 # DoublyLinkedList
 
-<img width="552" alt="Doubly Linked List" src="https://user-images.githubusercontent.com/6517308/35762752-19b17df4-0862-11e8-8ce3-f940d83dde51.png">
-
 # Contents
 * [Install](#install)
 * [require](#require)
