@@ -142,7 +142,7 @@ console.log(node5.getValue()); // 5
 ```
 
 ### findReverse
-Reversevly finds the first node that returns true from the callback or null if nothing found. It accepts a second param as the starting node to search.
+finds the first node that match a callback criteria or null if nothing found by scanning the list from end to beginning. It also accepts a second param as the starting end node to start searching from.
 
 ```js
 const node5 = doublyLinkedList.findReverse(
