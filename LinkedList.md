@@ -59,7 +59,7 @@ const linkedList = new LinkedList();
 const linkedList = new LinkedList<number>();
 ```
 
-### .insertFirst(value)
+### insertFirst
 inserts a node at the beginning of the list.
 
 ```js
@@ -68,7 +68,7 @@ console.log(linkedList.insertFirst(2).getValue()); // 2
 console.log(linkedList.insertFirst(1).getValue()); // 1
 ```
 
-### .insertLast(value[, startingNode])
+### insertLast
 inserts a node at the end of the list. it accepts an optional second param as the starting node which can be used to insert in O(1) runtime.
 
 ```js
@@ -81,7 +81,7 @@ console.log(last5.getValue()); // 5
 console.log(last5.getNext()); // null
 ```
 
-### .insertAt(position, value)
+### insertAt
 inserts a node at specific position of the list. First (head) node is at position 0.
 
 ```js
@@ -89,7 +89,7 @@ const node2 = linkedList.insertAt(2, 5);
 console.log(node2.getValue()); // 5
 ```
 
-### .forEach(cb)
+### forEach
 Traverse the list from beginning to end, and pass each node to the callback.
 
 ```js
@@ -106,7 +106,7 @@ linkedList.forEach(
 */
 ```
 
-### .find(cb[, startingNode])
+### find
 finds the first node that returns true from the callback or null if nothing found. It accepts a second param as the starting node to search.
 
 ```js
@@ -116,7 +116,7 @@ const node5 = linkedList.find(
 console.log(node5.getValue()); // 5
 ```
 
-### .filter(cb)
+### filter
 returns a filtered linked list of all the nodes that returns true from the callback.
 
 ```js
@@ -134,35 +134,35 @@ filterLinkedList.forEach(
 */
 ```
 
-### .toArray()
+### toArray
 converts the linked list into an array.
 
 ```js
 console.log(linkedList.toArray()); // [1, 2, 5, 3, 4, 5]
 ```
 
-### .isEmpty()
+### isEmpty
 checks if the linked list is empty.
 
 ```js
 console.log(linkedList.isEmpty()); // false
 ```
 
-### .head()
+### head
 returns the head node in the linked list.
 
 ```js
 console.log(linkedList.head().getValue()); // 1
 ```
 
-### .count()
+### count
 returns the number of nodes in the linked list.
 
 ```js
 console.log(linkedList.count()); // 6
 ```
 
-### .removeFirst()
+### removeFirst
 removes and returns the first node in the list.
 
 ```js
@@ -173,7 +173,7 @@ console.log(removed.getNext()); // null
 console.log(linkedList.toArray()); // [2, 5, 3, 4, 5]
 ```
 
-### .removeLast()
+### removeLast
 removes and returns the last node in the list.
 
 ```js
@@ -184,7 +184,7 @@ console.log(removed.getNext()); // null
 console.log(linkedList.toArray()); // [2, 5, 3, 4]
 ```
 
-### .removeAt(position)
+### removeAt
 removes and returns the node at a specific position. First (head) node is at position 0.
 
 ```js
@@ -195,7 +195,7 @@ console.log(removed.getNext()); // null
 console.log(linkedList.toArray()); // [2, 3, 4]
 ```
 
-### .removeEach(cb)
+### removeEach
 removes the nodes that returns true from a callback check and returns the number of removed nodes.
 
 ```js
@@ -206,7 +206,7 @@ console.log(removedCount); // 2
 console.log(linkedList.toArray()); // [2]
 ```
 
-### .clear()
+### clear
 clears the linked list.
 
 ```js
@@ -215,7 +215,7 @@ console.log(linkedList.count()); // 0
 console.log(linkedList.head()); // null
 ```
 
-### LinkedList.fromArray(values)
+### LinkedList.fromArray
 creates a linked list from an array.
 
 ##### JS
@@ -228,14 +228,19 @@ const ll = LinkedList.fromArray([1, 2, 3, 4, 5]);
 const ll = LinkedList.fromArray<number>([1, 2, 3, 4, 5]);
 ```
 
-### LinkedListNode&lt;T&gt;
+### LinkedListNode
 
-#### setValue
+#### setValue(value: T)
+sets the value on the node.
 
-#### getValue
+#### getValue(): T
+gets the value of the node.
 
-#### setNext
+#### setNext(next: LinkedList)
+sets the next node.
 
-#### getNext
+#### getNext(): LinkedList
+gets the next node.
 
-#### hasNext
+#### hasNext(): boolean
+checks if node has a next node.
