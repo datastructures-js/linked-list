@@ -9,7 +9,7 @@
   * [insertFirst](#insertfirst)
   * [insertLast](#insertlast)
   * [insertAt](#insertat)
-  * [forEach](#foreachcb)
+  * [forEach](#foreach)
   * [find](#find)
   * [filter](#filter)
   * [toArray](#toarray)
