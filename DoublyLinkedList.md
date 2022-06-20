@@ -65,7 +65,7 @@ const doublyLinkedList = new DoublyLinkedList();
 const doublyLinkedList = new DoublyLinkedList<number>();
 ```
 
-### .insertFirst(value)
+### insertFirst
 inserts a node at the beginning of the list.
 
 ```js
@@ -74,7 +74,7 @@ console.log(doublyLinkedList.insertFirst(2).getValue()); // 2
 console.log(doublyLinkedList.insertFirst(1).getValue()); // 1
 ```
 
-### .insertLast(value)
+### insertLast
 inserts a node at the end of the list.
 
 ```js
@@ -89,7 +89,7 @@ console.log(last5.getNext()); // null
 console.log(last5.getPrev().getValue()); // 4
 ```
 
-### .insertAt(position, value)
+### insertAt
 inserts a node at specific position of the list. First (head) node is at position 0.
 
 ```js
@@ -97,7 +97,7 @@ const node2 = doublyLinkedList.insertAt(2, 5);
 console.log(node2.getValue()); // 5
 ```
 
-### .forEach(cb)
+### forEach
 Traverse the list from beginning to end, and pass each node to the callback.
 
 ```js
@@ -114,7 +114,7 @@ doublyLinkedList.forEach(
 */
 ```
 
-### .forEachReverse(cb)
+### forEachReverse
 Traverse the list from end to beginning, and pass each node to the callback.
 
 ```js
@@ -131,7 +131,7 @@ doublyLinkedList.forEachReverse(
 */
 ```
 
-### .find(cb[, startingNode])
+### find
 Finds the first node that returns true from the callback or null if nothing found. It accepts a second param as the starting node to search.
 
 ```js
@@ -141,7 +141,7 @@ const node5 = doublyLinkedList.find(
 console.log(node5.getValue()); // 5
 ```
 
-### .findReverse(cb[, startingNode])
+### findReverse
 Reversevly finds the first node that returns true from the callback or null if nothing found. It accepts a second param as the starting node to search.
 
 ```js
@@ -151,7 +151,7 @@ const node5 = doublyLinkedList.findReverse(
 console.log(node5.getValue()); // 5
 ```
 
-### .filter(cb)
+### filter
 returns a filtered doubly linked list of all the nodes that returns true from the callback.
 
 ```js
@@ -169,42 +169,42 @@ filterLinkedList.forEach(
 */
 ```
 
-### .toArray()
+### toArray
 converts the doubly linked list into an array.
 
 ```js
 console.log(doublyLinkedList.toArray()); // [1, 2, 5, 3, 4, 5]
 ```
 
-### .isEmpty()
+### isEmpty
 checks if the linked list is empty.
 
 ```js
 console.log(doublyLinkedList.isEmpty()); // false
 ```
 
-### .head()
+### head
 returns the head node in the linked list.
 
 ```js
 console.log(doublyLinkedList.head().getValue()); // 1
 ```
 
-### .tail()
+### tail
 returns the tail node of the doubly linked list.
 
 ```js
 console.log(doublyLinkedList.tail().getValue()); // 5
 ```
 
-### .count()
+### count
 returns the number of nodes in the linked list.
 
 ```js
 console.log(doublyLinkedList.count()); // 6
 ```
 
-### .removeFirst()
+### removeFirst
 removes the first node in the list.
 
 ```js
@@ -215,7 +215,7 @@ console.log(removed.getNext()); // null
 console.log(doublyLinkedList.toArray()); // [2, 5, 3, 4, 5]
 ```
 
-### .removeLast()
+### removeLast
 removes and returns the last node in the list.
 
 ```js
@@ -226,7 +226,7 @@ console.log(removed.getNext()); // null
 console.log(doublyLinkedList.toArray()); // [2, 5, 3, 4]
 ```
 
-### .remove(node)
+### remove
 Removes a given node from the list. This can be done by remembering the references of the inserted nodes in the application that uses the doubly linked list, then call this function to remove any existing node in O(1) runtime.
 
 ```js
@@ -237,7 +237,7 @@ doublyLinkedList.remove(memoizedNode); // O(1)
 console.log(doublyLinkedList.toArray()); // [2, 5, 3, 4]
 ```
 
-### .removeAt(position)
+### removeAt
 removes and returns the node at a specific position. First (head) node is at position 0.
 
 ```js
@@ -248,7 +248,7 @@ console.log(removed.getNext()); // null
 console.log(doublyLinkedList.toArray()); // [2, 3, 4]
 ```
 
-### .removeEach(cb)
+### removeEach
 removes the nodes that returns true from a callback check and returns the number of removed nodes.
 
 ```js
@@ -259,7 +259,7 @@ console.log(removedCount); // 2
 console.log(doublyLinkedList.toArray()); // [2]
 ```
 
-### .clear()
+### clear
 clears the linked list.
 
 ```js
@@ -269,8 +269,8 @@ console.log(doublyLinkedList.head()); // null
 console.log(doublyLinkedList.tail()); // null
 ```
 
-### DoublyLinkedList.fromArray(values)
-creates a doubly linked list from an array.
+### DoublyLinkedList.fromArray
+creates a doubly linked list from an existing array.
 
 ##### JS
 ```js
@@ -282,20 +282,28 @@ const dll = DoublyLinkedList.fromArray([1, 2, 3, 4, 5]);
 const dll = DoublyLinkedList.fromArray<number>([1, 2, 3, 4, 5]);
 ```
 
-### DoublyLinkedListNode&lt;T&gt;
+### DoublyLinkedListNode
 
 #### setValue
+sets the value on the node.
 
 #### getValue
+gets the value of the node.
 
 #### setPrev
+sets the previous node.
 
 #### getPrev
+gets the previous node.
 
 #### hasPrev
+checks if node has a previous node.
 
 #### setNext
+sets the next node.
 
 #### getNext
+gets the next node.
 
 #### hasNext
+checks if node has a next node.
