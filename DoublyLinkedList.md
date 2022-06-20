@@ -132,7 +132,7 @@ doublyLinkedList.forEachReverse(
 ```
 
 ### find
-Finds the first node that returns true from the callback or null if nothing found. It accepts a second param as the starting node to search.
+finds the first node that matches the callback criteria or null if nothing is found. It also accepts a second param as the starting node to start searching from.
 
 ```js
 const node5 = doublyLinkedList.find(
@@ -152,7 +152,7 @@ console.log(node5.getValue()); // 5
 ```
 
 ### filter
-returns a filtered doubly linked list of all the nodes that returns true from the callback.
+returns a filtered doubly linked list of all the nodes that match a callback criteria.
 
 ```js
 const filterLinkedList = doublyLinkedList.filter(
@@ -177,35 +177,35 @@ console.log(doublyLinkedList.toArray()); // [1, 2, 5, 3, 4, 5]
 ```
 
 ### isEmpty
-checks if the linked list is empty.
+checks if the list is empty.
 
 ```js
 console.log(doublyLinkedList.isEmpty()); // false
 ```
 
 ### head
-returns the head node in the linked list.
+returns the head (first) node of the list.
 
 ```js
 console.log(doublyLinkedList.head().getValue()); // 1
 ```
 
 ### tail
-returns the tail node of the doubly linked list.
+returns the tail (last) node of the list.
 
 ```js
 console.log(doublyLinkedList.tail().getValue()); // 5
 ```
 
 ### count
-returns the number of nodes in the linked list.
+returns the number of nodes in the list.
 
 ```js
 console.log(doublyLinkedList.count()); // 6
 ```
 
 ### removeFirst
-removes the first node in the list.
+removes the first node in the list in O(1) runtime..
 
 ```js
 const removed = doublyLinkedList.removeFirst();
@@ -216,7 +216,7 @@ console.log(doublyLinkedList.toArray()); // [2, 5, 3, 4, 5]
 ```
 
 ### removeLast
-removes and returns the last node in the list.
+removes and returns the last node in the list in O(1) runtime..
 
 ```js
 const removed = doublyLinkedList.removeLast();
@@ -227,7 +227,7 @@ console.log(doublyLinkedList.toArray()); // [2, 5, 3, 4]
 ```
 
 ### remove
-Removes a given node from the list. This can be done by remembering the references of the inserted nodes in the application that uses the doubly linked list, then call this function to remove any existing node in O(1) runtime.
+Removes a given node from the list. This can be done by remembering the reference of the inserted node, then call this function to remove that node in O(1) runtime.
 
 ```js
 const memoizedNode = doublyLinkedList.insertAt(2, 10);
@@ -238,7 +238,7 @@ console.log(doublyLinkedList.toArray()); // [2, 5, 3, 4]
 ```
 
 ### removeAt
-removes and returns the node at a specific position. First (head) node is at position 0.
+removes and returns the node at a specific position in O(n) runtime. First (head) node is at position 0.
 
 ```js
 const removed = doublyLinkedList.removeAt(1);
@@ -249,7 +249,7 @@ console.log(doublyLinkedList.toArray()); // [2, 3, 4]
 ```
 
 ### removeEach
-removes the nodes that returns true from a callback check and returns the number of removed nodes.
+removes the nodes that match a callback criteria and returns the number of removed nodes.
 
 ```js
 const removedCount = doublyLinkedList.removeEach(
@@ -260,7 +260,7 @@ console.log(doublyLinkedList.toArray()); // [2]
 ```
 
 ### clear
-clears the linked list.
+clears the list.
 
 ```js
 doublyLinkedList.clear();
