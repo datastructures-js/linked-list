@@ -82,7 +82,7 @@ console.log(last5.getNext()); // null
 ```
 
 ### insertAt
-inserts a node at specific position of the list in O(n) runtime. First (head) node is at position 0.
+inserts a node at a specific position of the list in O(n) runtime. First (head) node is at position 0.
 
 ```js
 const node2 = linkedList.insertAt(2, 5);

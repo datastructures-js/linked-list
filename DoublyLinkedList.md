@@ -66,7 +66,7 @@ const doublyLinkedList = new DoublyLinkedList<number>();
 ```
 
 ### insertFirst
-inserts a node at the beginning of the list.
+inserts a node at the beginning of the list in O(1) runetime and returns the inserted node.
 
 ```js
 console.log(doublyLinkedList.insertFirst(3).getValue()); // 3
@@ -75,7 +75,7 @@ console.log(doublyLinkedList.insertFirst(1).getValue()); // 1
 ```
 
 ### insertLast
-inserts a node at the end of the list.
+inserts a node at the end of the list in O(1) runtime and returns the inserted node.
 
 ```js
 const last4 = doublyLinkedList.insertLast(4);
@@ -90,7 +90,7 @@ console.log(last5.getPrev().getValue()); // 4
 ```
 
 ### insertAt
-inserts a node at specific position of the list. First (head) node is at position 0.
+inserts a node at a specific position of the list in O(n) runtime. First (head) node is at position 0.
 
 ```js
 const node2 = doublyLinkedList.insertAt(2, 5);
