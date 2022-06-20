@@ -227,7 +227,7 @@ console.log(doublyLinkedList.toArray()); // [2, 5, 3, 4]
 ```
 
 ### remove
-Removes a given node from the list. This can be done by remembering the reference of the inserted node, then call this function to remove that node in O(1) runtime.
+Removes a given node from the list. This can be done by remembering the reference of the inserted nodes, then call this function to remove a node in O(1) runtime.
 
 ```js
 const memoizedNode = doublyLinkedList.insertAt(2, 10);
