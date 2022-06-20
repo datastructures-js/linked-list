@@ -60,7 +60,7 @@ const linkedList = new LinkedList<number>();
 ```
 
 ### insertFirst
-inserts a node at the beginning of the list.
+inserts a node at the beginning of the list in O(1) runetime and returns the inserted node.
 
 ```js
 console.log(linkedList.insertFirst(3).getValue()); // 3
@@ -69,7 +69,7 @@ console.log(linkedList.insertFirst(1).getValue()); // 1
 ```
 
 ### insertLast
-inserts a node at the end of the list. it accepts an optional second param as the starting node which can be used to insert in O(1) runtime.
+inserts a node at the end of the list in O(n) runtime. it also accepts an second param as the starting node which can be used to insert in O(1) runtime if last inserted node is memoized.
 
 ```js
 const last4 = linkedList.insertLast(4);
@@ -82,7 +82,7 @@ console.log(last5.getNext()); // null
 ```
 
 ### insertAt
-inserts a node at specific position of the list. First (head) node is at position 0.
+inserts a node at specific position of the list in O(n) runtime. First (head) node is at position 0.
 
 ```js
 const node2 = linkedList.insertAt(2, 5);
@@ -107,7 +107,7 @@ linkedList.forEach(
 ```
 
 ### find
-finds the first node that returns true from the callback or null if nothing found. It accepts a second param as the starting node to search.
+finds the first node that matches the callback criteria or null if nothing is found. It also accepts a second param as the starting node to start searching from.
 
 ```js
 const node5 = linkedList.find(
@@ -117,7 +117,7 @@ console.log(node5.getValue()); // 5
 ```
 
 ### filter
-returns a filtered linked list of all the nodes that returns true from the callback.
+returns a filtered linked list of all the nodes that match a callback criteria.
 
 ```js
 const filterLinkedList = linkedList.filter(
@@ -163,7 +163,7 @@ console.log(linkedList.count()); // 6
 ```
 
 ### removeFirst
-removes and returns the first node in the list.
+removes and returns the first node in the list in O(1) runtime.
 
 ```js
 const removed = linkedList.removeFirst();
@@ -174,7 +174,7 @@ console.log(linkedList.toArray()); // [2, 5, 3, 4, 5]
 ```
 
 ### removeLast
-removes and returns the last node in the list.
+removes and returns the last node in the list in O(n) runtime.
 
 ```js
 const removed = linkedList.removeLast();
@@ -185,7 +185,7 @@ console.log(linkedList.toArray()); // [2, 5, 3, 4]
 ```
 
 ### removeAt
-removes and returns the node at a specific position. First (head) node is at position 0.
+removes and returns the node at a specific position in O(n) runtime. First (head) node is at position 0.
 
 ```js
 const removed = linkedList.removeAt(1);
@@ -196,7 +196,7 @@ console.log(linkedList.toArray()); // [2, 3, 4]
 ```
 
 ### removeEach
-removes the nodes that returns true from a callback check and returns the number of removed nodes.
+removes the nodes that match a callback criteria and returns the number of removed nodes.
 
 ```js
 const removedCount = linkedList.removeEach(
@@ -216,7 +216,7 @@ console.log(linkedList.head()); // null
 ```
 
 ### LinkedList.fromArray
-creates a linked list from an array.
+creates a linked list from an existing array.
 
 ##### JS
 ```js
