@@ -21,7 +21,7 @@
   * [count](#count)
   * [removeFirst](#removefirst)
   * [removeLast](#removelast)
-  * [remove(nod](#remove)
+  * [remove](#remove)
   * [removeAt](#removeat)
   * [removeEach](#removeeach)
   * [clear](#clear)
