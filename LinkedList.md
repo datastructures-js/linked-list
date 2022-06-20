@@ -8,7 +8,7 @@
   * [constructor](#constructor)
   * [insertFirst](#insertfirst)
   * [insertLast](#insertlast)
-  * [insertAt](#insertatposition)
+  * [insertAt](#insertat)
   * [forEach](#foreachcb)
   * [find](#find)
   * [filter](#filter)
