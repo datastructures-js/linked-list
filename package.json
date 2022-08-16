@@ -3,6 +3,7 @@
   "version": "5.2.2",
   "description": "a javascript implementation of LinkedList & DoublyLinkedList",
   "main": "index.js",
+  "types": "index.d.ts",
   "scripts": {
     "test": "grunt test"
   },
