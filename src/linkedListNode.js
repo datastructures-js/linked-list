@@ -41,7 +41,7 @@ class LinkedListNode {
    */
   setNext(next) {
     if (next && !(next instanceof LinkedListNode)) {
-      throw new Error('setLeft expects a LinkedListNode or null');
+      throw new Error('setNext expects a LinkedListNode or null');
     }
     this._next = next || null;
     return this;
