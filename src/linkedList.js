@@ -143,17 +143,19 @@ class LinkedList {
     while (current instanceof LinkedListNode) {
       if (cb(current, position)) {
         if (prev === null) {
-          this.removeFirst();
+          this._head = this._head.getNext();
+          current = this._head;
         } else {
           prev.setNext(prev.getNext().getNext());
+          current = current.getNext();
         }
         this._count -= 1;
         removedCount += 1;
       } else {
         prev = current;
+        current = current.getNext();
       }
       position += 1;
-      current = current.getNext();
     }
     return removedCount;
   }
