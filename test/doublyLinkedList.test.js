@@ -219,6 +219,11 @@ describe('doublyLinkedList tests', () => {
       expect(removedCount).to.deep.equal(2);
       expect(doublyLinkedList.toArray()).to.deep.equal([1]);
       expect(doublyLinkedList.count()).to.equal(1);
+
+      const dll2 = new DoublyLinkedList();
+      [12, 21, 31, 42].forEach((n) => dll2.insertLast(n));
+      dll2.removeEach((n) => n.getValue() <= 21);
+      expect(dll2.toArray()).to.eql([31, 42]);
     });
 
     it('throws an error if cb is not a function', () => {

@@ -152,6 +152,11 @@ describe('linkedList tests', () => {
       expect(linkedList.removeEach((n) => n.getValue() > 1)).to.equal(2);
       expect(linkedList.count()).to.deep.equal(1);
       expect(linkedList.toArray()).to.deep.equal([1]);
+
+      const ll2 = new LinkedList();
+      [12, 21, 31, 42].forEach((n) => ll2.insertLast(n));
+      ll2.removeEach((n) => n.getValue() <= 21);
+      expect(ll2.toArray()).to.eql([31, 42]);
     });
 
     it('throws an error if cb is not a function', () => {
