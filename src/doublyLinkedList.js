@@ -23,7 +23,10 @@ class DoublyLinkedList {
    * @returns {DoublyLinkedListNode}
    */
   insertFirst(value) {
-    const newNode = new DoublyLinkedListNode(value);
+    let newNode = value;
+    if (!(newNode instanceof DoublyLinkedListNode)) {
+      newNode = new DoublyLinkedListNode(value);
+    }
 
     if (this.isEmpty()) {
       this._head = newNode;
@@ -44,7 +47,11 @@ class DoublyLinkedList {
    * @returns {DoublyLinkedListNode}
    */
   insertLast(value) {
-    const newNode = new DoublyLinkedListNode(value);
+    let newNode = value;
+    if (!(newNode instanceof DoublyLinkedListNode)) {
+      newNode = new DoublyLinkedListNode(value);
+    }
+
     if (this.isEmpty()) {
       this._head = newNode;
       this._tail = newNode;
@@ -87,7 +94,10 @@ class DoublyLinkedList {
       prev = prev.getNext();
     }
 
-    const newNode = new DoublyLinkedListNode(value);
+    let newNode = value;
+    if (!(newNode instanceof DoublyLinkedListNode)) {
+      newNode = new DoublyLinkedListNode(value);
+    }
     newNode.setNext(prev.getNext());
     newNode.setPrev(prev);
     newNode.getNext().setPrev(newNode);
