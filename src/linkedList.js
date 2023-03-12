@@ -296,7 +296,7 @@ class LinkedList {
    */
   toArray() {
     const result = [];
-    this.forEach((node) => result.push(node.getValue()));
+    this.forEach((node) => result.push(node));
     return result;
   }
 
