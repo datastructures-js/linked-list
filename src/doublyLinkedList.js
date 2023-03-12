@@ -338,8 +338,9 @@ class DoublyLinkedList {
 
     const result = new DoublyLinkedList();
     this.forEach((node, position) => {
-      if (!cb(node, position)) return;
-      result.insertLast(node.getValue());
+      if (cb(node, position)) {
+        result.insertLast(node.clone());
+      }
     });
     return result;
   }

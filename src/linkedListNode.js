@@ -62,6 +62,14 @@ class LinkedListNode {
   hasNext() {
     return this._next instanceof LinkedListNode;
   }
+
+  /**
+   * @public
+   * @returns {LinkedListNode}
+   */
+  clone() {
+    return new LinkedListNode(this._value);
+  }
 }
 
 exports.LinkedListNode = LinkedListNode;

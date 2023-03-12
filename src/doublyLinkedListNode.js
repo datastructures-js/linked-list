@@ -94,6 +94,14 @@ class DoublyLinkedListNode {
   hasPrev() {
     return this._prev instanceof DoublyLinkedListNode;
   }
+
+  /**
+   * @public
+   * @returns {DoublyLinkedListNode}
+   */
+  clone() {
+    return new DoublyLinkedListNode(this._value);
+  }
 }
 
 exports.DoublyLinkedListNode = DoublyLinkedListNode;

@@ -264,8 +264,9 @@ class LinkedList {
     let last = null;
     const result = new LinkedList();
     this.forEach((node, position) => {
-      if (!cb(node, position)) return;
-      last = result.insertLast(node.getValue(), last);
+      if (cb(node, position)) {
+        last = result.insertLast(node.clone(), last);
+      }
     });
     return result;
   }
