@@ -68,7 +68,13 @@ class LinkedListNode {
    * @returns {LinkedListNode}
    */
   clone() {
-    return new LinkedListNode(this._value);
+    const props = { ...this };
+    const clone = new LinkedListNode();
+    Object.keys(props).forEach((prop) => {
+      clone[prop] = props[prop];
+    });
+    clone.setNext(null);
+    return clone;
   }
 }
 

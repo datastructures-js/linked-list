@@ -100,7 +100,14 @@ class DoublyLinkedListNode {
    * @returns {DoublyLinkedListNode}
    */
   clone() {
-    return new DoublyLinkedListNode(this._value);
+    const props = { ...this };
+    const clone = new DoublyLinkedListNode();
+    Object.keys(props).forEach((prop) => {
+      clone[prop] = props[prop];
+    });
+    clone.setNext(null);
+    clone.setPrev(null);
+    return clone;
   }
 }
 
