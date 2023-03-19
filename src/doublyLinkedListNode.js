@@ -101,7 +101,7 @@ class DoublyLinkedListNode {
    */
   clone() {
     const props = { ...this };
-    const clone = new DoublyLinkedListNode();
+    const clone = Reflect.construct(this.constructor, []);
     Object.keys(props).forEach((prop) => {
       clone[prop] = props[prop];
     });

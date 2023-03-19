@@ -69,7 +69,7 @@ class LinkedListNode {
    */
   clone() {
     const props = { ...this };
-    const clone = new LinkedListNode();
+    const clone = Reflect.construct(this.constructor, []);
     Object.keys(props).forEach((prop) => {
       clone[prop] = props[prop];
     });
