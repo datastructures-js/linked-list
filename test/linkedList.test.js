@@ -96,14 +96,14 @@ describe('linkedList tests', () => {
 
   describe('.toArray()', () => {
     it('convert the linkedList to array in same order', () => {
-      expect(linkedList.toArray())
+      expect(linkedList.toArray().map((n) => n.getValue()))
         .to.deep.equal([2, 1, 5, 3, 4]);
     });
   });
 
   describe('.filter(cb)', () => {
     it('filters the linked list based on a callback', () => {
-      expect(linkedList.filter((node) => node.getValue() > 2).toArray())
+      expect(linkedList.filter((node) => node.getValue() > 2).toArray().map((n) => n.getValue()))
         .to.deep.equal([5, 3, 4]);
     });
 
@@ -151,12 +151,12 @@ describe('linkedList tests', () => {
       linkedList.insertLast(4);
       expect(linkedList.removeEach((n) => n.getValue() > 1)).to.equal(2);
       expect(linkedList.count()).to.deep.equal(1);
-      expect(linkedList.toArray()).to.deep.equal([1]);
+      expect(linkedList.toArray().map((n) => n.getValue())).to.deep.equal([1]);
 
       const ll2 = new LinkedList();
       [12, 21, 31, 42].forEach((n) => ll2.insertLast(n));
       ll2.removeEach((n) => n.getValue() <= 21);
-      expect(ll2.toArray()).to.eql([31, 42]);
+      expect(ll2.toArray().map((n) => n.getValue())).to.eql([31, 42]);
     });
 
     it('throws an error if cb is not a function', () => {
@@ -175,8 +175,42 @@ describe('linkedList tests', () => {
 
   describe('.fromArray(values)', () => {
     it('create a linked list from an array', () => {
-      expect(LinkedList.fromArray([1, 2, 3, 4, 5]).toArray())
+      expect(LinkedList.fromArray([1, 2, 3, 4, 5]).toArray().map((n) => n.getValue()))
         .to.eql([1, 2, 3, 4, 5]);
+    });
+  });
+
+  describe('LinkedList with extended node type', () => {
+    class Point extends LinkedListNode {
+      constructor(x, y) {
+        super();
+        this.x = x;
+        this.y = y;
+      }
+    }
+    const points = new LinkedList();
+
+    it('insert instances of extended type', () => {
+      points.insertLast(new Point(1, 10));
+      points.insertLast(new Point(2, 15));
+      points.insertLast(new Point(3, 8));
+      expect(points.toArray().map(
+        (p) => ({ x: p.x, y: p.y })
+      )).to.eql([
+        { x: 1, y: 10 },
+        { x: 2, y: 15 },
+        { x: 3, y: 8 }
+      ]);
+    });
+
+    it('filter custom nodes', () => {
+      const filtered = points.filter((p) => p.x >= 2);
+      expect(filtered.toArray().map(
+        (p) => ({ x: p.x, y: p.y })
+      )).to.eql([
+        { x: 2, y: 15 },
+        { x: 3, y: 8 }
+      ]);
     });
   });
 });

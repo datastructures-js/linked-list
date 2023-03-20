@@ -2,17 +2,17 @@ import { LinkedListNode } from './linkedListNode';
 
 export class LinkedList<T> {
   constructor();
-  insertFirst(value: T): LinkedListNode<T>;
-  insertLast(value: T): LinkedListNode<T>;
-  insertAt(position: number, value: T): LinkedListNode<T>;
-  removeFirst(): LinkedListNode<T>;
-  removeLast(): LinkedListNode<T>;
-  removeEach(cb: (node: LinkedListNode<T>, position: number) => boolean): number;
-  removeAt(position: number): LinkedListNode<T>;
-  forEach(cb: (node: LinkedListNode<T>, position: number) => void): void;
-  find(cb: (node: LinkedListNode<T>) => boolean, startingNode?: LinkedListNode<T>): LinkedListNode<T>;
-  filter(cb: (node: LinkedListNode<T>, position: number) => boolean): LinkedList<T>;
-  head(): LinkedListNode<T>;
+  insertFirst(value: T): LinkedListNode;
+  insertLast(value: T): LinkedListNode;
+  insertAt(position: number, value: T): LinkedListNode;
+  removeFirst(): LinkedListNode;
+  removeLast(): LinkedListNode;
+  removeEach(cb: (node: LinkedListNode, position: number) => boolean): number;
+  removeAt(position: number): LinkedListNode;
+  forEach(cb: (node: LinkedListNode, position: number) => void): void;
+  find(cb: (node: LinkedListNode) => boolean, startingNode?: LinkedListNode): LinkedListNode;
+  filter(cb: (node: LinkedListNode, position: number) => boolean): LinkedList;
+  head(): LinkedListNode;
   count(): number;
   toArray(): T[];
   isEmpty(): boolean;

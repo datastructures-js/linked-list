@@ -22,7 +22,12 @@ class LinkedList {
    * @returns {LinkedListNode}
    */
   insertFirst(value) {
-    this._head = new LinkedListNode(value, this._head);
+    let newNode = value;
+    if (!(newNode instanceof LinkedListNode)) {
+      newNode = new LinkedListNode(value);
+    }
+    newNode.setNext(this._head);
+    this._head = newNode;
     this._count += 1;
     return this._head;
   }
@@ -48,9 +53,13 @@ class LinkedList {
       current = current.getNext();
     }
 
-    current.setNext(new LinkedListNode(value, null));
+    let newNode = value;
+    if (!(newNode instanceof LinkedListNode)) {
+      newNode = new LinkedListNode(value);
+    }
+    current.setNext(newNode);
     this._count += 1;
-    return current.getNext();
+    return newNode;
   }
 
   /**
@@ -81,9 +90,14 @@ class LinkedList {
     }
 
     // add it at a position after the head, between prev & prev.getNext()
-    prev.setNext(new LinkedListNode(value, prev.getNext()));
+    let newNode = value;
+    if (!(newNode instanceof LinkedListNode)) {
+      newNode = new LinkedListNode(value);
+    }
+    newNode.setNext(prev.getNext());
+    prev.setNext(newNode);
     this._count += 1;
-    return prev.getNext();
+    return newNode;
   }
 
   /**
@@ -250,9 +264,11 @@ class LinkedList {
     let last = null;
     const result = new LinkedList();
     this.forEach((node, position) => {
-      if (!cb(node, position)) return;
-      last = result.insertLast(node.getValue(), last);
+      if (cb(node, position)) {
+        last = result.insertLast(node.clone(), last);
+      }
     });
+
     return result;
   }
 
@@ -281,7 +297,7 @@ class LinkedList {
    */
   toArray() {
     const result = [];
-    this.forEach((node) => result.push(node.getValue()));
+    this.forEach((node) => result.push(node));
     return result;
   }
 

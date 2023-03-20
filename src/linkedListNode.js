@@ -62,6 +62,20 @@ class LinkedListNode {
   hasNext() {
     return this._next instanceof LinkedListNode;
   }
+
+  /**
+   * @public
+   * @returns {LinkedListNode}
+   */
+  clone() {
+    const props = { ...this };
+    const clone = Reflect.construct(this.constructor, []);
+    Object.keys(props).forEach((prop) => {
+      clone[prop] = props[prop];
+    });
+    clone.setNext(null);
+    return clone;
+  }
 }
 
 exports.LinkedListNode = LinkedListNode;

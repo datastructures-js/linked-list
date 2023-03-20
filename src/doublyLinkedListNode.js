@@ -94,6 +94,21 @@ class DoublyLinkedListNode {
   hasPrev() {
     return this._prev instanceof DoublyLinkedListNode;
   }
+
+  /**
+   * @public
+   * @returns {DoublyLinkedListNode}
+   */
+  clone() {
+    const props = { ...this };
+    const clone = Reflect.construct(this.constructor, []);
+    Object.keys(props).forEach((prop) => {
+      clone[prop] = props[prop];
+    });
+    clone.setNext(null);
+    clone.setPrev(null);
+    return clone;
+  }
 }
 
 exports.DoublyLinkedListNode = DoublyLinkedListNode;

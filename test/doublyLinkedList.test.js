@@ -155,15 +155,16 @@ describe('doublyLinkedList tests', () => {
 
   describe('.toArray()', () => {
     it('convert the linked list to array in same order', () => {
-      expect(doublyLinkedList.toArray())
+      expect(doublyLinkedList.toArray().map((n) => n.getValue()))
         .to.deep.equal([2, 1, 5, 3, 4]);
     });
   });
 
   describe('.filter(cb)', () => {
     it('filters the linked list based on a callback', () => {
-      expect(doublyLinkedList.filter((node) => node.getValue() > 2).toArray())
-        .to.deep.equal([5, 3, 4]);
+      expect(doublyLinkedList.filter(
+        (node) => node.getValue() > 2
+      ).toArray().map((n) => n.getValue())).to.deep.equal([5, 3, 4]);
     });
 
     it('throws an error if cb is not a function', () => {
@@ -217,13 +218,13 @@ describe('doublyLinkedList tests', () => {
       doublyLinkedList.insertLast(4);
       const removedCount = doublyLinkedList.removeEach((n) => n.getValue() > 1);
       expect(removedCount).to.deep.equal(2);
-      expect(doublyLinkedList.toArray()).to.deep.equal([1]);
+      expect(doublyLinkedList.toArray().map((n) => n.getValue())).to.deep.equal([1]);
       expect(doublyLinkedList.count()).to.equal(1);
 
       const dll2 = new DoublyLinkedList();
       [12, 21, 31, 42].forEach((n) => dll2.insertLast(n));
       dll2.removeEach((n) => n.getValue() <= 21);
-      expect(dll2.toArray()).to.eql([31, 42]);
+      expect(dll2.toArray().map((n) => n.getValue())).to.eql([31, 42]);
     });
 
     it('throws an error if cb is not a function', () => {
@@ -242,8 +243,42 @@ describe('doublyLinkedList tests', () => {
 
   describe('.fromArray(values)', () => {
     it('create a doubly linked list from an array', () => {
-      expect(DoublyLinkedList.fromArray([1, 2, 3, 4, 5]).toArray())
+      expect(DoublyLinkedList.fromArray([1, 2, 3, 4, 5]).toArray().map((n) => n.getValue()))
         .to.eql([1, 2, 3, 4, 5]);
+    });
+  });
+
+  describe('LinkedList with extended node type', () => {
+    class Point extends DoublyLinkedListNode {
+      constructor(x, y) {
+        super();
+        this.x = x;
+        this.y = y;
+      }
+    }
+    const points = new DoublyLinkedList();
+
+    it('insert instances of extended type', () => {
+      points.insertLast(new Point(1, 10));
+      points.insertLast(new Point(2, 15));
+      points.insertLast(new Point(3, 8));
+      expect(points.toArray().map(
+        (p) => ({ x: p.x, y: p.y })
+      )).to.eql([
+        { x: 1, y: 10 },
+        { x: 2, y: 15 },
+        { x: 3, y: 8 }
+      ]);
+    });
+
+    it('filter custom nodes', () => {
+      const filtered = points.filter((p) => p.x >= 2);
+      expect(filtered.toArray().map(
+        (p) => ({ x: p.x, y: p.y })
+      )).to.eql([
+        { x: 2, y: 15 },
+        { x: 3, y: 8 }
+      ]);
     });
   });
 });

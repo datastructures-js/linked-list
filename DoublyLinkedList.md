@@ -65,6 +65,28 @@ const doublyLinkedList = new DoublyLinkedList();
 const doublyLinkedList = new DoublyLinkedList<number>();
 ```
 
+you can also extend DoublyLinkedListNode (in JS & TS) to use as the list node type
+
+```js
+class Point extends DoublyLinkedListNode {
+  x: number;
+
+  y: number;
+
+  constructor(x: number, y: number) {
+    super();
+    this.x = x;
+    this.y = y;
+  }
+
+  toString() {
+    return `(${this.x},${this.y})`;
+  }
+}
+
+const points = new DoublyLinkedList<Point>();
+```
+
 ### insertFirst
 inserts a node at the beginning of the list in O(1) runetime and returns the inserted node.
 
@@ -72,6 +94,10 @@ inserts a node at the beginning of the list in O(1) runetime and returns the ins
 console.log(doublyLinkedList.insertFirst(3).getValue()); // 3
 console.log(doublyLinkedList.insertFirst(2).getValue()); // 2
 console.log(doublyLinkedList.insertFirst(1).getValue()); // 1
+
+points.insertFirst(new Point(2, 3));
+points.insertFirst(new Point(1, 2));
+points.insertFirst(new Point(0, 1));
 ```
 
 ### insertLast
@@ -87,6 +113,10 @@ const last5 = doublyLinkedList.insertLast(5);
 console.log(last5.getValue()); // 5
 console.log(last5.getNext()); // null
 console.log(last5.getPrev().getValue()); // 4
+
+points.insertLast(new Point(3, 4));
+points.insertLast(new Point(4, 5));
+points.insertLast(new Point(5, 6));
 ```
 
 ### insertAt
@@ -112,6 +142,16 @@ doublyLinkedList.forEach(
 4 4
 5 5
 */
+
+points.forEach((point) => console.log(point.toString()));
+/*
+(0,1)
+(1,2)
+(2,3)
+(3,4)
+(4,5)
+(5,6)
+*/
 ```
 
 ### forEachReverse
@@ -129,6 +169,16 @@ doublyLinkedList.forEachReverse(
 2 1
 1 0
 */
+
+points.forEachReverse((point) => console.log(point.toString()));
+/*
+(5,6)
+(4,5)
+(3,4)
+(2,3)
+(1,2)
+(0,1)
+*/
 ```
 
 ### find
@@ -139,6 +189,8 @@ const node5 = doublyLinkedList.find(
   (node, position) => node.getValue() === 5
 );
 console.log(node5.getValue()); // 5
+
+console.log(points.find((point) => point.x === 4).toString()); // (4,5)
 ```
 
 ### findReverse
@@ -149,6 +201,8 @@ const node5 = doublyLinkedList.findReverse(
   (node, position) => node.getValue() === 5
 );
 console.log(node5.getValue()); // 5
+
+console.log(points.findReverse((point) => point.x === 4).toString()); // (4,5)
 ```
 
 ### filter
@@ -167,6 +221,15 @@ filterLinkedList.forEach(
 4 2
 5 3
 */
+
+points
+  .filter((point) => point.y >= 4)
+  .forEach((point) => console.log(point.toString()));
+/*
+(3,4)
+(4,5)
+(5,6)
+*/
 ```
 
 ### toArray
@@ -174,6 +237,9 @@ converts the doubly linked list into an array.
 
 ```js
 console.log(doublyLinkedList.toArray()); // [1, 2, 5, 3, 4, 5]
+
+console.log(points.toArray().map(p => p.toString()));
+// ['(0,1)', '(1,2)', '(2,3)', '(3,4)', '(4,5)', '(5,6)']
 ```
 
 ### isEmpty
@@ -284,26 +350,29 @@ const dll = DoublyLinkedList.fromArray<number>([1, 2, 3, 4, 5]);
 
 ### DoublyLinkedListNode
 
-#### setValue
+#### setValue(value: any)
 sets the value on the node.
 
-#### getValue
+#### getValue(): any
 gets the value of the node.
 
-#### setPrev
+#### setPrev(prev: DoublyLinkedListNode)
 sets the previous node.
 
-#### getPrev
+#### getPrev(): DoublyLinkedListNode
 gets the previous node.
 
-#### hasPrev
+#### hasPrev(): boolean
 checks if node has a previous node.
 
-#### setNext
+#### setNext(next: DoublyLinkedListNode)
 sets the next node.
 
-#### getNext
+#### getNext(): DoublyLinkedListNode
 gets the next node.
 
-#### hasNext
+#### hasNext(): boolean
 checks if node has a next node.
+
+#### clone(): DoublyLinkedListNode
+clones the node without next reference.
