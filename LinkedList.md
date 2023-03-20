@@ -136,7 +136,6 @@ linkedList.forEach(
 */
 
 points.forEach((point) => console.log(point.toString()));
-
 /*
 (0,1)
 (1,2)
@@ -176,7 +175,6 @@ linkedList
 points
   .filter((point) => point.y >= 4)
   .forEach((point) => console.log(point.toString()));
-
 /*
 (3,4)
 (4,5)
