@@ -302,26 +302,29 @@ const dll = DoublyLinkedList.fromArray<number>([1, 2, 3, 4, 5]);
 
 ### DoublyLinkedListNode
 
-#### setValue
+#### setValue(value: any)
 sets the value on the node.
 
-#### getValue
+#### getValue(): any
 gets the value of the node.
 
-#### setPrev
+#### setPrev(prev: DoublyLinkedListNode)
 sets the previous node.
 
-#### getPrev
+#### getPrev(): DoublyLinkedListNode
 gets the previous node.
 
-#### hasPrev
+#### hasPrev(): boolean
 checks if node has a previous node.
 
-#### setNext
+#### setNext(next: DoublyLinkedListNode)
 sets the next node.
 
-#### getNext
+#### getNext(): DoublyLinkedListNode
 gets the next node.
 
-#### hasNext
+#### hasNext(): boolean
 checks if node has a next node.
+
+#### clone(): DoublyLinkedListNode
+clones the node without next reference.

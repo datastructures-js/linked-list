@@ -283,17 +283,20 @@ const ll = LinkedList.fromArray<number>([1, 2, 3, 4, 5]);
 
 ### LinkedListNode
 
-#### setValue(value: T)
+#### setValue(value: any)
 sets the value on the node.
 
-#### getValue(): T
+#### getValue(): any
 gets the value of the node.
 
-#### setNext(next: LinkedList)
+#### setNext(next: LinkedListNode)
 sets the next node.
 
-#### getNext(): LinkedList
+#### getNext(): LinkedListNode
 gets the next node.
 
 #### hasNext(): boolean
 checks if node has a next node.
+
+#### clone(): LinkedListNode
+clones the node without next reference.
