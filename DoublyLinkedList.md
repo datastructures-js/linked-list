@@ -65,10 +65,10 @@ const doublyLinkedList = new DoublyLinkedList();
 const doublyLinkedList = new DoublyLinkedList<number>();
 ```
 
-you can also extends LinkedListNode (in JS & TS) to use as the list type
+you can also extends DoublyLinkedListNode (in JS & TS) to use as the list type
 
 ```js
-class Point extends LinkedListNode {
+class Point extends DoublyLinkedListNode {
   x: number;
 
   y: number;
@@ -80,7 +80,7 @@ class Point extends LinkedListNode {
   }
 }
 
-const points = new LinkedList<Point>();
+const points = new DoublyLinkedList<Point>();
 ```
 
 ### insertFirst
