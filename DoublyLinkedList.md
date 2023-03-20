@@ -65,6 +65,24 @@ const doublyLinkedList = new DoublyLinkedList();
 const doublyLinkedList = new DoublyLinkedList<number>();
 ```
 
+you can also extends LinkedListNode to use as the list type
+
+```js
+class Point extends LinkedListNode {
+  x: number;
+
+  y: number;
+
+  constructor(x: number, y: number) {
+    super();
+    this.x = x;
+    this.y = y;
+  }
+}
+
+const points = new LinkedList<Point>();
+```
+
 ### insertFirst
 inserts a node at the beginning of the list in O(1) runetime and returns the inserted node.
 
