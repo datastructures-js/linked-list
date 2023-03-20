@@ -1,6 +1,6 @@
 {
   "name": "@datastructures-js/linked-list",
-  "version": "5.2.5",
+  "version": "6.0.0",
   "description": "a javascript implementation of LinkedList & DoublyLinkedList",
   "main": "index.js",
   "types": "index.d.ts",
