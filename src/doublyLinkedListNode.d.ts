@@ -8,4 +8,5 @@ export class DoublyLinkedListNode {
   setPrev(prev: DoublyLinkedListNode): DoublyLinkedListNode;
   getPrev(): DoublyLinkedListNode;
   hasPrev(): boolean;
+  clone(): DoublyLinkedListNode;
 }

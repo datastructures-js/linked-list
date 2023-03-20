@@ -5,4 +5,5 @@ export class LinkedListNode {
   setNext(next: LinkedListNode): LinkedListNode;
   getNext(): LinkedListNode;
   hasNext(): boolean;
+  clone(): LinkedListNode;
 }
