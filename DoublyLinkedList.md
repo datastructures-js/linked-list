@@ -233,10 +233,10 @@ points
 ```
 
 ### toArray
-converts the doubly linked list into an array.
+converts the doubly linked list into an array of nodes.
 
 ```js
-console.log(doublyLinkedList.toArray()); // [1, 2, 5, 3, 4, 5]
+console.log(doublyLinkedList.toArray().map(n => n.getValue())); // [1, 2, 5, 3, 4, 5]
 
 console.log(points.toArray().map(p => p.toString()));
 // ['(0,1)', '(1,2)', '(2,3)', '(3,4)', '(4,5)', '(5,6)']
@@ -278,7 +278,7 @@ const removed = doublyLinkedList.removeFirst();
 console.log(removed.getValue()); // 1
 console.log(removed.getNext()); // null
 
-console.log(doublyLinkedList.toArray()); // [2, 5, 3, 4, 5]
+console.log(doublyLinkedList.toArray().map(n => n.getValue())); // [2, 5, 3, 4, 5]
 ```
 
 ### removeLast
@@ -289,7 +289,7 @@ const removed = doublyLinkedList.removeLast();
 console.log(removed.getValue()); // 5
 console.log(removed.getNext()); // null
 
-console.log(doublyLinkedList.toArray()); // [2, 5, 3, 4]
+console.log(doublyLinkedList.toArray().map(n => n.getValue())); // [2, 5, 3, 4]
 ```
 
 ### remove
@@ -297,10 +297,10 @@ Removes a given node from the list. This can be done by remembering the referenc
 
 ```js
 const memoizedNode = doublyLinkedList.insertAt(2, 10);
-console.log(doublyLinkedList.toArray()); // [2, 5, 10, 3, 4]
+console.log(doublyLinkedList.toArray().map(n => n.getValue())); // [2, 5, 10, 3, 4]
 
 doublyLinkedList.remove(memoizedNode); // O(1)
-console.log(doublyLinkedList.toArray()); // [2, 5, 3, 4]
+console.log(doublyLinkedList.toArray().map(n => n.getValue())); // [2, 5, 3, 4]
 ```
 
 ### removeAt
@@ -311,7 +311,7 @@ const removed = doublyLinkedList.removeAt(1);
 console.log(removed.getValue()); // 5
 console.log(removed.getNext()); // null
 
-console.log(doublyLinkedList.toArray()); // [2, 3, 4]
+console.log(doublyLinkedList.toArray().map(n => n.getValue())); // [2, 3, 4]
 ```
 
 ### removeEach
@@ -322,7 +322,7 @@ const removedCount = doublyLinkedList.removeEach(
   (node, position) => node.getValue() > 2
 );
 console.log(removedCount); // 2
-console.log(doublyLinkedList.toArray()); // [2]
+console.log(doublyLinkedList.toArray().map(n => n.getValue())); // [2]
 ```
 
 ### clear
