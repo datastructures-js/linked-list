@@ -59,7 +59,7 @@ const linkedList = new LinkedList();
 const linkedList = new LinkedList<number>();
 ```
 
-you can also extends LinkedListNode (in JS & TS) to use as the list type
+you can also extend LinkedListNode (in JS & TS) to use as the list node type
 
 ```js
 class Point extends LinkedListNode {
@@ -71,6 +71,10 @@ class Point extends LinkedListNode {
     super();
     this.x = x;
     this.y = y;
+  }
+
+  toString() {
+    return `(${this.x},${this.y})`;
   }
 }
 
@@ -84,6 +88,10 @@ inserts a node at the beginning of the list in O(1) runetime and returns the ins
 console.log(linkedList.insertFirst(3).getValue()); // 3
 console.log(linkedList.insertFirst(2).getValue()); // 2
 console.log(linkedList.insertFirst(1).getValue()); // 1
+
+points.insertFirst(new Point(2, 3));
+points.insertFirst(new Point(1, 2));
+points.insertFirst(new Point(0, 1));
 ```
 
 ### insertLast
@@ -97,6 +105,10 @@ console.log(last4.getNext()); // null
 const last5 = linkedList.insertLast(5, last4); // O(1)
 console.log(last5.getValue()); // 5
 console.log(last5.getNext()); // null
+
+points.insertLast(new Point(3, 4));
+points.insertLast(new Point(4, 5));
+points.insertLast(new Point(5, 6));
 ```
 
 ### insertAt
@@ -122,6 +134,17 @@ linkedList.forEach(
 4 4
 5 5
 */
+
+points.forEach((point) => console.log(point.toString()));
+
+/*
+(0,1)
+(1,2)
+(2,3)
+(3,4)
+(4,5)
+(5,6)
+*/
 ```
 
 ### find
@@ -132,31 +155,43 @@ const node5 = linkedList.find(
   (node, position) => node.getValue() === 5
 );
 console.log(node5.getValue()); // 5
+
+console.log(points.find((point) => point.x === 4).toString()); // (4,5)
 ```
 
 ### filter
 returns a filtered linked list of all the nodes that match a callback criteria.
 
 ```js
-const filterLinkedList = linkedList.filter(
-  (node, position) => node.getValue() > 2
-);
-filterLinkedList.forEach(
-  (node, position) => console.log(node.getValue(), position)
-);
+linkedList
+  .filter((node, position) => node.getValue() > 2);
+  .forEach((node, position) => console.log(node.getValue(), position));
 /*
 5 0
 3 1
 4 2
 5 3
 */
+
+points
+  .filter((point) => point.y >= 4)
+  .forEach((point) => console.log(point.toString()));
+
+/*
+(3,4)
+(4,5)
+(5,6)
+*/
 ```
 
 ### toArray
-converts the linked list into an array.
+returns an array of the linked list nodes.
 
 ```js
-console.log(linkedList.toArray()); // [1, 2, 5, 3, 4, 5]
+console.log(linkedList.toArray().map(n => n.getValue())); // [1, 2, 5, 3, 4, 5]
+
+console.log(points.toArray().map(p => p.toString()));
+// ['(0,1)', '(1,2)', '(2,3)', '(3,4)', '(4,5)', '(5,6)']
 ```
 
 ### isEmpty

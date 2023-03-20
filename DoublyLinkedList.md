@@ -65,7 +65,7 @@ const doublyLinkedList = new DoublyLinkedList();
 const doublyLinkedList = new DoublyLinkedList<number>();
 ```
 
-you can also extends DoublyLinkedListNode (in JS & TS) to use as the list type
+you can also extend DoublyLinkedListNode (in JS & TS) to use as the list node type
 
 ```js
 class Point extends DoublyLinkedListNode {
