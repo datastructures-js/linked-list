@@ -1,8 +1,8 @@
-export class LinkedListNode<T> {
-  constructor(value?: T, next?: LinkedListNode<T>);
-  setValue(value: T): LinkedListNode<T>;
-  getValue(): T;
-  setNext(next: LinkedListNode<T>): LinkedListNode<T>;
-  getNext(): LinkedListNode<T>;
+export class LinkedListNode {
+  constructor(value?: any, next?: LinkedListNode);
+  setValue(value: any): LinkedListNode;
+  getValue(): any;
+  setNext(next: LinkedListNode): LinkedListNode;
+  getNext(): LinkedListNode;
   hasNext(): boolean;
 }
