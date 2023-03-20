@@ -250,13 +250,10 @@ describe('doublyLinkedList tests', () => {
 
   describe('LinkedList with extended node type', () => {
     class Point extends DoublyLinkedListNode {
-      constructor(frame, value) {
-        super(value);
-        this.frame = frame;
-        this.handles = [
-          { x: 0, y: 0 },
-          { x: 0, y: 0 }
-        ];
+      constructor(x, y) {
+        super();
+        this.x = x;
+        this.y = y;
       }
     }
     const points = new DoublyLinkedList();
@@ -266,11 +263,11 @@ describe('doublyLinkedList tests', () => {
       points.insertLast(new Point(2, 15));
       points.insertLast(new Point(3, 8));
       expect(points.toArray().map(
-        (p) => ({ v: p.getValue(), f: p.frame, h: p.handles })
+        (p) => ({ x: p.x, y: p.y })
       )).to.eql([
-        { v: 10, f: 1, h: [{ x: 0, y: 0 }, { x: 0, y: 0 }] },
-        { v: 15, f: 2, h: [{ x: 0, y: 0 }, { x: 0, y: 0 }] },
-        { v: 8, f: 3, h: [{ x: 0, y: 0 }, { x: 0, y: 0 }] }
+        { x: 1, y: 10 },
+        { x: 2, y: 15 },
+        { x: 3, y: 8 }
       ]);
     });
   });
