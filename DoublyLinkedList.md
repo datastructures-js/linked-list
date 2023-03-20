@@ -375,4 +375,4 @@ gets the next node.
 checks if node has a next node.
 
 #### clone(): DoublyLinkedListNode
-clones the node without next reference.
+clones the node without next or prev references.
