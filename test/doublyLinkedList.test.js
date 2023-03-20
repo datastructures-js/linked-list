@@ -270,5 +270,15 @@ describe('doublyLinkedList tests', () => {
         { x: 3, y: 8 }
       ]);
     });
+
+    it('filter custom nodes', () => {
+      const filtered = points.filter((p) => p.x >= 2);
+      expect(filtered.toArray().map(
+        (p) => ({ x: p.x, y: p.y })
+      )).to.eql([
+        { x: 2, y: 15 },
+        { x: 3, y: 8 }
+      ]);
+    });
   });
 });

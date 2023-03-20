@@ -268,6 +268,7 @@ class LinkedList {
         last = result.insertLast(node.clone(), last);
       }
     });
+
     return result;
   }
 
