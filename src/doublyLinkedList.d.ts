@@ -2,9 +2,9 @@ import { DoublyLinkedListNode } from './doublyLinkedListNode';
 
 export class DoublyLinkedList<T> {
   constructor();
-  insertFirst(value: T): DoublyLinkedListNode;
-  insertLast(value: T): DoublyLinkedListNode;
-  insertAt(position: number, value: T): DoublyLinkedListNode;
+  insertFirst(value: T | DoublyLinkedListNode): DoublyLinkedListNode;
+  insertLast(value: T | DoublyLinkedListNode): DoublyLinkedListNode;
+  insertAt(position: number, value: T | DoublyLinkedListNode): DoublyLinkedListNode;
   insertBefore(value: T | DoublyLinkedListNode, node?: DoublyLinkedListNode): DoublyLinkedListNode;
   insertAfter(value: T | DoublyLinkedListNode, node?: DoublyLinkedListNode): DoublyLinkedListNode;
   removeFirst(): DoublyLinkedListNode;
@@ -23,5 +23,5 @@ export class DoublyLinkedList<T> {
   toArray(): T[];
   isEmpty(): boolean;
   clear(): void;
-  static fromArray<T>(values: T[]): DoublyLinkedList<T>;
+  static fromArray<T>(values: T[] | DoublyLinkedListNode[]): DoublyLinkedList<T>;
 }
