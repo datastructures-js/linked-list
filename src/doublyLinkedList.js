@@ -107,6 +107,70 @@ class DoublyLinkedList {
   }
 
   /**
+   * Adds a node before an existing node.
+   * @public
+   * @param {any | DoublyLinkedListNode} value
+   * @param {DoublyLinkedListNode} node
+   * @returns {DoublyLinkedListNode}
+   */
+  insertBefore(value, node) {
+    if (!node) {
+      return this.insertLast(value);
+    }
+
+    if (node === this._head) {
+      return this.insertFirst(value);
+    }
+
+    let newNode = value;
+    if (!(newNode instanceof DoublyLinkedListNode)) {
+      newNode = new DoublyLinkedListNode(value);
+    }
+
+    newNode.setNext(node);
+    newNode.setPrev(node.getPrev());
+
+    newNode.getNext().setPrev(newNode);
+    newNode.getPrev().setNext(newNode);
+
+    this._count += 1;
+
+    return newNode;
+  }
+
+  /**
+   * Adds a node after an existing node.
+   * @public
+   * @param {any | DoublyLinkedListNode} value
+   * @param {DoublyLinkedListNode} node
+   * @returns {DoublyLinkedListNode}
+   */
+  insertAfter(value, node) {
+    if (!node) {
+      return this.insertFirst(value);
+    }
+
+    if (node === this._tail) {
+      return this.insertLast(value);
+    }
+
+    let newNode = value;
+    if (!(newNode instanceof DoublyLinkedListNode)) {
+      newNode = new DoublyLinkedListNode(value);
+    }
+
+    newNode.setPrev(node);
+    newNode.setNext(node.getNext());
+
+    newNode.getNext().setPrev(newNode);
+    newNode.getPrev().setNext(newNode);
+
+    this._count += 1;
+
+    return newNode;
+  }
+
+  /**
    * Removes the head node.
    * @public
    * @returns {DoublyLinkedListNode}

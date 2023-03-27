@@ -5,6 +5,8 @@ export class DoublyLinkedList<T> {
   insertFirst(value: T): DoublyLinkedListNode;
   insertLast(value: T): DoublyLinkedListNode;
   insertAt(position: number, value: T): DoublyLinkedListNode;
+  insertBefore(value: T | DoublyLinkedListNode, node?: DoublyLinkedListNode): DoublyLinkedListNode;
+  insertAfter(value: T | DoublyLinkedListNode, node?: DoublyLinkedListNode): DoublyLinkedListNode;
   removeFirst(): DoublyLinkedListNode;
   removeLast(): DoublyLinkedListNode;
   removeAt(position: number): DoublyLinkedListNode;
