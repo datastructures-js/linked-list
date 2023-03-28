@@ -18,7 +18,7 @@ class LinkedList {
   /**
    * Adds a node at the beginning of the list.
    * @public
-   * @param {any} value
+   * @param {T} value
    * @returns {LinkedListNode}
    */
   insertFirst(value) {
@@ -35,7 +35,7 @@ class LinkedList {
   /**
    * Adds a node at the end of the list.
    * @public
-   * @param {any} value
+   * @param {T} value
    * @param {LinkedListNode} [startingNode]
    * @returns {LinkedListNode}
    */
@@ -66,7 +66,7 @@ class LinkedList {
    * Adds a node at a specific position.
    * @public
    * @param {number} position
-   * @param {any} value
+   * @param {T} value
    * @returns {LinkedListNode}
    */
   insertAt(position, value) {
