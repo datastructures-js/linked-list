@@ -19,7 +19,7 @@ class DoublyLinkedList {
   /**
    * Adds a node at the beginning of the list.
    * @public
-   * @param {any} value
+   * @param {T | DoublyLinkedListNode} value
    * @returns {DoublyLinkedListNode}
    */
   insertFirst(value) {
@@ -43,7 +43,7 @@ class DoublyLinkedList {
   /**
    * Adds a node at the end of the list.
    * @public
-   * @param {any} value
+   * @param {T | DoublyLinkedListNode} value
    * @returns {DoublyLinkedListNode}
    */
   insertLast(value) {
@@ -68,7 +68,7 @@ class DoublyLinkedList {
    * Adds a node at a specific position.
    * @public
    * @param {number} position
-   * @param {any} value
+   * @param {T | DoublyLinkedListNode} value
    * @returns {DoublyLinkedListNode}
    */
   insertAt(position, value) {
@@ -103,6 +103,70 @@ class DoublyLinkedList {
     newNode.getNext().setPrev(newNode);
     newNode.getPrev().setNext(newNode);
     this._count += 1;
+    return newNode;
+  }
+
+  /**
+   * Adds a node before an existing node.
+   * @public
+   * @param {T | DoublyLinkedListNode} value
+   * @param {DoublyLinkedListNode} existingNode
+   * @returns {DoublyLinkedListNode}
+   */
+  insertBefore(value, existingNode) {
+    if (!existingNode) {
+      return this.insertLast(value);
+    }
+
+    if (existingNode === this._head) {
+      return this.insertFirst(value);
+    }
+
+    let newNode = value;
+    if (!(newNode instanceof DoublyLinkedListNode)) {
+      newNode = new DoublyLinkedListNode(value);
+    }
+
+    newNode.setNext(existingNode);
+    newNode.setPrev(existingNode.getPrev());
+
+    newNode.getNext().setPrev(newNode);
+    newNode.getPrev().setNext(newNode);
+
+    this._count += 1;
+
+    return newNode;
+  }
+
+  /**
+   * Adds a node after an existing node.
+   * @public
+   * @param {T | DoublyLinkedListNode} value
+   * @param {DoublyLinkedListNode} existingNode
+   * @returns {DoublyLinkedListNode}
+   */
+  insertAfter(value, existingNode) {
+    if (!existingNode) {
+      return this.insertFirst(value);
+    }
+
+    if (existingNode === this._tail) {
+      return this.insertLast(value);
+    }
+
+    let newNode = value;
+    if (!(newNode instanceof DoublyLinkedListNode)) {
+      newNode = new DoublyLinkedListNode(value);
+    }
+
+    newNode.setPrev(existingNode);
+    newNode.setNext(existingNode.getNext());
+
+    newNode.getNext().setPrev(newNode);
+    newNode.getPrev().setNext(newNode);
+
+    this._count += 1;
+
     return newNode;
   }
 

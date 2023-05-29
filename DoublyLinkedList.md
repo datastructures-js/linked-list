@@ -8,6 +8,8 @@
   * [constructor](#constructor)
   * [insertFirst](#insertfirst)
   * [insertLast](#insertlast)
+  * [insertBefore](#insertbefore)
+  * [insertAfter](#insertafter)
   * [insertAt](#insertat)
   * [forEach](#foreach)
   * [forEachReverse](#foreachreverse)
@@ -119,6 +121,24 @@ points.insertLast(new Point(4, 5));
 points.insertLast(new Point(5, 6));
 ```
 
+### insertBefore
+inserts a node before an existing node in O(1) runtime and returns the inserted node.
+
+```js
+const n23 = points.find((p) => p.x === 2 && p.y === 3);
+const inserted = points.insertBefore(new Point(-1, -2), n23); // insert (-1,-2) before (2,3)
+console.log(inserted.getNext().toString()); // (2,3)
+```
+
+### insertAfter
+inserts a node after an existing node in O(1) runtime and returns the inserted node.
+
+```js
+const n34 = points.find((p) => p.x === 3 && p.y === 4);
+const inserted = points.insertAfter(new Point(-6, -7), n34); // insert (-6,-7) before (3,4)
+console.log(inserted.getPrev().toString()); // (3,4)
+```
+
 ### insertAt
 inserts a node at a specific position of the list in O(n) runtime. First (head) node is at position 0.
 
@@ -147,8 +167,10 @@ points.forEach((point) => console.log(point.toString()));
 /*
 (0,1)
 (1,2)
+(-1,-2)
 (2,3)
 (3,4)
+(-6,-7)
 (4,5)
 (5,6)
 */
@@ -174,8 +196,10 @@ points.forEachReverse((point) => console.log(point.toString()));
 /*
 (5,6)
 (4,5)
+(-6,-7)
 (3,4)
 (2,3)
+(-1,-2)
 (1,2)
 (0,1)
 */
@@ -236,10 +260,11 @@ points
 converts the doubly linked list into an array of nodes.
 
 ```js
-console.log(doublyLinkedList.toArray().map(n => n.getValue())); // [1, 2, 5, 3, 4, 5]
+console.log(doublyLinkedList.toArray().map(n => n.getValue()));
+// [1, 2, 5, 3, 4, 5]
 
 console.log(points.toArray().map(p => p.toString()));
-// ['(0,1)', '(1,2)', '(2,3)', '(3,4)', '(4,5)', '(5,6)']
+// ['(0,1)', '(1,2)', '(-1,-2)', '(2,3)','(3,4)', '(-6,-7)', '(4,5)', '(5,6)']
 ```
 
 ### isEmpty

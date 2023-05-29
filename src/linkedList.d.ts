@@ -2,9 +2,9 @@ import { LinkedListNode } from './linkedListNode';
 
 export class LinkedList<T> {
   constructor();
-  insertFirst(value: T): LinkedListNode;
-  insertLast(value: T): LinkedListNode;
-  insertAt(position: number, value: T): LinkedListNode;
+  insertFirst(value: T | LinkedListNode): LinkedListNode;
+  insertLast(value: T | LinkedListNode): LinkedListNode;
+  insertAt(position: number, value: T | LinkedListNode): LinkedListNode;
   removeFirst(): LinkedListNode;
   removeLast(): LinkedListNode;
   removeEach(cb: (node: LinkedListNode, position: number) => boolean): number;
@@ -17,5 +17,5 @@ export class LinkedList<T> {
   toArray(): T[];
   isEmpty(): boolean;
   clear(): void;
-  static fromArray<T>(values: T[]): LinkedList<T>;
+  static fromArray<T>(values: T[] | LinkedListNode[]): LinkedList<T>;
 }
