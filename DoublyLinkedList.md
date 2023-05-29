@@ -125,14 +125,18 @@ points.insertLast(new Point(5, 6));
 inserts a node before an existing node in O(1) runtime and returns the inserted node.
 
 ```js
-
+const n23 = points.find((p) => p.x === 2 && p.y === 3);
+points.insertBefore(new Point(-1, -2), n23); // insert (-1,-2) before (2,3)
+console.log(points.find((p) => p.x === -1 && p.y === -2).getNext().toString()); // (2,3)
 ```
 
 ### insertAfter
 inserts a node after an existing node in O(1) runtime and returns the inserted node.
 
 ```js
-
+const n34 = points.find((p) => p.x === 3 && p.y === 4);
+points.insertAfter(new Point(-6, -7), n34); // insert (-6,-7) before (3,4)
+console.log(points.find((p) => p.x === -6 && p.y === -7).getPrev().toString()); // (3,4)
 ```
 
 ### insertAt
