@@ -19,7 +19,7 @@ class DoublyLinkedList {
   /**
    * Adds a node at the beginning of the list.
    * @public
-   * @param {T} value
+   * @param {T | DoublyLinkedListNode} value
    * @returns {DoublyLinkedListNode}
    */
   insertFirst(value) {
@@ -43,7 +43,7 @@ class DoublyLinkedList {
   /**
    * Adds a node at the end of the list.
    * @public
-   * @param {T} value
+   * @param {T | DoublyLinkedListNode} value
    * @returns {DoublyLinkedListNode}
    */
   insertLast(value) {
@@ -68,7 +68,7 @@ class DoublyLinkedList {
    * Adds a node at a specific position.
    * @public
    * @param {number} position
-   * @param {T} value
+   * @param {T | DoublyLinkedListNode} value
    * @returns {DoublyLinkedListNode}
    */
   insertAt(position, value) {
