@@ -8,6 +8,8 @@
   * [constructor](#constructor)
   * [insertFirst](#insertfirst)
   * [insertLast](#insertlast)
+  * [insertBefore](#insertbefore)
+  * [insertAfter](#insertafter)
   * [insertAt](#insertat)
   * [forEach](#foreach)
   * [forEachReverse](#foreachreverse)
@@ -117,6 +119,20 @@ console.log(last5.getPrev().getValue()); // 4
 points.insertLast(new Point(3, 4));
 points.insertLast(new Point(4, 5));
 points.insertLast(new Point(5, 6));
+```
+
+### insertBefore
+inserts a node before an existing node in O(1) runtime and returns the inserted node.
+
+```js
+
+```
+
+### insertAfter
+inserts a node after an existing node in O(1) runtime and returns the inserted node.
+
+```js
+
 ```
 
 ### insertAt
