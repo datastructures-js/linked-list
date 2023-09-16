@@ -20,7 +20,7 @@ export class DoublyLinkedList<T> {
   head(): DoublyLinkedListNode;
   tail(): DoublyLinkedListNode;
   count(): number;
-  toArray(): T[];
+  toArray(): DoublyLinkedListNode[];
   isEmpty(): boolean;
   clear(): void;
   static fromArray<T>(values: T[] | DoublyLinkedListNode[]): DoublyLinkedList<T>;
