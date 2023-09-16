@@ -14,7 +14,7 @@ export class LinkedList<T> {
   filter(cb: (node: LinkedListNode, position: number) => boolean): LinkedList<T>;
   head(): LinkedListNode;
   count(): number;
-  toArray(): T[];
+  toArray(): LinkedListNode[];
   isEmpty(): boolean;
   clear(): void;
   static fromArray<T>(values: T[] | LinkedListNode[]): LinkedList<T>;
