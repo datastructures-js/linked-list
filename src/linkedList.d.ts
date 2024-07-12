@@ -1,21 +1,24 @@
 import { LinkedListNode } from './linkedListNode';
 
-export class LinkedList<T extends LinkedListNode> {
+export class LinkedList<T> {
   constructor();
-  insertFirst(value: T): T;
-  insertLast(value: T): T;
-  insertAt(position: number, value: T): T;
-  removeFirst(): T;
-  removeLast(): T;
-  removeEach(cb: (node: T, position: number) => boolean): number;
-  removeAt(position: number): T;
-  forEach(cb: (node: T, position: number) => void): void;
-  find(cb: (node: T) => boolean, startingNode?: T): T;
-  filter(cb: (node: T, position: number) => boolean): LinkedList<T>;
-  head(): T;
+  insertFirst(value: T | LinkedListNode): T extends LinkedListNode ? T : LinkedListNode;
+  insertLast(value: T | LinkedListNode): T extends LinkedListNode ? T : LinkedListNode;
+  insertAt(position: number, value: T | LinkedListNode): T extends LinkedListNode ? T : LinkedListNode;
+  removeFirst(): T extends LinkedListNode ? T : LinkedListNode;
+  removeLast(): T extends LinkedListNode ? T : LinkedListNode;
+  removeEach(cb: (node: T extends LinkedListNode ? T : LinkedListNode, position: number) => boolean): number;
+  removeAt(position: number): T extends LinkedListNode ? T : LinkedListNode;
+  forEach(cb: (node: T extends LinkedListNode ? T : LinkedListNode, position: number) => void): void;
+  find(
+    cb: (node: T extends LinkedListNode ? T : LinkedListNode) => boolean,
+    startingNode?: T extends LinkedListNode ? T : LinkedListNode
+  ): T extends LinkedListNode ? T : LinkedListNode;
+  filter(cb: (node: T extends LinkedListNode ? T : LinkedListNode, position: number) => boolean): LinkedList<T>;
+  head(): T extends LinkedListNode ? T : LinkedListNode;
   count(): number;
-  toArray(): (T)[];
+  toArray(): (T extends LinkedListNode ? T : LinkedListNode)[];
   isEmpty(): boolean;
   clear(): void;
-  static fromArray<T extends LinkedListNode>(values: T[]): LinkedList<T>;
+  static fromArray<T>(values: (T extends LinkedListNode ? T : LinkedListNode)[]): LinkedList<T>;
 }
