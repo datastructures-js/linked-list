@@ -156,7 +156,7 @@ class LinkedList {
     let current = this._head;
     while (current instanceof LinkedListNode) {
       if (cb(current, position)) {
-        const temp = current;
+        const removedNode = current;
         if (prev === null) {
           this._head = this._head.getNext();
           current = this._head;
@@ -164,7 +164,7 @@ class LinkedList {
           prev.setNext(prev.getNext().getNext());
           current = current.getNext();
         }
-        temp.setNext(null);
+        removedNode.setNext(null);
         this._count -= 1;
         removedCount += 1;
       } else {

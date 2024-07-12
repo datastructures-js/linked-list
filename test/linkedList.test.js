@@ -149,9 +149,11 @@ describe('linkedList tests', () => {
   describe('.removeEach(cb)', () => {
     it('remove nodes based on a callback', () => {
       linkedList.insertLast(4);
+      const n3 = linkedList.find((n) => n.getValue() === 3);
       expect(linkedList.removeEach((n) => n.getValue() > 1)).to.equal(2);
       expect(linkedList.count()).to.deep.equal(1);
       expect(linkedList.toArray().map((n) => n.getValue())).to.deep.equal([1]);
+      expect(n3.getNext()).to.equal(null);
 
       const ll2 = new LinkedList();
       [12, 21, 31, 42].forEach((n) => ll2.insertLast(n));
