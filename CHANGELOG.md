@@ -8,7 +8,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [6.1.2] - 2024-07-13
 ### Fixed
 - LinkedList `removeEach` edge case to disconnect removed nodes from the remaining nodes in the list.
-- LinkedList & DoublyLinkedList ts types, remove the necessity to cast to the custom node type in the functions.
+- LinkedList & DoublyLinkedList ts types, remove the necessity to cast to the custom node type in functions.
 
 ## [6.1.1] - 2023-09-16
 ### Fixed
