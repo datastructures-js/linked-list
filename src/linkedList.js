@@ -256,7 +256,7 @@ class LinkedList {
    * Filters the list based on a callback.
    * @public
    * @param {function} cb - callback should return true for required nodes.
-   * @returns {T | LinkedListNode}
+   * @returns {LinkedList}
    */
   filter(cb) {
     if (typeof cb !== 'function') {

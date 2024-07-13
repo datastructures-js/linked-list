@@ -20,7 +20,7 @@ class DoublyLinkedList {
    * Adds a node at the beginning of the list.
    * @public
    * @param {T | DoublyLinkedListNode} value
-   * @returns {T | DoublyLinkedList}
+   * @returns {T | DoublyLinkedListNode}
    */
   insertFirst(value) {
     let newNode = value;
