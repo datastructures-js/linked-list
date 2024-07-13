@@ -19,7 +19,7 @@ class LinkedList {
    * Adds a node at the beginning of the list.
    * @public
    * @param {T | LinkedListNode} value
-   * @returns {LinkedListNode}
+   * @returns {T | LinkedListNode}
    */
   insertFirst(value) {
     let newNode = value;
@@ -36,8 +36,8 @@ class LinkedList {
    * Adds a node at the end of the list.
    * @public
    * @param {T | LinkedListNode} value
-   * @param {LinkedListNode} [startingNode]
-   * @returns {LinkedListNode}
+   * @param {T | LinkedListNode} [startingNode]
+   * @returns {T | LinkedListNode}
    */
   insertLast(value, startingNode) {
     if (this.isEmpty()) {
@@ -67,7 +67,7 @@ class LinkedList {
    * @public
    * @param {number} position
    * @param {T | LinkedListNode} value
-   * @returns {LinkedListNode}
+   * @returns {T | LinkedListNode}
    */
   insertAt(position, value) {
     if (
@@ -103,7 +103,7 @@ class LinkedList {
   /**
    * Removes the head node.
    * @public
-   * @returns {LinkedListNode}
+   * @returns {T | LinkedListNode}
    */
   removeFirst() {
     if (this.isEmpty()) return null;
@@ -117,7 +117,7 @@ class LinkedList {
   /**
    * Removes the last node in the list.
    * @public
-   * @returns {LinkedListNode}
+   * @returns {T | LinkedListNode}
    */
   removeLast() {
     if (this.isEmpty()) return null;
@@ -180,7 +180,7 @@ class LinkedList {
    * Removes a node at a specific position.
    * @public
    * @param {number} position
-   * @returns {LinkedListNode}
+   * @returns {T | LinkedListNode}
    */
   removeAt(position) {
     if (
@@ -230,8 +230,8 @@ class LinkedList {
    * Finds one node in the list based on a callback.
    * @public
    * @param {function} cb
-   * @param {DoublyLinkedListNode} [startingNode]
-   * @returns {LinkedListNode}
+   * @param {T | LinkedListNode} [startingNode]
+   * @returns {T | LinkedListNode}
    */
   find(cb, startingNode = this._head) {
     if (typeof cb !== 'function') {
@@ -256,7 +256,7 @@ class LinkedList {
    * Filters the list based on a callback.
    * @public
    * @param {function} cb - callback should return true for required nodes.
-   * @returns {LinkedList}
+   * @returns {T | LinkedListNode}
    */
   filter(cb) {
     if (typeof cb !== 'function') {
@@ -277,7 +277,7 @@ class LinkedList {
   /**
    * Returns the head node.
    * @public
-   * @returns {LinkedListNode}
+   * @returns {T | LinkedListNode}
    */
   head() {
     return this._head;

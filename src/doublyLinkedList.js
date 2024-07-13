@@ -20,7 +20,7 @@ class DoublyLinkedList {
    * Adds a node at the beginning of the list.
    * @public
    * @param {T | DoublyLinkedListNode} value
-   * @returns {DoublyLinkedListNode}
+   * @returns {T | DoublyLinkedList}
    */
   insertFirst(value) {
     let newNode = value;
@@ -44,7 +44,7 @@ class DoublyLinkedList {
    * Adds a node at the end of the list.
    * @public
    * @param {T | DoublyLinkedListNode} value
-   * @returns {DoublyLinkedListNode}
+   * @returns {T | DoublyLinkedListNode}
    */
   insertLast(value) {
     let newNode = value;
@@ -69,7 +69,7 @@ class DoublyLinkedList {
    * @public
    * @param {number} position
    * @param {T | DoublyLinkedListNode} value
-   * @returns {DoublyLinkedListNode}
+   * @returns {T | DoublyLinkedListNode}
    */
   insertAt(position, value) {
     if (
@@ -110,8 +110,8 @@ class DoublyLinkedList {
    * Adds a node before an existing node.
    * @public
    * @param {T | DoublyLinkedListNode} value
-   * @param {DoublyLinkedListNode} existingNode
-   * @returns {DoublyLinkedListNode}
+   * @param {T | DoublyLinkedListNode} existingNode
+   * @returns {T | DoublyLinkedListNode}
    */
   insertBefore(value, existingNode) {
     if (!existingNode) {
@@ -142,8 +142,8 @@ class DoublyLinkedList {
    * Adds a node after an existing node.
    * @public
    * @param {T | DoublyLinkedListNode} value
-   * @param {DoublyLinkedListNode} existingNode
-   * @returns {DoublyLinkedListNode}
+   * @param {T | DoublyLinkedListNode} existingNode
+   * @returns {T | DoublyLinkedListNode}
    */
   insertAfter(value, existingNode) {
     if (!existingNode) {
@@ -173,7 +173,7 @@ class DoublyLinkedList {
   /**
    * Removes the head node.
    * @public
-   * @returns {DoublyLinkedListNode}
+   * @returns {T | DoublyLinkedListNode}
    */
   removeFirst() {
     if (this.isEmpty()) return null;
@@ -193,7 +193,7 @@ class DoublyLinkedList {
   /**
    * Removes the tail node.
    * @public
-   * @returns {DoublyLinkedListNode}
+   * @returns {T | DoublyLinkedListNode}
    */
   removeLast() {
     if (this.isEmpty()) return null;
@@ -214,7 +214,7 @@ class DoublyLinkedList {
    * Removes a node in a specific position.
    * @public
    * @param {number} position
-   * @returns {DoublyLinkedListNode}
+   * @returns {T | DoublyLinkedListNode}
    */
   removeAt(position) {
     if (
@@ -245,8 +245,8 @@ class DoublyLinkedList {
   /**
    * Removes a node from the list by its reference.
    * @public
-   * @param {DoublyLinkedListNode} node
-   * @returns {DoublyLinkedListNode}
+   * @param {T | DoublyLinkedListNode} node
+   * @returns {T | DoublyLinkedListNode}
    */
   remove(node) {
     if (node && !(node instanceof DoublyLinkedListNode)) {
@@ -341,8 +341,8 @@ class DoublyLinkedList {
    * Finds a node in the list using a callback
    * @public
    * @param {function} cb
-   * @param {DoublyLinkedListNode} [startingNode]
-   * @returns {DoublyLinkedListNode}
+   * @param {T | DoublyLinkedListNode} [startingNode]
+   * @returns {T | DoublyLinkedListNode}
    */
   find(cb, startingNode = this._head) {
     if (typeof cb !== 'function') {
@@ -367,8 +367,8 @@ class DoublyLinkedList {
    * Finds a node in the list using a callback in reverse order
    * @public
    * @param {function} cb
-   * @param {DoublyLinkedListNode} [startingNode]
-   * @returns {DoublyLinkedListNode}
+   * @param {T | DoublyLinkedListNode} [startingNode]
+   * @returns {T | DoublyLinkedListNode}
    */
   findReverse(cb, startingNode = this._tail) {
     if (typeof cb !== 'function') {
@@ -412,7 +412,7 @@ class DoublyLinkedList {
   /**
    * Returns the head node.
    * @public
-   * @returns {DoublyLinkedListNode}
+   * @returns {T | DoublyLinkedListNode}
    */
   head() {
     return this._head;
@@ -421,7 +421,7 @@ class DoublyLinkedList {
   /**
    * Returns the tail node.
    * @public
-   * @returns {DoublyLinkedListNode}
+   * @returns {T | DoublyLinkedListNode}
    */
   tail() {
     return this._tail;
